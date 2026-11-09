@@ -95,3 +95,9 @@ as held-out evidence. No such follow-up is started by this delivery.
 `results/`. [selection.json](selection.json) records the no-adoption decision.
 The offline repository tests reproduce the summary and check coverage, quotes,
 input integrity, rejected output reuse, and holdout refusal without a candidate.
+
+PR review subsequently strengthened runtime validation of critical-finding
+quotes and reasons. The [original runner](history/run-v1.py.txt) remains
+byte-preserved, and the [execution manifest](execution-manifest.json) identifies
+the corrected runner. All stored judgments pass its stronger checks. No result
+was regenerated or rescored as part of that correction.

@@ -19,7 +19,7 @@ import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import Any
+from typing import Any, TypeGuard
 
 ROOT = Path(__file__).resolve().parent
 ARMS = ("baseline", "direct", "example")
@@ -75,7 +75,7 @@ def source_paths() -> list[Path]:
 
 
 def verify_sources() -> None:
-    manifest = read_json(ROOT / "manifest.json")
+    manifest = read_json(ROOT / "execution-manifest.json")
     for path in source_paths():
         if digest(path) != manifest["sha256"][path.relative_to(ROOT).as_posix()]:
             raise ValueError(f"Frozen source changed: {path.name}")
@@ -168,6 +168,11 @@ def invoke(
     return {**result, "seconds": round(time.monotonic() - started, 3)}
 
 
+def is_record(value: object) -> TypeGuard[dict[object, object]]:
+    """Narrow untrusted JSON objects without assuming field names or value types."""
+    return isinstance(value, dict)
+
+
 def validate_ratings(
     value: dict[str, Any], answers: list[dict[str, str]], required_count: int
 ) -> None:
@@ -185,6 +190,19 @@ def validate_ratings(
             raise ValueError("Invalid content judgment")
         if not isinstance(r["critical"], list):
             raise ValueError("Invalid critical findings")
+        for finding in r["critical"]:
+            if not is_record(finding):
+                raise ValueError("Invalid critical evidence")
+            quote = finding.get("quote")
+            reason = finding.get("reason")
+            if (
+                not isinstance(quote, str)
+                or not quote.strip()
+                or quote not in expected[r["id"]]
+                or not isinstance(reason, str)
+                or not reason.strip()
+            ):
+                raise ValueError("Invalid critical evidence")
         if r["clarity"] not in {"clear", "mixed", "unclear"} or not r["clarity_reason"]:
             raise ValueError("Invalid clarity judgment")
         for item in r["style"]:
@@ -225,7 +243,7 @@ def generate(split: str, arms: list[str], output: Path) -> None:
                 ["pi", "--version"], text=True
             ).strip(),
             "isolation": ISOLATION,
-            "source_manifest": read_json(ROOT / "manifest.json"),
+            "source_manifest": read_json(ROOT / "execution-manifest.json"),
         },
     )
     with tempfile.TemporaryDirectory(prefix="style-empty-") as cwd:

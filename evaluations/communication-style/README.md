@@ -29,7 +29,11 @@ corpus is copied. The two candidate prompts were frozen before model generation.
   `fcac560789e1b39a519fad4d39ac98c0370caec0`.
 - [Direct](prompts/direct.txt): concrete desired behavior with bounded exclusions.
 - [Example](prompts/example.txt): identical direct prompt plus one contrast example.
-- [Manifest](manifest.json): frozen source and runner SHA-256 values.
+- [Original manifest](manifest.json): pre-generation input and runner SHA-256
+  values. The original runner bytes are preserved in
+  [history/run-v1.py.txt](history/run-v1.py.txt).
+- [Execution manifest](execution-manifest.json): the current runner after the
+  review correction below; prompt, case, protocol, and judge hashes are unchanged.
 - [Judge](judge.txt): required-content checks and separately evidenced style issues.
 
 The cases are reconstructions, not historical replay. Topic/source-dossier
@@ -79,6 +83,19 @@ Two preliminary transport/parser smoke calls are outside the comparison. Three
 concurrent requests bound resource use. No failed attempt was overwritten or
 silently omitted, and no response was retried for quality.
 
+## Post-run review correction
+
+PR review found that critical findings were only checked to be a list at runtime;
+literal-quote checks covered the committed artifacts in tests. The current runner
+also validates every critical finding's object shape, nonblank string reason,
+and literal nonblank quote against that specific answer. Fabricated or
+misattributed evidence now makes a judgment invalid before it is accepted.
+
+The original manifest and runner snapshot preserve the exact generation harness.
+The execution manifest identifies the corrected runner for future replication.
+All saved judgments pass the stricter validator; original outcomes, source
+prompts, and rubric are unchanged. No additional model calls were made.
+
 ## Reproduction
 
 Requires the locked repository environment, Pi 1.5.0, and authorized provider
@@ -99,7 +116,7 @@ The recorded selection is `null`, so the runner refuses holdout generation.
 A future experiment needs a separately frozen protocol and evidence boundary;
 do not rewrite this run's candidates or select from the unobserved holdout.
 Use a new output directory for a replication of the development comparison.
-Existing attempt files are never replaced, and the source manifest must match.
+Existing attempt files are never replaced, and the execution manifest must match.
 
 Recompute the raw descriptive table without model calls:
 

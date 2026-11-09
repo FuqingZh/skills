@@ -72,7 +72,7 @@ def test_judge_requires_all_ratings_content_and_exact_quotes() -> None:
     rating = {
         "id": "R1",
         "content": [{"index": 0, "met": True, "reason": "evidence"}],
-        "critical": [],
+        "critical": [{"quote": "answer", "reason": "concrete error"}],
         "style": [],
         "clarity": "clear",
         "clarity_reason": "connected explanation",
@@ -192,3 +192,39 @@ def test_no_candidate_blocks_holdout_before_model_invocation(tmp_path: Path) -> 
     with pytest.raises(ValueError, match="frozen selection"):
         RUN["generate"]("holdout", ["baseline", "direct"], tmp_path)
     assert not list(tmp_path.iterdir())
+
+
+@pytest.mark.parametrize(
+    "finding",
+    [
+        None,
+        "error",
+        {},
+        {"quote": "another answer", "reason": "misattributed"},
+        {"quote": "", "reason": "empty"},
+        {"quote": " ", "reason": "blank"},
+        {"quote": ["answer"], "reason": "wrong quote type"},
+        {"quote": "answer", "reason": ""},
+        {"quote": "answer", "reason": []},
+    ],
+)
+def test_critical_findings_require_literal_evidence(finding: object) -> None:
+    rating = {
+        "id": "R1",
+        "content": [{"index": 0, "met": True, "reason": "evidence"}],
+        "critical": [finding],
+        "style": [],
+        "clarity": "clear",
+        "clarity_reason": "clear",
+    }
+    with pytest.raises(ValueError, match="Invalid critical evidence"):
+        RUN["validate_ratings"](
+            {"ratings": [rating]}, [{"id": "R1", "answer": "answer"}], 1
+        )
+
+
+def test_original_runner_and_inputs_remain_reconstructable() -> None:
+    original = json.loads((EVAL / "manifest.json").read_text())["sha256"]
+    for name, expected in original.items():
+        path = EVAL / ("history/run-v1.py.txt" if name == "run.py" else name)
+        assert RUN["digest"](path) == expected
