@@ -1,0 +1,60 @@
+{
+  "archived_on": "2026-11-08",
+  "files": [
+    {
+      "original_path": "thirdparty/skills/grilling/SKILL.md",
+      "archived_path": "thirdparty/archive/grilling/SKILL.md",
+      "sha256": "e5e67087f550e81c98091de7f0f81790b89f3845ad0823a81e45fd3d9425f259"
+    },
+    {
+      "original_path": "thirdparty/skills/grilling/agents/openai.yaml",
+      "archived_path": "thirdparty/archive/grilling/agents/openai.yaml",
+      "sha256": "3586d95458a9fb92022340ad9730a2bc7aa89221b5056e9414a8007f2ae3bd62"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/GLOSSARY-FORMAT.md",
+      "archived_path": "thirdparty/archive/teach/GLOSSARY-FORMAT.md",
+      "sha256": "d177def491519d97873291f2e860d8f1d60ead78feecb82eee022177958069c6"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/LEARNING-RECORD-FORMAT.md",
+      "archived_path": "thirdparty/archive/teach/LEARNING-RECORD-FORMAT.md",
+      "sha256": "855f81017625256584bbf62bd5edb9b0c86605c4cc1139c56acc36b802595d17"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/LICENSE",
+      "archived_path": "thirdparty/archive/teach/LICENSE",
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/MISSION-FORMAT.md",
+      "archived_path": "thirdparty/archive/teach/MISSION-FORMAT.md",
+      "sha256": "8da6d3ac84eb2eb19f17c260b6acf01c560d3ac7a4501c415eea0e985602f4d7"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/RESOURCES-FORMAT.md",
+      "archived_path": "thirdparty/archive/teach/RESOURCES-FORMAT.md",
+      "sha256": "862357c4e5ec0c5b164c248a4f844e49d2e6527b15e1cfc84d1add5fb94983ad"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/SKILL.md",
+      "archived_path": "thirdparty/archive/teach/SKILL.md",
+      "sha256": "2ca4d8709ab40454277c5f7721f928733f821526e79255627c5d8c6096a7c024"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/agents/openai.yaml",
+      "archived_path": "thirdparty/archive/teach/agents/openai.yaml",
+      "sha256": "780896e8603d65ffc80b05d916ba5fd85829d2b4e5049f9cff0ae8ffec6f4b3f"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/assets/quiz.js",
+      "archived_path": "thirdparty/archive/teach/assets/quiz.js",
+      "sha256": "93d1e9539769a1114a930e4ede76be60e7cd0900cb99ed8801c77bd2e9de4a64"
+    },
+    {
+      "original_path": "thirdparty/skills/teach/test-prompts.json",
+      "archived_path": "thirdparty/archive/teach/test-prompts.json",
+      "sha256": "3a31a7c1393a9c87c7556e04923abc6c2eb22e808a84c3e128190945097c6faf"
+    }
+  ]
+}

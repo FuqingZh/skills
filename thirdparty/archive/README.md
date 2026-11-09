@@ -24,14 +24,16 @@ paths and hashes; relocation does not rewrite past evidence.
 [brainstorming-manifest.json](brainstorming-manifest.json) records original and
 archived paths with SHA-256 hashes. The original manifest remains unchanged.
 
-The installer removes only exact repository-owned links to either the former
-or archived location, including dangling links after migration. Foreign links
-and real directories remain untouched even with `--force`. A dry run changes
-nothing. No installer operation against a user's active home is required for
-this source migration.
+Patched `teach` and `grilling` were also relocated unchanged for the skills CLI
+transition. [Their manifest](teach-grilling-manifest.json) records original paths,
+archive paths, and pre-move SHA-256 hashes. Existing evaluation scripts and records
+retain their historical source paths; reproduce those runs from their recorded
+repository revisions rather than regenerating evidence from this archive.
 
-Restoration is a separate explicit change: return the source to the active
-skill tree, update the managed and retired registries and validator policy, and
-validate the installation and invocation contracts. Recreating a link alone is
-not durable; the installer retires it again. Archiving does not establish that
-all preserved principles are obsolete or that another workflow is superior.
+`scripts/cleanup-legacy-links.sh` removes only exact checkout-owned legacy links, including
+links to former or archived locations. Foreign links and ordinary directories
+remain untouched. Cleanup is explicit and supports dry-run; normal instruction
+installation never cleans skills.
+
+Restoration is a separate reviewed change to active distribution and validation.
+Historical evaluations describe the preserved versions only.

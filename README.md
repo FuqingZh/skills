@@ -1,111 +1,112 @@
-# calibration
+# FuqingZh/skills
 
-Shared engineering guidance and agent skills for **Codex, Grok Build, and Pi**.
-
-Calibration helps coding agents make cross-project decisions about naming,
-architecture, verification, documentation, and delivery. It keeps one source of
-guidance in this repository and links skills into each client's configuration.
-Project-specific rules and executable checks remain the primary authority.
+Portable engineering skills and global agent instructions for Codex, Grok Build,
+and Pi. Repository-owned contracts and upstream standards guide local work;
+calibration supplies reusable judgment and safety boundaries.
+The repository was formerly named `FuqingZh/calibration`; the `calibration` skill
+name and its private configuration namespace remain unchanged.
 
 ## Quick start
 
-The installer requires Bash and GNU command-line utilities (`realpath`, `stat`,
-`mv`, and related tools). Use Linux or WSL for installation;
-macOS and native Windows installation have not been validated.
+Install [skills CLI](https://github.com/vercel-labs/skills) through your tool
+manager (for example, mise's `"npm:skills" = "latest"`). Then install the four
+first-party skills:
 
 ```bash
-git clone https://github.com/FuqingZh/calibration.git
-cd calibration
-
-# Preview, then install for Codex.
-bash install.sh --dry-run
-bash install.sh
+skills add FuqingZh/skills -g -a codex pi grok -y
 ```
 
-Install for several clients, or install only skill links:
+The global installer requires Bash and GNU utilities on Linux/WSL. macOS and
+native Windows installation have not been validated.
+
+Global instructions are a separate, explicit installation from a trusted checkout:
 
 ```bash
-bash install.sh --agent codex grok pi --dry-run
-bash install.sh --agent codex grok pi
-bash install.sh --agent pi --skills-only
+git clone https://github.com/FuqingZh/skills.git
+cd skills
+./install.sh --agent all --dry-run
+./install.sh --agent all
 ```
 
-`--agent all` selects all three clients. Client executables do not need to be on
-PATH, so mise activation is not required. Restart or reload the client after
-installation to discover the skills.
+Review existing installations before migration; see [legacy migration](#legacy-migration).
+Select only the agents you use. `-a codex pi` uses space-separated names.
+Codex and Pi discover `~/.agents/skills` directly; Grok receives discovery links.
+Shared storage can be visible to other clients scanning it. Agent selection is
+not an isolation boundary.
 
 ## Included skills
 
 | Skill | Purpose | Invocation |
 | --- | --- | --- |
-| [calibration](skills/calibration/SKILL.md) | Cross-project engineering judgment and reference routing | When relevant |
-| [writing-code-docs](skills/writing-code-docs/SKILL.md) | Document public APIs and caller/maintainer contracts | When relevant |
-| [closeout](skills/closeout/SKILL.md) | Review the whole conversation and document gaps and unresolved work | Explicit only |
-| [retrospect](skills/retrospect/SKILL.md) | Derive reusable lessons from completed work and evidence | Explicit only |
-| [grilling](thirdparty/skills/grilling/SKILL.md) | Stress-test a plan or decision | Explicit only |
-| [teach](thirdparty/skills/teach/SKILL.md) | Teach a bounded topic in session-only or learning-workspace mode | Explicit only |
+| [calibration](skills/calibration/SKILL.md) | Engineering judgment and reference routing | When relevant |
+| [writing-code-docs](skills/writing-code-docs/SKILL.md) | Public API and maintainer documentation | When relevant |
+| [closeout](skills/closeout/SKILL.md) | Conversation review and unresolved work | Explicit only |
+| [retrospect](skills/retrospect/SKILL.md) | Evidence-backed reusable lessons | Explicit only |
 
-The last two skills are vendored third-party adaptations, included in the
-standard profile. Their [sources](thirdparty/sources.tsv),
-[local patches](thirdparty/PATCHES.md), and upstream license information are
-tracked separately. Installation uses local files and does not download skills.
-[Archived skills](thirdparty/archive/README.md) are excluded from installation.
+The patched `teach` and `grilling` copies are [archived](thirdparty/archive/README.md)
+with provenance, licenses, and historical evaluations. Personal learning data is
+outside this migration. To choose unmodified upstream grilling separately:
 
-`brainstorming` is retired from standard installation. Its source and evaluation
-history remain in the archive; installer refresh removes only this repository's
-owned links to its former or archived location.
+```bash
+skills add mattpocock/skills --skill grilling -g -a codex pi grok -y
+```
 
-Use your client's native skill command, for example `$closeout` in Codex,
-`/closeout` in Grok Build, or `/skill:closeout` in Pi. Closeout documents the
-conversation and returns control without automatically archiving it.
+This follows Matt's default branch and its upstream interaction and invocation
+policy, including batched dependency-frontier questions and subagent assumptions.
+It does not carry calibration's former patches.
 
-## Installation behavior
+## Skill lifecycle and versions
 
-| Client | Default configuration home | Override |
+Use `skills list -g`, `skills update`, and `skills remove` for the upstream-managed
+lifecycle. Read the command's current help before destructive operations. Repeated
+`skills add` can overwrite installed edits; removal can delete matching shared
+content. These are normal CLI semantics. Setup attaches the native global lock;
+restoration and updates remain explicit. This repository maintains no second lock.
+
+With tested skills CLI 1.7.6, pin a source with `FuqingZh/skills#<tag-or-full-sha>`.
+`skills update` follows the recorded ref; advancing a release pin or rolling back
+requires explicit `skills add` with the desired ref. CLI version and source version
+are independent. Global instructions change only when `install.sh` is rerun from
+the selected checkout. See [release policy](docs/releases.md) and
+[release notes](CHANGELOG.md); the proposed `v1.0.0` tag has not been published.
+
+## Global instructions
+
+The executable Bash entrypoint is `./install.sh`; `bash install.sh` also works.
+It supports four options: `--agent`, `--dry-run`, `--force`, and `--help`
+(`-h`). The default agent is Codex. No package or global CLI wrapper is required.
+
+Advanced layouts and isolated tests use environment variables with absolute paths:
+
+| Client | Home variable | Default when unset or empty |
 | --- | --- | --- |
-| Codex | `$CODEX_HOME` or `~/.codex` | `--codex-home PATH` |
-| Grok Build | `~/.grok` | `--grok-home PATH` |
-| Pi | `$PI_CODING_AGENT_DIR` or `~/.pi/agent` | `--pi-home PATH` |
+| Codex | `CODEX_HOME` | `~/.codex` |
+| Grok Build | `CALIBRATION_GROK_HOME` | `~/.grok` |
+| Pi | `PI_CODING_AGENT_DIR` | `~/.pi/agent` |
 
-Each client's home is resolved independently. If `HOME` is unset, provide homes
-for the selected clients and an absolute `XDG_CONFIG_HOME` for the shared
-private-host reference.
+`CALIBRATION_GROK_HOME` configures these scripts only; it does not configure Grok
+or skills CLI. For example, `CODEX_HOME=/absolute/test-home ./install.sh --dry-run`.
 
-Each skill is a symlink under the selected home's `skills/` directory pointing
-to this checkout. Keep the checkout at that path. Updating it updates linked
-content; rerun the installer when the managed skill list or global template
-changes. Repeated installation is safe for already-current links.
+`install.sh` manages a `<!-- FuqingZh/skills:begin -->` / `<!-- FuqingZh/skills:end -->`
+block in each selected `AGENTS.md`. It preserves text outside valid blocks,
+preflights all destinations, always backs up changed existing files, and is idempotent.
+Dry-run performs no writes. A missing file receives a new block; Pi and Grok
+append a block to an unmarked regular file. Symlink targets, directories, malformed
+or repeated markers, unsafe homes, and overlapping selected homes are rejected.
+An existing valid `calibration:begin/end` block is backed up and migrated to the
+new namespace without `--force`. Mixed namespaces and mismatched pairs fail
+without writes, even with force; dry-run identifies a planned migration.
 
-By default, the installer also installs global instructions:
+The template renders the private host-authority pointer using absolute
+`$XDG_CONFIG_HOME/calibration/AGENTS.md` or `$HOME/.config/calibration/AGENTS.md`.
+It does not create that private file. `$calibration` invocation spelling is rendered
+as `calibration` for Pi and Grok. Client discovery does not prove model compliance.
 
-- **Codex:** renders [the shared template](codex/AGENTS.md.template) as the entire
-  `AGENTS.md`, backing up an existing file when it changes.
-- **Grok and Pi:** updates a marked calibration block in `AGENTS.md`, retaining
-  user instructions outside that block and backing up changed files.
-- **`--skills-only`:** leaves global instructions untouched, including any
-  previously installed calibration block.
+## Legacy migration
 
-The shared global template owns always-loaded communication preferences,
-instruction applicability, and bounded implementation autonomy. These defaults
-apply independently of calibration skill activation; `--skills-only` does not
-install or refresh them.
-
-All selected destinations are checked before writes. Existing conflicting
-skill paths are rejected unless `--force` is supplied; that option can remove
-existing files or directories, so inspect `--dry-run --force` first. A filesystem
-failure during installation can leave an earlier target installed; resolve the
-failure and rerun. See `bash install.sh --help` for all options.
-
-The installer does not change client programs, mise, credentials, MCP servers,
-plugins, or approval settings. It only adds a conditional reference to private
-host guidance at `${XDG_CONFIG_HOME:-$HOME/.config}/calibration/AGENTS.md`;
-that private file is not required for ordinary skill use.
-
-The former `ao-worker` profile and AO repository-adoption script were retired.
-`--profile standard` remains accepted; `--profile ao-worker` now fails before
-writes. Use the normal installer for supported clients. See the
-[retirement decision](docs/decisions/2026-10-15-ao-integration-retirement.md)
-for compatibility and historical evidence.
+Follow the [migration guide](docs/migrations/skills-cli.md) for old skill links
+and unmarked Codex files. Cleanup is a separate migration operation; normal
+installation never removes skills. Removed options fail explicitly.
 
 ## Development
 
@@ -141,7 +142,7 @@ validation requirements.
   and the [skill router](skills/calibration/SKILL.md) for focused guidance.
 - [Multi-client installation](docs/decisions/2026-09-24-multi-client-skill-installation.md):
   compatibility decisions, native discovery checks, and evidence limits.
-- [Issues](https://github.com/FuqingZh/calibration/issues): bug reports and
+- [Issues](https://github.com/FuqingZh/skills/issues): bug reports and
   improvement proposals. Include the client version, command, and relevant
   sanitized output when reporting installation problems.
 

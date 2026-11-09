@@ -7,7 +7,6 @@ import argparse
 import json
 import os
 import re
-import shlex
 import sys
 from collections import deque
 from collections.abc import Mapping
@@ -23,14 +22,9 @@ MARKDOWN_LINK_PATTERN = re.compile(r"(?<!!)\[[^]]*]\(([^)]+)\)")
 CODE_PATH_PATTERN = re.compile(
     r"(?<!`)`([^`\n]+\.(?:md|json|ya?ml|py|sh|js|cjs|html))`"
 )
-INSTALL_ARRAY_PATTERN = re.compile(
-    r"(?ms)^\s*(MANAGED_SKILLS|MANAGED_THIRDPARTY_SKILLS|"
-    r"MANAGED_SHARED_THIRDPARTY_SKILLS)=\(\s*(.*?)^\s*\)"
-)
 INVOCATION_FIELD = "disable-model-invocation"
 # Preserve archived metadata for restoration without permitting runtime installation.
 IMPLICIT_THIRDPARTY_ALLOWLIST = frozenset({"coding-protocol"})
-RETIRED_SHARED_THIRDPARTY_SKILLS = frozenset({"coding-protocol"})
 
 
 def discover_skills(root: Path) -> list[Path]:
@@ -244,63 +238,6 @@ def _validate_test_prompts(skill_dir: Path, errors: list[str]) -> None:
                 errors.append(f"{label} {key} must be a non-empty string")
 
 
-def _installer_skills(root: Path, errors: list[str]) -> list[Path]:
-    path = root / "install.sh"
-    try:
-        text = path.read_text(encoding="utf-8")
-    except (OSError, UnicodeError) as exc:
-        errors.append(f"{path}: cannot read installer: {exc}")
-        return []
-
-    arrays = {
-        name: shlex.split(body, comments=True)
-        for name, body in INSTALL_ARRAY_PATTERN.findall(text)
-    }
-    shared = arrays.get("MANAGED_SHARED_THIRDPARTY_SKILLS")
-    expected_shared = sorted(
-        IMPLICIT_THIRDPARTY_ALLOWLIST - RETIRED_SHARED_THIRDPARTY_SKILLS
-    )
-    if shared is not None and shared != expected_shared:
-        errors.append(
-            f"{path}: MANAGED_SHARED_THIRDPARTY_SKILLS must be exactly "
-            f"{expected_shared!r}"
-        )
-    optional = arrays.get("MANAGED_THIRDPARTY_SKILLS")
-    if shared is not None and optional is not None:
-        overlap = sorted(set(shared) & set(optional))
-        if overlap:
-            errors.append(
-                f"{path}: shared and standard-only third-party arrays overlap: "
-                f"{overlap!r}"
-            )
-    for registry in (shared, optional):
-        retired = sorted(set(registry or []) & RETIRED_SHARED_THIRDPARTY_SKILLS)
-        if retired:
-            errors.append(
-                f"{path}: retired runtime skills must not be installed: {retired!r}"
-            )
-    expected = {
-        "MANAGED_SKILLS": root / "skills",
-        "MANAGED_THIRDPARTY_SKILLS": root / "thirdparty/skills",
-        "MANAGED_SHARED_THIRDPARTY_SKILLS": root / "thirdparty/skills",
-    }
-    active: list[Path] = []
-    for array_name, source_root in expected.items():
-        names = arrays.get(array_name)
-        if names is None:
-            errors.append(f"{path}: missing {array_name} array")
-            continue
-        for name in names:
-            skill_dir = source_root / name
-            if not (skill_dir / "SKILL.md").is_file():
-                errors.append(
-                    f"{path}: active skill {name!r} has no SKILL.md at {skill_dir}"
-                )
-            else:
-                active.append(skill_dir)
-    return active
-
-
 def _reference_targets(text: str, include_code_paths: bool) -> set[str]:
     targets = {
         match.group(1).strip().split(maxsplit=1)[0]
@@ -417,7 +354,7 @@ def validate_repository(root: Path) -> list[str]:
         )
         _validate_test_prompts(skill_dir, errors)
 
-    active = _installer_skills(root, errors)
+    active = skill_dirs
     first_party_root = root / "skills"
     first_party = [path for path in active if path.is_relative_to(first_party_root)]
     vendored = [path for path in active if path not in first_party]

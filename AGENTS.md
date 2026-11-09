@@ -41,7 +41,7 @@ repository gate is:
 ```bash
 pdm lock --check
 pdm run check
-CODEX_HOME="$(mktemp -d)" bash install.sh --dry-run
+CODEX_HOME="$(mktemp -d)" ./install.sh --dry-run
 git diff --check
 git diff --cached --check
 git diff --check "${BASE_REF:-main}...HEAD"

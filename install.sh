@@ -1,489 +1,143 @@
 #!/usr/bin/env bash
-#
-# Install calibration skills and instructions into selected agent homes.
-
+# Install FuqingZh/skills global instructions. Skills use the upstream CLI.
 set -euo pipefail
-
-DRY_RUN=false
-FORCE=false
-BACKUP=true
-PROFILE=standard
-CLI_CODEX_HOME_SET=false
-CLI_CODEX_HOME=
-CLI_GROK_HOME=
-CLI_PI_HOME=
-CODEX_ENV_HOME="${CODEX_HOME:-}"
-SKILLS_ONLY=false
-AGENTS=()
 
 usage() {
   cat <<'EOF'
-Usage: bash install.sh [OPTIONS]
+Usage: ./install.sh [OPTIONS]
 
-Options:
-  --agent AGENTS...   Select codex (default), grok, pi, or all.
-  --skills-only       Install skill links without changing global instructions.
-  --grok-home PATH    Override the default ~/.grok directory.
-  --pi-home PATH      Override PI_CODING_AGENT_DIR or ~/.pi/agent.
-  --profile PROFILE   Install profile: standard (default).
-  --codex-home PATH   Override CODEX_HOME.
-  --dry-run           Show planned actions without modifying files.
-  --force             Replace existing foreign skill or non-regular AGENTS paths.
-  --no-backup         Do not back up AGENTS.md before replacing it.
-  -h, --help          Show this help text.
+Install or refresh the FuqingZh/skills block in global AGENTS.md files.
+Does not install, update, or remove skills.
+
+  --agent AGENTS...  codex (default), grok, pi, or all
+  --dry-run          Preview without writes
+  --force            Back up and replace an unmarked Codex regular file
+  -h, --help         Show help
+
+Homes: CODEX_HOME, CALIBRATION_GROK_HOME (installer only), PI_CODING_AGENT_DIR.
+Unset or empty variables use ~/.codex, ~/.grok, and ~/.pi/agent respectively.
+Changed existing files are always backed up; unchanged files are left alone.
 EOF
 }
 
-fail_usage() {
-  echo "$1" >&2
-  usage >&2
-  exit 2
-}
-
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --agent)
-      shift
-      [[ $# -gt 0 && "$1" != --* ]] || fail_usage "--agent requires a value"
-      while [[ $# -gt 0 && "$1" != --* ]]; do
-        case "$1" in
-          codex|grok|pi) AGENTS+=("$1") ;;
-          all) AGENTS+=(codex grok pi) ;;
-          *) fail_usage "Unknown agent: $1" ;;
-        esac
-        shift
-      done
-      continue
-      ;;
-    --skills-only)
-      SKILLS_ONLY=true
-      ;;
-    --grok-home|--pi-home)
-      [[ $# -ge 2 && -n "$2" && "$2" != --* ]] || fail_usage "$1 requires a path"
-      [[ "$2" == /* ]] || fail_usage "$1 must be an absolute path"
-      if [[ "$1" == --grok-home ]]; then CLI_GROK_HOME="$2"; else CLI_PI_HOME="$2"; fi
-      shift
-      ;;
-    --profile)
-      [[ $# -ge 2 ]] || fail_usage "--profile requires a value"
-      [[ "$2" != --* ]] || fail_usage "--profile requires a value"
-      PROFILE="$2"
-      shift
-      ;;
-    --codex-home)
-      [[ $# -ge 2 ]] || fail_usage "--codex-home requires a non-empty path"
-      [[ "$2" != --* ]] ||
-        fail_usage "--codex-home requires a non-empty path"
-      CLI_CODEX_HOME="$2"
-      CLI_CODEX_HOME_SET=true
-      shift
-      ;;
-    --dry-run)
-      DRY_RUN=true
-      ;;
-    --force)
-      FORCE=true
-      ;;
-    --no-backup)
-      BACKUP=false
-      ;;
-    -h|--help)
-      usage
-      exit 0
-      ;;
-    *)
-      fail_usage "Unknown option: $1"
-      ;;
-  esac
-  shift
-done
-
-case "$PROFILE" in
-  standard) ;;
-  *) fail_usage "Unknown profile: $PROFILE" ;;
-esac
-
-[[ ${#AGENTS[@]} -gt 0 ]] || AGENTS=(codex)
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-CALIBRATION_ROOT="$(realpath -m -- "$SCRIPT_DIR")"
-configure_target() {
-  local agent_label
-  case "$AGENT" in
-    codex)
-      agent_label=Codex
-      if $CLI_CODEX_HOME_SET; then
-        [[ -n "$CLI_CODEX_HOME" ]] ||
-          fail_usage "--codex-home requires a non-empty path"
-        [[ "$CLI_CODEX_HOME" == /* ]] ||
-          fail_usage "--codex-home must be an absolute path"
-        TARGET_HOME="$CLI_CODEX_HOME"
-      elif [[ -n "$CODEX_ENV_HOME" ]]; then
-        TARGET_HOME="$CODEX_ENV_HOME"
-      elif [[ -n "${HOME:-}" ]]; then
-        TARGET_HOME="$HOME/.codex"
-      else
-        fail_usage "Cannot derive default Codex home: HOME and CODEX_HOME are unset"
-      fi
-      ;;
-    grok)
-      agent_label=Grok
-      if [[ -n "$CLI_GROK_HOME" ]]; then
-        TARGET_HOME="$CLI_GROK_HOME"
-      elif [[ -n "${HOME:-}" ]]; then
-        TARGET_HOME="$HOME/.grok"
-      else
-        fail_usage "Cannot derive default Grok home: HOME is unset"
-      fi
-      ;;
-    pi)
-      agent_label=Pi
-      if [[ -n "$CLI_PI_HOME" ]]; then
-        TARGET_HOME="$CLI_PI_HOME"
-      elif [[ -n "${PI_CODING_AGENT_DIR:-}" ]]; then
-        TARGET_HOME="$PI_CODING_AGENT_DIR"
-      elif [[ -n "${HOME:-}" ]]; then
-        TARGET_HOME="$HOME/.pi/agent"
-      else
-        fail_usage "Cannot derive default Pi home: HOME and PI_CODING_AGENT_DIR are unset"
-      fi
-      ;;
-  esac
-  [[ -n "$TARGET_HOME" ]] || fail_usage "$agent_label home must not be empty"
-  [[ "$TARGET_HOME" == /* ]] || fail_usage "Agent home must be an absolute path"
-
-  TARGET_HOME="$(realpath -m -- "$TARGET_HOME")"
-  [[ "$TARGET_HOME" != "/" ]] || fail_usage "Refusing to use / as $agent_label home"
-  case "$TARGET_HOME" in
-    "$CALIBRATION_ROOT"|"$CALIBRATION_ROOT"/*)
-      fail_usage "$agent_label home must not equal or be inside the calibration checkout"
-      ;;
-  esac
-  case "$CALIBRATION_ROOT" in
-    "$TARGET_HOME"/*)
-      fail_usage "$agent_label home must not contain the calibration checkout"
-      ;;
-  esac
-  SKILLS_DIR="$TARGET_HOME/skills"
-  AGENTS_TARGET="$TARGET_HOME/AGENTS.md"
-  for directory in "$TARGET_HOME" "$SKILLS_DIR"; do
-    if [[ ( -e "$directory" || -L "$directory" ) && ! -d "$directory" ]]; then
-      fail_usage "Agent home and skills root must be directories: $directory"
-    fi
-  done
-}
-
-AGENT="${AGENTS[0]}"
-configure_target
-
-if [[ -n "${XDG_CONFIG_HOME:-}" ]]; then
-  [[ "$XDG_CONFIG_HOME" == /* ]] ||
-    fail_usage "XDG_CONFIG_HOME must be an absolute path"
-  HOST_CONFIG_ROOT="$(realpath -m -- "$XDG_CONFIG_HOME")"
-else
-  [[ "${HOME:-}" == /* ]] || fail_usage "HOME must be an absolute path"
-  HOST_CONFIG_ROOT="$(realpath -m -- "$HOME/.config")"
-fi
-
-SKILL_SOURCE_ROOT="$CALIBRATION_ROOT/skills"
-THIRDPARTY_SKILL_SOURCE_ROOT="$CALIBRATION_ROOT/thirdparty/skills"
+CALIBRATION_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+OPERATION=install
+# shellcheck source=scripts/agent-homes.sh
+source "$CALIBRATION_ROOT/scripts/agent-homes.sh"
 TEMPLATE="$CALIBRATION_ROOT/codex/AGENTS.md.template"
-HOST_AUTHORITY="$HOST_CONFIG_ROOT/calibration/AGENTS.md"
-MANAGED_SKILLS=(
-  calibration
-  closeout
-  retrospect
-  writing-code-docs
-)
-MANAGED_THIRDPARTY_SKILLS=(
-  grilling
-  teach
-)
-MANAGED_SHARED_THIRDPARTY_SKILLS=(
-)
-RETIRED_SKILLS=(
-  engineering-design
-  global-defaults
-  naming
-  personal-strategy
-  project-docs
-  writing-docstrings
-)
-RETIRED_THIRDPARTY_SKILLS=(
-  brainstorming
-  writing-great-skills
-  writing-plans
-  darwin-skill
-)
-RETIRED_SHARED_THIRDPARTY_SKILLS=(
-  coding-protocol
-)
-RETIRED_UNMANAGED_SKILLS=(
-  grill-me
-)
-
-require_file() {
-  [[ -f "$1" ]] || {
-    echo "Missing required file: $1" >&2
-    exit 1
-  }
-}
-
-require_dir() {
-  [[ -d "$1" ]] || {
-    echo "Missing required directory: $1" >&2
-    exit 1
-  }
-}
-
-escape_sed_replacement() {
-  printf '%s' "$1" | sed 's/[\/&]/\\&/g'
-}
+[[ -f "$TEMPLATE" ]] || fail_usage "Missing template: $TEMPLATE"
+if [[ -n "${XDG_CONFIG_HOME:-}" ]]; then
+  [[ "$XDG_CONFIG_HOME" == /* ]] || fail_usage 'XDG_CONFIG_HOME must be absolute'
+  HOST_CONFIG_ROOT="$XDG_CONFIG_HOME"
+else
+  [[ "${HOME:-}" == /* ]] || fail_usage 'Set absolute HOME or XDG_CONFIG_HOME'
+  HOST_CONFIG_ROOT="$HOME/.config"
+fi
+HOST_AUTHORITY="$(realpath -m -- "$HOST_CONFIG_ROOT")/calibration/AGENTS.md"
+BEGIN_MARKER='<!-- FuqingZh/skills:begin -->'
+END_MARKER='<!-- FuqingZh/skills:end -->'
+LEGACY_BEGIN='<!-- calibration:begin -->'
+LEGACY_END='<!-- calibration:end -->'
 
 render_body() {
-  local escaped_root escaped_host_authority
-  escaped_root="$(escape_sed_replacement "$CALIBRATION_ROOT")"
-  escaped_host_authority="$(escape_sed_replacement "$HOST_AUTHORITY")"
-  sed \
-    -e "s/{{CALIBRATION_ROOT}}/$escaped_root/g" \
-    -e "s/{{HOST_AUTHORITY}}/$escaped_host_authority/g" \
-    "$TEMPLATE"
+  local escaped
+  escaped="$(printf '%s' "$HOST_AUTHORITY" | sed 's/[\\/&]/\\&/g')"
+  if [[ "$AGENT" == codex ]]; then
+    sed "s/{{HOST_AUTHORITY}}/$escaped/g" "$TEMPLATE"
+  else
+    sed -e "s/{{HOST_AUTHORITY}}/$escaped/g" -e 's/[$]calibration/calibration/g' "$TEMPLATE"
+  fi
 }
 
 render_template() {
-  if [[ "$AGENT" == codex ]]; then
-    render_body
-    return
-  fi
-  # Preserve user text outside one unambiguous managed block.
-  local body
-  body="$(render_body | sed 's/[$]calibration/calibration/g')"
-  if [[ -f "$AGENTS_TARGET" && ! -L "$AGENTS_TARGET" ]]; then
-    CALIBRATION_RENDERED_BODY="$body" awk '
-      BEGIN { body=ENVIRON["CALIBRATION_RENDERED_BODY"]; inside=0; count=0 }
-      $0 == "<!-- calibration:begin -->" {
-        if (inside || count) exit 2
-        inside=1; count++; print; print body; next
+  local body input=/dev/null final_newline=true
+  body="$(render_body)"
+  [[ ! -f "$AGENTS_TARGET" ]] || input="$AGENTS_TARGET"
+  [[ ! -s "$input" || -z "$(tail -c 1 -- "$input")" ]] || final_newline=false
+  CALIBRATION_BODY="$body" awk -v agent="$AGENT" -v force="$FORCE" -v final_newline="$final_newline" \
+    -v begin="$BEGIN_MARKER" -v end="$END_MARKER" \
+    -v legacy_begin="$LEGACY_BEGIN" -v legacy_end="$LEGACY_END" '
+    function malformed() { invalid=1; exit 2 }
+    BEGIN { body=ENVIRON["CALIBRATION_BODY"]; inside=0; count=0; prefix="" }
+    $0 == begin || $0 == legacy_begin {
+      if (inside || count) malformed()
+      expected_end=($0 == legacy_begin ? legacy_end : end)
+      inside=1; count++; printf "%s", prefix
+      print begin; print body; next
+    }
+    $0 == end || $0 == legacy_end {
+      if (!inside || $0 != expected_end) malformed()
+      inside=0; print end; next
+    }
+    index($0, "<!-- calibration:") || index($0, "<!-- FuqingZh/skills:") { malformed() }
+    !inside {
+      if (count) suffix=suffix $0 "\n"
+      else prefix=prefix $0 "\n"
+    }
+    END {
+      if (invalid || inside) exit 2
+      if (count) {
+        if (final_newline == "false" && length(suffix)) suffix=substr(suffix, 1, length(suffix)-1)
+        printf "%s", suffix
       }
-      $0 == "<!-- calibration:end -->" {
-        if (!inside) exit 2
-        inside=0; print; next
+      if (!count) {
+        if (agent == "codex" && FILENAME != "/dev/null" && force != "true") exit 3
+        if (agent != "codex") printf "%s", prefix
+        print begin "\n" body "\n" end
       }
-      !inside { print }
-      END {
-        if (inside) exit 2
-        if (!count) print "\n<!-- calibration:begin -->\n" body "\n<!-- calibration:end -->"
-      }
-    ' "$AGENTS_TARGET"
-  else
-    printf '<!-- calibration:begin -->\n%s\n<!-- calibration:end -->\n' "$body"
-  fi
+    }
+  ' "$input"
 }
 
-preflight_agents_file() {
-  render_template >/dev/null
-  if [[ ! -e "$AGENTS_TARGET" && ! -L "$AGENTS_TARGET" ]]; then
-    return 0
+preflight() {
+  if [[ -L "$AGENTS_TARGET" || ( -e "$AGENTS_TARGET" && ! -f "$AGENTS_TARGET" ) ]]; then
+    fail_usage "AGENTS target must be a regular file, never a symlink or directory: $AGENTS_TARGET"
   fi
-  if [[ -L "$AGENTS_TARGET" || ! -f "$AGENTS_TARGET" ]] && ! $FORCE; then
-    echo "Refusing to replace non-regular AGENTS target without --force: $AGENTS_TARGET" >&2
-    exit 1
-  fi
+  local status=0
+  render_template >/dev/null || status=$?
+  case "$status" in
+    0) ;;
+    3) fail_usage "Unmarked Codex AGENTS.md: preview --force to back up and replace $AGENTS_TARGET" ;;
+    *) fail_usage "Malformed managed block: $AGENTS_TARGET" ;;
+  esac
 }
 
-say() {
-  printf '%s\n' "$*"
-}
-
-run() {
-  if $DRY_RUN; then
-    say "[dry-run] $*"
-  else
-    "$@"
-  fi
-}
-
-install_skill_link() {
-  local skill="$1" source_root="$2"
-  local target="$SKILLS_DIR/$skill" source="$source_root/$skill"
-  require_dir "$source"
-
-  if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$source" ]]; then
-    say "Skill link already current: $target -> $source"
-    return
-  fi
-  if [[ -e "$target" || -L "$target" ]]; then
-    if ! $FORCE; then
-      echo "Refusing to replace existing skill path without --force: $target" >&2
-      exit 1
-    fi
-    run rm -rf "$target"
-  fi
-  run ln -s "$source" "$target"
-  if $DRY_RUN; then
-    say "Skill link planned: $target -> $source"
-  else
-    say "Skill link installed: $target -> $source"
-  fi
-}
-
-preflight_skill_link() {
-  local skill="$1" source_root="$2"
-  local target="$SKILLS_DIR/$skill" source="$source_root/$skill"
-  require_dir "$source"
-
-  if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$source" ]]; then
-    return
-  fi
-  if [[ -e "$target" || -L "$target" ]] && ! $FORCE; then
-    echo "Refusing to replace existing skill path without --force: $target" >&2
-    exit 1
-  fi
-}
-
-remove_owned_skill_link() {
-  local skill="$1" source_root="$2" label="$3"
-  local target="$SKILLS_DIR/$skill" owned_source="$source_root/$skill"
-  [[ -L "$target" ]] || return 0
-  if [[ "$(readlink "$target")" != "$owned_source" ]]; then
-    say "$label left untouched: $target -> $(readlink "$target")"
-    return
-  fi
-  run rm -f "$target"
-  if $DRY_RUN; then
-    say "$label removal planned: $target"
-  else
-    say "$label removed: $target"
-  fi
-}
-
-remove_retired_unmanaged_skill_path() {
-  local target="$SKILLS_DIR/$1"
-  [[ -e "$target" || -L "$target" ]] || return 0
-  if ! $FORCE; then
-    say "Retired unmanaged skill left untouched without --force: $target"
-    return
-  fi
-  run rm -rf "$target"
-  if $DRY_RUN; then
-    say "Retired unmanaged skill removal planned: $target"
-  else
-    say "Retired unmanaged skill removed: $target"
-  fi
-}
-
-backup_agents_target() {
-  if ! $BACKUP || [[ ! -e "$AGENTS_TARGET" && ! -L "$AGENTS_TARGET" ]]; then
-    return 0
-  fi
-  local backup
-  backup="$AGENTS_TARGET.bak.$(date +%Y%m%d%H%M%S).$$"
-  run cp -a "$AGENTS_TARGET" "$backup"
-  if $DRY_RUN; then
-    say "Backup planned for existing AGENTS.md: $backup"
-  else
-    say "Backed up existing AGENTS.md: $backup"
-  fi
-}
-
-install_agents_file() {
-  local tmp
-  tmp="$(mktemp)"
-  render_template >"$tmp"
-  if [[ ! -L "$AGENTS_TARGET" && -f "$AGENTS_TARGET" ]] &&
-    cmp -s "$tmp" "$AGENTS_TARGET"; then
-    rm -f "$tmp"
-    say "AGENTS.md already current: $AGENTS_TARGET"
-    return
-  fi
-  if [[ -e "$AGENTS_TARGET" || -L "$AGENTS_TARGET" ]]; then
-    backup_agents_target
-    if [[ -L "$AGENTS_TARGET" || ! -f "$AGENTS_TARGET" ]]; then
-      run rm -rf "$AGENTS_TARGET"
-    fi
-  fi
-  if $DRY_RUN; then
-    say "[dry-run] write rendered AGENTS.md to $AGENTS_TARGET"
-    rm -f "$tmp"
-  else
-    mv -T "$tmp" "$AGENTS_TARGET"
-    say "AGENTS.md installed: $AGENTS_TARGET"
-  fi
-}
-
-preflight_target() {
-  require_file "$TEMPLATE"
-  require_dir "$SKILL_SOURCE_ROOT"
-  require_dir "$THIRDPARTY_SKILL_SOURCE_ROOT"
-
-  say "Profile: $PROFILE"
-  say "Calibration root: $CALIBRATION_ROOT"
-  say "Agent: $AGENT"
-  say "Codex home / selected agent home: $TARGET_HOME"
-  say "Private host authority: $HOST_AUTHORITY"
-  say "Skills target root: $SKILLS_DIR"
-
-  for skill in "${MANAGED_SKILLS[@]}"; do
-    preflight_skill_link "$skill" "$SKILL_SOURCE_ROOT"
-  done
-  for skill in "${MANAGED_THIRDPARTY_SKILLS[@]}"; do
-    preflight_skill_link "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT"
-  done
-  for skill in "${MANAGED_SHARED_THIRDPARTY_SKILLS[@]}"; do
-    preflight_skill_link "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT"
-  done
-  if ! $SKILLS_ONLY; then preflight_agents_file; fi
-}
-
-install_target() {
-  run mkdir -p "$SKILLS_DIR"
-  for skill in "${RETIRED_SKILLS[@]}"; do
-    remove_owned_skill_link "$skill" "$SKILL_SOURCE_ROOT" "Retired skill"
-  done
-  for skill in "${MANAGED_SKILLS[@]}"; do
-    install_skill_link "$skill" "$SKILL_SOURCE_ROOT"
-  done
-
-  for skill in "${RETIRED_SHARED_THIRDPARTY_SKILLS[@]}"; do
-    remove_owned_skill_link \
-      "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT" "Retired shared third-party skill"
-    remove_owned_skill_link \
-      "$skill" "$CALIBRATION_ROOT/thirdparty/archive" "Archived third-party skill"
-  done
-  for skill in "${MANAGED_SHARED_THIRDPARTY_SKILLS[@]}"; do
-    install_skill_link "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT"
-  done
-
-  for skill in "${RETIRED_THIRDPARTY_SKILLS[@]}"; do
-    remove_owned_skill_link \
-      "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT" "Retired skill"
-    remove_owned_skill_link \
-      "$skill" "$CALIBRATION_ROOT/thirdparty/archive" "Archived third-party skill"
-  done
-  for skill in "${RETIRED_UNMANAGED_SKILLS[@]}"; do
-    remove_retired_unmanaged_skill_path "$skill"
-  done
-  for skill in "${MANAGED_THIRDPARTY_SKILLS[@]}"; do
-    install_skill_link "$skill" "$THIRDPARTY_SKILL_SOURCE_ROOT"
-  done
-  if ! $SKILLS_ONLY; then install_agents_file; fi
-}
-
-# Validate every selected destination before changing any of them.
-SELECTED_HOMES=()
 for AGENT in "${AGENTS[@]}"; do
   configure_target
-  for selected_home in "${SELECTED_HOMES[@]}"; do
-    case "$TARGET_HOME/" in
-      "$selected_home/"*) fail_usage "Selected agent homes must not overlap" ;;
-    esac
-    case "$selected_home/" in
-      "$TARGET_HOME/"*) fail_usage "Selected agent homes must not overlap" ;;
-    esac
-  done
-  SELECTED_HOMES+=("$TARGET_HOME")
-  preflight_target
+  preflight
 done
+
 for AGENT in "${AGENTS[@]}"; do
   configure_target
-  install_target
+  if [[ -f "$AGENTS_TARGET" ]] && cmp -s "$AGENTS_TARGET" <(render_template); then
+    echo "AGENTS.md already current: $AGENTS_TARGET"
+    continue
+  fi
+  if $DRY_RUN; then
+    [[ ! -f "$AGENTS_TARGET" ]] || echo "[dry-run] back up $AGENTS_TARGET"
+    if [[ -f "$AGENTS_TARGET" ]] && grep -qFx "$LEGACY_BEGIN" "$AGENTS_TARGET"; then
+      echo "[dry-run] migrate calibration markers to FuqingZh/skills: $AGENTS_TARGET"
+    else
+      echo "[dry-run] write FuqingZh/skills block to $AGENTS_TARGET"
+    fi
+    continue
+  fi
+  mkdir -p -- "$TARGET_HOME"
+  preflight
+  if [[ -f "$AGENTS_TARGET" ]]; then
+    backup="$(mktemp "$AGENTS_TARGET.bak.XXXXXX")"
+    cp -p -- "$AGENTS_TARGET" "$backup"
+    cmp -s -- "$AGENTS_TARGET" "$backup" || { echo "Backup verification failed: $backup" >&2; exit 1; }
+    echo "Backup: $backup"
+    if [[ "$AGENT" == codex ]] && ! grep -qFx -e "$BEGIN_MARKER" -e "$LEGACY_BEGIN" "$AGENTS_TARGET"; then
+      echo 'Personal instructions remain in the backup; restore them outside the new block as needed.'
+    fi
+  fi
+  tmp="$(mktemp "$TARGET_HOME/.calibration-AGENTS.XXXXXX")"
+  trap 'rm -f -- "$tmp"' EXIT
+  render_template >"$tmp"
+  if [[ -f "$AGENTS_TARGET" ]]; then chmod --reference="$AGENTS_TARGET" "$tmp"; fi
+  mv -T -- "$tmp" "$AGENTS_TARGET"
+  trap - EXIT
+  echo "Installed FuqingZh/skills block: $AGENTS_TARGET"
 done

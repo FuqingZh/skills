@@ -26,7 +26,7 @@ def run_installer(
     for name in unset_env:
         env.pop(name, None)
     return subprocess.run(
-        ["bash", str(repository_root / "install.sh"), *arguments],
+        [str(repository_root / "install.sh"), *arguments],
         cwd=repository_root,
         env=env,
         check=False,

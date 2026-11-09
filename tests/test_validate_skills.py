@@ -11,7 +11,6 @@ import pytest
 
 from scripts.validate_skills import (
     _frontmatter,
-    _installer_skills,
     _load_yaml,
     _resolve_local_reference,
     _resolve_vendored_reference,
@@ -53,11 +52,6 @@ def write_skill(root: Path, parent: str, name: str) -> Path:
 def skill_fixture(tmp_path: Path) -> SkillFixture:
     (tmp_path / "skills").mkdir()
     (tmp_path / "thirdparty/skills").mkdir(parents=True)
-    (tmp_path / "install.sh").write_text(
-        "MANAGED_SKILLS=(\n  sample\n)\nMANAGED_THIRDPARTY_SKILLS=(\n)\n"
-        "MANAGED_SHARED_THIRDPARTY_SKILLS=(\n)\n",
-        encoding="utf-8",
-    )
     write_skill(tmp_path, "thirdparty/skills", "coding-protocol")
     return SkillFixture(
         root=tmp_path,
@@ -200,41 +194,10 @@ def test_allows_only_exact_shared_implicit_third_party_skill(
     assert_has_error(skill_fixture.root, "must match directory 'renamed'")
 
 
-def test_shared_registry_is_exact_and_disjoint_from_standard_only(
-    skill_fixture: SkillFixture,
-) -> None:
-    installer = skill_fixture.root / "install.sh"
-    original = installer.read_text(encoding="utf-8")
-    installer.write_text(
-        original.replace(
-            "MANAGED_SHARED_THIRDPARTY_SKILLS=(\n)",
-            "MANAGED_SHARED_THIRDPARTY_SKILLS=(\n  coding-protocol\n  sample\n)",
-        ),
-        encoding="utf-8",
-    )
-    assert_has_error(
-        skill_fixture.root,
-        "MANAGED_SHARED_THIRDPARTY_SKILLS must be exactly []",
-    )
-
-    installer.write_text(
-        original.replace(
-            "MANAGED_THIRDPARTY_SKILLS=(\n)",
-            "MANAGED_THIRDPARTY_SKILLS=(\n  coding-protocol\n)",
-        ).replace(
-            "MANAGED_SHARED_THIRDPARTY_SKILLS=(\n)",
-            "MANAGED_SHARED_THIRDPARTY_SKILLS=(\n  coding-protocol\n)",
-        ),
-        encoding="utf-8",
-    )
-    assert_has_error(
-        skill_fixture.root,
-        "shared and standard-only third-party arrays overlap: ['coding-protocol']",
-    )
-    assert_has_error(
-        skill_fixture.root,
-        "retired runtime skills must not be installed: ['coding-protocol']",
-    )
+def test_archive_is_excluded_from_discovery(skill_fixture: SkillFixture) -> None:
+    archived = write_skill(skill_fixture.root, "thirdparty/archive", "retired")
+    (archived / "SKILL.md").write_text("historical non-runtime content\n")
+    assert validate_repository(skill_fixture.root) == []
 
 
 def test_rejects_retired_invocation_field(skill_fixture: SkillFixture) -> None:
@@ -417,25 +380,9 @@ def test_rejects_additional_behavioral_prompt_errors(
     assert validate_repository(skill_fixture.root)
 
 
-def test_reports_unreadable_and_incomplete_installer(
-    skill_fixture: SkillFixture,
-    tmp_path: Path,
-) -> None:
-    errors: list[str] = []
-    installer_root = tmp_path / "installer-root"
-    installer_root.mkdir()
-    (installer_root / "install.sh").mkdir()
-
-    assert _installer_skills(installer_root, errors) == []
-    assert "cannot read installer" in errors[0]
-
-    (skill_fixture.root / "install.sh").write_text(
-        "MANAGED_SKILLS=(\n  missing\n)\n",
-        encoding="utf-8",
-    )
-    errors = validate_repository(skill_fixture.root)
-    assert any("active skill 'missing' has no SKILL.md" in error for error in errors)
-    assert any("missing MANAGED_THIRDPARTY_SKILLS array" in error for error in errors)
+def test_validation_does_not_require_an_installer(skill_fixture: SkillFixture) -> None:
+    assert not (skill_fixture.root / "install.sh").exists()
+    assert validate_repository(skill_fixture.root) == []
 
 
 def test_resolves_only_portable_repository_local_references(tmp_path: Path) -> None:
@@ -455,6 +402,17 @@ def test_resolves_only_portable_repository_local_references(tmp_path: Path) -> N
     assert _resolve_local_reference(skill_root, source, "../../outside.md") == Path(
         "/__reference_outside_owning_skill__"
     )
+
+
+def test_vendored_reference_traversal(tmp_path: Path) -> None:
+    skill = write_skill(tmp_path, "thirdparty/skills", "sample")
+    (tmp_path / "shared.md").write_text("# shared\n")
+    with (skill / "SKILL.md").open("a") as stream:
+        stream.write("[web](https://example.com) [shared](shared.md)\n")
+    errors: list[str] = []
+    _validate_active_references([skill], errors, vendored_repository_root=tmp_path)
+    assert errors == []
+    assert _resolve_vendored_reference(tmp_path, skill / "SKILL.md", "#local") is None
 
 
 def test_vendored_reference_resolver_rejects_absolute_paths(tmp_path: Path) -> None:

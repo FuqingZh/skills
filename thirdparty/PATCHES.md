@@ -1,5 +1,12 @@
 # Third-party Skill Patches
 
+## Skills CLI transition (1.0.0)
+
+All sections below describe historical adaptations. Patched `teach` and `grilling`
+have moved unchanged to `thirdparty/archive/`; their relocation manifest records
+pre-move hashes. They are excluded from active discovery. Personal setup selects
+unmodified upstream grilling independently. No personal learning data is migrated.
+
 This file records local behavior changes made to vendored third-party skills.
 Exact imported and checked refs live in `sources.tsv`.
 

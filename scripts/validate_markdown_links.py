@@ -11,6 +11,7 @@ from urllib.parse import unquote, urlsplit
 
 MARKDOWN_ROOTS = (
     Path("README.md"),
+    Path("CHANGELOG.md"),
     Path("AGENTS.md"),
     Path("docs"),
     Path("evaluations"),
