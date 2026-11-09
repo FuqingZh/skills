@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "study": "Full upstream talk-normal comparison; user-authorized follow-up, not the original selection holdout",
+  "upstream": {
+    "repository": "hexiecs/talk-normal",
+    "commit": "d89cf329e775e640181427fae071652198264c7e",
+    "path": "prompt.md",
+    "version": "0.6.2",
+    "license": "MIT",
+    "adaptation": "none; full original bytes as the sole system prompt"
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-astra",
+    "thinking": "high",
+    "temperature": "provider default; CLI has no temperature option"
+  },
+  "judge": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high",
+    "limitation": "Same family/provider; separate blinded requests, not independent human evaluation"
+  },
+  "arms": [
+    "baseline",
+    "talk-normal"
+  ],
+  "repetitions": 2,
+  "workers": 3,
+  "timeout_seconds": 240,
+  "order_seed": 42,
+  "cases": "All 12 unchanged parent cases; 6 long and 6 short. Original split labels retained in the source. This execution calls their union benchmark.",
+  "generations": 48,
+  "judgments": 12,
+  "comparison": "Fresh contemporaneous baseline, interleaved with upstream. Do not pool with earlier baseline or rescore earlier outcomes.",
+  "scoring": "Identical parent judge and per-case required/critical criteria. Describe omissions, critical findings, style, clarity, lengths, usage, and timings separately. Word reduction is not a quality score.",
+  "boundaries": "Requested analogy h5, correction d5/h2, uncertainty h6, and complete long explanations are evaluated under the user's task requirements, not upstream stylistic compliance.",
+  "integrity": "Freeze inputs before generation. No quality-based retries, hidden thinking, tools, inherited conversations, or live instruction changes. Preserve failed attempts.",
+  "selection": "Fixed comparison, no candidate tuning or conditional selection. No automatic adoption. Former holdout cases become observed in this distinct follow-up.",
+  "audit": "Review all flagged answers and boundary-task responses. Publish model judgments and implementing-assistant interpretation separately."
+}
