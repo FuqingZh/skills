@@ -1,0 +1,128 @@
+{
+  "case": "h4",
+  "mapping": {
+    "R1": "h4-baseline-1",
+    "R2": "h4-talk-normal-1",
+    "R3": "h4-baseline-2",
+    "R4": "h4-talk-normal-2"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"说明广播面向明确范围内的所有接收者，并举出主题和群组等范围。\"},{\"index\":1,\"met\":true,\"reason\":\"说明 fan-out 是一条消息形成多个下游投递。\"},{\"index\":2,\"met\":true,\"reason\":\"用群组全体订阅者的例子说明两者可同时成立，并强调要明确广播范围。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"按定义、例子和产品术语展开，区分了接收范围与分发关系。\"},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"指出广播面向系统定义范围内的全部接收方。\"},{\"index\":1,\"met\":true,\"reason\":\"指出 fan-out 是一条消息产生多路下游投递。\"},{\"index\":2,\"met\":true,\"reason\":\"以主题的所有订阅队列说明两者可同时成立，并要求确认广播覆盖范围。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"定义和例子简明，且说明了“全部”所依赖的范围。\"},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"将广播定义为向明确范围内的所有接收方发送消息。\"},{\"index\":1,\"met\":true,\"reason\":\"将 fan-out 定义为一条消息向多个下游目标分发。\"},{\"index\":2,\"met\":true,\"reason\":\"说明覆盖全部订阅目标时两者同时成立，并强调判断广播须说明范围。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"表格、示例和队列与消费者的区分使概念边界清楚。\"},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"说明广播投递给系统定义范围内的所有接收方。\"},{\"index\":1,\"met\":true,\"reason\":\"说明 fan-out 是一条输入消息分发到多个下游目标。\"},{\"index\":2,\"met\":true,\"reason\":\"用全部订阅订单事件的服务举例说明两者同时成立，并指出“所有”的边界由系统定义。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"直接回答区别与共存条件，例子与定义一致。\"}]}",
+  "characters": 1207,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1900,
+    "output": 624,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 86,
+    "totalTokens": 2524,
+    "cost": {
+      "input": 0.0038,
+      "output": 0.006240000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.01004,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 14.429,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明广播面向明确范围内的所有接收者，并举出主题和群组等范围。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 fan-out 是一条消息形成多个下游投递。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用群组全体订阅者的例子说明两者可同时成立，并强调要明确广播范围。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "按定义、例子和产品术语展开，区分了接收范围与分发关系。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "指出广播面向系统定义范围内的全部接收方。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出 fan-out 是一条消息产生多路下游投递。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以主题的所有订阅队列说明两者可同时成立，并要求确认广播覆盖范围。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "定义和例子简明，且说明了“全部”所依赖的范围。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "将广播定义为向明确范围内的所有接收方发送消息。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "将 fan-out 定义为一条消息向多个下游目标分发。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明覆盖全部订阅目标时两者同时成立，并强调判断广播须说明范围。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "表格、示例和队列与消费者的区分使概念边界清楚。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明广播投递给系统定义范围内的所有接收方。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 fan-out 是一条输入消息分发到多个下游目标。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用全部订阅订单事件的服务举例说明两者同时成立，并指出“所有”的边界由系统定义。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "直接回答区别与共存条件，例子与定义一致。"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "case": "d3",
+  "arm": "talk-normal",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "long",
+  "answer": "容量为 2 的队列允许存放 0、1、2 个元素。**mutex 保护队列及其长度；`not_empty` 供消费者等待元素，`not_full` 供生产者等待空位。** 两个条件变量共用同一个 mutex。\n\n### 核心伪代码\n\n这里 `wait(cv, mutex)` 的语义是：调用时持有 mutex；等待期间释放 mutex；返回时再次持有 mutex。\n\n```text\nqueue = 容量为 2 的队列\nmutex = 一个互斥锁\nnot_empty = 一个条件变量\nnot_full  = 一个条件变量\n\nproduce(item):\n    lock(mutex)\n\n    while queue.size == 2:\n        wait(not_full, mutex)\n\n    queue.push(item)\n    signal(not_empty)\n\n    unlock(mutex)\n\nconsume():\n    lock(mutex)\n\n    while queue.size == 0:\n        wait(not_empty, mutex)\n\n    item = queue.pop()\n    signal(not_full)\n\n    unlock(mutex)\n    return item\n```\n\n`signal(cv)` 唤醒该条件变量上的一个等待者；当等待者数量为零时，这次通知直接结束。队列的实际状态由 `queue.size` 表示。\n\n### 时序：队列为空，消费者先到\n\n设消费者为 C，生产者为 P。\n\n**1. C 获得锁，检查队列**\n\nC 执行 `lock(mutex)`，此时：\n\n- 锁属于 C。\n- 队列长度为 0。\n- C 进入 `while`，调用 `wait(not_empty, mutex)`。\n\n**2. C 在 `wait` 内释放锁，进入等待**\n\n`wait` 将“登记为等待者、释放 mutex、进入等待”作为相对于相关同步操作的原子过程，保证生产者能够在消费者释放锁后安全地发出通知。\n\n此时：\n\n- mutex 已释放，可以由 P 获得。\n- C 暂停执行，等待 `not_empty`。\n- **C 的 `wait(...)` 调用仍在进行中，程序执行位置停留在这次调用内部。**\n\n“进入等待”描述的是线程状态变化；“函数返回”表示这次调用完成，线程可以继续执行调用之后的代码。这是两个独立的时刻。\n\n**3. P 获得锁，放入一个元素**\n\nP 执行 `lock(mutex)`，获得锁。队列长度为 0，有空位，因此 P 执行：\n\n```text\nqueue.push(item)       // 队列长度变为 1\nsignal(not_empty)     // 唤醒等待中的 C\n```\n\n执行 `signal` 时，**锁仍属于 P**。\n\n**4. `signal` 之后，P 可以继续执行，C 开始走向重新获得锁**\n\nP 可以继续执行后面的 `unlock(mutex)`。C 被唤醒后，获得继续参与调度、尝试重新获取 mutex 的机会。\n\n这里有两个层次：\n\n- **调度层面**：调度器决定 P、C 何时获得 CPU；C 也可能在 P 解锁前获得执行机会。\n- **锁的层面**：C 必须获得 mutex 才能完成 `wait`。P 持锁期间，C 的重新加锁步骤需要继续等待。\n\n所以，“C 被唤醒”表示等待过程取得了进展；**`wait` 的返回还需要完成重新加锁。**\n\n**5. P 解锁，C 获得锁，`wait` 返回**\n\nP 执行 `unlock(mutex)`。随后，C 成功获得 mutex，完成 `wait` 内部的重新加锁步骤，`wait` 才返回。\n\n**`wait` 返回时，锁属于 C。** C 接着回到 `while` 的条件判断，检查当前队列长度。\n\n在这条仅有 C、P 的时序中，长度为 1，因此 C 跳出循环，取出元素，队列长度变回 0。C 执行 `signal(not_full)`，通知等待空位的生产者，然后释放锁并返回元素。\n\n### 为什么要用 `while`\n\n每次 `wait` 返回后，都要**持锁重新检查队列状态**，主要有两个原因：\n\n1. **虚假唤醒**：某些条件变量实现允许 `wait` 在收到通知以外的情况下结束等待并重新获得锁。此时队列仍可能为空。\n2. **其他线程抢先改变状态**：P 放入元素并通知 C 后，另一个消费者 C2 可能先获得 mutex 并取走元素。等 C 获得锁、`wait` 返回时，队列已经再次为空。\n\n`while` 会在这些情况下再次调用 `wait`；`if` 只进行进入等待前的那一次检查，返回后就会直接执行取元素操作。\n\n生产者遵循同样的规则：每次从 `wait(not_full, mutex)` 返回，都重新检查是否还有空位。实现时始终采用 **“持锁检查条件 → 条件未满足则 wait → 返回后重新检查 → 操作队列 → signal → 解锁”** 的顺序。",
+  "characters": 2160,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 1083,
+    "output": 1241,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 119,
+    "totalTokens": 2324,
+    "cost": {
+      "input": 0.010830000000000001,
+      "output": 0.06205,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.07288,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 59.073
+}

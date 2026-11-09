@@ -1,0 +1,148 @@
+{
+  "case": "d1",
+  "mapping": {
+    "R1": "d1-talk-normal-1",
+    "R2": "d1-talk-normal-2",
+    "R3": "d1-baseline-2",
+    "R4": "d1-baseline-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明固定资源下四倍提升只是待验证假设，并讨论单线程限制、锁竞争、GC 和缓存开销。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分 80 个连接提供的占用容量与数据库 CPU、I/O、锁竞争决定的处理能力。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"分解请求等待与处理阶段，使用固定在途并发关系解释平均延迟和吞吐量，并单独分析 p95/p99。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"设计相同总资源、连接预算和负载下的 1、2、4 实例对照，采集应用及下游指标；未声称有实测结果。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"条件、容量约束、延迟机制和测量步骤层次清楚。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"指出收益取决于原有实例级瓶颈和资源余量，并讨论运行时、缓存、GC 与局部竞争。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确连接池并发额度不等于数据库处理能力，还说明拆池后的局部排队。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"区分阶段排队、执行及 CPU 时间，用固定并发关系解释吞吐量，并要求独立测量尾延迟。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"规定相同 CPU、内存、总连接和总并发，对照请求分段计时及数据库、其他下游指标；示例数字明确是机制说明。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"定义统计量后逐层解释机制，测量指标与瓶颈假设对应明确。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确不自动四倍，并讨论进程级限制、多核利用、运行时开销及共享竞争。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分总连接预算、各实例连接池的局部约束和数据库自身的执行瓶颈。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明等待与服务的计时边界、固定实际并发下的吞吐关系，以及平均延迟和 p95/p99 的不同作用。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出保持总资源与负载一致的实例对照、分阶段追踪和下游观测；明确没有实际测试数据。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"从成立条件到瓶颈转移，再到诊断实验，论述连贯。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"否定实例数带来必然线性增长，讨论 worker、运行时、缓存、GC 和 CPU 竞争对结果的影响。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"用连接占用量说明连接额度的理论约束，同时指出数据库可能更早饱和。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"分解端到端等待和处理时间，解释固定实际并发下的吞吐关系及尾延迟可能恶化的原因。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"设置相同总预算的 1、2、4 实例实验，结合应用、连接池、数据库和其他下游指标定位瓶颈；未编造结果。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"区分实际在途并发、到达率和并发上限，实验对照及指标口径清楚。\"\n    }\n  ]\n}",
+  "characters": 2178,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 13997,
+    "output": 1179,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 157,
+    "totalTokens": 15176,
+    "cost": {
+      "input": 0.027993999999999998,
+      "output": 0.01179,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.039784,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 25.936,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明固定资源下四倍提升只是待验证假设，并讨论单线程限制、锁竞争、GC 和缓存开销。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分 80 个连接提供的占用容量与数据库 CPU、I/O、锁竞争决定的处理能力。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "分解请求等待与处理阶段，使用固定在途并发关系解释平均延迟和吞吐量，并单独分析 p95/p99。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "设计相同总资源、连接预算和负载下的 1、2、4 实例对照，采集应用及下游指标；未声称有实测结果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "条件、容量约束、延迟机制和测量步骤层次清楚。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "指出收益取决于原有实例级瓶颈和资源余量，并讨论运行时、缓存、GC 与局部竞争。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确连接池并发额度不等于数据库处理能力，还说明拆池后的局部排队。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "区分阶段排队、执行及 CPU 时间，用固定并发关系解释吞吐量，并要求独立测量尾延迟。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "规定相同 CPU、内存、总连接和总并发，对照请求分段计时及数据库、其他下游指标；示例数字明确是机制说明。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "定义统计量后逐层解释机制，测量指标与瓶颈假设对应明确。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确不自动四倍，并讨论进程级限制、多核利用、运行时开销及共享竞争。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分总连接预算、各实例连接池的局部约束和数据库自身的执行瓶颈。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明等待与服务的计时边界、固定实际并发下的吞吐关系，以及平均延迟和 p95/p99 的不同作用。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出保持总资源与负载一致的实例对照、分阶段追踪和下游观测；明确没有实际测试数据。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "从成立条件到瓶颈转移，再到诊断实验，论述连贯。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "否定实例数带来必然线性增长，讨论 worker、运行时、缓存、GC 和 CPU 竞争对结果的影响。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "用连接占用量说明连接额度的理论约束，同时指出数据库可能更早饱和。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "分解端到端等待和处理时间，解释固定实际并发下的吞吐关系及尾延迟可能恶化的原因。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "设置相同总预算的 1、2、4 实例实验，结合应用、连接池、数据库和其他下游指标定位瓶颈；未编造结果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "区分实际在途并发、到达率和并发上限，实验对照及指标口径清楚。"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "case": "h1",
+  "mapping": {
+    "R1": "h1-talk-normal-1",
+    "R2": "h1-baseline-1",
+    "R3": "h1-baseline-2",
+    "R4": "h1-talk-normal-2"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确指出完全相同的区块头输入会得到固定哈希，可以查表。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明 nonce 只是区块头的一部分，父区块、交易及 coinbase 等变化会改变完整输入。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出映射绑定固定的前 76 字节，旧表不能直接用于新模板。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"串起矿工构造、搜索和广播，以及节点重算 PoW、检查区块与交易规则的流程。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"用固定模板 P 区分查表成立的条件与跨模板失效的原因，流程也清楚。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确承认相同完整输入的哈希固定，已算结果可以缓存。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"列出完整区块头字段，并解释前块哈希、交易及 coinbase 变化如何改变输入。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出表仅适用于固定模板，模板改变后旧哈希不能直接推导或复用。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"分别说明矿工搜索和节点对提交区块重算验证，并强调 PoW 达标不足以使区块有效。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"按完整输入、查表范围、模板变化和双方流程依次解释，关键条件明确。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"开头明确说明相同完整区块头必得相同哈希。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"指出 nonce 仅占 4 字节，前块哈希或交易改变会改变其余输入。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"将 nonce 映射限定于固定的其余 76 字节，解释旧表无法用于新模板。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"逐步描述矿工尝试与节点重算，并列明难度、区块内容和交易有效性检查。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"用带模板下标的映射解释查表边界，再分别列出矿工和节点的步骤。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确承认固定的完整 80 字节输入得到固定哈希。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"展示区块头全部字段，并说明前块哈希、Merkle root 等变化会改变输入。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明查表绑定区块头前 76 字节，新模板需要重新计算。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"分别串起矿工搜索和节点重算、检查目标及验证区块和交易规则的流程。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"完整输入、预计算成本、模板变化和验证条件之间的关系表述清楚。\"\n    }\n  ]\n}",
+  "characters": 2059,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 8608,
+    "output": 1162,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 255,
+    "totalTokens": 9770,
+    "cost": {
+      "input": 0.017216,
+      "output": 0.01162,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.028836,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 24.226,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确指出完全相同的区块头输入会得到固定哈希，可以查表。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 nonce 只是区块头的一部分，父区块、交易及 coinbase 等变化会改变完整输入。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出映射绑定固定的前 76 字节，旧表不能直接用于新模板。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "串起矿工构造、搜索和广播，以及节点重算 PoW、检查区块与交易规则的流程。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "用固定模板 P 区分查表成立的条件与跨模板失效的原因，流程也清楚。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确承认相同完整输入的哈希固定，已算结果可以缓存。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "列出完整区块头字段，并解释前块哈希、交易及 coinbase 变化如何改变输入。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出表仅适用于固定模板，模板改变后旧哈希不能直接推导或复用。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "分别说明矿工搜索和节点对提交区块重算验证，并强调 PoW 达标不足以使区块有效。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "按完整输入、查表范围、模板变化和双方流程依次解释，关键条件明确。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "开头明确说明相同完整区块头必得相同哈希。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出 nonce 仅占 4 字节，前块哈希或交易改变会改变其余输入。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "将 nonce 映射限定于固定的其余 76 字节，解释旧表无法用于新模板。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "逐步描述矿工尝试与节点重算，并列明难度、区块内容和交易有效性检查。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "用带模板下标的映射解释查表边界，再分别列出矿工和节点的步骤。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确承认固定的完整 80 字节输入得到固定哈希。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "展示区块头全部字段，并说明前块哈希、Merkle root 等变化会改变输入。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明查表绑定区块头前 76 字节，新模板需要重新计算。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "分别串起矿工搜索和节点重算、检查目标及验证区块和交易规则的流程。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "完整输入、预计算成本、模板变化和验证条件之间的关系表述清楚。"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "split": "benchmark",
+  "metrics": {
+    "baseline/all": {
+      "responses": 24,
+      "requirements": 88,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 23,
+        "mixed": 1
+      },
+      "characters": 43598,
+      "median_characters": 1349.5,
+      "mean_seconds": 59.171,
+      "usage": {
+        "input": 5064,
+        "output": 30558,
+        "cacheRead": 0,
+        "reasoning": 3200,
+        "totalTokens": 35622
+      },
+      "estimated_cost_usd": 1.57854
+    },
+    "baseline/long": {
+      "responses": 12,
+      "requirements": 56,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 39220,
+      "median_characters": 3214.5,
+      "mean_seconds": 102.973,
+      "usage": {
+        "input": 2906,
+        "output": 27490,
+        "cacheRead": 0,
+        "reasoning": 2946,
+        "totalTokens": 30396
+      },
+      "estimated_cost_usd": 1.40356
+    },
+    "baseline/short": {
+      "responses": 12,
+      "requirements": 32,
+      "missing_requirements": 0,
+      "responses_with_omissions": 0,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 11,
+        "mixed": 1
+      },
+      "characters": 4378,
+      "median_characters": 312.5,
+      "mean_seconds": 15.369,
+      "usage": {
+        "input": 2158,
+        "output": 3068,
+        "cacheRead": 0,
+        "reasoning": 254,
+        "totalTokens": 5226
+      },
+      "estimated_cost_usd": 0.17498
+    },
+    "talk-normal/all": {
+      "responses": 24,
+      "requirements": 88,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 24
+      },
+      "characters": 34719,
+      "median_characters": 972.0,
+      "mean_seconds": 55.172,
+      "usage": {
+        "input": 25224,
+        "output": 26568,
+        "cacheRead": 0,
+        "reasoning": 4949,
+        "totalTokens": 51792
+      },
+      "estimated_cost_usd": 1.58064
+    },
+    "talk-normal/long": {
+      "responses": 12,
+      "requirements": 56,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 31803,
+      "median_characters": 2513.0,
+      "mean_seconds": 93.741,
+      "usage": {
+        "input": 12986,
+        "output": 23479,
+        "cacheRead": 0,
+        "reasoning": 3794,
+        "totalTokens": 36465
+      },
+      "estimated_cost_usd": 1.30381
+    },
+    "talk-normal/short": {
+      "responses": 12,
+      "requirements": 32,
+      "missing_requirements": 0,
+      "responses_with_omissions": 0,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 2916,
+      "median_characters": 278.0,
+      "mean_seconds": 16.604,
+      "usage": {
+        "input": 12238,
+        "output": 3089,
+        "cacheRead": 0,
+        "reasoning": 1155,
+        "totalTokens": 15327
+      },
+      "estimated_cost_usd": 0.27683
+    }
+  },
+  "flagged": [
+    {
+      "response": "d2-baseline-1",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "提到 checkpoint 要与计算状态配合，但没有说明重放统计状态与执行外部副作用的保障边界不同。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-talk-normal-2",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "清楚说明统计状态须与处理位置配套，但未区分状态重放和外部副作用的保障边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-baseline-2",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "说明快照状态须对应已处理到 E2 的进度，但未说明重放与外部副作用的不同边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-talk-normal-1",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "明确 checkpoint 要配对统计状态和进度，但没有区分重放计算与外部副作用的保障边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    }
+  ],
+  "estimated_judge_cost_usd": 0.24648,
+  "status": "raw model judgments; see separate author audit"
+}

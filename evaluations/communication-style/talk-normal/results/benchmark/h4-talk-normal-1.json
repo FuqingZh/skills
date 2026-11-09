@@ -1,0 +1,28 @@
+{
+  "case": "h4",
+  "arm": "talk-normal",
+  "rep": 1,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "**广播和 fan-out 描述不同维度，可以同时成立。**\n\n- **广播（broadcast）描述发送范围与语义**：消息面向某个范围内的全部接收方，例如一个主题的所有订阅者。“全部”的范围由系统定义。\n- **Fan-out（扇出）描述分发结构**：一条输入消息产生多路下游投递，例如分发到多个队列、订阅者或处理分支；这些目标可以覆盖全部接收方，也可以是按规则选出的子集。\n\n例如，把一条消息分发到某个主题的**所有订阅队列**，同时具备广播语义和 fan-out 结构；按地区筛选后分发到其中三个队列，则可以称为面向这三个队列的 fan-out。\n\n设计或阅读文档时，分别确认两件事：**广播覆盖哪些接收方，fan-out 在哪一层产生多路投递**；具体产品中的命名还需结合其定义，例如 RabbitMQ 的 `fanout exchange` 会把消息路由到所有绑定队列。",
+  "characters": 391,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 1004,
+    "output": 417,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 172,
+    "totalTokens": 1421,
+    "cost": {
+      "input": 0.01004,
+      "output": 0.02085,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.03089,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 25.925
+}

@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "benchmark.py": "801725fcf2f2912dfd2ab7a682c58debc93e78eea13331dcee186ae5b1c546b4",
+    "protocol.json": "75b8d15b210b755ea327be88528618dbe39958cf62985a5e810d86e4caacbf30",
+    "judge.txt": "2b4ef9be16a923e6a9ea6d0e790388728d0eddfde9d53088caee17bcb2f64463",
+    "prompts/baseline.txt": "bd03a3d742800d21ed71a3dadde04c1b1c6b778a338e1d0f59c67363b59ea607",
+    "prompts/talk-normal.txt": "967b614daef6e3d8831478107cd24dec649961cdf32104405965fa8d7e2bf91b",
+    "upstream-LICENSE.txt": "f964f47abdaa5bfd77e17cc609019e400ce91fae37a784b0ab8ff30725af2566",
+    "../cases.json": "ddee444d87b004796f05be15aa197b8ddf8744310c9521e6642463c2a997511a",
+    "../run.py": "eab8f9281467ff2cb8f15674b2e5840d10c57d7b7f336ca69d032c22fe321950",
+    "../summarize.py": "9a3a2b979dff97ab3d6bee20c057e3838759a37852de92157f3c7255d8145479",
+    "../execution-manifest.json": "86806fc1615bbf906b7747e989f7cd0ebaccb1547b0655531cf199bf72727375"
+  }
+}

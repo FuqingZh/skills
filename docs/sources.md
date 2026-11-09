@@ -9,8 +9,10 @@ historical material; this register does not replace licenses or source records.
 
 Reviewed on 2026-11-09 for the
 [communication-style comparison](../evaluations/communication-style/README.md).
-The candidate prompts and cases are independently authored. No upstream prompt,
-test corpus, or skill is installed or vendored by this experiment.
+The original candidate prompts and cases are independently authored. A separate
+[user-requested follow-up](../evaluations/communication-style/talk-normal/README.md)
+vendors the full pinned talk-normal prompt for direct comparison, with its MIT
+notice retained. Neither study installs an upstream skill or global instruction.
 
 ### S01: talk-normal
 
@@ -28,6 +30,10 @@ test corpus, or skill is installed or vendored by this experiment.
   isolate a causal mechanism or establish cross-task generalization.
 - Local use: the `direct` and `example` arms differ only by an independently
   written, task-bounded example; necessary corrections remain permitted.
+- Direct upstream test: the follow-up uses the complete, unchanged `prompt.md`
+  as its system prompt, with a contemporaneous baseline and all 12 local cases.
+  Its [license copy](../evaluations/communication-style/talk-normal/upstream-LICENSE.txt)
+  and source identities accompany the fixture; integration installers are not run.
 
 ### S02: STFU.md
 

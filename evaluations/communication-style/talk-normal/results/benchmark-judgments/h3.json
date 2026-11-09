@@ -1,0 +1,168 @@
+{
+  "case": "h3",
+  "mapping": {
+    "R1": "h3-talk-normal-1",
+    "R2": "h3-talk-normal-2",
+    "R3": "h3-baseline-2",
+    "R4": "h3-baseline-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确无需逐人阅读确认即可评价发送提醒政策实施后的整体表现。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"按使用日期和已确定结局纳入预约，分别计算爽约率 U/N、提前取消率 C/N，并解释补充指标。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出活动、预约人群、设备供需和时间变化会混杂前后比较。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"说明预约数不同仍可直接比较比例，应使用各期实际预约数，差异主要影响精度。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"区分统计显著性、因果解释和实际价值，并提出活动调整、敏感性分析及同期随机对照。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"指标定义、比较步骤及各项限制均清楚。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明政策整体评估包含未阅读者，阅读确认主要影响机制判断。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"规定预约日期与结局核验口径，分别给出 S/N、C/N 和补充比例。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出活动、时间趋势和预约构成变化限制因果归因。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"明确不同样本量可比较比例，须使用真实分母，不必人为凑齐数量。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"说明显著性不能替代因果设计或业务价值判断，并建议调整分析和同期随机分组。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"将实施口径、分析办法和四种限制分开说明，易于执行。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确没有逐人阅读确认仍可评价发送提醒政策后的预约结果。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"限定已结束且状态确认的预约，区分提前取消率与未到未取消率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"具体列出活动、时段、人群等前后变化，并限制因果表述。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"说明两期预约数不同仍能比较比例，分析使用实际总数而非人为凑齐样本。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"解释显著与不显著的含义，结合业务阈值，并提出调整、延长观察及同期对照。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"给出明确的分母、计算式、分析步骤和结论表述边界。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确政策总体表现及随机分组效果均不以每人确认阅读为前提。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"细化预约资格、结局窗口及取消门槛，分别报告爽约率和提前取消率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明活动、需求、人群和其他管理措施可能混杂前后差异。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"明确不同预约数可比较比例，应保留实际数据而非凑齐数量。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"指出显著性不证明因果或实际价值，并给出标准化、敏感性分析和同期随机比较。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"标准化计算和适用条件交代充分；“使用率比较”一处措辞略不精确，但不妨碍理解。\"\n    }\n  ]\n}",
+  "characters": 2339,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 7767,
+    "output": 1573,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 516,
+    "totalTokens": 9340,
+    "cost": {
+      "input": 0.015534,
+      "output": 0.01573,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.031264,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 31.992,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确无需逐人阅读确认即可评价发送提醒政策实施后的整体表现。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "按使用日期和已确定结局纳入预约，分别计算爽约率 U/N、提前取消率 C/N，并解释补充指标。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出活动、预约人群、设备供需和时间变化会混杂前后比较。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "说明预约数不同仍可直接比较比例，应使用各期实际预约数，差异主要影响精度。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "区分统计显著性、因果解释和实际价值，并提出活动调整、敏感性分析及同期随机对照。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "指标定义、比较步骤及各项限制均清楚。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明政策整体评估包含未阅读者，阅读确认主要影响机制判断。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "规定预约日期与结局核验口径，分别给出 S/N、C/N 和补充比例。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出活动、时间趋势和预约构成变化限制因果归因。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "明确不同样本量可比较比例，须使用真实分母，不必人为凑齐数量。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "说明显著性不能替代因果设计或业务价值判断，并建议调整分析和同期随机分组。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "将实施口径、分析办法和四种限制分开说明，易于执行。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确没有逐人阅读确认仍可评价发送提醒政策后的预约结果。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "限定已结束且状态确认的预约，区分提前取消率与未到未取消率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "具体列出活动、时段、人群等前后变化，并限制因果表述。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "说明两期预约数不同仍能比较比例，分析使用实际总数而非人为凑齐样本。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "解释显著与不显著的含义，结合业务阈值，并提出调整、延长观察及同期对照。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "给出明确的分母、计算式、分析步骤和结论表述边界。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确政策总体表现及随机分组效果均不以每人确认阅读为前提。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "细化预约资格、结局窗口及取消门槛，分别报告爽约率和提前取消率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明活动、需求、人群和其他管理措施可能混杂前后差异。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "明确不同预约数可比较比例，应保留实际数据而非凑齐数量。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "指出显著性不证明因果或实际价值，并给出标准化、敏感性分析和同期随机比较。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "标准化计算和适用条件交代充分；“使用率比较”一处措辞略不精确，但不妨碍理解。"
+    }
+  ]
+}

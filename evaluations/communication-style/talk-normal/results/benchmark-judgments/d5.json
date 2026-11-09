@@ -1,0 +1,128 @@
+{
+  "case": "d5",
+  "mapping": {
+    "R1": "d5-talk-normal-1",
+    "R2": "d5-talk-normal-2",
+    "R3": "d5-baseline-2",
+    "R4": "d5-baseline-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认把页表和 TLB 混淆，并撤回对位置的确定判断。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确页表通常在主存、TLB 位于 CPU 内部并缓存地址映射。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"仅说字段组合很像 TLB 条目示意，强调具体归属仍需确认。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"分别说明两者的位置，也交代了原图尚不能确定归属。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认此前将其判断为主存页表过于草率，并作出纠正。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确页表通常在主存、TLB 在 CPU 内部。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"将三个字段描述为符合 TLB 表项的形式，但保留原图归属待确认。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"位置区分明确，并直接说明这张表的位置仍待确认。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认直接称为页表不准确、未交代位置，并改称 TLB 表项示意。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明 TLB 位于 CPU 内部，内存页表通常存放在主存。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明常见多级页表的表项与该示意不同，并承认不能排除其他组织方式。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"mixed\",\n      \"clarity_reason\": \"先确定地说原图是 TLB 示意，末尾又说仅凭字段无法完全确定，判断力度略不一致。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认未说明位置、缺乏依据确认表的类型，并纠正此前判断。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确页表通常在主存、TLB 位于 CPU 内部。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"仅认为字段组合很像 TLB 表项，未将其当作通用页表格式或据此确定位置。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"清楚区分术语所指的位置与原图尚未确认的实际类型。\"\n    }\n  ]\n}",
+  "characters": 1672,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1380,
+    "output": 1150,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 418,
+    "totalTokens": 2530,
+    "cost": {
+      "input": 0.00276,
+      "output": 0.011500000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.014260000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 23.932,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认把页表和 TLB 混淆，并撤回对位置的确定判断。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确页表通常在主存、TLB 位于 CPU 内部并缓存地址映射。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "仅说字段组合很像 TLB 条目示意，强调具体归属仍需确认。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "分别说明两者的位置，也交代了原图尚不能确定归属。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认此前将其判断为主存页表过于草率，并作出纠正。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确页表通常在主存、TLB 在 CPU 内部。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "将三个字段描述为符合 TLB 表项的形式，但保留原图归属待确认。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "位置区分明确，并直接说明这张表的位置仍待确认。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认直接称为页表不准确、未交代位置，并改称 TLB 表项示意。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 TLB 位于 CPU 内部，内存页表通常存放在主存。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明常见多级页表的表项与该示意不同，并承认不能排除其他组织方式。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "mixed",
+      "clarity_reason": "先确定地说原图是 TLB 示意，末尾又说仅凭字段无法完全确定，判断力度略不一致。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认未说明位置、缺乏依据确认表的类型，并纠正此前判断。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确页表通常在主存、TLB 位于 CPU 内部。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "仅认为字段组合很像 TLB 表项，未将其当作通用页表格式或据此确定位置。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "清楚区分术语所指的位置与原图尚未确认的实际类型。"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "case": "d6",
+  "mapping": {
+    "R1": "d6-talk-normal-1",
+    "R2": "d6-baseline-1",
+    "R3": "d6-talk-normal-2",
+    "R4": "d6-baseline-2"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。\"},{\"index\":1,\"met\":true,\"reason\":\"未声称已上线或用户验证通过。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"表述简洁，进展和下一步明确。\"},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。\"},{\"index\":1,\"met\":true,\"reason\":\"未声称已上线或用户验证通过。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"表述简洁，进展和下一步明确。\"},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。\"},{\"index\":1,\"met\":true,\"reason\":\"未声称已上线或用户验证通过。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"表述简洁，进展和下一步明确。\"},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。\"},{\"index\":1,\"met\":true,\"reason\":\"未声称已上线或用户验证通过。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"表述简洁，进展和下一步明确。\"}]}",
+  "characters": 917,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 652,
+    "output": 413,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 26,
+    "totalTokens": 1065,
+    "cost": {
+      "input": 0.001304,
+      "output": 0.00413,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.005434,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 10.898,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "未声称已上线或用户验证通过。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "表述简洁，进展和下一步明确。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "未声称已上线或用户验证通过。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "表述简洁，进展和下一步明确。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "未声称已上线或用户验证通过。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "表述简洁，进展和下一步明确。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "包含按钮已实现、三个相关自动化测试通过、尚未部署，以及维护者下一步检查预发布环境。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "未声称已上线或用户验证通过。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "表述简洁，进展和下一步明确。"
+    }
+  ]
+}
