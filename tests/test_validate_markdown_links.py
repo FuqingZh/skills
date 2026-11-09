@@ -23,11 +23,20 @@ def test_repository_markdown_links_pass() -> None:
 
 def test_discovers_root_files_and_nested_markdown(tmp_path: Path) -> None:
     (tmp_path / "README.md").write_text("# Readme\n", encoding="utf-8")
+    chinese = tmp_path / "README.zh-CN.md"
+    chinese.write_text("[missing](missing.md)\n", encoding="utf-8")
     (tmp_path / "docs/nested").mkdir(parents=True)
     nested = tmp_path / "docs/nested/page.md"
     nested.write_text("# Page\n", encoding="utf-8")
 
-    assert discover_markdown_files(tmp_path) == [tmp_path / "README.md", nested]
+    assert discover_markdown_files(tmp_path) == [
+        tmp_path / "README.md",
+        chinese,
+        nested,
+    ]
+    assert validate_markdown_links(tmp_path) == [
+        f"{chinese}: missing Markdown link target 'missing.md'"
+    ]
 
 
 def test_excludes_exact_evaluation_artifacts_from_document_validation(
