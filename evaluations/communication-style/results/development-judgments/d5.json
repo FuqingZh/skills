@@ -1,0 +1,178 @@
+{
+  "case": "d5",
+  "mapping": {
+    "R1": "d5-baseline-2",
+    "R2": "d5-direct-2",
+    "R3": "d5-example-1",
+    "R4": "d5-example-2",
+    "R5": "d5-direct-1",
+    "R6": "d5-baseline-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认先前未说明位置，并纠正笼统称作“页表”的问题。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确页表通常在 RAM 中、TLB 在 CPU 内缓存转换结果。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出仅凭三列不能确定结构，也未将其当作通用页表格式。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"分别说明两者的位置，并保留对原图性质的不确定性。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确承认前面未区分清楚，并按两种可能纠正称呼。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明页表通常在 RAM，TLB 通常在 CPU 内缓存映射。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确说三列不足以断定老师画的是哪一种。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"先回答存放位置，再解释为何不能仅凭字段判断原图。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认直接称作“页表”却未说明位置不严谨。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分页表在主存与 TLB 在 CPU 内缓存映射。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"将 TLB 判断限定于描述 CPU 缓存的条件下，并指出三字段不足以断定原图性质。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"条件判断和对老师原图的不确定性区分明确。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认此前混淆页表和 TLB，并纠正两种称呼。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确页表通常在 RAM，TLB 在 CPU 内。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明所给字段常见于 TLB 示意，但不足以确定原图就是 TLB。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"位置、示意图的可能含义和判断限制均清楚。\"\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确纠正先前称呼，指出若指 CPU 内缓存应称 TLB。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确 TLB 在 CPU 内、页表通常在 RAM 中。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明 ASID 字段取决于系统支持，且仅凭三列不能断定原图一定是 TLB。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"直接回答位置，同时说明字段本身不能证明老师所画结构的位置。\"\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"承认先前未交代位置，并指出不能凭字段确定名称。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分页表通常在主存、TLB 在 CPU 内缓存翻译结果。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确字段组合虽像 TLB 条目，却不能据此确定原图存放位置。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"区分了“页表”一词的通常含义与老师所画表的实际性质尚未确定。\"\n    }\n  ]\n}",
+  "characters": 2454,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1901,
+    "output": 1907,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 878,
+    "totalTokens": 3808,
+    "cost": {
+      "input": 0.003802,
+      "output": 0.01907,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.022872,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 37.679,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认先前未说明位置，并纠正笼统称作“页表”的问题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确页表通常在 RAM 中、TLB 在 CPU 内缓存转换结果。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出仅凭三列不能确定结构，也未将其当作通用页表格式。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "分别说明两者的位置，并保留对原图性质的不确定性。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确承认前面未区分清楚，并按两种可能纠正称呼。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明页表通常在 RAM，TLB 通常在 CPU 内缓存映射。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确说三列不足以断定老师画的是哪一种。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "先回答存放位置，再解释为何不能仅凭字段判断原图。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认直接称作“页表”却未说明位置不严谨。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分页表在主存与 TLB 在 CPU 内缓存映射。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "将 TLB 判断限定于描述 CPU 缓存的条件下，并指出三字段不足以断定原图性质。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "条件判断和对老师原图的不确定性区分明确。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认此前混淆页表和 TLB，并纠正两种称呼。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确页表通常在 RAM，TLB 在 CPU 内。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明所给字段常见于 TLB 示意，但不足以确定原图就是 TLB。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "位置、示意图的可能含义和判断限制均清楚。"
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确纠正先前称呼，指出若指 CPU 内缓存应称 TLB。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确 TLB 在 CPU 内、页表通常在 RAM 中。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明 ASID 字段取决于系统支持，且仅凭三列不能断定原图一定是 TLB。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "直接回答位置，同时说明字段本身不能证明老师所画结构的位置。"
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "承认先前未交代位置，并指出不能凭字段确定名称。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分页表通常在主存、TLB 在 CPU 内缓存翻译结果。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确字段组合虽像 TLB 条目，却不能据此确定原图存放位置。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "区分了“页表”一词的通常含义与老师所画表的实际性质尚未确定。"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "case": "d3",
+  "mapping": {
+    "R1": "d3-example-1",
+    "R2": "d3-example-2",
+    "R3": "d3-direct-2",
+    "R4": "d3-baseline-2",
+    "R5": "d3-direct-1",
+    "R6": "d3-baseline-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确要求检查和修改队列时持有同一个 m，伪代码也如此。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明 wait 原子衔接释放锁与进入等待，并在重新获得锁后才返回。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明 signal 不释放或移交锁，也不保证消费者立即运行或届时仍可出队。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"用虚假唤醒和其他消费者先取走元素解释 while 复查。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"区分容量为 2 的满队列等待条件与 mutex 对队列操作的保护；时序符合伪代码。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"按持锁者和线程状态逐步说明，并明确区分被唤醒与 wait 返回。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明同一个 mutex 保护队列检查和修改，两个条件变量均配合它使用。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确 wait 原子地释放锁并等待，重新取得锁才能返回。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出 signal 不移交或释放锁，消费者也不保证立即执行；条件须复查。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"解释虚假唤醒及其他消费者抢先取走元素，并给出 if 的错误后果。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"分别给出 size==2 的容量限制和 mutex 保护；伪代码、时序一致。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"用表格区分唤醒、重新取得锁与 wait 返回，时序清楚。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确队列检查和修改均须持有同一个 mutex。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明 wait 原子地释放锁并进入等待，重新获得锁后才返回。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明 signal 不直接交锁、不保证立即运行，获锁前条件还可能改变。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"用竞争和虚假唤醒说明 while 必要性。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"解释容量 2 决定何时等待，mutex 保护操作；伪代码与所述执行一致。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"特别说明线程可停在尚未返回的 wait 调用内，避免混淆状态变化和函数返回。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"伪代码及说明均要求持有同一个 m 时检查和修改队列。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"分阶段说明 wait 原子释放锁并等待，重新持锁后才返回。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确 signal 后生产者仍持锁，消费者不保证立即运行，条件还可能再变。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"通过伪唤醒和其他消费者先取走元素解释 while 复查。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"用 size>0、size<2 表述操作条件，另用 mutex 保护状态；时序与伪代码一致。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"先解释 wait 内部阶段，再逐步列出队列和锁的状态。\"\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确持有 mutex 才能检查或修改队列，伪代码使用同一把锁。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"列出 wait 原子释放锁、等待、重新获取锁以及持锁返回的步骤。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明 signal 后生产者仍持锁，不保证消费者立即运行或首先取得锁。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"用虚假唤醒及竞争导致条件变化说明不能用 if。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"分别说明最多存两个元素的容量条件和 mutex 对状态的保护；执行时序一致。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"清楚区分唤醒、重新获取 mutex 和 wait 返回三个时刻。\"\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确检查、入队、出队都持有同一个 mutex。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"流程说明 wait 原子释放锁并等待，成功重新获取锁才返回。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出 signal 不释放锁、不保证立即执行，唤醒者也未获预留的锁。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"以虚假唤醒和其他消费者抢先取走元素解释 while 复查。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"队列满时等待与 mutex 保护操作分开表述，容量为 2 的伪代码和时序吻合。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"流程图和时序分别标明等待、唤醒、获锁及函数返回。\"\n    }\n  ]\n}",
+  "characters": 3544,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 10946,
+    "output": 1674,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 147,
+    "totalTokens": 12620,
+    "cost": {
+      "input": 0.021892,
+      "output": 0.01674,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.038632,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 35.278,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确要求检查和修改队列时持有同一个 m，伪代码也如此。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 wait 原子衔接释放锁与进入等待，并在重新获得锁后才返回。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明 signal 不释放或移交锁，也不保证消费者立即运行或届时仍可出队。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "用虚假唤醒和其他消费者先取走元素解释 while 复查。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "区分容量为 2 的满队列等待条件与 mutex 对队列操作的保护；时序符合伪代码。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "按持锁者和线程状态逐步说明，并明确区分被唤醒与 wait 返回。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明同一个 mutex 保护队列检查和修改，两个条件变量均配合它使用。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确 wait 原子地释放锁并等待，重新取得锁才能返回。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出 signal 不移交或释放锁，消费者也不保证立即执行；条件须复查。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "解释虚假唤醒及其他消费者抢先取走元素，并给出 if 的错误后果。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "分别给出 size==2 的容量限制和 mutex 保护；伪代码、时序一致。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "用表格区分唤醒、重新取得锁与 wait 返回，时序清楚。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确队列检查和修改均须持有同一个 mutex。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明 wait 原子地释放锁并进入等待，重新获得锁后才返回。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明 signal 不直接交锁、不保证立即运行，获锁前条件还可能改变。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "用竞争和虚假唤醒说明 while 必要性。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "解释容量 2 决定何时等待，mutex 保护操作；伪代码与所述执行一致。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "特别说明线程可停在尚未返回的 wait 调用内，避免混淆状态变化和函数返回。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "伪代码及说明均要求持有同一个 m 时检查和修改队列。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分阶段说明 wait 原子释放锁并等待，重新持锁后才返回。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确 signal 后生产者仍持锁，消费者不保证立即运行，条件还可能再变。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "通过伪唤醒和其他消费者先取走元素解释 while 复查。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "用 size>0、size<2 表述操作条件，另用 mutex 保护状态；时序与伪代码一致。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "先解释 wait 内部阶段，再逐步列出队列和锁的状态。"
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确持有 mutex 才能检查或修改队列，伪代码使用同一把锁。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "列出 wait 原子释放锁、等待、重新获取锁以及持锁返回的步骤。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明 signal 后生产者仍持锁，不保证消费者立即运行或首先取得锁。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "用虚假唤醒及竞争导致条件变化说明不能用 if。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "分别说明最多存两个元素的容量条件和 mutex 对状态的保护；执行时序一致。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "清楚区分唤醒、重新获取 mutex 和 wait 返回三个时刻。"
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确检查、入队、出队都持有同一个 mutex。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "流程说明 wait 原子释放锁并等待，成功重新获取锁才返回。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出 signal 不释放锁、不保证立即执行，唤醒者也未获预留的锁。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "以虚假唤醒和其他消费者抢先取走元素解释 while 复查。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "队列满时等待与 mutex 保护操作分开表述，容量为 2 的伪代码和时序吻合。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "流程图和时序分别标明等待、唤醒、获锁及函数返回。"
+    }
+  ]
+}

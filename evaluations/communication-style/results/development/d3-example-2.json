@@ -1,0 +1,28 @@
+{
+  "case": "d3",
+  "arm": "example",
+  "rep": 2,
+  "split": "development",
+  "length": "long",
+  "answer": "容量为 2 的有界队列靠 **mutex 保护队列的检查和修改**，靠两个条件变量让线程在条件不满足时等待：\n\n- `not_empty`：消费者在队列为空时等待。\n- `not_full`：生产者在队列已满（有 2 个元素）时等待。\n- 两个条件变量都配合**同一个 mutex** 使用。\n\n## 核心伪代码\n\n```text\nqueue = 空队列\ncapacity = 2\nmutex m\ncondition_variable not_empty\ncondition_variable not_full\n\nproduce(item):\n    lock(m)\n    while queue.size == capacity:\n        wait(not_full, m)\n\n    queue.push(item)\n    signal(not_empty)\n    unlock(m)\n\nconsume():\n    lock(m)\n    while queue.size == 0:\n        wait(not_empty, m)\n\n    item = queue.pop()\n    signal(not_full)\n    unlock(m)\n    return item\n```\n\n这里使用常见条件变量的语义：\n\n- `wait(cv, m)` 要求调用线程已经持有 `m`。\n- `wait` **原子地释放 `m` 并进入等待**，避免在“释放锁”和“开始等待”的空隙里漏掉通知。\n- 被唤醒后，线程必须重新取得 `m`，`wait` 才能返回。\n- `signal(cv)` 通知一个正在该条件变量上等待的线程，**不会释放 mutex，也不会直接把锁交给它**。\n\n## 时序：队列为空，消费者先到\n\n设消费者为 C，生产者为 P。\n\n### 1. C 取得锁，发现队列为空\n\nC 执行：\n\n```text\nlock(m)\nwhile queue.size == 0:\n    wait(not_empty, m)\n```\n\n此时：\n\n- 队列：`[]`\n- mutex 持有者：C\n- C 检查出队列为空，不能取元素，于是调用 `wait`。\n\n### 2. C 在 `wait` 内释放锁，进入等待\n\n`wait(not_empty, m)` 将“释放 mutex”和“进入条件变量等待”作为一个原子步骤完成。\n\n此时：\n\n- 队列：`[]`\n- mutex 持有者：无\n- C：停留在 `wait` 调用内部，等待通知，不再持有锁。\n\n**此时 `wait` 没有返回。** C 不会继续执行 `queue.pop()`，也不会反复占用 CPU 检查队列。\n\n因为锁已经释放，随后到来的 P 可以取得它。\n\n### 3. P 取得锁，放入一个元素\n\nP 执行：\n\n```text\nlock(m)\nwhile queue.size == 2:\n    wait(not_full, m)\n\nqueue.push(x)\n```\n\n队列原本为空，没有满，所以 P 不需要等待。\n\n此时：\n\n- 队列：`[x]`\n- mutex 持有者：P\n- C：仍在 `wait` 内等待。\n\n### 4. P 执行 `signal(not_empty)`\n\nP 通知 C：可以重新检查队列是否非空了。\n\n此时：\n\n- 队列：`[x]`\n- mutex 持有者：**仍然是 P**\n- C：被唤醒，但还没有取得锁，因此 `wait` 尚不能返回。\n\n这里要区分三个事件：\n\n| 事件 | 含义 |\n|---|---|\n| C 被唤醒 | C 不再只是等待条件变量通知，可以进入重新取得 mutex 的过程 |\n| C 重新取得 mutex | C 获得检查、修改队列的资格 |\n| C 的 `wait` 返回 | 重新取得锁之后，C 才能从 `wait` 后面继续执行 |\n\n**线程被唤醒，不等于函数调用已经返回。**\n\n`signal` 之后，P 可以继续执行。即使调度器让 C 运行，C 也无法在 P 仍持锁时完成重新加锁；它可能继续阻塞在取得 mutex 这一步。`signal` 不保证 C 立即执行。\n\n### 5. P 释放锁，C 重新取得锁\n\nP 执行：\n\n```text\nunlock(m)\n```\n\n这时 C 才有机会取得 mutex。如果还有其他线程竞争锁，C 不一定第一个取得。\n\n在这里只有 C、P，且 P 不再操作队列的情形下，C 随后取得锁，`wait` 返回。\n\n此时：\n\n- 队列：`[x]`\n- mutex 持有者：**C**\n- C：从 `wait` 调用处继续执行。\n\n**`wait` 返回时，锁已经属于调用 `wait` 的线程。** 因此 C 不需要再写一次 `lock(m)`。\n\n### 6. C 重新检查条件，取走元素\n\n`wait` 位于 `while` 循环体内，所以返回后，C 会重新判断：\n\n```text\nwhile queue.size == 0:\n```\n\n现在队列中有 `x`，条件为假，C 退出循环，执行：\n\n```text\nitem = queue.pop()\nsignal(not_full)\nunlock(m)\n```\n\n队列变为空。C 通知可能因队列满而等待的生产者，然后释放锁。如果没有生产者等待，`signal(not_full)` 不会产生后续效果；通知不会被存下来。\n\n## 为什么必须用 `while`\n\n**通知只让线程有机会重新检查条件，不保证线程取得锁时条件仍然成立。**\n\n主要有两个原因：\n\n1. **可能发生虚假唤醒。**  \n   在常见条件变量接口中，即使没有对应的 `signal`，`wait` 也可能返回。返回时锁仍然已经取得，但队列可能依旧为空。\n\n2. **其他线程可能先改变队列。**  \n   例如 P 放入 `x` 并唤醒 C 后，另一个消费者 C2 先取得 mutex，把 `x` 取走。C 随后取得锁、从 `wait` 返回时，队列又空了。\n\n如果用 `if`：\n\n```text\nif queue.size == 0:\n    wait(not_empty, m)\n\nitem = queue.pop()  // wait 返回后不再检查，可能从空队列取元素\n```\n\n就可能出错。用 `while`，C 会发现队列仍为空，再次调用 `wait`，释放锁并等待。\n\n生产者同理：从 `wait(not_full, m)` 返回后，必须重新检查队列是否仍有空位。\n\n整个协作遵循同一个顺序：**持锁检查条件 → 条件不满足就通过 wait 释放锁并等待 → 重新取得锁后再检查 → 条件满足才操作队列。**",
+  "characters": 2831,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 272,
+    "output": 1465,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 1737,
+    "cost": {
+      "input": 0.00272,
+      "output": 0.07325000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.07597000000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 54.021
+}

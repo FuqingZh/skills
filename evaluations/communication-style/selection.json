@@ -1,0 +1,16 @@
+{
+  "candidate": null,
+  "decision": "retain_baseline",
+  "holdout": "not_run_no_eligible_candidate",
+  "generation_commit": "5838e50",
+  "development_responses": 36,
+  "rationale": [
+    "All three arms had zero evidenced target-style findings in the blinded model judgments; no candidate met the required style-improvement gate.",
+    "Each arm omitted the same secondary external-side-effect boundary in both d2 responses (2 of 42 required items per arm). This is not a relative candidate gain or loss.",
+    "The direct arm had one unqualified checkpoint-only-progress assertion. Later text described a paired state/progress snapshot, but did not explicitly repair the opening generalization. This isolated observation does not establish causality.",
+    "A post-hoc judge sanity check identified all six deliberately planted style categories and left the clean control unflagged. It does not measure sensitivity to subtle natural failures.",
+    "The planned 24 holdout generations were conditional on an eligible development candidate. No candidate is nominated; held-out responses remain unobserved."
+  ],
+  "audit": "Implementing-assistant review, not independent human review; see audit.md. No candidate, case, or scoring rubric was changed after generation.",
+  "rollout": "No template, installed instruction, or skill changes."
+}

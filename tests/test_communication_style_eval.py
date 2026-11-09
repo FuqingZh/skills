@@ -128,3 +128,67 @@ def test_isolation_disables_ambient_instruction_and_tool_loading() -> None:
     }.issubset(flags)
     assert "--continue" not in flags
     assert "--resume" not in flags
+
+
+def test_summary_reproduces_committed_raw_judgments() -> None:
+    summary = runpy.run_path(str(EVAL / "summarize.py"))
+    expected = json.loads((EVAL / "development-summary.json").read_text())
+    assert summary["summarize"]("development") == expected
+
+
+def test_summary_counts_omissions_and_normalizes_style() -> None:
+    summary = runpy.run_path(str(EVAL / "summarize.py"))
+    row = {
+        "characters": 2000,
+        "seconds": 2,
+        "usage": {"cost": {"total": 0.1}},
+        "rating": {
+            "content": [{"met": False}, {"met": True}],
+            "critical": [],
+            "style": [{"kind": "preamble", "region": "opening"}],
+            "clarity": "mixed",
+        },
+    }
+    result = summary["metrics"]([row, row])
+    assert result["requirements"] == 4
+    assert result["missing_requirements"] == 2
+    assert result["responses_with_style_issues"] == 2
+    assert result["style_per_1000_characters"] == 0.5
+    assert result["estimated_cost_usd"] == 0.2
+
+
+def test_summary_refuses_missing_or_malformed_artifacts(tmp_path: Path) -> None:
+    summary = runpy.run_path(str(EVAL / "summarize.py"))
+    path = tmp_path / "missing.json"
+    with pytest.raises(ValueError, match="Invalid or missing artifact"):
+        summary["load"](path)
+    path.write_text("{")
+    with pytest.raises(ValueError, match="Invalid or missing artifact"):
+        summary["load"](path)
+
+
+def test_saved_judgments_have_complete_coverage_and_literal_quotes() -> None:
+    cases = json.loads((EVAL / "cases.json").read_text())
+    for case in (c for c in cases if c["split"] == "development"):
+        judged = json.loads(
+            (EVAL / "results/development-judgments" / f"{case['id']}.json").read_text()
+        )
+        answers: list[dict[str, str]] = []
+        for label, key in judged["mapping"].items():
+            response = json.loads(
+                (EVAL / "results/development" / f"{key}.json").read_text()
+            )
+            assert response["model"] == "gpt-6-astra"
+            assert "thinking" not in response
+            answers.append({"id": label, "answer": response["answer"]})
+        RUN["validate_ratings"](judged, answers, len(case["required"]))
+        for rating in judged["ratings"]:
+            answer = next(a["answer"] for a in answers if a["id"] == rating["id"])
+            assert all(item["quote"] in answer for item in rating["critical"])
+
+
+def test_no_candidate_blocks_holdout_before_model_invocation(tmp_path: Path) -> None:
+    assert json.loads((EVAL / "selection.json").read_text())["candidate"] is None
+    with pytest.raises(ValueError, match="frozen selection"):
+        RUN["generate"]("holdout", ["baseline", "direct"], tmp_path)
+    assert not list(tmp_path.iterdir())

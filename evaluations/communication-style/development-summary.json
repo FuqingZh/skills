@@ -1,0 +1,320 @@
+{
+  "split": "development",
+  "metrics": {
+    "baseline/all": {
+      "responses": 12,
+      "requirements": 42,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 21167,
+      "median_characters": 1212.0,
+      "mean_seconds": 63.735,
+      "usage": {
+        "input": 2614,
+        "output": 14941,
+        "cacheRead": 0,
+        "reasoning": 1802,
+        "totalTokens": 17555
+      },
+      "estimated_cost_usd": 0.77319
+    },
+    "baseline/long": {
+      "responses": 6,
+      "requirements": 28,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 19722,
+      "median_characters": 2989.5,
+      "mean_seconds": 111.672,
+      "usage": {
+        "input": 1482,
+        "output": 13614,
+        "cacheRead": 0,
+        "reasoning": 1308,
+        "totalTokens": 15096
+      },
+      "estimated_cost_usd": 0.69552
+    },
+    "baseline/short": {
+      "responses": 6,
+      "requirements": 14,
+      "missing_requirements": 0,
+      "responses_with_omissions": 0,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 1445,
+      "median_characters": 284.0,
+      "mean_seconds": 15.799,
+      "usage": {
+        "input": 1132,
+        "output": 1327,
+        "cacheRead": 0,
+        "reasoning": 494,
+        "totalTokens": 2459
+      },
+      "estimated_cost_usd": 0.07767
+    },
+    "direct/all": {
+      "responses": 12,
+      "requirements": 42,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 1,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 19533,
+      "median_characters": 1069.5,
+      "mean_seconds": 56.02,
+      "usage": {
+        "input": 2470,
+        "output": 13355,
+        "cacheRead": 0,
+        "reasoning": 1348,
+        "totalTokens": 15825
+      },
+      "estimated_cost_usd": 0.69245
+    },
+    "direct/long": {
+      "responses": 6,
+      "requirements": 28,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 1,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 18087,
+      "median_characters": 2814.5,
+      "mean_seconds": 97.117,
+      "usage": {
+        "input": 1410,
+        "output": 12082,
+        "cacheRead": 0,
+        "reasoning": 901,
+        "totalTokens": 13492
+      },
+      "estimated_cost_usd": 0.6182
+    },
+    "direct/short": {
+      "responses": 6,
+      "requirements": 14,
+      "missing_requirements": 0,
+      "responses_with_omissions": 0,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 1446,
+      "median_characters": 277.0,
+      "mean_seconds": 14.922,
+      "usage": {
+        "input": 1060,
+        "output": 1273,
+        "cacheRead": 0,
+        "reasoning": 447,
+        "totalTokens": 2333
+      },
+      "estimated_cost_usd": 0.07425
+    },
+    "example/all": {
+      "responses": 12,
+      "requirements": 42,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 12
+      },
+      "characters": 21545,
+      "median_characters": 1357.0,
+      "mean_seconds": 64.261,
+      "usage": {
+        "input": 2974,
+        "output": 14717,
+        "cacheRead": 0,
+        "reasoning": 1458,
+        "totalTokens": 17691
+      },
+      "estimated_cost_usd": 0.76559
+    },
+    "example/long": {
+      "responses": 6,
+      "requirements": 28,
+      "missing_requirements": 2,
+      "responses_with_omissions": 2,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 19970,
+      "median_characters": 2830.5,
+      "mean_seconds": 113.318,
+      "usage": {
+        "input": 1662,
+        "output": 13364,
+        "cacheRead": 0,
+        "reasoning": 1004,
+        "totalTokens": 15026
+      },
+      "estimated_cost_usd": 0.68482
+    },
+    "example/short": {
+      "responses": 6,
+      "requirements": 14,
+      "missing_requirements": 0,
+      "responses_with_omissions": 0,
+      "critical_findings": 0,
+      "responses_with_style_issues": 0,
+      "style_findings": 0,
+      "style_by_kind": {},
+      "style_by_region": {},
+      "style_per_1000_characters": 0.0,
+      "clarity": {
+        "clear": 6
+      },
+      "characters": 1575,
+      "median_characters": 306.0,
+      "mean_seconds": 15.204,
+      "usage": {
+        "input": 1312,
+        "output": 1353,
+        "cacheRead": 0,
+        "reasoning": 454,
+        "totalTokens": 2665
+      },
+      "estimated_cost_usd": 0.08077
+    }
+  },
+  "flagged": [
+    {
+      "response": "d2-example-1",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "说明了统计状态须与日志位置对应，但未区分重放计算与对外部系统产生副作用的可靠性边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-baseline-1",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "清楚说明结果与处理位置必须匹配，但没有说明重放不能自动保证外部副作用恰好发生一次。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-baseline-2",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "指出 checkpoint 状态须与输入进度一致，但未交代重放与外部副作用之间的边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-example-2",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "解释统计快照与处理位置必须一致，但没有说明重放对外部副作用不自动提供同样保证。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-direct-2",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "说明计算状态要与处理位置配套，但未讨论重放与外部副作用的不同可靠性边界。"
+        }
+      ],
+      "critical": [],
+      "style": []
+    },
+    {
+      "response": "d2-direct-1",
+      "omissions": [
+        {
+          "index": 2,
+          "met": false,
+          "reason": "说明累计结果要与处理位置对应，但没有区分重放计算与外部副作用；开头还错误地限定了 checkpoint 的内容。"
+        }
+      ],
+      "critical": [
+        {
+          "quote": "checkpoint 只记录处理进度，并不保存重建结果所需的全部信息。",
+          "reason": "把 checkpoint 一概说成只记录进度不准确；checkpoint 也可以保存计算状态及对应进度，这是文中所讨论恢复路径的关键。"
+        }
+      ],
+      "style": []
+    }
+  ],
+  "estimated_judge_cost_usd": 0.18727,
+  "status": "raw model judgments; see separate author audit"
+}

@@ -40,6 +40,9 @@ The [skills CLI transition](decisions/2026-11-08-skills-cli-distribution.md)
 supersedes the installer mechanics in the earlier multi-client decision.
 [Release policy](releases.md) owns repository versioning.
 
+[External design sources](sources.md) records borrowed ideas, pinned references,
+and evidence limits; experimental results remain with their protocols.
+
 ## Recorded Open Work
 
 - [Project docs convergence](implementation-plans/20260805-v1.0-project-docs-architecture-convergence-implementation-plan.md):

@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "direct",
+  "rep": 2,
+  "split": "development",
+  "length": "short",
+  "answer": "**真正的页表通常存放在主存（RAM）里；TLB 通常位于 CPU 内部，由 MMU 用来缓存地址映射。**我前面没有区分清楚，表述不严谨。\n\n具体纠正：\n- 如果我前面说的是“CPU 内缓存的、带 ASID、虚拟页号和物理页框号的条目”，那指的是 **TLB**，不应直接叫作内存里的页表。\n- 如果老师说的确实是**页表**，那它通常在 **RAM** 中，CPU 通过页表基址寄存器等信息找到它。\n\n**仅凭这三列，不能断定老师画的是哪一种，更不能确定存放位置。**它很像 TLB 的条目格式，但某些页表结构也可能包含类似字段。老师未交代位置时，我不该直接替他确定。",
+  "characters": 286,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 193,
+    "output": 439,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 233,
+    "totalTokens": 632,
+    "cost": {
+      "input": 0.00193,
+      "output": 0.02195,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.023880000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 28.244
+}

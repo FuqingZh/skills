@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "baseline",
+  "rep": 2,
+  "split": "development",
+  "length": "short",
+  "answer": "我前面只用了“页表”这个名称，没有明确存储位置，表述不清，需要纠正：\n\n- **页表**：通常存放在**主存（RAM）**中，CPU 通过页表基址寄存器等信息找到它。\n- **TLB（快表）**：位于 **CPU 内部**，缓存地址转换结果；表项常包含 ASID、虚拟页号、物理页框号等信息。\n\n**仅凭这三列，无法确定老师画的是哪一种结构。**它很像 TLB 表项，但某些页表组织也可能包含这些字段。因此，我先前的信息不足以明确指认它的位置；若当时指的是 TLB，就应明确说“CPU 内的 TLB”，把它笼统称作“页表”是不准确的。",
+  "characters": 267,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 205,
+    "output": 436,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 247,
+    "totalTokens": 641,
+    "cost": {
+      "input": 0.00205,
+      "output": 0.0218,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.02385,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 32.911
+}
