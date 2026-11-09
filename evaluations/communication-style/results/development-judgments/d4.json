@@ -1,0 +1,148 @@
+{
+  "case": "d4",
+  "mapping": {
+    "R1": "d4-baseline-2",
+    "R2": "d4-baseline-1",
+    "R3": "d4-example-1",
+    "R4": "d4-direct-2",
+    "R5": "d4-example-2",
+    "R6": "d4-direct-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明 ./settings.json 在工作目录 /opt/job 下解析为 /opt/job/settings.json，与实际位置不符。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出 ./config/settings.json 和绝对路径两种有效修正。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"原因、实际查找位置和修改方式均清楚。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"准确指出相对路径以 /opt/job 为基准，查找位置与文件实际位置不同。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确给出 ./config/settings.json 和 /opt/job/config/settings.json。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"路径对照直接，修正方法明确。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"指出 ./settings.json 解析为 /opt/job/settings.json，而文件在 config 子目录。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出 ./config/settings.json、绝对路径及调整工作目录等有效方式。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"按工作目录是否固定区分修正方式，并说明调整工作目录的影响。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"正确定位工作目录与相对路径组合导致的查找位置错误。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"提供 ./config/settings.json、绝对路径及调整工作目录的修正方式。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"原因和各修改方式的适用条件表达清楚。\"\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明程序实际访问 /opt/job/settings.json，而非文件所在位置。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出 ./config/settings.json、绝对路径和调整工作目录的有效修正。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"路径关系明确，并指出已有读取权限无需修改。\"\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确说明 ./settings.json 相对于 /opt/job 解析后指向错误位置。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出 ./config/settings.json 和绝对路径，并说明调整工作目录的替代方案。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"诊断准确，修正方式及调整工作目录的注意事项清楚。\"\n    }\n  ]\n}",
+  "characters": 2198,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1726,
+    "output": 878,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 87,
+    "totalTokens": 2604,
+    "cost": {
+      "input": 0.0034519999999999998,
+      "output": 0.008780000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.012232000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 19.699,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明 ./settings.json 在工作目录 /opt/job 下解析为 /opt/job/settings.json，与实际位置不符。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出 ./config/settings.json 和绝对路径两种有效修正。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "原因、实际查找位置和修改方式均清楚。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "准确指出相对路径以 /opt/job 为基准，查找位置与文件实际位置不同。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确给出 ./config/settings.json 和 /opt/job/config/settings.json。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "路径对照直接，修正方法明确。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "指出 ./settings.json 解析为 /opt/job/settings.json，而文件在 config 子目录。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出 ./config/settings.json、绝对路径及调整工作目录等有效方式。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "按工作目录是否固定区分修正方式，并说明调整工作目录的影响。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "正确定位工作目录与相对路径组合导致的查找位置错误。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "提供 ./config/settings.json、绝对路径及调整工作目录的修正方式。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "原因和各修改方式的适用条件表达清楚。"
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明程序实际访问 /opt/job/settings.json，而非文件所在位置。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出 ./config/settings.json、绝对路径和调整工作目录的有效修正。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "路径关系明确，并指出已有读取权限无需修改。"
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确说明 ./settings.json 相对于 /opt/job 解析后指向错误位置。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出 ./config/settings.json 和绝对路径，并说明调整工作目录的替代方案。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "诊断准确，修正方式及调整工作目录的注意事项清楚。"
+    }
+  ]
+}

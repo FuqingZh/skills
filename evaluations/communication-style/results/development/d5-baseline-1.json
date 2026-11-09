@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "baseline",
+  "rep": 1,
+  "split": "development",
+  "length": "short",
+  "answer": "我前面称它为“页表”，按通常含义指的是**存放在主存（RAM）中的页表**。我没有交代位置，而且仅凭那几个字段就确定名称，表述不严谨。\n\n具体位置应区分清楚：\n- **页表**：通常存放在主存中，保存虚拟页到物理页框的映射；CPU 中的页表基址寄存器指向它。\n- **TLB**：位于 CPU 内部，缓存地址翻译结果，条目常包含 **ASID、虚拟页号、物理页框号**。\n\n所以，老师展示的字段组合很像 TLB 条目，但**仅凭这些字段，无法确定那张表实际存在哪里**。如果它表示 CPU 内的翻译缓存，应称为 TLB；如果表示主存中的映射表，才是这里所说的页表。此前我没有足够依据把它直接认定为后者。",
+  "characters": 301,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 205,
+    "output": 469,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 247,
+    "totalTokens": 674,
+    "cost": {
+      "input": 0.00205,
+      "output": 0.023450000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.025500000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 27.147
+}

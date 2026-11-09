@@ -1,0 +1,28 @@
+{
+  "case": "d4",
+  "arm": "baseline",
+  "rep": 1,
+  "split": "development",
+  "length": "short",
+  "answer": "原因是**相对路径解析后的位置与文件实际位置不一致**。\n\n程序读取 `./settings.json` 时，会以当前工作目录 `/opt/job` 为基准，实际访问：\n\n```text\n/opt/job/settings.json\n```\n\n文件实际位于：\n\n```text\n/opt/job/config/settings.json\n```\n\n因此，应将读取路径改为：\n\n```text\n./config/settings.json\n```\n\n也可以使用绝对路径：\n\n```text\n/opt/job/config/settings.json\n```\n\n如果程序可能从不同工作目录启动，建议通过配置传入绝对路径，或基于程序所在目录构造文件路径，避免依赖启动时的工作目录。",
+  "characters": 337,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 175,
+    "output": 148,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 323,
+    "cost": {
+      "input": 0.00175,
+      "output": 0.0074,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.00915,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 9.729
+}

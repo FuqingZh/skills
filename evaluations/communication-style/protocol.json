@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "baseline_commit": "fcac560789e1b39a519fad4d39ac98c0370caec0",
+  "scope": "Only the opening communication paragraph; response-only experiment, not skill routing or tool-workflow performance.",
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-astra",
+    "thinking": "high",
+    "temperature": "provider default; CLI has no temperature option"
+  },
+  "judge": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high",
+    "limitation": "Separate context and model ID, same provider/model family; author audits quotes and content. Not independent human evaluation."
+  },
+  "repetitions": 2,
+  "workers": 3,
+  "timeout_seconds": 240,
+  "order_seed": 42,
+  "development": {
+    "cases": 6,
+    "arms": [
+      "baseline",
+      "direct",
+      "example"
+    ],
+    "responses": 36
+  },
+  "holdout": {
+    "cases": 6,
+    "arms": [
+      "baseline",
+      "selected"
+    ],
+    "responses": 24
+  },
+  "selection": "Prefer direct over example unless examples show a clear incremental benefit. Candidate must reduce evidenced unwanted style without losing required content or introducing critical failures. Ties retain the installed baseline; differences are descriptive, not statistical superiority.",
+  "holdout_policy": "Freeze both candidates and all cases before generation. Choose one candidate from development only; write selection.json before holdout calls. No source dossier or topic family crosses splits. Original conversation IDs are unavailable, so distinct original sessions are not claimed.",
+  "privacy": "Cases are independently written, de-identified reconstructions or synthetic tasks, not quotations or replay. No private documents, personal names, progress records, or source paths are sent to models or committed.",
+  "reporting": "Preserve every attempt; no quality-based retries. Failures and malformed judgments remain visible. Report long and short separately, missing content, critical failures, style rates/regions, clarity, visible characters, usage and duration. No hidden reasoning is saved or scored.",
+  "rollout": "Only replace the installed-template source after positive holdout evidence and author review; otherwise retain baseline and publish bounded results. Do not change live HOME instructions."
+}

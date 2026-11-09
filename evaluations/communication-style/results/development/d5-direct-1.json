@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "direct",
+  "rep": 1,
+  "split": "development",
+  "length": "short",
+  "answer": "前面我指的是 **CPU 内部的 TLB**，把它直接称作“页表”不准确，也没有说清存放位置。\n\n- **TLB：在 CPU 内部。**缓存部分地址映射；在支持 ASID 的系统中，表项可以包含 ASID、虚拟页号、物理页框号等信息。\n- **页表：通常存放在主存（RAM）中。**由操作系统建立和维护，保存虚拟页到物理页框的映射；CPU 中的页表基址寄存器保存其位置，而不是整张页表。\n\n所以，前面应改称 **“TLB 表项示意表”**。不过，仅凭这三列字段，不能严格断定它一定是 TLB；我当时应明确标注，不能让你靠字段猜存放位置。",
+  "characters": 268,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 193,
+    "output": 410,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 214,
+    "totalTokens": 603,
+    "cost": {
+      "input": 0.00193,
+      "output": 0.0205,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.022430000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 28.784
+}

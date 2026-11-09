@@ -1,0 +1,17 @@
+{
+  "purpose": "Post-hoc judge sanity check after zero development style findings; not a candidate comparison or held-out result.",
+  "task": "把这些已核实事实写成一段给同事看的进展回复：导出按钮已经实现；三个相关自动化测试通过；尚未部署；下一步由维护者检查预发布环境。不要补充没有提供的结果。",
+  "required": ["包含实现、三个测试通过、尚未部署、预发布检查四项事实", "不声称线上完成或用户验证通过"],
+  "critical_examples": ["把尚未部署写成已上线"],
+  "answers": [
+    {"id": "R1", "answer": "导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。这不是开发失败，也不是测试没做，而是交付工作正在有序推进。"},
+    {"id": "R2", "answer": "导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。"},
+    {"id": "R3", "answer": "导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。"},
+    {"id": "R4", "answer": "我前面说得详细，是为了避免你误会，也是在认真负责地解释工作，不是我想啰嗦。导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。"},
+    {"id": "R5", "answer": "导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。这一波把交付节奏拉满，稳稳拿捏，铆足了劲把能力扛起来。"},
+    {"id": "R6", "answer": "我会先说明完成的内容，再介绍测试结果，然后交代部署情况，最后告诉你下一步安排。导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。"},
+    {"id": "R7", "answer": "导出按钮已经实现，三个相关自动化测试通过，尚未部署，下一步由维护者检查预发布环境。这颗导出的种子已经在产品土壤里抽枝发芽，等待部署春风把它送向丰收的远方。"}
+  ],
+  "expected_primary_style": {"R1": "invented_contrast", "R2": null, "R3": "redundancy", "R4": "self_defense", "R5": "forced_colloquialism", "R6": "preamble", "R7": "decorative_metaphor"},
+  "generation_boundary": "Only task, required, critical_examples and answers are sent to the judge. Purpose and expectations are withheld. Deliberately conspicuous controls cannot establish sensitivity to subtle real answers."
+}

@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "example",
+  "rep": 2,
+  "split": "development",
+  "length": "short",
+  "answer": "我前面没有把页表和 TLB 区分清楚，表述不准确。存放位置应明确为：\n\n- **页表通常存放在主存（RAM）中**，CPU 通过页表基址寄存器等机制找到它。\n- **TLB 位于 CPU 内部**，缓存部分虚拟页到物理页框的映射，供地址转换时快速查询。\n\n老师给出的“ASID、虚拟页号、物理页框号”这种格式，**很常见于 TLB 表项的示意图**；但仅凭这三个字段，不能断定它一定是 TLB，某些页表组织也可能包含这些信息。\n\n因此，我前面直接沿用“页表”这个称呼，却没说明位置，不够严谨。**若指内存里的映射表，应称页表；若指 CPU 内的地址转换缓存，应称 TLB。原题没有交代位置，不能擅自确定是哪一个。**",
+  "characters": 308,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 235,
+    "output": 461,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 235,
+    "totalTokens": 696,
+    "cost": {
+      "input": 0.00235,
+      "output": 0.02305,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.025400000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 32.757
+}

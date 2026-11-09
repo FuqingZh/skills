@@ -1,0 +1,11 @@
+{
+  "sha256": {
+    "cases.json": "ddee444d87b004796f05be15aa197b8ddf8744310c9521e6642463c2a997511a",
+    "protocol.json": "80288e64353f5a4c933e2c8ff15d4c1da907ce2ca956826ac860ffe5f38b53ea",
+    "judge.txt": "2b4ef9be16a923e6a9ea6d0e790388728d0eddfde9d53088caee17bcb2f64463",
+    "run.py": "a30f0f9903a79f85e0e04147d8ff7123ee8642402f7fb9294a585c8d1dd8e1e6",
+    "prompts/baseline.txt": "bd03a3d742800d21ed71a3dadde04c1b1c6b778a338e1d0f59c67363b59ea607",
+    "prompts/direct.txt": "1c4d32077a2750c67199bcee796e34068029a403466070d83ab9106ef1ba10e0",
+    "prompts/example.txt": "056ebdec8b89eabb69b5154da4a6a38009b3713c07193bb344513c20ac780a80"
+  }
+}
