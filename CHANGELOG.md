@@ -23,6 +23,8 @@ First repository-level versioned distribution; no tag has been published yet.
   Normal installation performs no skill cleanup; no uninstall wrapper is kept.
 - Archive patched `teach` and `grilling` with byte-integrity manifests and
   historical provenance. Upstream Matt grilling is an independent user choice.
+- Provide English and Simplified Chinese README entrypoints, with both covered
+  by Markdown lint and link validation.
 
 See [migration instructions](README.md#legacy-migration) and
 [release policy](docs/releases.md). These lifecycle changes do not establish

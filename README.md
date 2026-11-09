@@ -1,5 +1,7 @@
 # FuqingZh/skills
 
+English | [简体中文](README.zh-CN.md)
+
 Portable engineering skills and global agent instructions for Codex, Grok Build,
 and Pi. Repository-owned contracts and upstream standards guide local work;
 calibration supplies reusable judgment and safety boundaries.

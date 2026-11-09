@@ -5,7 +5,8 @@ authority, recorded open work, and historical evidence.
 
 ## Start Here
 
-1. Read the [repository README](../README.md) for installation and development.
+1. Read the repository README ([English](../README.md) / [简体中文](../README.zh-CN.md))
+   for installation and development.
 2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
    references; long-form guidance has one [document router](../skills/calibration/references/docs_index.md).
 3. Follow [AGENTS.md](../AGENTS.md) for repository validation and contribution rules.
