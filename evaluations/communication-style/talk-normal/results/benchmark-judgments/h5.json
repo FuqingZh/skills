@@ -1,0 +1,128 @@
+{
+  "case": "h5",
+  "mapping": {
+    "R1": "h5-talk-normal-2",
+    "R2": "h5-baseline-1",
+    "R3": "h5-baseline-2",
+    "R4": "h5-talk-normal-1"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"用灶台边的调料解释缓存的位置和便利性。\"},{\"index\":1,\"met\":true,\"reason\":\"说明后续读取常用数据时可省去较慢的访问。\"},{\"index\":2,\"met\":true,\"reason\":\"指出调料是搬走的，而缓存通常保留数据副本，原始数据仍在原处。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"类比、作用和不能照搬之处都表达明确。\"},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"用灶台旁的调料和远处橱柜作日常类比。\"},{\"index\":1,\"met\":true,\"reason\":\"解释缓存命中时直接取用，未命中时从原始来源读取并可存入缓存供下次使用。\"},{\"index\":2,\"met\":true,\"reason\":\"指出缓存通常是副本，原始数据更新后副本可能过时，需要更新或失效。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"对应关系和类比边界具体易懂。\"},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"用灶台旁的调料解释常用数据为何放在易取之处。\"},{\"index\":1,\"met\":true,\"reason\":\"说明缓存读取通常更快，未找到时可从原始来源获取并存入缓存供下次使用。\"},{\"index\":2,\"met\":true,\"reason\":\"指出缓存通常保留副本，原始数据更新后可能需要刷新或失效处理。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"说明了访问过程，也明确指出了类比不能照搬的地方。\"},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"用灶台旁的调料与储物柜作类比，说明取用更方便。\"},{\"index\":1,\"met\":true,\"reason\":\"说明把常用或最近用过的数据放在访问更快的区域，以缩短后续读取时间。\"},{\"index\":2,\"met\":true,\"reason\":\"指出缓存通常保存副本而非搬走原件，并提到一致性问题。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"类比的作用和局限均表述清楚。\"}]}",
+  "characters": 1173,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1217,
+    "output": 673,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 119,
+    "totalTokens": 1890,
+    "cost": {
+      "input": 0.002434,
+      "output": 0.006730000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.009164,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 16.929,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用灶台边的调料解释缓存的位置和便利性。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明后续读取常用数据时可省去较慢的访问。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出调料是搬走的，而缓存通常保留数据副本，原始数据仍在原处。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "类比、作用和不能照搬之处都表达明确。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用灶台旁的调料和远处橱柜作日常类比。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "解释缓存命中时直接取用，未命中时从原始来源读取并可存入缓存供下次使用。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出缓存通常是副本，原始数据更新后副本可能过时，需要更新或失效。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "对应关系和类比边界具体易懂。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用灶台旁的调料解释常用数据为何放在易取之处。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明缓存读取通常更快，未找到时可从原始来源获取并存入缓存供下次使用。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出缓存通常保留副本，原始数据更新后可能需要刷新或失效处理。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "说明了访问过程，也明确指出了类比不能照搬的地方。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用灶台旁的调料与储物柜作类比，说明取用更方便。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明把常用或最近用过的数据放在访问更快的区域，以缩短后续读取时间。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出缓存通常保存副本而非搬走原件，并提到一致性问题。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "类比的作用和局限均表述清楚。"
+    }
+  ]
+}

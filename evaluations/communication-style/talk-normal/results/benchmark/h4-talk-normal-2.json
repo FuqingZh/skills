@@ -1,0 +1,28 @@
+{
+  "case": "h4",
+  "arm": "talk-normal",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "两者有区别，也可以同时成立。\n\n**广播（broadcast）描述投递范围**：把一条消息发送给某个范围内的所有接收方，例如某个主题的全部订阅者，“所有”的边界由系统定义。  \n**Fan-out（扇出）描述分发形态**：一条输入消息被分发到多个下游目标，目标可以是全部订阅者，也可以是按规则选中的多个队列或服务。\n\n例如，订单事件被分发给全部订阅它的库存、积分、通知服务，这次分发同时具有**广播语义**和 **fan-out 形态**。阅读具体产品文档时，应以产品定义为准：例如 RabbitMQ 的 `fanout exchange` 会向所有绑定队列投递消息，因此直接提供了广播式路由。",
+  "characters": 297,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 1004,
+    "output": 342,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 155,
+    "totalTokens": 1346,
+    "cost": {
+      "input": 0.01004,
+      "output": 0.0171,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.02714,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 23.696
+}

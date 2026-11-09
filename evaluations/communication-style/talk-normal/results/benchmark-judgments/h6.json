@@ -1,0 +1,128 @@
+{
+  "case": "h6",
+  "mapping": {
+    "R1": "h6-baseline-2",
+    "R2": "h6-baseline-1",
+    "R3": "h6-talk-normal-2",
+    "R4": "h6-talk-normal-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确指出现有证据不能判定两次均未写入。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明客户端超时可能是服务端已写入、响应却丢失或延迟，并要求核实是否提交。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"要求按请求标识核查权威数据及提交证据，提醒避免直接重复提交。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"结论、逐笔核查步骤和重试边界均明确。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"将两次结果标记为未知，而非判定写入失败。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分客户端未收到响应与服务端可能已写入，并提出核对提交或回滚。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"要求关联请求标识、查询权威数据和处理链路，并避免盲目重试。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"直接回答负责人问题，核查路径具体。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确表示无法确定两次均未写入，应分别标记为待核实。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"指出服务端可能已写入而响应丢失，并要求查询事务状态和提交情况。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"提出用业务键或请求 ID 查询权威数据、查链路，并在重试前确认幂等保障。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"未知状态、可先核查的证据及重试条件表述清楚。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确指出超时和无响应体不足以确定未写入。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明可能已完成写入但响应丢失，并要求核对是否提交成功。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"要求逐笔查询权威数据、结合请求标识核查处理链路，重试前确认幂等保障。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"结论明确，核查与重试建议可执行。\"\n    }\n  ]\n}",
+  "characters": 1628,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1792,
+    "output": 874,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 166,
+    "totalTokens": 2666,
+    "cost": {
+      "input": 0.003584,
+      "output": 0.008740000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.012324000000000002,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 19.106,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确指出现有证据不能判定两次均未写入。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明客户端超时可能是服务端已写入、响应却丢失或延迟，并要求核实是否提交。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "要求按请求标识核查权威数据及提交证据，提醒避免直接重复提交。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "结论、逐笔核查步骤和重试边界均明确。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "将两次结果标记为未知，而非判定写入失败。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分客户端未收到响应与服务端可能已写入，并提出核对提交或回滚。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "要求关联请求标识、查询权威数据和处理链路，并避免盲目重试。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "直接回答负责人问题，核查路径具体。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确表示无法确定两次均未写入，应分别标记为待核实。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出服务端可能已写入而响应丢失，并要求查询事务状态和提交情况。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "提出用业务键或请求 ID 查询权威数据、查链路，并在重试前确认幂等保障。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "未知状态、可先核查的证据及重试条件表述清楚。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确指出超时和无响应体不足以确定未写入。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明可能已完成写入但响应丢失，并要求核对是否提交成功。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "要求逐笔查询权威数据、结合请求标识核查处理链路，重试前确认幂等保障。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "结论明确，核查与重试建议可执行。"
+    }
+  ]
+}

@@ -73,3 +73,25 @@ def test_followup_generates_48_fresh_attempts_without_model_calls(
     with pytest.raises(FileExistsError):
         core["generate"]("benchmark", ["baseline", "talk-normal"], tmp_path)
     assert len(calls) == 48
+
+
+def test_committed_followup_artifacts_reproduce_and_validate() -> None:
+    core = BENCH["engine"]()
+    assert BENCH["summary"]() == json.loads((ROOT / "summary.json").read_text())
+    cases = {c["id"]: c for c in json.loads((BASE / "cases.json").read_text())}
+    paths = list((ROOT / "results/benchmark-judgments").glob("*.json"))
+    assert len(paths) == len(cases)
+    for path in paths:
+        judgment = json.loads(path.read_text())
+        answers = {
+            anonymous: json.loads(
+                (ROOT / "results/benchmark" / f"{response}.json").read_text()
+            )["answer"]
+            for anonymous, response in judgment["mapping"].items()
+        }
+        assert len(answers) == 4
+        core["validate_ratings"](
+            {"ratings": judgment["ratings"]},
+            [{"id": key, "answer": value} for key, value in answers.items()],
+            len(cases[judgment["case"]]["required"]),
+        )

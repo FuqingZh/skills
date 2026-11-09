@@ -1,0 +1,28 @@
+{
+  "case": "d5",
+  "arm": "baseline",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "我前面把带有 **ASID、虚拟页号、物理页框号** 的表直接称为“页表”，表述不准确，也没有交代存放位置。\n\n按这种字段组合描述，我前面指的是 **TLB，位于 CPU 内部的地址转换硬件中**，缓存虚拟页到物理页框的映射。\n\n**内存里的页表**通常存放在主存（RAM）中，由操作系统维护，供地址转换时查询。常见的多级页表用虚拟页号来索引表项，表项主要保存物理页框号、权限及状态位，通常不逐项保存 ASID 和虚拟页号。\n\n因此，前面那张表应称为 **TLB 表项示意表**。仅凭字段组合无法完全排除其他页表组织方式；如果老师没有交代实现背景和存放位置，原描述本身就有歧义。",
+  "characters": 289,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 206,
+    "output": 216,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 422,
+    "cost": {
+      "input": 0.00206,
+      "output": 0.0108,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.01286,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 13.912
+}

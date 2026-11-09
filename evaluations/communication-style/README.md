@@ -8,6 +8,10 @@ This study evaluates the opening communication paragraph only. The runtime
 template, other global instructions, skills, installer, and installed homes are
 unchanged.
 
+A later [complete talk-normal comparison](talk-normal/README.md) uses all 12
+cases, including the formerly unobserved holdout cases, under a separately frozen
+protocol. It does not alter this study's no-selection decision or scores.
+
 ## Question
 
 Can a short instruction reduce self-defense, redundant explanation, invented

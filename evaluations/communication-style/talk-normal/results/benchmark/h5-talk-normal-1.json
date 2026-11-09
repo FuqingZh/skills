@@ -1,0 +1,28 @@
+{
+  "case": "h5",
+  "arm": "talk-normal",
+  "rep": 1,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "缓存就像把常用的调料放在灶台旁：做饭时伸手就能拿到，省去每次去储物柜翻找的时间。计算机也会把常用或最近用过的数据放进访问更快的存储区域，缩短读取时间。\n\n这个比喻的局限在于**“拿出来”这个动作**：调料瓶从储物柜移到灶台后，原位置就空了；真实缓存通常保存的是数据副本，原始数据仍留在原处，因此还需要处理副本与原始数据的一致性问题。",
+  "characters": 166,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 1003,
+    "output": 140,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 1143,
+    "cost": {
+      "input": 0.01003,
+      "output": 0.007,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.01703,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 12.56
+}

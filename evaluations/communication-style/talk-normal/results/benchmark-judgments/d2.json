@@ -1,0 +1,168 @@
+{
+  "case": "d2",
+  "mapping": {
+    "R1": "d2-baseline-1",
+    "R2": "d2-talk-normal-2",
+    "R3": "d2-baseline-2",
+    "R4": "d2-talk-normal-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"改用一条依赖关系和一个订单例子重新组织说明，没有继续堆叠同构的去重例子。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明订单事实和计算规则如何重建丢失的销售额统计。\"},\n        {\"index\": 2, \"met\": false, \"reason\": \"提到 checkpoint 要与计算状态配合，但没有说明重放统计状态与执行外部副作用的保障边界不同。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"去重只作为衔接机制简述，未另举多个例子。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"具体讲了迁移时的快照与增量交接，以及删除订单后更新统计和恢复材料。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"沿同一订单例子依次解释恢复、迁移和删除，层次清楚。\"\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"用单一购买记录例子按事实、恢复、迁移、删除重新组织内容，没有责怪用户。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确以事实数据和规则重算购买笔数与总额。\"},\n        {\"index\": 2, \"met\": false, \"reason\": \"清楚说明统计状态须与处理位置配套，但未区分状态重放和外部副作用的保障边界。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"重复投递与去重仅简要带过，没有展开新的一组同构例子。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"给出迁移的快照、增量、切换步骤，并具体处理业务删除和旧副本清理。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"同一时间线贯穿各操作，并明确了快照状态与处理位置的对应关系。\"\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"以同一组交易事实重排解释顺序，直接改善先前重复且混乱的组织方式。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"用支付和退款事实、统计规则解释净成交额为何可重算。\"},\n        {\"index\": 2, \"met\": false, \"reason\": \"说明快照状态须对应已处理到 E2 的进度，但未说明重放与外部副作用的不同边界。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"仅一句提及重复投递和去重，重点保持在事实与结果的依赖关系上。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"实际展开迁移边界、增量追赶，以及删除统计结果或事实后的不同后果。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"事实、规则和衍生结果的定义清楚，后续操作始终沿用同一例子。\"\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"用一个订单例子按底层关系重新讲解，纠正了重复举例和组织松散的问题。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明完整订单事实与统计规则可从头重建销售额。\"},\n        {\"index\": 2, \"met\": false, \"reason\": \"明确 checkpoint 要配对统计状态和进度，但没有区分重放计算与外部副作用的保障边界。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"去重只用于解释重放期间的订单处理，没有另开多个同构例子。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"具体说明迁移所需的事实、规则和进度，并说明删除订单后统计及恢复路径如何更新。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"围绕订单事实、统计状态和进度逐步推进，迁移与删除均有具体落点。\"\n    }\n  ]\n}",
+  "characters": 2366,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 5732,
+    "output": 1996,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 913,
+    "totalTokens": 7728,
+    "cost": {
+      "input": 0.011464,
+      "output": 0.019960000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.031424,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 40.222,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "改用一条依赖关系和一个订单例子重新组织说明，没有继续堆叠同构的去重例子。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明订单事实和计算规则如何重建丢失的销售额统计。"
+        },
+        {
+          "index": 2,
+          "met": false,
+          "reason": "提到 checkpoint 要与计算状态配合，但没有说明重放统计状态与执行外部副作用的保障边界不同。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "去重只作为衔接机制简述，未另举多个例子。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "具体讲了迁移时的快照与增量交接，以及删除订单后更新统计和恢复材料。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "沿同一订单例子依次解释恢复、迁移和删除，层次清楚。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用单一购买记录例子按事实、恢复、迁移、删除重新组织内容，没有责怪用户。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确以事实数据和规则重算购买笔数与总额。"
+        },
+        {
+          "index": 2,
+          "met": false,
+          "reason": "清楚说明统计状态须与处理位置配套，但未区分状态重放和外部副作用的保障边界。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "重复投递与去重仅简要带过，没有展开新的一组同构例子。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "给出迁移的快照、增量、切换步骤，并具体处理业务删除和旧副本清理。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "同一时间线贯穿各操作，并明确了快照状态与处理位置的对应关系。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "以同一组交易事实重排解释顺序，直接改善先前重复且混乱的组织方式。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "用支付和退款事实、统计规则解释净成交额为何可重算。"
+        },
+        {
+          "index": 2,
+          "met": false,
+          "reason": "说明快照状态须对应已处理到 E2 的进度，但未说明重放与外部副作用的不同边界。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "仅一句提及重复投递和去重，重点保持在事实与结果的依赖关系上。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "实际展开迁移边界、增量追赶，以及删除统计结果或事实后的不同后果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "事实、规则和衍生结果的定义清楚，后续操作始终沿用同一例子。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "用一个订单例子按底层关系重新讲解，纠正了重复举例和组织松散的问题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明完整订单事实与统计规则可从头重建销售额。"
+        },
+        {
+          "index": 2,
+          "met": false,
+          "reason": "明确 checkpoint 要配对统计状态和进度，但没有区分重放计算与外部副作用的保障边界。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "去重只用于解释重放期间的订单处理，没有另开多个同构例子。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "具体说明迁移所需的事实、规则和进度，并说明删除订单后统计及恢复路径如何更新。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "围绕订单事实、统计状态和进度逐步推进，迁移与删除均有具体落点。"
+    }
+  ]
+}

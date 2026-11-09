@@ -1,0 +1,28 @@
+{
+  "case": "d6",
+  "arm": "talk-normal",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "导出按钮已实现，三个相关自动化测试均已通过，目前尚未部署。下一步由维护者检查预发布环境。",
+  "characters": 44,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 1027,
+    "output": 81,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 46,
+    "totalTokens": 1108,
+    "cost": {
+      "input": 0.010270000000000001,
+      "output": 0.00405,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.014320000000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 9.518
+}

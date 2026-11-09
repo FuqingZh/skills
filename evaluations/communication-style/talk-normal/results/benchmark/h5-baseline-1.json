@@ -1,0 +1,28 @@
+{
+  "case": "h5",
+  "arm": "baseline",
+  "rep": 1,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "缓存就像你把常用的调料放在灶台旁：做饭时伸手就能拿到，省去每次打开远处橱柜寻找的时间。\n\n对应到计算机里：\n- **橱柜**像数据库或其他原始数据来源。\n- **灶台旁的位置**像缓存，用来存放经常要用、取起来更快的数据。\n- 需要的数据已经在缓存里，叫“缓存命中”；没找到，就去原始来源读取，也可以顺便放进缓存，方便下次使用。\n\n**这个比喻有一处不能照搬：**调料从橱柜搬到灶台旁，原来的位置就没有那瓶调料了；真实缓存通常保存的是数据的**副本**，原始数据仍然保留。因此，原始数据更新后，缓存里的副本可能暂时还是旧的，需要更新或失效处理。",
+  "characters": 272,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 163,
+    "output": 208,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 371,
+    "cost": {
+      "input": 0.0016300000000000002,
+      "output": 0.010400000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.01203,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 13.829
+}
