@@ -1,6 +1,6 @@
 # Skills CLI distribution and global instructions
 
-Status: accepted; implementation pending release.
+Status: accepted and implemented; repository version 1.0.0 remains unreleased.
 
 ## Ownership
 

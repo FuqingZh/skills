@@ -8,8 +8,8 @@ Settled adoption decisions can still explain current behavior; follow the
 
 Original evidence, frozen manifests, hashes, licenses, and provenance are not
 rewritten or deduplicated. Historical invocation metadata does not activate a
-retired skill. The installer retains owned-link cleanup and foreign-link
-preservation.
+retired skill. The explicit legacy-link cleanup tool retains ownership checks
+and foreign-link preservation; the global instruction installer does not remove skills.
 
 Frozen skill contents are checked by the [skill archive test](../../tests/test_archived_skills.py).
 The [retired guidance manifest](retired-guidance-manifest.json) preserves the four
@@ -46,8 +46,11 @@ Earlier July harness and delivery plans remain in
 authorize new host operations or reopen downstream work.
 
 The [retired third-party skill archive](../../thirdparty/archive/README.md)
-contains brainstorming, coding-protocol, writing-great-skills, and writing-plans
-with their source and provenance preserved outside the active skill tree.
+contains brainstorming, coding-protocol, writing-great-skills, writing-plans,
+teach, and the formerly patched grilling, with their source and provenance
+preserved outside the active skill tree. The [skills CLI transition](../decisions/2026-11-08-skills-cli-distribution.md)
+explains the teach/grilling retirement; independently installed upstream grilling
+is a separate source.
 
 ## Adoption Decisions And Comparison Evidence
 

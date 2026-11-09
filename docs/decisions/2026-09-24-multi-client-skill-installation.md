@@ -1,5 +1,12 @@
 # Multi-client skill installation
 
+Status: historical installation mechanics, superseded by the
+[skills CLI distribution decision](2026-11-08-skills-cli-distribution.md).
+Use the [repository README](../../README.md) and
+[migration guide](../migrations/skills-cli.md) for current commands. The original
+interfaces, client versions, and validation results below remain as historical
+evidence; they do not restore retired installer options or profiles.
+
 ## Decision
 
 The installer supports `--agent codex grok pi` (or `--agent all`) with one

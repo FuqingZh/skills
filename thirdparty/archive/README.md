@@ -8,6 +8,8 @@ historical material, not current operating guidance.
 | --- | --- |
 | [brainstorming](brainstorming/SKILL.md) | User-requested retirement of the separate design-dialogue workflow and visual companion; ordinary design discussion remains available. See the [decision](../../docs/decisions/2026-10-22-brainstorming-retirement.md). |
 | [coding-protocol](coding-protocol/SKILL.md) | Independent runtime entry retired after a bounded comparison; repository rules, native execution, and calibration remain current. See the [retirement trial](../../docs/decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md). |
+| [grilling](grilling/SKILL.md) | Patched copy retired during the [skills CLI transition](../../docs/decisions/2026-11-08-skills-cli-distribution.md); unmodified upstream grilling is selected and installed separately. |
+| [teach](teach/SKILL.md) | Retired during the [skills CLI transition](../../docs/decisions/2026-11-08-skills-cli-distribution.md); historical evaluations and personal learning data are preserved. |
 | [writing-great-skills](writing-great-skills/SKILL.md) | Runtime entry retired after limited screening; retain as historical authoring reference. See the [decision](../../docs/decisions/2026-09-07-gpt6-skill-retirement-and-snippet-scope.md). |
 | [writing-plans](writing-plans/SKILL.md) | Planning belongs to the environment's planning flow and the shared [implementation-plan reference](../../skills/calibration/references/docs/document-types/implementation-plan.md). |
 
