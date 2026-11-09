@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.0 — unreleased
+## 1.0.0 — 2026-11-09
 
-First repository-level versioned distribution; no tag has been published yet.
+First repository-level versioned distribution.
 
 - Rename the repository to `FuqingZh/skills`; preserve skill names, private
   calibration configuration, and historical provenance.

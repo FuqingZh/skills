@@ -63,7 +63,7 @@ update 跟随已记录的 ref；切换发行版或回滚需要对目标 ref 显�
 CLI 版本与技能来源版本分别管理。全局指令只在从选定 checkout
 重新运行 `install.sh` 时更新。
 参见[发布规则](docs/releases.md)与[变更记录](CHANGELOG.md)；
-计划中的 `v1.0.0` tag 尚未发布。
+首个版本化发布为 `v1.0.0`。
 
 ## 全局指令
 

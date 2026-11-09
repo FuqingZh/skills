@@ -70,7 +70,7 @@ With tested skills CLI 1.7.6, pin a source with `FuqingZh/skills#<tag-or-full-sh
 requires explicit `skills add` with the desired ref. CLI version and source version
 are independent. Global instructions change only when `install.sh` is rerun from
 the selected checkout. See [release policy](docs/releases.md) and
-[release notes](CHANGELOG.md); the proposed `v1.0.0` tag has not been published.
+[release notes](CHANGELOG.md). The first versioned release is `v1.0.0`.
 
 ## Global instructions
 
