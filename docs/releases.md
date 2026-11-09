@@ -10,7 +10,7 @@ major release. Backward-compatible capabilities use a minor release; corrections
 that preserve those contracts use a patch release. Prompt changes still need
 scope-appropriate behavioral evidence for behavioral claims.
 
-The first versioned distribution is **1.0.0 (unreleased)**. Earlier commits remain
+The first versioned distribution is **1.0.0 (2026-11-09)**. Earlier commits remain
 available by full SHA. Publication is a separate authorized action: update the
 version and release notes, run the repository gate and current-head review, then
 tag that reviewed commit and publish matching release notes. Do not move tags.
