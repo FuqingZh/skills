@@ -140,8 +140,10 @@ validation requirements.
   migration history, and implementation plans.
 - [Engineering references](skills/calibration/references/principles.md): principles
   and the [skill router](skills/calibration/SKILL.md) for focused guidance.
-- [Multi-client installation](docs/decisions/2026-09-24-multi-client-skill-installation.md):
-  compatibility decisions, native discovery checks, and evidence limits.
+- [Skills CLI distribution](docs/decisions/2026-11-08-skills-cli-distribution.md):
+  current ownership, global instruction installation, and marker migration.
+- [Earlier multi-client installation](docs/decisions/2026-09-24-multi-client-skill-installation.md):
+  historical installation and native discovery evidence.
 - [Issues](https://github.com/FuqingZh/skills/issues): bug reports and
   improvement proposals. Include the client version, command, and relevant
   sanitized output when reporting installation problems.
