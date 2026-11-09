@@ -1,7 +1,7 @@
 [project]
-name = "calibration"
-version = "0.0.0"
-description = "Development and validation tooling for the calibration repository"
+name = "skills"
+version = "1.0.0"
+description = "Development and validation tooling for the FuqingZh/skills repository"
 requires-python = ">=3.12"
 dependencies = [
   "jsonschema==4.26.0",
@@ -27,11 +27,11 @@ test-coverage = "pytest --cov=scripts --cov-report=term-missing --cov-report=xml
 typecheck = "pyright"
 lint-python = "ruff check scripts tests"
 format-check = "ruff format --check scripts tests"
-lint-markdown = "rumdl check README.md AGENTS.md docs evaluations skills codex"
+lint-markdown = "rumdl check README.md CHANGELOG.md AGENTS.md docs evaluations skills codex"
 validate-markdown-links = "python scripts/validate_markdown_links.py"
 validate-skills = "python scripts/validate_skills.py"
-lint-shell = "shellcheck install.sh"
-check-shell-syntax = "bash -n install.sh"
+lint-shell = "shellcheck -x install.sh scripts/cleanup-legacy-links.sh"
+check-shell-syntax = { shell = "bash -n install.sh && bash -n scripts/cleanup-legacy-links.sh && bash -n scripts/agent-homes.sh" }
 check = { composite = [
   "lint-python",
   "format-check",

@@ -74,5 +74,3 @@ any private host path or containment rule before host-wide discovery. It is rend
 authority, not a public calibration dependency.
 Do not load it for ordinary engineering work, and do not treat its absence
 inside a sandbox as proof that the host profile is absent.
-
-In WSL, the skill source is available at `{{CALIBRATION_ROOT}}/skills`.

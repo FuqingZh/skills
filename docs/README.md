@@ -1,6 +1,6 @@
-# Calibration Documentation
+# FuqingZh/skills Documentation
 
-Calibration is in stable maintenance mode. This index separates current
+The skills collection is in stable maintenance mode. This index separates current
 authority, recorded open work, and historical evidence.
 
 ## Start Here
@@ -15,7 +15,7 @@ authority, recorded open work, and historical evidence.
 Reusable references live inside the owning skills, which provide model
 interaction entrypoints. Repository tools own setup and validation. Private host
 configuration stays outside this repository and is read only for explicit host
-operations. Calibration does not provide an orchestrator integration.
+operations. The repository does not provide an orchestrator integration.
 
 ## Current Authority
 
@@ -34,6 +34,10 @@ The installer and skill sources define active behavior. Adoption rationale,
 completed comparisons, and superseded protocols are indexed in the
 [historical records](archive/README.md), with their original evidence limits.
 Completed evaluations do not establish general model or cross-client quality.
+
+The [skills CLI transition](decisions/2026-11-08-skills-cli-distribution.md)
+supersedes the installer mechanics in the earlier multi-client decision.
+[Release policy](releases.md) owns repository versioning.
 
 ## Recorded Open Work
 

@@ -1,52 +1,21 @@
-# Third-party Skills
+# Third-party skill history
 
-This directory vendors selected third-party Codex skills that are useful for the
-calibration workflow.
+All formerly vendored runtime skills are archived. Active calibration distribution
+contains only its four first-party skills. Personal selection and updates of
+external skills belong to setup and upstream skills CLI.
 
-The installer uses these local copies only. It does not download skills at
-install time. Updates are manual so prompt changes remain reviewable and local
-patches stay explicit.
+- [Archive index](archive/README.md): preserved trees, hashes, and retirement boundaries.
+- [Sources](sources.tsv): upstream commits, tree IDs, and current retirement status.
+- [Patch history](PATCHES.md): historical local adaptations.
+- `import-manifests/`: original source roles, licenses, and import hashes.
 
-## Layout
+Historical import labels such as `vendored+patched+shared` describe their original
+installation policy. Runtime retirement does not rewrite those manifests or
+completed evaluation evidence. `method-adapted-not-vendored` and
+`method-reference-not-vendored` retain attribution without distributing upstream
+runtime trees; `retired-not-vendored` retains provenance for removed sources.
 
-- `skills/`: vendored skill directories installed into `$CODEX_HOME/skills`
-- `archive/`: retired source trees; excluded from installation and runtime discovery
-- `sources.tsv`: upstream source and local policy for each vendored skill
-- `PATCHES.md`: local modifications from the upstream or imported copy
-- `import-manifests/`: machine-readable source roles, license treatment, and
-  byte hashes for multi-source imports
-
-Retired sources may remain in `sources.tsv` after their vendored trees are
-removed. Their entries retain immutable provenance and use an explicit
-`retired-not-vendored` policy.
-
-The progressive-validation-selection provenance distinguishes these policies:
-
-- `vendored+patched+shared`: an imported runtime tree with a documented local
-  patch, installed by the shared registry in both profiles. It is a singular
-  audited exception, not a general third-party installation or invocation rule.
-- `vendored+patched+runtime-archived`: the patched source, license, and invocation
-  metadata remain available, but neither installer profile activates its runtime
-  entry. This is the current policy for `coding-protocol`.
-- `method-adapted-not-vendored`: an upstream method source for a separately
-  attributed local derivative; no upstream skill tree is distributed.
-- `method-reference-not-vendored`: a source used only to inform independently
-  expressed structure; neither its text nor its files are distributed.
-
-The import manifest records historical import treatment and immutable byte
-hashes; its `vendored+patched+shared` label describes the original import.
-`sources.tsv` records current runtime policy, and `PATCHES.md` records the
-transition. Runtime retirement does not rewrite historical import evidence.
-
-See the [archive index](archive/README.md) for relocated sources, integrity hashes,
-and restoration boundaries.
-
-## Policy
-
-- Keep optional mode skills user-invoked unless there is a clear reason for
-  model invocation.
-- Express invocation policy in each skill's `agents/openai.yaml`; keep
-  `SKILL.md` frontmatter portable.
-- Keep upstream names when possible so user prompts match external references.
-- Record local behavior changes in `PATCHES.md` instead of renaming the skill.
-- Do not make the installer perform network fetches.
+Matt's current `grilling` is installed directly from upstream when selected. It
+is unpatched and independent of the preserved calibration adaptation. Archived
+`teach` data formats and evaluations remain historical references; retirement
+never removes personal learning workspaces.

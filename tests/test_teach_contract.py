@@ -10,7 +10,7 @@ from typing import Any, cast
 import yaml
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-TEACH_ROOT = REPOSITORY_ROOT / "thirdparty/skills/teach"
+TEACH_ROOT = REPOSITORY_ROOT / "thirdparty/archive/teach"
 EVALUATION_ROOT = REPOSITORY_ROOT / "evaluations/teach-adaptation"
 TRACEABLE_EVALUATION_ROOT = EVALUATION_ROOT / "v2"
 

@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from scripts.validate_skills import _installer_skills, discover_skills
+from scripts.validate_skills import discover_skills
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 ARCHIVED_NAMES = {
@@ -12,6 +12,8 @@ ARCHIVED_NAMES = {
     "coding-protocol",
     "writing-great-skills",
     "writing-plans",
+    "teach",
+    "grilling",
 }
 
 
@@ -19,7 +21,11 @@ def test_archived_sources_preserve_exact_bytes_and_stay_out_of_runtime() -> None
     archive = REPOSITORY_ROOT / "thirdparty/archive"
     records = [
         row
-        for name in ("manifest.json", "brainstorming-manifest.json")
+        for name in (
+            "manifest.json",
+            "brainstorming-manifest.json",
+            "teach-grilling-manifest.json",
+        )
         for row in json.loads((archive / name).read_text(encoding="utf-8"))["files"]
     ]
     assert {Path(row["archived_path"]).parts[2] for row in records} == ARCHIVED_NAMES
@@ -37,8 +43,4 @@ def test_archived_sources_preserve_exact_bytes_and_stay_out_of_runtime() -> None
         if path.is_file()
     }
     assert actual_paths == expected_paths
-    errors: list[str] = []
-    installed = _installer_skills(REPOSITORY_ROOT, errors)
-    assert errors == []
-    assert not ARCHIVED_NAMES & {path.name for path in installed}
     assert not ARCHIVED_NAMES & {path.name for path in discover_skills(REPOSITORY_ROOT)}
