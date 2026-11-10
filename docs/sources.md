@@ -14,6 +14,13 @@ The original candidate prompts and cases are independently authored. A separate
 vendors the full pinned talk-normal prompt for direct comparison, with its MIT
 notice retained. Neither study installs an upstream skill or global instruction.
 
+The later [cross-domain comparison](../evaluations/communication-style/cross-domain/README.md)
+uses an independently authored assistant proposal responding to user feedback
+about unsolicited self-defense. Its cases and controls are newly authored; one
+case reconstructs the observed conversational failure without private transcripts
+or identifying facts. No additional upstream prompt text is copied, and no
+runtime instructions are changed.
+
 ### S01: talk-normal
 
 - Source: [hexiecs/talk-normal](https://github.com/hexiecs/talk-normal/tree/d89cf329e775e640181427fae071652198264c7e).

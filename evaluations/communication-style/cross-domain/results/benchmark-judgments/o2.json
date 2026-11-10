@@ -1,0 +1,128 @@
+{
+  "case": "o2",
+  "mapping": {
+    "R1": "o2-baseline-2",
+    "R2": "o2-baseline-1",
+    "R3": "o2-revised-1",
+    "R4": "o2-revised-2"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"分别提到就业与照护、家庭与学校资源、观察研究中的相关性与因果关系。\"},{\"index\":2,\"met\":true,\"reason\":\"标题均以“如何”提出讨论问题，没有把某一因素写成已确证的单一原因。\"}],\"critical\":[],\"style\":[],\"clarity\":\"mixed\",\"clarity_reason\":\"第二、三个标题明确；第一个标题中“就业机会……限制脱贫”略有歧义，读者可能不清楚是指就业机会不足。\"},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"三个标题依次涉及就业与照护、家庭与学校资源、观察研究的因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"用“如何影响”“如何识别”提出议题，没有断定某一因素是唯一原因。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三个标题都直接点出各节讨论的对象；第三个标题概括了观察研究的识别议题。\"},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次点出就业与照护负担、家庭与学校资源、观察研究确定因果关系的困难。\"},{\"index\":2,\"met\":true,\"reason\":\"前两项用“如何影响”，第三项强调识别困难，均未写成已确证的单一因果结论。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"标题自然且具体，读者能据此判断各节主题。\"},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次点出就业与照护负担、家庭与学校资源、观察研究确定因果关系的困难。\"},{\"index\":2,\"met\":true,\"reason\":\"前两项用“如何影响”，第三项强调识别困难，均未写成已确证的单一因果结论。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"标题自然且具体，读者能据此判断各节主题。\"}]}",
+  "characters": 1227,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 969,
+    "output": 740,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 159,
+    "totalTokens": 1709,
+    "cost": {
+      "input": 0.0019379999999999998,
+      "output": 0.0074,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.009338,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 16.697,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分别提到就业与照护、家庭与学校资源、观察研究中的相关性与因果关系。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "标题均以“如何”提出讨论问题，没有把某一因素写成已确证的单一原因。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "mixed",
+      "clarity_reason": "第二、三个标题明确；第一个标题中“就业机会……限制脱贫”略有歧义，读者可能不清楚是指就业机会不足。"
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "三个标题依次涉及就业与照护、家庭与学校资源、观察研究的因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用“如何影响”“如何识别”提出议题，没有断定某一因素是唯一原因。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个标题都直接点出各节讨论的对象；第三个标题概括了观察研究的识别议题。"
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次点出就业与照护负担、家庭与学校资源、观察研究确定因果关系的困难。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "前两项用“如何影响”，第三项强调识别困难，均未写成已确证的单一因果结论。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "标题自然且具体，读者能据此判断各节主题。"
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次点出就业与照护负担、家庭与学校资源、观察研究确定因果关系的困难。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "前两项用“如何影响”，第三项强调识别困难，均未写成已确证的单一因果结论。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "标题自然且具体，读者能据此判断各节主题。"
+    }
+  ]
+}

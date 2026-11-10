@@ -126,3 +126,81 @@ def test_generate_exactly_32_isolated_requests(
     with pytest.raises(FileExistsError):
         core["generate"]("benchmark", ["baseline", "revised"], tmp_path)
     assert len(calls) == 32
+
+
+def test_controls_hide_labels_and_preserve_failed_attempts(tmp_path: Path) -> None:
+    module = runpy.run_path(str(ROOT / "benchmark.py"))
+    module["calibrate"].__globals__["ROOT"] = tmp_path
+    core = BENCH["engine"]()
+    for name in (
+        "protocol.json",
+        "controls.json",
+        "judge.txt",
+        "execution-manifest.json",
+    ):
+        (tmp_path / name).write_bytes((ROOT / name).read_bytes())
+    fixtures = core["read_json"](ROOT / "controls.json")
+    calls: list[dict[str, Any]] = []
+
+    def fake_invoke(
+        system: str, prompt: str, config: dict[str, Any], cwd: str, timeout: int
+    ) -> dict[str, Any]:
+        packet = core["json"].loads(prompt)
+        assert set(packet) == {"task", "required", "critical_examples", "answers"}
+        assert config["model"] == "gpt-6-sol"
+        calls.append(packet)
+        if len(calls) == 1:
+            return {"error": "simulated transport failure"}
+        return {"answer": core["json"].dumps(fixture_record(fixtures[len(calls) - 1]))}
+
+    core["invoke"] = fake_invoke
+    with pytest.raises(ValueError, match="Judge control failed: k1"):
+        module["calibrate"](core)
+    assert len(calls) == 3
+    assert len(list((tmp_path / "results/controls").glob("*.json"))) == 3
+    record = core["read_json"](tmp_path / "results/controls/k1.json")
+    assert record["error"] == "simulated transport failure"
+    with pytest.raises(FileExistsError):
+        module["calibrate"](core)
+    assert len(calls) == 3
+
+
+def test_saved_results_reproduce_summary_and_validate_evidence() -> None:
+    core = BENCH["engine"]()
+    BENCH["verify"](core)
+    BENCH["check_controls"](core)
+    read = core["read_json"]
+    assert BENCH["summary"]() == read(ROOT / "summary.json")
+    metadata = read(ROOT / "results/benchmark/run.json")
+    assert metadata["jobs"] == 32
+    assert metadata["source_manifest"] == read(ROOT / "execution-manifest.json")
+    cases = read(ROOT / "cases.json")
+    expected = {"run.json"}
+    for case in cases:
+        answers: dict[str, str] = {}
+        for arm in ("baseline", "revised"):
+            for repetition in (1, 2):
+                key = f"{case['id']}-{arm}-{repetition}"
+                expected.add(f"{key}.json")
+                record = read(ROOT / "results/benchmark" / f"{key}.json")
+                assert "error" not in record
+                assert record["provider"] == "openai"
+                assert record["model"] == "gpt-6-astra"
+                assert record["characters"] == len(record["answer"])
+                answers[key] = record["answer"]
+        judgment = read(ROOT / "results/benchmark-judgments" / f"{case['id']}.json")
+        assert judgment["model"] == "gpt-6-sol"
+        assert set(judgment["mapping"].values()) == set(answers)
+        assert core["json"].loads(judgment["answer"])["ratings"] == judgment["ratings"]
+        core["validate_ratings"](
+            judgment,
+            [
+                {"id": key, "answer": answers[value]}
+                for key, value in judgment["mapping"].items()
+            ],
+            len(case["required"]),
+        )
+    assert {p.name for p in (ROOT / "results/benchmark").glob("*.json")} == expected
+    assert {p.stem for p in (ROOT / "results/benchmark-judgments").glob("*.json")} == {
+        case["id"] for case in cases
+    }

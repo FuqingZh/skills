@@ -12,6 +12,11 @@ A later [complete talk-normal comparison](talk-normal/README.md) uses all 12
 cases, including the formerly unobserved holdout cases, under a separately frozen
 protocol. It does not alter this study's no-selection decision or scores.
 
+A subsequent [cross-domain comparison](cross-domain/README.md) tests a new
+paragraph on philosophy, science, sociology, and everyday conversation, with
+pre-generation judge controls and a clarified rubric. Its results remain separate
+from both earlier comparisons.
+
 ## Question
 
 Can a short instruction reduce self-defense, redundant explanation, invented
