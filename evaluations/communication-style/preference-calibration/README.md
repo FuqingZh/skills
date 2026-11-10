@@ -1,14 +1,17 @@
 # Human preference calibration
 
-Status: **materials prepared; awaiting human labels**. No judge has been
-calibrated, no model calls have been made for this study, and no runtime prompt
-has changed. Earlier study results and invalid attempts remain unchanged.
+Status: **first-round human feedback recorded; rubric revision pending validation**.
+Nine relative preferences and all twelve comments are preserved. No model calls
+have been made for this study; runtime prompts and earlier results are unchanged.
 
-Start with the twelve anonymous pairs in [calibration.md](calibration.md).
-Reply with a pair ID and `A`, `B`, `=` (tie), or `?` (uncertain). Reasons and
-paragraph references are optional. Content concerns can be identified separately.
-The JSON [label template](labels.template.json) is optional for the reader;
-conversation replies may be transcribed without inventing missing judgments.
+See the [first-round review](review-round-1.md),
+[human labels](labels.round-1.json), [transcription notes](feedback.round-1.json),
+[revised reader instructions](instructions-v2.md) and [rubric draft](rubric-v2.md).
+D09 is excluded from style-preference scoring; D01 and D08 have no assigned
+winner. D03 retains the user's preference and a mixed-comparison review flag.
+The original [packet](calibration.md), instructions, renderer and blank
+[label template](labels.template.json) remain reproducible historical inputs.
+Do not use that unclassified packet as the next scoring round.
 
 ## Purpose and evidence boundary
 
@@ -54,7 +57,7 @@ No new private transcripts were read or copied.
 The reader-facing packet omits sources, probe names and editing direction.
 Ordering and A/B assignment are independently randomized using seed 42. This is
 presentation-level blinding; the repository sources are inspectable, not secret.
-No holdout reader packet or human labels have been collected yet. Avoid opening
+No holdout reader packet or holdout labels have been collected yet. Avoid opening
 holdout material while making calibration judgments.
 
 ## Annotation and evidence
@@ -78,6 +81,11 @@ The validator reports labeled and content-labeled counts; an empty template
 passing structural validation does not mean annotation is complete.
 
 ## Next stages after human feedback
+
+First classify comparison purpose and reject unmatched factual verdicts from
+style-preference scoring. Independent correctness controls belong in a separate
+check, and mixed information-coverage changes need explicit review. Apply this
+admission review to reserved pairs before enabling the next judge run.
 
 1. Preserve the human choices and reasons. Do not fill absent answers, infer
    content approval, or replace disagreement with the author's expected label.

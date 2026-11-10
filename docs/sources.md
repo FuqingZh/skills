@@ -34,7 +34,7 @@ public responses. It borrows behavioral testing from
 [WildBench](https://arxiv.org/abs/2406.04770), and pairwise evaluation from
 [AlpacaEval](https://github.com/tatsu-lab/alpaca_eval). Its method register also
 covers human calibration, answer-order bias and length-control limitations.
-No external benchmark data or labels are copied; human labels are pending.
+No external benchmark data or labels are copied; first-round human feedback is recorded.
 
 ### S01: talk-normal
 

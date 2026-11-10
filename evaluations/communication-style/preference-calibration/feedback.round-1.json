@@ -1,0 +1,32 @@
+{
+  "packet_sha256": "ea07c5624f124c84270ad33093a6e01e44db57befc9f0047ada5f162ad6d8fb6",
+  "source": "User feedback in this conversation; no model ratings",
+  "instructions_feedback": "一开头，标注说明，就有问题。“ 这是局部表达对照，语境和候选片段经过整理；不评价原长回答的整体质量。”\"段落编号用于定位，不属于回答正文\"\"内容问题可标 A / B / 两者 / 无 / 不确定，未填不视为没有问题。\"",
+  "combined_feedback": {
+    "ids": [
+      "D10",
+      "D11"
+    ],
+    "text": "b 更好，a1 是一句废话；"
+  },
+  "transcription_notes": [
+    "D02 B and D06 A record explicit relative comparisons. Both responses remain criticized; a preference is not approval.",
+    "D01 and D08 contain criticism of both answers without an explicit winner; choice remains null, not tie or uncertain.",
+    "D09 is a rejected comparison design, not a vote for the factually correct answer.",
+    "Content-issue category fields and evidence-ID fields were not explicitly filled by the user; they remain unset. Original comments preserve the described defects.",
+    "D10 and D11 share one user comment, repeated in their corresponding annotation rows.",
+    "The user's explanation of D04 remains a hypothesis, not a blanket rule about adjectives."
+  ],
+  "analyst_dispositions": [
+    {
+      "id": "D09",
+      "status": "exclude_from_style_preference_scoring",
+      "reason": "Core factual verdict differs; independent content control was mixed into the style packet."
+    },
+    {
+      "id": "D03",
+      "status": "mixed_comparison_review",
+      "reason": "The prompt explicitly asks for an example, while B contains none. Preserve the user's B preference and criticism of A's example; separate example usefulness from request coverage."
+    }
+  ]
+}

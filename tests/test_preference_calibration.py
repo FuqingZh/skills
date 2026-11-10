@@ -161,3 +161,28 @@ def test_cli_is_read_only(tmp_path: Path) -> None:
         check=False,
     )
     assert invalid.returncode != 0 and labels.read_bytes() == before
+
+
+def test_round_one_feedback_preserves_binding_and_unassigned_choices() -> None:
+    labels = json.loads((ROOT / "labels.round-1.json").read_text())
+    feedback = json.loads((ROOT / "feedback.round-1.json").read_text())
+    assert MODULE["_validate"]("calibration", labels) == {
+        "pairs": 12,
+        "labeled": 9,
+        "content_labeled": 0,
+    }
+    assert feedback["packet_sha256"] == labels["packet_sha256"]
+    rows = {row["id"]: row for row in labels["ratings"]}
+    assert {key for key, row in rows.items() if row["choice"] is None} == {
+        "D01",
+        "D08",
+        "D09",
+    }
+    assert all(row["reason"].strip() for row in rows.values())
+    assert rows["D03"]["choice"] == "B"
+    assert rows["D06"]["choice"] == "A"
+    dispositions = {
+        row["id"]: row["status"] for row in feedback["analyst_dispositions"]
+    }
+    assert dispositions["D09"] == "exclude_from_style_preference_scoring"
+    assert dispositions["D03"] == "mixed_comparison_review"
