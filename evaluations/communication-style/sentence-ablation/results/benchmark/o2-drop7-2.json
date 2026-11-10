@@ -1,0 +1,28 @@
+{
+  "case": "o2",
+  "arm": "drop7",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "1. 就业机会与照护负担如何影响贫困\n2. 家庭与学校资源如何影响教育机会\n3. 观察研究如何区分相关性与因果关系",
+  "characters": 57,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 206,
+    "output": 45,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 251,
+    "cost": {
+      "input": 0.00206,
+      "output": 0.0022500000000000003,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.0043100000000000005,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 5.558
+}

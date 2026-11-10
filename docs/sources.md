@@ -21,6 +21,12 @@ case reconstructs the observed conversational failure without private transcript
 or identifying facts. No additional upstream prompt text is copied, and no
 runtime instructions are changed.
 
+The [sentence-deletion follow-up](../evaluations/communication-style/sentence-ablation/README.md)
+uses the same independently authored paragraph and cross-domain cases. Its
+calibration includes an excerpt from the prior public generated answers, paired
+with an edited alternative; no private transcript or new upstream prompt is
+introduced. Scoring and deletion effects are separately frozen and recorded.
+
 ### S01: talk-normal
 
 - Source: [hexiecs/talk-normal](https://github.com/hexiecs/talk-normal/tree/d89cf329e775e640181427fae071652198264c7e).

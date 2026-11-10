@@ -17,6 +17,10 @@ paragraph on philosophy, science, sociology, and everyday conversation, with
 pre-generation judge controls and a clarified rubric. Its results remain separate
 from both earlier comparisons.
 
+The [sentence-deletion study](sentence-ablation/README.md) then measures each
+sentence's conditional contribution, the complete paragraph versus a minimal
+anchor, and the last two sentences' dependency under a separately frozen rubric.
+
 ## Question
 
 Can a short instruction reduce self-defense, redundant explanation, invented

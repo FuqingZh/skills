@@ -8,6 +8,9 @@ Status: complete; no demonstrated target-style improvement. See the
 [results](./results.md), [raw summary](summary.json), and [full-answer audit](./audit.md).
 Both arms received zero model style findings; revised output grew 14.7%.
 
+A separately frozen [sentence-level ablation](../sentence-ablation/README.md)
+tests the revised paragraph's seven sentences and their marginal contributions.
+
 ## Treatment and tasks
 
 [baseline](prompts/baseline.txt) is byte-identical to the original paragraph.

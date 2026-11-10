@@ -1,0 +1,699 @@
+{
+  "case": "o1",
+  "rep": 1,
+  "mapping": {
+    "R1": "o1-drop3-1",
+    "R2": "o1-drop6-1",
+    "R3": "o1-drop1-1",
+    "R4": "o1-drop7-1",
+    "R5": "o1-drop67-1",
+    "R6": "o1-drop2-1",
+    "R7": "o1-full-1",
+    "R8": "o1-drop4-1",
+    "R9": "o1-drop5-1",
+    "R10": "o1-minimal-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明家庭支持如何经由入学、分班和同伴环境影响努力及其回报。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"以小林、小周的假设经历贯穿各环节，并明确案例不是实际调查结果。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出两人的路径都可能改变，不能由家庭背景推断个人结果。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出分班前后追踪、同伴网络和抽签等证据，以区分筛选与环境影响。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"没有虚构统计数据，并明确不能据现象排列因素的重要性。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"假设案例、机制链和检验证据的对应关系清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用具体的学习、分班和求助情境解释社会学概念，细节适合任务。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"各节沿同一案例展开，证据部分逐项回应机制。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"有效区分同伴影响与择友、学校作用与生源筛选、总体影响与中介路径。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将制度和因果判断的限制附在相应主张旁，没有把假设当事实。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从资源转化推进到反馈和研究设计，结尾整合了各环节。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为回答方式或措辞作无关辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"具体连接家庭支持、学校分层、同伴信息及努力的形成和回报。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"同校两名学生的假设案例贯穿全文，并明确是待验证的解释。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明学校可补偿差异、学生可主动求助，不将背景视为命运。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"用分班前后记录、交友时间顺序和分数线附近比较区分不同机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确无法估计效应大小或贡献比例，未声称案例数据为实测。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"每个机制都配有案例环节和相应的观察办法。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"术语有具体行为和制度安排支撑，解释充分而自然。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"保持同校分层教学这一设定，论证顺序连贯。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分家庭重视程度与可用资源、同伴影响与择友、分班影响与筛选。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对教师期待、因果识别和研究结果的适用范围均作就近限定。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"由机制推进到可观察指标、比较设计和中介变量问题。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有不必要的作者意图或回答方法辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"将家庭准备、拓展班选拔、同伴互动与努力及反馈连成具体路径。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"甲、乙的假设案例设定一致，并明说用途是提出可检验解释。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出乙可能改变轨迹，个别结果不能代表某类家庭的必然结果。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出信息统一通知后的报名变化及分数线附近比较，可检验信息和入班机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"未给出虚构效应量，明确现象不足以确认机制或排序。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"案例过程和证据表易于对应；结尾一处用词不影响整体理解。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以照护时间、选拔信息和教学反馈解释概念，细节贴切。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"围绕同校拓展班的设定，按机制发生顺序展开。\"},\n        \"substantive_distinctions\": {\"score\": 3, \"quote\": \"上述竞争性、可检验的解释\", \"reason\": \"前文主要将这些因素写成相互衔接的机制；称其为“竞争性”略显不准，但不影响主要分析。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"明确假设、时间顺序和分数线比较各自不能证明或推广什么。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从案例机制推进到针对性证据，再讨论控制中介和起点成绩的含义。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的自我辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"具体说明居住片区如何连接学校资源，并经同伴、反馈和努力影响成绩与志愿。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"小林、小周的假设案例贯穿各节，明确结果不能倒推出所述过程。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明学校可以补偿、学生可以调整行动，未作个体宿命判断。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"要求分别观察成绩、报考和录取环节，也提出追踪及制度变化比较。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确不能分配效应大小，所有具体制度均以假设或条件表述。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"片区招生的案例主线明确，证据和识别限制分列清晰。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将资源类型落到住房、沟通、反馈和志愿选择等可理解的事项。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从片区入学到最终录取保持同一设定，步骤衔接自然。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分成绩差异与志愿差异、学校作用与生源选择，并说明学校的补偿可能。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对假设制度、教师评价和比较设计均保留恰当条件。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"不仅列出机制，还进一步拆分升学结果以定位差异发生的环节。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为自身表述或建议作辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"把家庭准备、学校分流、同伴规范和努力效果连接为累积路径。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"甲、乙在同校的假设经历保持一致，且明确路径有待检验。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出乙可通过求助改变结果，且不将资源差异等同于教育意愿。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出分班线比较、网络追踪及相近成绩学生的志愿比较，能辨别机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"拒绝因素排名，未提供假装实测的效应量或无条件群体结论。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"假设路径、观察指标及各项限制都有明确标示。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"通过辅导、分班、关系成本和学习中断具体解释作用过程。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"全文围绕同校分班案例展开，机制链与证据表一致。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"分别讨论努力投入、有效性和回报，并区分同伴影响与择友。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"学校、同伴及准实验比较均以可能性和适用条件表述。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从累积路径进一步推进到升学选择环节和统计控制的含义。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的作者自我说明。\"}\n      }\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明家庭经入学和分层影响教学、同伴与努力条件，形成反馈。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"小林、小周的经历被明确标为需检验的假设过程。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确不据背景断言单个学生原因，并举补偿和主动求助的可能。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出连续追踪、朋友网络和随机派位等证据，以区分选择与环境作用。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确不能估计贡献比例，没有使用虚构实测数据。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"机制链与证据表一一对应，限制条件表述明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以报名、照护、教师推荐及学习反馈等具体细节支撑解释。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从家庭条件到升学各环节顺序清楚，并补充反向反馈。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分重视教育与有效支持、学校效应与生源差异、成绩与报考环节。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将学校规则及教师误读设为待验证的可能性，因果比较也附条件。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"由个案过程推进到可观察证据，再细分升学结果以定位机制。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无请求的回答辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R7\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"将家庭支持、分班、同伴网络和努力持续性串成带反馈的路径。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确用同校两名学生的假设案例提出待检验解释。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明不能由背景推断同伴文化，学生也可能主动改变轨迹。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出分班门槛、信息咨询和免费支持推出后的比较，以辨别具体机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确现象不足以确定机制和效应大小，未虚构统计结果。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"案例、机制和因果判断方法按顺序组织，易于理解。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"兼顾具体的家庭约束、校内规则和同伴互动，细节适当。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"各节均服务于同一条机制链，证据部分紧接对应问题。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分同伴文化与家庭背景推断、分班效果与原有成绩，以及努力与努力条件。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"强调假设性及政策比较所需条件，不将相关直接写成因果。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"在机制和观察指标之后提出更有针对性的制度比较。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有讨论或维护自己的措辞和回答方式。\"}\n      }\n    },\n    {\n      \"id\": \"R8\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"具体连接住房与入学制度、分层教学、同伴互动及努力回报。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"小林、小周的假设案例贯穿说明，并明确不代表本市事实。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明同伴可能提供支持、学校可缩小差异，未将背景写成个人命运。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出交友前后追踪、相近起点比较及随机入学等证据，并区分成绩与报考机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确相关不等于因果，也不能分配各因素贡献比例。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"例子的时间线、证据表和因果限制均清晰。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"通过住房选择、辅导、资料交流和学习反馈使概念具体可懂。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"围绕两个学生的入学、分班到升学过程连贯展开。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"有效区分同伴作用与择友、成绩与报考选择，以及总体影响与机制拆解。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"假设制度和因果设计的条件均附在相关论述附近。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从机制进一步推进到结果拆分、纵向证据和控制变量的问题。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的自我辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R9\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"从家庭资源到学区和课程机会、同伴信息、努力效率，给出完整联系。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"小林、小周的情境被明确标为待检验假设，并保持同一机制线。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确不能由最终结果倒推个人努力，也不认为小周必然无法成功。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"用摇号、课程门槛和统一提供信息等比较，区分学校、信息及同伴机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"未虚构效应大小，并对机制是否成立及适用人群作出限定。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"机制、证据和设计条件分层清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以学区、申请时间、照护任务和反馈等具体事项解释社会学机制。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"家庭资源经学校与同伴影响行动的主线贯穿全文。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分努力形成条件与转化效率、同伴影响与选择、初中新增差距与长期影响。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对门槛操纵、外推范围和起点成绩的含义都有准确限定。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从假设机制推进到证据链、识别设计和不同研究目标。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有维护自身回答的无关文字。\"}\n      }\n    },\n    {\n      \"id\": \"R10\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"说明家庭条件经分班、教师反馈和同伴网络影响努力方式与升学。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"甲、乙的同校案例明确是假设，且说明案例本身不是证据。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"明确乙仍可能主动改变路径，不能用成绩衡量个人努力程度。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"提出分班线、近似随机分班及支持项目比较，能够检验部分机制。\"},\n        {\"index\": 4, \"met\": true, \"reason\": \"明确不能判断最大效应或因素排名，未编造本市数据。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"案例链条和大部分证据比较清楚，个别识别表述需要进一步限定。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用具体的申请、辅导、分班和学习反馈解释资源与努力的关系。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"沿甲、乙的同校经历展开，并将观察办法接到相应环节。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分同伴影响与择友、家庭总体影响与中介路径，并保留学生能动性。\"},\n        \"local_qualification\": {\"score\": 3, \"quote\": \"若班级接近随机分配，可更有力地检验同伴构成的影响。\", \"reason\": \"随机分班也可能同时改变教师等班级条件；此处若要单独识别同伴构成，还需说明如何排除这些共同变化。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"由机制链推进到针对性比较，再说明比较目的如何影响统计控制。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无请求的作者自我辩护。\"}\n      }\n    }\n  ]\n}",
+  "characters": 11539,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 18388,
+    "output": 5808,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 784,
+    "totalTokens": 24196,
+    "cost": {
+      "input": 0.036775999999999996,
+      "output": 0.05808000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.094856,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 108.281,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明家庭支持如何经由入学、分班和同伴环境影响努力及其回报。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "以小林、小周的假设经历贯穿各环节，并明确案例不是实际调查结果。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出两人的路径都可能改变，不能由家庭背景推断个人结果。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出分班前后追踪、同伴网络和抽签等证据，以区分筛选与环境影响。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "没有虚构统计数据，并明确不能据现象排列因素的重要性。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "假设案例、机制链和检验证据的对应关系清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用具体的学习、分班和求助情境解释社会学概念，细节适合任务。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "各节沿同一案例展开，证据部分逐项回应机制。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "有效区分同伴影响与择友、学校作用与生源筛选、总体影响与中介路径。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将制度和因果判断的限制附在相应主张旁，没有把假设当事实。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从资源转化推进到反馈和研究设计，结尾整合了各环节。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为回答方式或措辞作无关辩护。"
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "具体连接家庭支持、学校分层、同伴信息及努力的形成和回报。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "同校两名学生的假设案例贯穿全文，并明确是待验证的解释。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明学校可补偿差异、学生可主动求助，不将背景视为命运。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "用分班前后记录、交友时间顺序和分数线附近比较区分不同机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确无法估计效应大小或贡献比例，未声称案例数据为实测。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "每个机制都配有案例环节和相应的观察办法。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "术语有具体行为和制度安排支撑，解释充分而自然。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "保持同校分层教学这一设定，论证顺序连贯。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分家庭重视程度与可用资源、同伴影响与择友、分班影响与筛选。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对教师期待、因果识别和研究结果的适用范围均作就近限定。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "由机制推进到可观察指标、比较设计和中介变量问题。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有不必要的作者意图或回答方法辩护。"
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "将家庭准备、拓展班选拔、同伴互动与努力及反馈连成具体路径。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "甲、乙的假设案例设定一致，并明说用途是提出可检验解释。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出乙可能改变轨迹，个别结果不能代表某类家庭的必然结果。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出信息统一通知后的报名变化及分数线附近比较，可检验信息和入班机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "未给出虚构效应量，明确现象不足以确认机制或排序。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "案例过程和证据表易于对应；结尾一处用词不影响整体理解。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以照护时间、选拔信息和教学反馈解释概念，细节贴切。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "围绕同校拓展班的设定，按机制发生顺序展开。"
+        },
+        "substantive_distinctions": {
+          "score": 3,
+          "quote": "上述竞争性、可检验的解释",
+          "reason": "前文主要将这些因素写成相互衔接的机制；称其为“竞争性”略显不准，但不影响主要分析。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "明确假设、时间顺序和分数线比较各自不能证明或推广什么。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从案例机制推进到针对性证据，再讨论控制中介和起点成绩的含义。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "具体说明居住片区如何连接学校资源，并经同伴、反馈和努力影响成绩与志愿。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "小林、小周的假设案例贯穿各节，明确结果不能倒推出所述过程。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明学校可以补偿、学生可以调整行动，未作个体宿命判断。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "要求分别观察成绩、报考和录取环节，也提出追踪及制度变化比较。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确不能分配效应大小，所有具体制度均以假设或条件表述。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "片区招生的案例主线明确，证据和识别限制分列清晰。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "将资源类型落到住房、沟通、反馈和志愿选择等可理解的事项。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从片区入学到最终录取保持同一设定，步骤衔接自然。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分成绩差异与志愿差异、学校作用与生源选择，并说明学校的补偿可能。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对假设制度、教师评价和比较设计均保留恰当条件。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "不仅列出机制，还进一步拆分升学结果以定位差异发生的环节。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为自身表述或建议作辩护。"
+        }
+      }
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "把家庭准备、学校分流、同伴规范和努力效果连接为累积路径。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "甲、乙在同校的假设经历保持一致，且明确路径有待检验。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出乙可通过求助改变结果，且不将资源差异等同于教育意愿。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出分班线比较、网络追踪及相近成绩学生的志愿比较，能辨别机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "拒绝因素排名，未提供假装实测的效应量或无条件群体结论。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "假设路径、观察指标及各项限制都有明确标示。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "通过辅导、分班、关系成本和学习中断具体解释作用过程。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "全文围绕同校分班案例展开，机制链与证据表一致。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "分别讨论努力投入、有效性和回报，并区分同伴影响与择友。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "学校、同伴及准实验比较均以可能性和适用条件表述。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从累积路径进一步推进到升学选择环节和统计控制的含义。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的作者自我说明。"
+        }
+      }
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明家庭经入学和分层影响教学、同伴与努力条件，形成反馈。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "小林、小周的经历被明确标为需检验的假设过程。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确不据背景断言单个学生原因，并举补偿和主动求助的可能。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出连续追踪、朋友网络和随机派位等证据，以区分选择与环境作用。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确不能估计贡献比例，没有使用虚构实测数据。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "机制链与证据表一一对应，限制条件表述明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以报名、照护、教师推荐及学习反馈等具体细节支撑解释。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从家庭条件到升学各环节顺序清楚，并补充反向反馈。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分重视教育与有效支持、学校效应与生源差异、成绩与报考环节。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将学校规则及教师误读设为待验证的可能性，因果比较也附条件。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "由个案过程推进到可观察证据，再细分升学结果以定位机制。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无请求的回答辩护。"
+        }
+      }
+    },
+    {
+      "id": "R7",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "将家庭支持、分班、同伴网络和努力持续性串成带反馈的路径。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确用同校两名学生的假设案例提出待检验解释。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明不能由背景推断同伴文化，学生也可能主动改变轨迹。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出分班门槛、信息咨询和免费支持推出后的比较，以辨别具体机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确现象不足以确定机制和效应大小，未虚构统计结果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "案例、机制和因果判断方法按顺序组织，易于理解。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "兼顾具体的家庭约束、校内规则和同伴互动，细节适当。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "各节均服务于同一条机制链，证据部分紧接对应问题。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分同伴文化与家庭背景推断、分班效果与原有成绩，以及努力与努力条件。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "强调假设性及政策比较所需条件，不将相关直接写成因果。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "在机制和观察指标之后提出更有针对性的制度比较。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有讨论或维护自己的措辞和回答方式。"
+        }
+      }
+    },
+    {
+      "id": "R8",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "具体连接住房与入学制度、分层教学、同伴互动及努力回报。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "小林、小周的假设案例贯穿说明，并明确不代表本市事实。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明同伴可能提供支持、学校可缩小差异，未将背景写成个人命运。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出交友前后追踪、相近起点比较及随机入学等证据，并区分成绩与报考机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确相关不等于因果，也不能分配各因素贡献比例。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "例子的时间线、证据表和因果限制均清晰。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "通过住房选择、辅导、资料交流和学习反馈使概念具体可懂。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "围绕两个学生的入学、分班到升学过程连贯展开。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "有效区分同伴作用与择友、成绩与报考选择，以及总体影响与机制拆解。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "假设制度和因果设计的条件均附在相关论述附近。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从机制进一步推进到结果拆分、纵向证据和控制变量的问题。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R9",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "从家庭资源到学区和课程机会、同伴信息、努力效率，给出完整联系。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "小林、小周的情境被明确标为待检验假设，并保持同一机制线。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确不能由最终结果倒推个人努力，也不认为小周必然无法成功。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "用摇号、课程门槛和统一提供信息等比较，区分学校、信息及同伴机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "未虚构效应大小，并对机制是否成立及适用人群作出限定。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "机制、证据和设计条件分层清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以学区、申请时间、照护任务和反馈等具体事项解释社会学机制。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "家庭资源经学校与同伴影响行动的主线贯穿全文。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分努力形成条件与转化效率、同伴影响与选择、初中新增差距与长期影响。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对门槛操纵、外推范围和起点成绩的含义都有准确限定。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从假设机制推进到证据链、识别设计和不同研究目标。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有维护自身回答的无关文字。"
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "说明家庭条件经分班、教师反馈和同伴网络影响努力方式与升学。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "甲、乙的同校案例明确是假设，且说明案例本身不是证据。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "明确乙仍可能主动改变路径，不能用成绩衡量个人努力程度。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "提出分班线、近似随机分班及支持项目比较，能够检验部分机制。"
+        },
+        {
+          "index": 4,
+          "met": true,
+          "reason": "明确不能判断最大效应或因素排名，未编造本市数据。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "案例链条和大部分证据比较清楚，个别识别表述需要进一步限定。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用具体的申请、辅导、分班和学习反馈解释资源与努力的关系。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "沿甲、乙的同校经历展开，并将观察办法接到相应环节。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分同伴影响与择友、家庭总体影响与中介路径，并保留学生能动性。"
+        },
+        "local_qualification": {
+          "score": 3,
+          "quote": "若班级接近随机分配，可更有力地检验同伴构成的影响。",
+          "reason": "随机分班也可能同时改变教师等班级条件；此处若要单独识别同伴构成，还需说明如何排除这些共同变化。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "由机制链推进到针对性比较，再说明比较目的如何影响统计控制。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无请求的作者自我辩护。"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,663 @@
+{
+  "case": "p1",
+  "rep": 1,
+  "mapping": {
+    "R1": "p1-drop67-1",
+    "R2": "p1-minimal-1",
+    "R3": "p1-drop1-1",
+    "R4": "p1-drop2-1",
+    "R5": "p1-drop7-1",
+    "R6": "p1-drop5-1",
+    "R7": "p1-full-1",
+    "R8": "p1-drop4-1",
+    "R9": "p1-drop3-1",
+    "R10": "p1-drop6-1"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分别解释选择的成因、行动时的理解与控制能力，以及说明、修复和责罚等责任实践。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分因果影响与决定论，也说明原因如何影响能力和责任程度，未把自由意志争论化为一句口号。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"始终用小林在合租群羞辱室友的事件，联系成长经历、疲劳、当时能力与适当回应。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与对终极应得性提出质疑的看法，并指出分歧所在。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"三个层面依次展开，同一例子逐层对应，结论也明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用具体能力问题和日常事件解释抽象概念，细节符合用户要求。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从因果解释推进到能力和责任实践，例子保持同一评价对象。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"影响与决定、能力与正确判断、修复与应得责罚的区分都推动了论证。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将能力判断系于具体证据，并准确标出决定论和终极应得性的争议。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"各节增添条件、实践目的和例子中的后果；结论连接了这些分析。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为作者的措辞或回答方式作无关辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"清楚区分行动的形成、当事人的判断能力和追责的不同目的。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明环境影响不证明决定论，也不自动免责；判断能力是否足以支持责罚仍待论证。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以相机意外损坏后的隐瞒为固定评价对象，分别讨论恐惧、可行选择和修复要求。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"呈现相容论、责任怀疑论及自由意志论，并说明各自争论的条件。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"层次标题、能力问题和相机例子使论证容易跟随。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"措辞自然，借具体的隐瞒与赔偿问题说明所需的哲学深度。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"始终围绕受影响的选择为何仍可能被问责，例子没有混淆损坏与隐瞒。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"意外损坏与有意隐瞒、修复与应得责罚等区分都有实际判断作用。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对能力、约定和不同自由意志立场分别限定，没有把有争议的主张说成定论。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"先建立判断框架，再用例子检验，最后明确不同立场的剩余分歧。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"只讨论问题本身，没有解释或维护自己的回答方式。\"}\n      }\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分别回答行为如何形成、行动者能否回应理由，以及问责包含哪些要求。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"指出影响不等于决定，能力也未必证明终极应得，避免用单一断言解决争论。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"电脑洒水后的误导贯穿三层，并区分意外损坏和后续隐瞒。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"解释相容论与反对者对终极自我来源及责罚根据的分歧。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"问题、条件和电脑事件的对应关系明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以容易理解的能力问题和具体事件承载较深入的论证。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"因果、能力、实践依次衔接，例子始终聚焦误导朋友的行为。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"解释与评价、过失损坏与有意误导、修复与纯粹责罚均被有效区分。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用假设限定小林的能力，并把终极应得性留作有争议的问题。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"进一步指出问责本身也能成为未来行为的原因，结论整合事实与规范理由。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的自我解释或对措辞的辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分别说明行为的因果形成、行动时的理解与控制，以及责任实践的形式和目的。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分影响与决定，也指出能力判断不能直接证明报应性责罚。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以会议上讽刺同事为同一事件，联系成长环境、疲劳、行动能力和补救措施。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与对终极应得责罚的质疑，明确争议前提。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\n          \"kind\": \"invented_contrast\",\n          \"quote\": \"责任不是只有一份，分给环境一些，个人就必然少掉同样数量的一些\",\n          \"reason\": \"前一句已说明小林与组织可以同时负责；这段额外引入无人提出的零和分配说法，删去仍保留多方责任的解释。\",\n          \"region\": \"ending\"\n        }\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"三个分析层面和会议事件的联系清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用会议冲突及可采取的具体做法解释抽象责任问题，详略适当。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从行为形成推进到能力、回应和组织条件，主线连贯。\"},\n        \"substantive_distinctions\": {\"score\": 3, \"quote\": \"责任不是只有一份，分给环境一些，个人就必然少掉同样数量的一些\", \"reason\": \"多方责任可以并存已得到说明；额外否定零和分配没有增加所需的判断。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以具体证据和能力变化限定责备程度，准确标明报应性前提的争议。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"例子进一步纳入工作安排的责任，结尾区分回应义务与终极应得性。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为自己的表达或答题方式辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"区分因果来源、理解和调节行动的能力，以及说明、补救、预防和责罚的根据。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明影响不等于决定，因果过程的区别也尚不足以单独确立责任。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以工作群未经核实的指责为贯穿例子，考察压力、核实能力和撤回道歉等要求。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与不相容论，并说明争议在于理由回应能力是否已足够。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\n          \"kind\": \"invented_contrast\",\n          \"quote\": \"一个人理应承受自己遭遇的一切\",\n          \"reason\": \"讨论的是特定行为的责任与责罚；末句转向无人提出的“应承受一切遭遇”，删去不影响结论。\",\n          \"region\": \"ending\"\n        }\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"理论区分与群聊事件逐项对应，整体意思明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"术语配有具体解释，日常事件提供了足够的判断细节。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"始终围绕受影响的行动如何归责，并把实践要求落实到同一事件。\"},\n        \"substantive_distinctions\": {\"score\": 3, \"quote\": \"一个人理应承受自己遭遇的一切\", \"reason\": \"末尾反对的主张超出了本文讨论的行为责任，去掉仍能完整说明有限责任的边界。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"能力强弱和不同立场的结论均有适当限定，没有宣称争议已经解决。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"逐层增加能力、关系性要求和公平约束，例子还展示了个人与团队各自的责任。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有讨论作者的意图、措辞或回答策略。\"}\n      }\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确分别处理选择的成因、回应理由的能力，以及解释、补救和责罚等实践。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分影响与决定，并指出经过判断也不等于可以施加任何程度的责备。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以拖延交材料且未预警为固定事件，考察回避习惯、可行做法与补救安排。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与不相容论，说明分歧是责任需要多强的自主性。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"三个问题层次分明，拖延事件的条件和回应容易辨认。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以交付任务、提前沟通和进度检查说明抽象能力判断，细节充分。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"理论部分为例子的责任判断提供条件，例子保持同一行为脉络。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"原因与判断、困难与失能、有效措施与正当措施的区分均有用途。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用假设条件判断能力，并说明精神健康危机会如何改变同一标准下的评价。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"由成因推进到可要求的行动和公平限制，最后保留应得性争议。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无端维护回答本身；对标准一致性的说明针对例子的责任判断。\"}\n      }\n    },\n    {\n      \"id\": \"R7\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分开说明行动的因果解释、当时的理解控制能力和事后的不同问责要求。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"指出因果影响既不证明决定论，也不直接决定归责或应得责罚。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"用朋友迟到后遭公开羞辱的同一事件，讨论小林的经历、替代做法和道歉边界。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"呈现相容论、责任怀疑论和要求更强自主来源的理论，交代各自分歧。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"能力条件、例子中的事实和不同立场的结论均有明确对应。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用朋友间冲突和具体的回应话语解释概念，论述深度契合提问。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"三个层面依次连接，后续立场比较仍围绕同一事件。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"因果解释与行动能力、保护性限制与应受苦的惩罚均被有效区分。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"未凭平时表现断定当时能力，且准确保留终极责任的哲学争议。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"例子后的立场比较增加了对纯粹应报与随机性的分析，而非仅复述结论。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有对自己的回答方式作无关解释。\"}\n      }\n    },\n    {\n      \"id\": \"R8\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分别分析成因、理解控制能力，以及说明、修复、限制和惩罚的理由。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"区分影响与决定、困难与失能，并说明有效问责不自动等于正当问责。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以借车刮伤后隐瞒为一致例子，明确只先评价隐瞒，再分别处理维修费和信任。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与不相容论中的不同看法，明确争议涉及自主性和最终应得。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"先限定评价对象，再逐层处理车损、隐瞒与责任，表达清晰。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以借车、告知和协商费用等具体情节支撑充分而自然的解释。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"始终围绕隐瞒这一选择展开，不把意外刮伤与撒谎混为一谈。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"车损责任与隐瞒责任、实际能力与形式选项、效果与正当性各有判断作用。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"明确例子设定与现实证据的区别，并审慎呈现哲学分歧。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从成因与能力推进到费用、信任和可能的额外损失，结论整合三层。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的作者立场或措辞辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R9\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"清楚区分行为成因、行动时能否管理行为，以及问责实践的根据和限度。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明因果解释不自动免责，经过判断也未必证明终极应得的惩罚。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"用合租群中的羞辱贯穿三层，并区分清理厨房的承诺与新增的言语伤害。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论和责任怀疑论，明确争议发生在相称责备及纯粹应得这一步。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"事件顺序清楚，各种责任要求分别对应其所回应的行为。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"把哲学区分落实到群聊措辞、家务承诺和居住边界，具体而充分。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"沿同一冲突逐步分析成因、能力和不同后果，没有转移评价对象。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"解释与正当化、修改措辞与完整控制能力、补救与保护措施均作了有用区分。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将能力判断系于例子中的证据，并对严重意识混乱下的回应作条件化说明。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"例子逐项交代承诺、伤害和预防的不同根据，结尾归纳规范判断的步骤。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为作者意图、用语或回答安排辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R10\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"分开讨论选择的因果背景、当时的判断能力，以及说明、修复、保护和责罚。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"指出受影响不等于被决定，能力是否足以支持应得责罚还须另作论证。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"以聚餐泄露朋友私事为同一例子，联系求认可的习惯、守密能力和阻止扩散等要求。\"},\n        {\"index\": 3, \"met\": true, \"reason\": \"比较相容论与责任怀疑立场，明确分歧在于正常行动能力能否支持应得责备。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"三层问题与泄密事件的事实、条件和处理方式对应明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"以守密、转移话题和阻止消息扩散等具体做法解释抽象论点。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从形成习惯到行动能力再到朋友可提出的要求，推理连贯。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"能力未使用与能力缺失、修复与应得责罚、有效与有权施加均被有效区分。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对过失、社交压力和威胁情形分别限定评价，也保留自由意志争议。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"后续分析增加传播范围、信任边界和威胁下补救义务等具体后果。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无请求的自我辩护或答题方式说明。\"}\n      }\n    }\n  ]\n}",
+  "characters": 11530,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 21047,
+    "output": 6277,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 1091,
+    "totalTokens": 27324,
+    "cost": {
+      "input": 0.042094,
+      "output": 0.06277,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.10486400000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 118.472,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分别解释选择的成因、行动时的理解与控制能力，以及说明、修复和责罚等责任实践。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分因果影响与决定论，也说明原因如何影响能力和责任程度，未把自由意志争论化为一句口号。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "始终用小林在合租群羞辱室友的事件，联系成长经历、疲劳、当时能力与适当回应。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与对终极应得性提出质疑的看法，并指出分歧所在。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个层面依次展开，同一例子逐层对应，结论也明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用具体能力问题和日常事件解释抽象概念，细节符合用户要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从因果解释推进到能力和责任实践，例子保持同一评价对象。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "影响与决定、能力与正确判断、修复与应得责罚的区分都推动了论证。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将能力判断系于具体证据，并准确标出决定论和终极应得性的争议。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "各节增添条件、实践目的和例子中的后果；结论连接了这些分析。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为作者的措辞或回答方式作无关辩护。"
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "清楚区分行动的形成、当事人的判断能力和追责的不同目的。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明环境影响不证明决定论，也不自动免责；判断能力是否足以支持责罚仍待论证。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以相机意外损坏后的隐瞒为固定评价对象，分别讨论恐惧、可行选择和修复要求。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "呈现相容论、责任怀疑论及自由意志论，并说明各自争论的条件。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "层次标题、能力问题和相机例子使论证容易跟随。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "措辞自然，借具体的隐瞒与赔偿问题说明所需的哲学深度。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "始终围绕受影响的选择为何仍可能被问责，例子没有混淆损坏与隐瞒。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "意外损坏与有意隐瞒、修复与应得责罚等区分都有实际判断作用。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对能力、约定和不同自由意志立场分别限定，没有把有争议的主张说成定论。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "先建立判断框架，再用例子检验，最后明确不同立场的剩余分歧。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "只讨论问题本身，没有解释或维护自己的回答方式。"
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分别回答行为如何形成、行动者能否回应理由，以及问责包含哪些要求。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出影响不等于决定，能力也未必证明终极应得，避免用单一断言解决争论。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "电脑洒水后的误导贯穿三层，并区分意外损坏和后续隐瞒。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "解释相容论与反对者对终极自我来源及责罚根据的分歧。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "问题、条件和电脑事件的对应关系明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以容易理解的能力问题和具体事件承载较深入的论证。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "因果、能力、实践依次衔接，例子始终聚焦误导朋友的行为。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "解释与评价、过失损坏与有意误导、修复与纯粹责罚均被有效区分。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "用假设限定小林的能力，并把终极应得性留作有争议的问题。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "进一步指出问责本身也能成为未来行为的原因，结论整合事实与规范理由。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的自我解释或对措辞的辩护。"
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分别说明行为的因果形成、行动时的理解与控制，以及责任实践的形式和目的。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分影响与决定，也指出能力判断不能直接证明报应性责罚。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以会议上讽刺同事为同一事件，联系成长环境、疲劳、行动能力和补救措施。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与对终极应得责罚的质疑，明确争议前提。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "invented_contrast",
+          "quote": "责任不是只有一份，分给环境一些，个人就必然少掉同样数量的一些",
+          "reason": "前一句已说明小林与组织可以同时负责；这段额外引入无人提出的零和分配说法，删去仍保留多方责任的解释。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "三个分析层面和会议事件的联系清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用会议冲突及可采取的具体做法解释抽象责任问题，详略适当。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从行为形成推进到能力、回应和组织条件，主线连贯。"
+        },
+        "substantive_distinctions": {
+          "score": 3,
+          "quote": "责任不是只有一份，分给环境一些，个人就必然少掉同样数量的一些",
+          "reason": "多方责任可以并存已得到说明；额外否定零和分配没有增加所需的判断。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "以具体证据和能力变化限定责备程度，准确标明报应性前提的争议。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "例子进一步纳入工作安排的责任，结尾区分回应义务与终极应得性。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为自己的表达或答题方式辩护。"
+        }
+      }
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "区分因果来源、理解和调节行动的能力，以及说明、补救、预防和责罚的根据。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明影响不等于决定，因果过程的区别也尚不足以单独确立责任。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以工作群未经核实的指责为贯穿例子，考察压力、核实能力和撤回道歉等要求。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与不相容论，并说明争议在于理由回应能力是否已足够。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "invented_contrast",
+          "quote": "一个人理应承受自己遭遇的一切",
+          "reason": "讨论的是特定行为的责任与责罚；末句转向无人提出的“应承受一切遭遇”，删去不影响结论。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "理论区分与群聊事件逐项对应，整体意思明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "术语配有具体解释，日常事件提供了足够的判断细节。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "始终围绕受影响的行动如何归责，并把实践要求落实到同一事件。"
+        },
+        "substantive_distinctions": {
+          "score": 3,
+          "quote": "一个人理应承受自己遭遇的一切",
+          "reason": "末尾反对的主张超出了本文讨论的行为责任，去掉仍能完整说明有限责任的边界。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "能力强弱和不同立场的结论均有适当限定，没有宣称争议已经解决。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "逐层增加能力、关系性要求和公平约束，例子还展示了个人与团队各自的责任。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有讨论作者的意图、措辞或回答策略。"
+        }
+      }
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确分别处理选择的成因、回应理由的能力，以及解释、补救和责罚等实践。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分影响与决定，并指出经过判断也不等于可以施加任何程度的责备。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以拖延交材料且未预警为固定事件，考察回避习惯、可行做法与补救安排。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与不相容论，说明分歧是责任需要多强的自主性。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个问题层次分明，拖延事件的条件和回应容易辨认。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以交付任务、提前沟通和进度检查说明抽象能力判断，细节充分。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "理论部分为例子的责任判断提供条件，例子保持同一行为脉络。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "原因与判断、困难与失能、有效措施与正当措施的区分均有用途。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "用假设条件判断能力，并说明精神健康危机会如何改变同一标准下的评价。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "由成因推进到可要求的行动和公平限制，最后保留应得性争议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无端维护回答本身；对标准一致性的说明针对例子的责任判断。"
+        }
+      }
+    },
+    {
+      "id": "R7",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分开说明行动的因果解释、当时的理解控制能力和事后的不同问责要求。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出因果影响既不证明决定论，也不直接决定归责或应得责罚。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用朋友迟到后遭公开羞辱的同一事件，讨论小林的经历、替代做法和道歉边界。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "呈现相容论、责任怀疑论和要求更强自主来源的理论，交代各自分歧。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "能力条件、例子中的事实和不同立场的结论均有明确对应。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用朋友间冲突和具体的回应话语解释概念，论述深度契合提问。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三个层面依次连接，后续立场比较仍围绕同一事件。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "因果解释与行动能力、保护性限制与应受苦的惩罚均被有效区分。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "未凭平时表现断定当时能力，且准确保留终极责任的哲学争议。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "例子后的立场比较增加了对纯粹应报与随机性的分析，而非仅复述结论。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有对自己的回答方式作无关解释。"
+        }
+      }
+    },
+    {
+      "id": "R8",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分别分析成因、理解控制能力，以及说明、修复、限制和惩罚的理由。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "区分影响与决定、困难与失能，并说明有效问责不自动等于正当问责。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以借车刮伤后隐瞒为一致例子，明确只先评价隐瞒，再分别处理维修费和信任。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与不相容论中的不同看法，明确争议涉及自主性和最终应得。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "先限定评价对象，再逐层处理车损、隐瞒与责任，表达清晰。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以借车、告知和协商费用等具体情节支撑充分而自然的解释。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "始终围绕隐瞒这一选择展开，不把意外刮伤与撒谎混为一谈。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "车损责任与隐瞒责任、实际能力与形式选项、效果与正当性各有判断作用。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "明确例子设定与现实证据的区别，并审慎呈现哲学分歧。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "从成因与能力推进到费用、信任和可能的额外损失，结论整合三层。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的作者立场或措辞辩护。"
+        }
+      }
+    },
+    {
+      "id": "R9",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "清楚区分行为成因、行动时能否管理行为，以及问责实践的根据和限度。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明因果解释不自动免责，经过判断也未必证明终极应得的惩罚。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用合租群中的羞辱贯穿三层，并区分清理厨房的承诺与新增的言语伤害。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论和责任怀疑论，明确争议发生在相称责备及纯粹应得这一步。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "事件顺序清楚，各种责任要求分别对应其所回应的行为。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "把哲学区分落实到群聊措辞、家务承诺和居住边界，具体而充分。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "沿同一冲突逐步分析成因、能力和不同后果，没有转移评价对象。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "解释与正当化、修改措辞与完整控制能力、补救与保护措施均作了有用区分。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将能力判断系于例子中的证据，并对严重意识混乱下的回应作条件化说明。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "例子逐项交代承诺、伤害和预防的不同根据，结尾归纳规范判断的步骤。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为作者意图、用语或回答安排辩护。"
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "分开讨论选择的因果背景、当时的判断能力，以及说明、修复、保护和责罚。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "指出受影响不等于被决定，能力是否足以支持应得责罚还须另作论证。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "以聚餐泄露朋友私事为同一例子，联系求认可的习惯、守密能力和阻止扩散等要求。"
+        },
+        {
+          "index": 3,
+          "met": true,
+          "reason": "比较相容论与责任怀疑立场，明确分歧在于正常行动能力能否支持应得责备。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三层问题与泄密事件的事实、条件和处理方式对应明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "以守密、转移话题和阻止消息扩散等具体做法解释抽象论点。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从形成习惯到行动能力再到朋友可提出的要求，推理连贯。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "能力未使用与能力缺失、修复与应得责罚、有效与有权施加均被有效区分。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对过失、社交压力和威胁情形分别限定评价，也保留自由意志争议。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "后续分析增加传播范围、信任边界和威胁下补救义务等具体后果。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无请求的自我辩护或答题方式说明。"
+        }
+      }
+    }
+  ]
+}

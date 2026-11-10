@@ -1,0 +1,634 @@
+{
+  "case": "s2",
+  "rep": 2,
+  "mapping": {
+    "R1": "s2-drop7-2",
+    "R2": "s2-drop5-2",
+    "R3": "s2-full-2",
+    "R4": "s2-minimal-2",
+    "R5": "s2-drop6-2",
+    "R6": "s2-drop67-2",
+    "R7": "s2-drop3-2",
+    "R8": "s2-drop4-2",
+    "R9": "s2-drop2-2",
+    "R10": "s2-drop1-2"
+  },
+  "answer": "{\n  \"ratings\": [\n    {\n      \"id\": \"R1\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"开头直接否定原假设为真概率是3%的说法。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明在原假设及检验前提成立时，得到同样或更极端统计量的概率为3%。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"列出了效应量、置信区间、研究设计和多重检验等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"先纠正概率含义，再说明判断报告还需哪些信息，层次清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用具体问题解释各项检查信息，细节与任务相称。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从定义、条件概率区别推进到报告判断，始终围绕p值。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分p值、后验概率、统计显著性和实际意义，各有解释作用。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"把模型前提、显著性阈值及多重检验条件分别附在相关判断上。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"结尾新增了在特定阈值和分析条件下如何表述统计显著性。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为回答方式或措辞作无关辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R2\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确否定将3%解释为原假设为真的概率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出原假设和检验假设成立时出现同样或更极端结果的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"讨论效应量、区间、研究设计和多重比较等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\"kind\": \"redundancy\", \"quote\": \"但这仍不等于原假设只有 3% 的概率为真，更不等于实验结论有 97% 的概率正确。\", \"reason\": \"开头已明确否定这两种解释；此处在新增统计显著性的条件之后又完整重复了一遍。\", \"region\": \"ending\"}\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"条件概率的方向和后续检查项目均表述明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用具体研究情形说明各项信息为何影响解释。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"定义、误解来源和报告核查项目衔接顺畅。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"条件概率、效应重要性和因果解释的区别均切合问题。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"显著性判断明确以预设阈值、有效检验和适当校正为条件。\"},\n        \"progression\": {\"score\": 3, \"quote\": \"但这仍不等于原假设只有 3% 的概率为真，更不等于实验结论有 97% 的概率正确。\", \"reason\": \"末句重复开头已充分说明的纠正；删去后，新补充的显著性判断仍完整。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的自我辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R3\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"直接否定原假设为真概率是3%的解释。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"在原假设及检验假设成立的条件下解释同样或更极端结果的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"列出效应量、区间、设计和多重比较等判断依据。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"纠错、概率方向和需补看的信息分段清晰。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"表述自然，并以大样本、小样本和分析选择解释实际影响。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"各段都服务于正确理解及评估这项实验。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将数据在原假设下的概率与看到数据后的假设概率明确区分。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对检验前提、预设阈值及贝叶斯概率所需条件的限定准确。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"结尾把结果的罕见性与证据强度、实际重要性和可靠性联系起来。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"未评论或维护自己的回答方式。\"}\n      }\n    },\n    {\n      \"id\": \"R4\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"开头直接否定把p值当作原假设为真概率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明原假设和模型成立时，同样或更极端检验结果出现的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"指出效应量、置信区间、设计质量及多重比较等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"概率方向的区别和检查清单都容易辨认。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用简明例子和具体检查问题提供了足够细节。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"解释由p值含义自然转向如何审读报告。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"后验概率与p值、统计显著与结论正确率的区别均有必要。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将模型假设和显著性判断的条件放在相应论断旁。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"结尾用检验判断与正确率的区别概括了新增的显著性条件。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有针对作者意图或措辞的辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R5\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确说p=0.03不是原假设为真的概率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"按原假设及其他检验假设成立来定义同样或更极端结果的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"涵盖效应量、区间、设计及多重比较。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\"kind\": \"redundancy\", \"quote\": \"但统计显著不等于效应重要，更不等于结论有 97% 的概率正确。\", \"reason\": \"效应重要性已在第一项解释，97%的误读已在开头纠正；末句再次并列重复。\", \"region\": \"ending\"}\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"定义、概率倒置和所需背景信息交代清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"清楚解释各项研究信息对结论的具体作用。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"所有检查项目都围绕单个p值不足以判断结论展开。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"指出后验概率还需模型与先验，并说明结论正确须先明确所指。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"检验前提、区间解释和统计显著性的条件均限定得当。\"},\n        \"progression\": {\"score\": 3, \"quote\": \"但统计显著不等于效应重要，更不等于结论有 97% 的概率正确。\", \"reason\": \"末句重述先前两项结论，没有为前一句新增的显著性条件再提供信息。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无请求的自我辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R6\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"直接否定3%是真值概率的理解。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"说明原假设及检验假设满足时，观察到同样或更极端结果的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"详细列出效应量、区间、研究设计与多重检验等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\"kind\": \"redundancy\", \"quote\": \"但它不等于结论有 97% 的概率正确，也不说明效应一定重要。\", \"reason\": \"开头已否定97%的解释，效应重要性也已在清单第一项说明；结尾再次重复这两点。\", \"region\": \"ending\"}\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"虽列项较多，每项与p值解释的关系仍明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"提供具体且相关的研究检查点，没有依赖空泛术语。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从概率含义逐步转向效应、设计和分析过程。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"清楚区分条件概率、研究结论正确性和因果解释。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"统计显著性和各类研究风险均附有对应条件。\"},\n        \"progression\": {\"score\": 3, \"quote\": \"但它不等于结论有 97% 的概率正确，也不说明效应一定重要。\", \"reason\": \"结尾在给出有条件的显著性表述后，重复了前文已确立的两项限制。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有维护自身回答或建议的语句。\"}\n      }\n    },\n    {\n      \"id\": \"R7\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确否定原假设只有3%概率为真。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"在原假设及相关检验假设满足时解释同样或更极端结果的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"表格列出效应量、区间、设计质量和多重检验。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\"kind\": \"redundancy\", \"quote\": \"在原假设及检验假设成立时，出现当前这样极端或更极端结果的概率为 3%\", \"reason\": \"这一p值定义已在第二段完整给出；结尾重新表述时并未增加定义上的信息。\", \"region\": \"ending\"}\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"表格将需要的信息与重要性对应，易于查阅。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"用直白定义和具体研究问题满足所需深度。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"显著性条件和表格内容均承接最初的概率纠正。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区别p值与后验概率，也区别统计显著与效应、因果判断。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"显著性判断明确受检验有效性和多重检验处理约束。\"},\n        \"progression\": {\"score\": 3, \"quote\": \"在原假设及检验假设成立时，出现当前这样极端或更极端结果的概率为 3%\", \"reason\": \"结尾再次给出第二段已有的完整定义；保留其后关于综合判断的部分即可完成概括。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有为自己的表达方式辩解。\"}\n      }\n    },\n    {\n      \"id\": \"R8\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"开头直接否定3%是真值概率及97%是正确率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"给出原假设和模型假设下同样或更极端统计量的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"说明要看效应、区间、设计、多重比较和既有证据。\"}\n      ],\n      \"critical\": [],\n      \"style\": [\n        {\"kind\": \"redundancy\", \"quote\": \"但这不提供“结论有 97% 的概率正确”的保证。\", \"reason\": \"开头已经明确否定97%的解释；末句在有条件的显著性判断后重复该纠正。\", \"region\": \"ending\"}\n      ],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"误解所在及各项补充信息的用途均清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"语言自然，并用小效应、样本量和选择性报告作具体说明。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"各部分持续回答p值代表什么及报告还需看什么。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"条件概率与后验概率、显著性与实际价值的区别都有解释作用。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"对模型、研究偏差和拒绝原假设的条件均作了贴近论断的限定。\"},\n        \"progression\": {\"score\": 3, \"quote\": \"但这不提供“结论有 97% 的概率正确”的保证。\", \"reason\": \"末句重复开头已说明的限制，删去不影响此前新增的有条件显著性判断。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无关的作者自我辩护。\"}\n      }\n    },\n    {\n      \"id\": \"R9\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"直接说明p值不是原假设为真的概率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"明确以原假设和模型适用为条件解释同样或更极端统计量的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"包括效应量、置信区间、设计与多重比较等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"从概率方向的区别到结论可信度的判断，表述明确。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"检查项目具体，并解释了区间与实际意义的关系。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"显著性、研究条件及末尾证据判断构成连贯论述。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"区分统计反对证据与证明、实际效应及后验概率，均服务于纠错。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"末尾的证据判断明确限定在所用检验的假设下。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"结尾将p值的有限证据作用与效应重要性、研究可靠性综合起来。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有评论自身措辞或回答意图。\"}\n      }\n    },\n    {\n      \"id\": \"R10\",\n      \"content\": [\n        {\"index\": 0, \"met\": true, \"reason\": \"明确否定将p值视为原假设为真概率。\"},\n        {\"index\": 1, \"met\": true, \"reason\": \"在原假设及模型条件适用时解释同样或更极端统计量的概率。\"},\n        {\"index\": 2, \"met\": true, \"reason\": \"列出效应量、区间、实验设计和检验次数等信息。\"}\n      ],\n      \"critical\": [],\n      \"style\": [],\n      \"clarity\": \"clear\",\n      \"clarity_reason\": \"概率含义、核查清单和显著性阈值的作用均交代清楚。\",\n      \"quality\": {\n        \"plain_depth\": {\"score\": 4, \"quote\": \"\", \"reason\": \"细节具体，长期误拒率的补充也直接针对概率误解。\"},\n        \"focus_coherence\": {\"score\": 4, \"quote\": \"\", \"reason\": \"从p值定义推进到研究评估，再解释显著性阈值。\"},\n        \"substantive_distinctions\": {\"score\": 4, \"quote\": \"\", \"reason\": \"有效区分p值、后验概率、效应重要性及检验程序的误拒率。\"},\n        \"local_qualification\": {\"score\": 4, \"quote\": \"\", \"reason\": \"将模型适用、预设阈值和多重检验处理附于相应判断。\"},\n        \"progression\": {\"score\": 4, \"quote\": \"\", \"reason\": \"结尾新增0.05所控制的是长期误拒率，而非本次结论出错概率。\"},\n        \"no_self_defense\": {\"score\": 4, \"quote\": \"\", \"reason\": \"没有无请求的自我辩护。\"}\n      }\n    }\n  ]\n}",
+  "characters": 10600,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 7536,
+    "output": 5371,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 735,
+    "totalTokens": 12907,
+    "cost": {
+      "input": 0.015071999999999999,
+      "output": 0.05371000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.06878200000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 106.906,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "开头直接否定原假设为真概率是3%的说法。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明在原假设及检验前提成立时，得到同样或更极端统计量的概率为3%。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "列出了效应量、置信区间、研究设计和多重检验等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "先纠正概率含义，再说明判断报告还需哪些信息，层次清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用具体问题解释各项检查信息，细节与任务相称。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从定义、条件概率区别推进到报告判断，始终围绕p值。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分p值、后验概率、统计显著性和实际意义，各有解释作用。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "把模型前提、显著性阈值及多重检验条件分别附在相关判断上。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "结尾新增了在特定阈值和分析条件下如何表述统计显著性。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为回答方式或措辞作无关辩护。"
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确否定将3%解释为原假设为真的概率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出原假设和检验假设成立时出现同样或更极端结果的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "讨论效应量、区间、研究设计和多重比较等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "redundancy",
+          "quote": "但这仍不等于原假设只有 3% 的概率为真，更不等于实验结论有 97% 的概率正确。",
+          "reason": "开头已明确否定这两种解释；此处在新增统计显著性的条件之后又完整重复了一遍。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "条件概率的方向和后续检查项目均表述明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用具体研究情形说明各项信息为何影响解释。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "定义、误解来源和报告核查项目衔接顺畅。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "条件概率、效应重要性和因果解释的区别均切合问题。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "显著性判断明确以预设阈值、有效检验和适当校正为条件。"
+        },
+        "progression": {
+          "score": 3,
+          "quote": "但这仍不等于原假设只有 3% 的概率为真，更不等于实验结论有 97% 的概率正确。",
+          "reason": "末句重复开头已充分说明的纠正；删去后，新补充的显著性判断仍完整。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接否定原假设为真概率是3%的解释。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "在原假设及检验假设成立的条件下解释同样或更极端结果的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "列出效应量、区间、设计和多重比较等判断依据。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "纠错、概率方向和需补看的信息分段清晰。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "表述自然，并以大样本、小样本和分析选择解释实际影响。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "各段都服务于正确理解及评估这项实验。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "将数据在原假设下的概率与看到数据后的假设概率明确区分。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对检验前提、预设阈值及贝叶斯概率所需条件的限定准确。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "结尾把结果的罕见性与证据强度、实际重要性和可靠性联系起来。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "未评论或维护自己的回答方式。"
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "开头直接否定把p值当作原假设为真概率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明原假设和模型成立时，同样或更极端检验结果出现的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "指出效应量、置信区间、设计质量及多重比较等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "概率方向的区别和检查清单都容易辨认。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用简明例子和具体检查问题提供了足够细节。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "解释由p值含义自然转向如何审读报告。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "后验概率与p值、统计显著与结论正确率的区别均有必要。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将模型假设和显著性判断的条件放在相应论断旁。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "结尾用检验判断与正确率的区别概括了新增的显著性条件。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有针对作者意图或措辞的辩护。"
+        }
+      }
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确说p=0.03不是原假设为真的概率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "按原假设及其他检验假设成立来定义同样或更极端结果的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "涵盖效应量、区间、设计及多重比较。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "redundancy",
+          "quote": "但统计显著不等于效应重要，更不等于结论有 97% 的概率正确。",
+          "reason": "效应重要性已在第一项解释，97%的误读已在开头纠正；末句再次并列重复。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "定义、概率倒置和所需背景信息交代清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "清楚解释各项研究信息对结论的具体作用。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "所有检查项目都围绕单个p值不足以判断结论展开。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "指出后验概率还需模型与先验，并说明结论正确须先明确所指。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "检验前提、区间解释和统计显著性的条件均限定得当。"
+        },
+        "progression": {
+          "score": 3,
+          "quote": "但统计显著不等于效应重要，更不等于结论有 97% 的概率正确。",
+          "reason": "末句重述先前两项结论，没有为前一句新增的显著性条件再提供信息。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无请求的自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接否定3%是真值概率的理解。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "说明原假设及检验假设满足时，观察到同样或更极端结果的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "详细列出效应量、区间、研究设计与多重检验等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "redundancy",
+          "quote": "但它不等于结论有 97% 的概率正确，也不说明效应一定重要。",
+          "reason": "开头已否定97%的解释，效应重要性也已在清单第一项说明；结尾再次重复这两点。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "虽列项较多，每项与p值解释的关系仍明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "提供具体且相关的研究检查点，没有依赖空泛术语。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从概率含义逐步转向效应、设计和分析过程。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "清楚区分条件概率、研究结论正确性和因果解释。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "统计显著性和各类研究风险均附有对应条件。"
+        },
+        "progression": {
+          "score": 3,
+          "quote": "但它不等于结论有 97% 的概率正确，也不说明效应一定重要。",
+          "reason": "结尾在给出有条件的显著性表述后，重复了前文已确立的两项限制。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有维护自身回答或建议的语句。"
+        }
+      }
+    },
+    {
+      "id": "R7",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确否定原假设只有3%概率为真。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "在原假设及相关检验假设满足时解释同样或更极端结果的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "表格列出效应量、区间、设计质量和多重检验。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "redundancy",
+          "quote": "在原假设及检验假设成立时，出现当前这样极端或更极端结果的概率为 3%",
+          "reason": "这一p值定义已在第二段完整给出；结尾重新表述时并未增加定义上的信息。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "表格将需要的信息与重要性对应，易于查阅。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用直白定义和具体研究问题满足所需深度。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "显著性条件和表格内容均承接最初的概率纠正。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区别p值与后验概率，也区别统计显著与效应、因果判断。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "显著性判断明确受检验有效性和多重检验处理约束。"
+        },
+        "progression": {
+          "score": 3,
+          "quote": "在原假设及检验假设成立时，出现当前这样极端或更极端结果的概率为 3%",
+          "reason": "结尾再次给出第二段已有的完整定义；保留其后关于综合判断的部分即可完成概括。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为自己的表达方式辩解。"
+        }
+      }
+    },
+    {
+      "id": "R8",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "开头直接否定3%是真值概率及97%是正确率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "给出原假设和模型假设下同样或更极端统计量的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "说明要看效应、区间、设计、多重比较和既有证据。"
+        }
+      ],
+      "critical": [],
+      "style": [
+        {
+          "kind": "redundancy",
+          "quote": "但这不提供“结论有 97% 的概率正确”的保证。",
+          "reason": "开头已经明确否定97%的解释；末句在有条件的显著性判断后重复该纠正。",
+          "region": "ending"
+        }
+      ],
+      "clarity": "clear",
+      "clarity_reason": "误解所在及各项补充信息的用途均清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "语言自然，并用小效应、样本量和选择性报告作具体说明。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "各部分持续回答p值代表什么及报告还需看什么。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "条件概率与后验概率、显著性与实际价值的区别都有解释作用。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "对模型、研究偏差和拒绝原假设的条件均作了贴近论断的限定。"
+        },
+        "progression": {
+          "score": 3,
+          "quote": "但这不提供“结论有 97% 的概率正确”的保证。",
+          "reason": "末句重复开头已说明的限制，删去不影响此前新增的有条件显著性判断。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无关的作者自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R9",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接说明p值不是原假设为真的概率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "明确以原假设和模型适用为条件解释同样或更极端统计量的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "包括效应量、置信区间、设计与多重比较等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "从概率方向的区别到结论可信度的判断，表述明确。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "检查项目具体，并解释了区间与实际意义的关系。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "显著性、研究条件及末尾证据判断构成连贯论述。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "区分统计反对证据与证明、实际效应及后验概率，均服务于纠错。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "末尾的证据判断明确限定在所用检验的假设下。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "结尾将p值的有限证据作用与效应重要性、研究可靠性综合起来。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有评论自身措辞或回答意图。"
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确否定将p值视为原假设为真概率。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "在原假设及模型条件适用时解释同样或更极端统计量的概率。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "列出效应量、区间、实验设计和检验次数等信息。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "概率含义、核查清单和显著性阈值的作用均交代清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "细节具体，长期误拒率的补充也直接针对概率误解。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "从p值定义推进到研究评估，再解释显著性阈值。"
+        },
+        "substantive_distinctions": {
+          "score": 4,
+          "quote": "",
+          "reason": "有效区分p值、后验概率、效应重要性及检验程序的误拒率。"
+        },
+        "local_qualification": {
+          "score": 4,
+          "quote": "",
+          "reason": "将模型适用、预设阈值和多重检验处理附于相应判断。"
+        },
+        "progression": {
+          "score": 4,
+          "quote": "",
+          "reason": "结尾新增0.05所控制的是长期误拒率，而非本次结论出错概率。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有无请求的自我辩护。"
+        }
+      }
+    }
+  ]
+}

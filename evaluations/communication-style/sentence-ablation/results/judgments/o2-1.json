@@ -1,0 +1,454 @@
+{
+  "case": "o2",
+  "rep": 1,
+  "mapping": {
+    "R1": "o2-drop6-1",
+    "R2": "o2-drop5-1",
+    "R3": "o2-drop3-1",
+    "R4": "o2-drop67-1",
+    "R5": "o2-drop1-1",
+    "R6": "o2-drop7-1",
+    "R7": "o2-drop4-1",
+    "R8": "o2-full-1",
+    "R9": "o2-drop2-1",
+    "R10": "o2-minimal-1"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"三个标题分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"标题以问题形式呈现，没有断言某个单一因素已被证实为原因。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三个标题简明，所指主题清楚。\",\"quality\":{\"plain_depth\":{\"score\":3,\"quote\":\"就业机会与照护责任如何限制脱贫\",\"reason\":\"“就业机会”本身通常有助于脱贫；这里想表达的应是机会不足或受限，措辞略易误读。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三个标题依次对应正文主题，没有旁枝。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"直接给出改写，没有为措辞辩解。\"}}},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次保留就业与照护、家庭与学校资源、观察研究的识别问题。\"},{\"index\":2,\"met\":true,\"reason\":\"用“如何影响”和“不能直接说明”表述关系，未写成已确证的单一因果结论。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"每个标题都直接点明该节内容。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用词自然具体，标题详略适合任务。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三项各对应一节，顺序和主题一致。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"只提供标题，没有额外解释或自我辩护。\"}}},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次点明就业与照护、家庭与学校资源、观察研究的因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"使用“如何影响”和“难以确定”，没有宣称单一因果关系已被证实。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三个标题都能让读者预知各节内容。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"措辞直接自然，具体程度适合作为小标题。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"标题与给定的三个正文主题逐一对应。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有不请自来的措辞说明或辩护。\"}}},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"“如何影响”和“难以确定”没有把关系写成已确证的单一因果结论。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"标题具体，三节主题容易辨认。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"语言通顺，明确指出各节讨论对象。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三个标题按原顺序对应正文，没有偏题内容。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"直接交付改写，没有解释或维护自己的写法。\"}}},{\"id\":\"R5\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"分别保留就业与照护、家庭与学校资源、观察研究的因果识别主题。\"},{\"index\":2,\"met\":true,\"reason\":\"没有将任一单一因素写成已确证的贫困或教育成因。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三项标题的对应关系清楚。\",\"quality\":{\"plain_depth\":{\"score\":3,\"quote\":\"就业机会与照护责任如何限制脱贫\",\"reason\":\"“就业机会”本身通常有助于脱贫；若指机会不足，标题需要点明这一限制。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"依次围绕三个指定主题，没有离题。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有附加自我辩护。\"}}},{\"id\":\"R6\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次保留就业与照护、家庭与学校资源、观察研究中相关性与因果性的识别问题。\"},{\"index\":2,\"met\":true,\"reason\":\"“如何影响”未锁定单一原因，第三项也明确相关性不能直接证明因果。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"标题直接指出各节要讨论的问题。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"表达自然具体，标题长度与内容相称。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三项顺序和主题均与要求一致。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所需标题，没有自我辩护。\"}}},{\"id\":\"R7\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"使用开放的“如何影响”，并说明观察研究的相关性不能直接证明因果。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三节各自讨论什么一目了然。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用词具体自然，“教育机会与表现”也明确了教育主题。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三个标题按顺序对应三个正文方向。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有对自身措辞或做法作额外说明。\"}}},{\"id\":\"R8\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"三个标题依次涉及就业与照护、家庭与学校资源、观察研究中的相关与因果识别。\"},{\"index\":2,\"met\":true,\"reason\":\"没有断言某个单一原因已获证实。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"三个标题均可辨认主题，虽有两处措辞不够精确。\",\"quality\":{\"plain_depth\":{\"score\":3,\"quote\":\"就业机会与照护责任如何限制脱贫\",\"reason\":\"未说明是就业机会不足，“就业机会”本身限制脱贫的说法容易误读。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"三项仍按要求对应各节，没有无关内容。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"直接给出标题，没有解释或辩护自己的选择。\"}}},{\"id\":\"R9\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"依次保留就业与照护、家庭与学校资源、观察研究的识别主题。\"},{\"index\":2,\"met\":true,\"reason\":\"标题未把某个单一因素写成已经证实的原因。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"读者能从每项标题看出对应章节。\",\"quality\":{\"plain_depth\":{\"score\":3,\"quote\":\"就业机会与照护责任如何限制脱贫\",\"reason\":\"“就业机会”缺少“不足”等限定，容易被读成就业机会本身妨碍脱贫。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"依照原顺序分别处理三个指定主题。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有额外维护自己的措辞或回答方式。\"}}},{\"id\":\"R10\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"按原顺序给出三个改写标题。\"},{\"index\":1,\"met\":true,\"reason\":\"分别提及就业与照护、家庭与学校资源、观察研究中相关性与因果性的关系。\"},{\"index\":2,\"met\":false,\"reason\":\"“就业机会与照护负担如何让人陷入贫困”把因素直接写成使人陷入贫困的确定原因。\"}],\"critical\":[{\"quote\":\"就业机会与照护负担如何让人陷入贫困\",\"reason\":\"把就业机会与照护负担合写为确定的致贫机制，越过了题目要求保留的因果边界；就业机会本身也不能不加限定地说成致贫因素。\"}],\"style\":[],\"clarity\":\"mixed\",\"clarity_reason\":\"后两项清楚；首项的“就业机会如何让人陷入贫困”容易造成误解。\",\"quality\":{\"plain_depth\":{\"score\":3,\"quote\":\"就业机会与照护负担如何让人陷入贫困\",\"reason\":\"措辞虽直接，但没有指出是就业机会不足，使首项含义不够准确。\"},\"focus_coherence\":{\"score\":3,\"quote\":\"就业机会与照护负担如何让人陷入贫困\",\"reason\":\"首项将就业机会本身写作致贫因素，与就业约束这一主题的逻辑不吻合；其余两项仍对应要求。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"直接给出改写，没有为自己的写法辩解。\"}}}]}",
+  "characters": 5299,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1673,
+    "output": 3116,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 808,
+    "totalTokens": 4789,
+    "cost": {
+      "input": 0.003346,
+      "output": 0.031160000000000004,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.034506,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 60.439,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "三个标题分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "标题以问题形式呈现，没有断言某个单一因素已被证实为原因。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个标题简明，所指主题清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 3,
+          "quote": "就业机会与照护责任如何限制脱贫",
+          "reason": "“就业机会”本身通常有助于脱贫；这里想表达的应是机会不足或受限，措辞略易误读。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三个标题依次对应正文主题，没有旁枝。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "直接给出改写，没有为措辞辩解。"
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次保留就业与照护、家庭与学校资源、观察研究的识别问题。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "用“如何影响”和“不能直接说明”表述关系，未写成已确证的单一因果结论。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "每个标题都直接点明该节内容。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用词自然具体，标题详略适合任务。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三项各对应一节，顺序和主题一致。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "只提供标题，没有额外解释或自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次点明就业与照护、家庭与学校资源、观察研究的因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "使用“如何影响”和“难以确定”，没有宣称单一因果关系已被证实。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个标题都能让读者预知各节内容。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "措辞直接自然，具体程度适合作为小标题。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "标题与给定的三个正文主题逐一对应。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有不请自来的措辞说明或辩护。"
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "“如何影响”和“难以确定”没有把关系写成已确证的单一因果结论。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "标题具体，三节主题容易辨认。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "语言通顺，明确指出各节讨论对象。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三个标题按原顺序对应正文，没有偏题内容。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "直接交付改写，没有解释或维护自己的写法。"
+        }
+      }
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分别保留就业与照护、家庭与学校资源、观察研究的因果识别主题。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "没有将任一单一因素写成已确证的贫困或教育成因。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三项标题的对应关系清楚。",
+      "quality": {
+        "plain_depth": {
+          "score": 3,
+          "quote": "就业机会与照护责任如何限制脱贫",
+          "reason": "“就业机会”本身通常有助于脱贫；若指机会不足，标题需要点明这一限制。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "依次围绕三个指定主题，没有离题。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有附加自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次保留就业与照护、家庭与学校资源、观察研究中相关性与因果性的识别问题。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "“如何影响”未锁定单一原因，第三项也明确相关性不能直接证明因果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "标题直接指出各节要讨论的问题。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "表达自然具体，标题长度与内容相称。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三项顺序和主题均与要求一致。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所需标题，没有自我辩护。"
+        }
+      }
+    },
+    {
+      "id": "R7",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分别涉及就业与照护、家庭与学校资源、观察研究的因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "使用开放的“如何影响”，并说明观察研究的相关性不能直接证明因果。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三节各自讨论什么一目了然。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用词具体自然，“教育机会与表现”也明确了教育主题。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三个标题按顺序对应三个正文方向。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有对自身措辞或做法作额外说明。"
+        }
+      }
+    },
+    {
+      "id": "R8",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "三个标题依次涉及就业与照护、家庭与学校资源、观察研究中的相关与因果识别。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "没有断言某个单一原因已获证实。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "三个标题均可辨认主题，虽有两处措辞不够精确。",
+      "quality": {
+        "plain_depth": {
+          "score": 3,
+          "quote": "就业机会与照护责任如何限制脱贫",
+          "reason": "未说明是就业机会不足，“就业机会”本身限制脱贫的说法容易误读。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "三项仍按要求对应各节，没有无关内容。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "直接给出标题，没有解释或辩护自己的选择。"
+        }
+      }
+    },
+    {
+      "id": "R9",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "依次保留就业与照护、家庭与学校资源、观察研究的识别主题。"
+        },
+        {
+          "index": 2,
+          "met": true,
+          "reason": "标题未把某个单一因素写成已经证实的原因。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "读者能从每项标题看出对应章节。",
+      "quality": {
+        "plain_depth": {
+          "score": 3,
+          "quote": "就业机会与照护责任如何限制脱贫",
+          "reason": "“就业机会”缺少“不足”等限定，容易被读成就业机会本身妨碍脱贫。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "依照原顺序分别处理三个指定主题。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有额外维护自己的措辞或回答方式。"
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "按原顺序给出三个改写标题。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "分别提及就业与照护、家庭与学校资源、观察研究中相关性与因果性的关系。"
+        },
+        {
+          "index": 2,
+          "met": false,
+          "reason": "“就业机会与照护负担如何让人陷入贫困”把因素直接写成使人陷入贫困的确定原因。"
+        }
+      ],
+      "critical": [
+        {
+          "quote": "就业机会与照护负担如何让人陷入贫困",
+          "reason": "把就业机会与照护负担合写为确定的致贫机制，越过了题目要求保留的因果边界；就业机会本身也不能不加限定地说成致贫因素。"
+        }
+      ],
+      "style": [],
+      "clarity": "mixed",
+      "clarity_reason": "后两项清楚；首项的“就业机会如何让人陷入贫困”容易造成误解。",
+      "quality": {
+        "plain_depth": {
+          "score": 3,
+          "quote": "就业机会与照护负担如何让人陷入贫困",
+          "reason": "措辞虽直接，但没有指出是就业机会不足，使首项含义不够准确。"
+        },
+        "focus_coherence": {
+          "score": 3,
+          "quote": "就业机会与照护负担如何让人陷入贫困",
+          "reason": "首项将就业机会本身写作致贫因素，与就业约束这一主题的逻辑不吻合；其余两项仍对应要求。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "直接给出改写，没有为自己的写法辩解。"
+        }
+      }
+    }
+  ]
+}
