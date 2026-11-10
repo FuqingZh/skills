@@ -36,6 +36,21 @@ public responses. It borrows behavioral testing from
 covers human calibration, answer-order bias and length-control limitations.
 No external benchmark data or labels are copied; first-round human feedback is recorded.
 
+### Humanizer and Humanist methods
+
+[Humanizer v4.0.0](https://github.com/blader/humanizer/blob/b48c832f0f809c1b5658edbb838c2521b72f2413/SKILL.md)
+informs the distinction between substantive clarification and anticipatory defense,
+paragraph-level editing, and attention to shared conversational context.
+[Humanist's quality report](https://github.com/itsryanlenk/humanist/blob/main/docs/evals/quality-benchmark.md)
+informs stage attribution, shared defects, loser strengths, identity controls and
+regression checks. Its detailed report says 77/144 comparisons; its summary still
+says 54/144. Same-family model judgments, incomplete coverage and mismatched human
+controls limit its claims. We have reviewed the reports, not independently rerun
+their raw analysis. No upstream prompt, examples or corpus are copied here;
+our rubric and protocol are independently written. No evidence here establishes
+current Humanizer's Chinese conversational effectiveness. Its fact-addition rule,
+punctuation bans and vocabulary blacklist are not adopted.
+
 ### S01: talk-normal
 
 - Source: [hexiecs/talk-normal](https://github.com/hexiecs/talk-normal/tree/d89cf329e775e640181427fae071652198264c7e).

@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "phase": "calibration_only",
+  "judge": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "workers": 3,
+  "timeout_seconds": 300,
+  "max_calls": 24,
+  "attempts_per_job": 1,
+  "orders": [
+    "original",
+    "swapped"
+  ],
+  "selection": "all non-correctness calibration pairs plus one identity control; both orders",
+  "reporting": "Primary style agreement requires an explicit human choice and two valid order-consistent predictions. Report invalid, missing, conflicts, mixed comparisons and unknown human choices separately. No automatic promotion threshold.",
+  "holdout": "blocked pending calibration review and final freeze; no human labels collected",
+  "human_labels": "labels.round-1.json"
+}

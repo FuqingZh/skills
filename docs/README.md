@@ -45,6 +45,8 @@ and evidence limits; experimental results remain with their protocols.
 
 ## Recorded Open Work
 
+- [Communication-style preference optimization](implementation-plans/communication-style-preference-optimization.md):
+  five-check judge calibration, reserved human evaluation, then paragraph comparison.
 - [Project docs convergence](implementation-plans/20260805-v1.0-project-docs-architecture-convergence-implementation-plan.md):
   local slices are complete; the recorded downstream owner migration remains
   pending. This index does not verify another repository's current state.
