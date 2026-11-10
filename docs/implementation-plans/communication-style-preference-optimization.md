@@ -171,3 +171,11 @@ P01 选 B，因补充只提到个人选择有作用，却未解释作用；P02 �
 此轮没有安装或模型调用，也未冻结协议。两组 A/B 各自检查的普通路径为四次逻辑
 请求，实际 HTTP 上界、原始失败留存、结构验证及禁止 tracing 均待无模型验收。
 自定义诊断结构仍属于本地适配；若接入成本超过其减少的自建代码，就不迁移。
+
+已冻结并执行 [OpenEvals 两组开发小批](../../evaluations/communication-style/preference-calibration/openevals-pilot-1/README.md)，
+冻结提交为 `88e4947`。八个无模型接口用例通过；仅执行 P01-A/B 两次调用，两份结构
+均有效。A 的诊断命中“个人选择没有说明作用”，但 B 又被批评未覆盖“期待感”等
+额外因素，必要性依据不足，且两份原文都缺少该因素。作者作出保守的适配风险停止
+决定，未运行 P02；不据局部命中宣称两组通过或组件已验证。原始请求、可见输出、
+审阅与成本见 [结果记录](../../evaluations/communication-style/preference-calibration/openevals-pilot-1/results.md)。
+无重试、修补、追加提示、保留组调用或运行时采用。

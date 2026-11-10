@@ -1,5 +1,8 @@
 # OpenEvals helpfulness 两组开发小批
 
+当前已在第一组后停止：目标诊断局部命中，但新增缺陷判断的必要性依据不足。
+P02 未执行；详见 [结果与限制](results.md)。下列冻结命令用于留存，不是重跑授权。
+
 组件：OpenEvals 提交 `5753dc75d40c2be75ffd38eb6d63bb966cbcc4e3` 的
 `RAG_HELPFULNESS_PROMPT` 和 `create_llm_as_judge(output_schema=...)`。
 上游提示逐字保留在 `upstream-helpfulness.txt`，MIT 许可另存；本地中文指令只规定
