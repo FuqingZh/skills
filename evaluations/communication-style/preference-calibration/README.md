@@ -1,8 +1,13 @@
 # Human preference calibration
 
-Status: **first-round human feedback recorded; rubric revision pending validation**.
-Nine relative preferences and all twelve comments are preserved. No model calls
-have been made for this study; runtime prompts and earlier results are unchanged.
+Status: **v3 calibration executed; not selected for holdout**. All 24 calls were
+structurally valid. Among seven labeled style pairs, four agreed in both orders,
+one disagreed, and two had order conflicts. Runtime prompts remain unchanged.
+
+See the [implementation plan](../../../docs/implementation-plans/communication-style-preference-optimization.md),
+[five-check rubric](rubric-v3.md), [admission review](admission-v3.json) and
+[results with full author audit](results-v3.md). Holdout remains unopened for
+human annotation and model scoring; the author has reviewed source comparability.
 
 See the [first-round review](review-round-1.md),
 [human labels](labels.round-1.json), [transcription notes](feedback.round-1.json),
@@ -108,7 +113,7 @@ admission review to reserved pairs before enabling the next judge run.
 Twelve held-out pairs across four families are diagnostic, not certification.
 Do not treat related variants as independent observations or manufacture precise
 weights from them. There is no automatic promotion threshold in this stage.
-After meaningful judge alignment, a separately specified baseline/full/reduced
+After meaningful judge alignment, a separately specified baseline/candidate
 prompt trial can measure natural win/tie/loss outcomes, content regressions and
 target failures. Human review and representative full-context cases remain
 necessary; length-adjusted analysis is auxiliary to information preservation.

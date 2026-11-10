@@ -1,0 +1,288 @@
+{
+  "phase": "calibration_only",
+  "primary": {
+    "eligible": 7,
+    "agree": 4,
+    "disagree": 1,
+    "conflict": 2,
+    "unavailable": 0,
+    "uncertain": 0
+  },
+  "families": {
+    "statistical-correction": {
+      "eligible": 1,
+      "agree": 1
+    },
+    "friendship": {
+      "eligible": 2,
+      "agree": 1
+    },
+    "education-inequality": {
+      "eligible": 2,
+      "agree": 1
+    },
+    "responsibility": {
+      "eligible": 2,
+      "agree": 1
+    }
+  },
+  "attempts_present": 24,
+  "expected_attempts": 24,
+  "estimated_cost": 0.27382,
+  "total_tokens": 46566,
+  "rows": [
+    {
+      "id": "D01",
+      "category": "mixed",
+      "family": "friendship",
+      "human": null,
+      "status": "consistent",
+      "prediction": "B",
+      "primary_agreement": null,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "仅凭朋友回复“算了”，无法确定其具体想法。B给出两种可能的理解，并保留了不确定性；A则把“不被重视”和“表达不满”说成确定事实。两者提出的后续做法相同。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "A把“算了”解释为几种可能，并给出后续沟通办法；B仅凭这句回复就断定朋友觉得自己不被重视，确定程度超出了语境所能支持的范围。"
+        }
+      }
+    },
+    {
+      "id": "D02",
+      "category": "style",
+      "family": "statistical-correction",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "B",
+      "primary_agreement": true,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份都正确解释了 p=0.03，并列出进一步判断所需的信息。A3 补充了“原假设只有 3% 的概率为真”这一误读，但也重复了 A1 对“结论有 97% 的概率正确”的澄清；B 保留了主要信息，读起来更顺畅。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份答案都解释了 p=0.03 的含义，也指出了还需查看的信息。B3 对“97%”的说法重复了 B1；它补充的“原假设有 3% 的概率为真”这一误读虽与问题相关，但 B1 已通过说明条件概率关系提供了理解基础。相比之下，A 回答得更连贯，没有实质信息损失。"
+        }
+      }
+    },
+    {
+      "id": "D03",
+      "category": "mixed",
+      "family": "responsibility",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "A",
+      "primary_agreement": null,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份答案都用理解后果、调整行动的能力来说明为什么环境影响不必然排除责任。A 进一步用隐瞒工作失误的日常例子，说明成长经历如何影响选择，以及何时仍可要求当事人说明和补救；B 没有提供用户明确要求的例子。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份都以理解行为后果、能够调整行动作为要求负责的条件，也区分了修复责任与报应性惩罚。B按要求给出日常例子，说明成长经历如何影响隐瞒倾向，以及知晓后果、存在报告渠道和受到胁迫分别怎样影响责任判断；A缺少这个例子。"
+        }
+      }
+    },
+    {
+      "id": "D04",
+      "category": "style",
+      "family": "friendship",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "A",
+      "primary_agreement": false,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份都能直接发给朋友，也都承认了临时取消的影响，并提议明晚继续谈。A还交代了临时加班这一取消缘由；B说明了为什么不在今晚谈，但没有交代为什么取消约会，因此更倾向A。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份都能直接发送，也都承认了临时取消的影响，并提出明晚再谈。B还交代了临时加班这一取消原因，让对方更容易理解事情经过；A的优点是先道歉，并说明今晚太累、希望改日认真谈。综合而言，更愿意收到B。"
+        }
+      }
+    },
+    {
+      "id": "D05",
+      "category": "style",
+      "family": "education-inequality",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "B",
+      "primary_agreement": true,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份答案都说明了家庭资源如何影响努力的条件与回报。B额外预先回应用户未提出的异议，没有增加对升学机制的解释，因此更愿意收到A。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份答案对家庭资源与个人努力关系的解释相同。A额外预先回应了用户未提出的“找借口”和“否认努力价值”两种解读，没有增加对升学机制的说明；B更贴合问题。"
+        }
+      }
+    },
+    {
+      "id": "D06",
+      "category": "style",
+      "family": "friendship",
+      "human": "A",
+      "status": "consistent",
+      "prediction": "A",
+      "primary_agreement": true,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份答案都抓住了双方可能在意的事，也说明这些感受可以同时成立。B更贴合“先理清双方在意什么”的请求；A末句转向“谁更委屈”，而用户没有提出要比较委屈程度，这句话在前一句之后信息增量有限。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份都抓住了用户需要被理解、朋友可能需要取消带来的影响得到承认。A到此已回答“双方在意什么”；B的末句没有进一步说明任一方的在意点，还引入了用户未提及的“争谁更委屈”，因此略偏好A。"
+        }
+      }
+    },
+    {
+      "id": "D07",
+      "category": "style",
+      "family": "education-inequality",
+      "human": "A",
+      "status": "conflict",
+      "prediction": null,
+      "primary_agreement": null,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "tie",
+          "reason": "两份都简短回答了为什么相同学习时长不能代表相同努力。A直接说明比较努力还要看学习条件和投入方式；B更清楚地说明时长只记录时间，不能呈现学习过程。各有侧重，没有实质偏好。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份都简短回应了问题。B直接指出相同学习时长可能对应不同条件，并明确说判断努力还要看什么；A说明了时间以外的因素，但从“影响学习过程”到“如何衡量努力”的联系稍显间接。"
+        }
+      }
+    },
+    {
+      "id": "D08",
+      "category": "style",
+      "family": "statistical-correction",
+      "human": null,
+      "status": "consistent",
+      "prediction": "A",
+      "primary_agreement": null,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "A明确回答“不是”，并逐一纠正用户提出的两种概率解读；B对p值的定义准确，但没有清楚回答是非问题，也没有直接说明为何不能据此得出“结论有97%的概率正确”。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份答案对 p=0.03 的解释相同，但 B 先明确回答了用户的两个是非判断；A 只给出 p 值的含义，读者还需自行判断原来的说法是否成立。"
+        }
+      }
+    },
+    {
+      "id": "D10",
+      "category": "style",
+      "family": "responsibility",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "B",
+      "primary_agreement": true,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份都用“成因→理解与控制能力→公平的责任要求”回答了三个层次如何衔接。A直接说明关系；B额外说三者“不是互相排斥的三种答案”，但用户没有提出这种对立，后面的三个问题也已说明它们相接，因此更愿意收到A。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "两份答案都用“成因—理解与控制能力—公平的责任要求”串起三个层次。B直接说明关系；A额外否定“互相排斥的三种答案”，而用户并未提出这种理解，删去也不影响后续解释。"
+        }
+      }
+    },
+    {
+      "id": "D11",
+      "category": "style",
+      "family": "responsibility",
+      "human": "B",
+      "status": "conflict",
+      "prediction": null,
+      "primary_agreement": null,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "A",
+          "reason": "两份都把三者说明为相接的问题，第二段也相同。B 还直接回答了用户提出的“是否互相排斥”，因此更适合这次追问；A 的关系说明基本成立，只是需要读者自行推知答案。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "tie",
+          "reason": "两份都把三者说明为相接的问题，并用相同的三个追问交代其关系。A明确说“不互相排斥”，B以正面说明关系作答；在此语境下，两者都足以回答是否只能选一种，没有实质偏好。"
+        }
+      }
+    },
+    {
+      "id": "D12",
+      "category": "mixed",
+      "family": "education-inequality",
+      "human": "B",
+      "status": "consistent",
+      "prediction": "B",
+      "primary_agreement": null,
+      "orders": {
+        "swapped": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "用户要把已有环节串成简短总结。A说明家庭支持、学校规则和同伴网络如何影响努力及后续机会，形成了关系链；B主要罗列因素并重申尚待验证，未说明这些环节怎样相连。A仍有确定性和新增反馈关系的问题，但相对更贴合请求。"
+        },
+        "original": {
+          "state": "valid",
+          "choice": "B",
+          "reason": "用户要把已有环节串成简短总结。B说明了家庭支持、学校规则和同伴网络如何关联努力与后续机会，比A只列出因素更符合要求；但B没有保留前文“机制尚待验证”的限制。A的限制说明有依据，却不足以代替环节之间的关系。"
+        }
+      }
+    },
+    {
+      "id": "I01",
+      "category": "identity",
+      "family": "identity",
+      "human": null,
+      "status": "consistent",
+      "prediction": "tie",
+      "primary_agreement": null,
+      "orders": {
+        "original": {
+          "state": "valid",
+          "choice": "tie",
+          "reason": "两份回答完全相同，都直接给出了见面时间；但提供的语境没有说明已约定下午三点，无法确认这个时间。"
+        },
+        "swapped": {
+          "state": "valid",
+          "choice": "tie",
+          "reason": "两份回答完全相同，都直接给出了明天见面的时间，没有实质偏好。"
+        }
+      }
+    }
+  ],
+  "promotion": "requires qualitative review; no automatic threshold"
+}

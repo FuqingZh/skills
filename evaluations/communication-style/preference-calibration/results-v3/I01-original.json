@@ -1,0 +1,125 @@
+{
+  "id": "I01",
+  "order": "original",
+  "payload": {
+    "context": "用户问: 明天什么时候见面?",
+    "answers": {
+      "A": {
+        "A1": "明天下午三点见。"
+      },
+      "B": {
+        "B1": "明天下午三点见。"
+      }
+    }
+  },
+  "answer": "{\"choice\":\"tie\",\"reason\":\"两份回答完全相同，都直接给出了见面时间；但提供的语境没有说明已约定下午三点，无法确认这个时间。\",\"issues\":{\"A\":[{\"dimension\":\"grounding\",\"reason\":\"把下午三点表述为已确定的见面时间，但现有语境没有提供这一依据。\",\"evidence\":[\"A1\"]}],\"B\":[{\"dimension\":\"grounding\",\"reason\":\"把下午三点表述为已确定的见面时间，但现有语境没有提供这一依据。\",\"evidence\":[\"B1\"]}]},\"shared_issues\":[{\"reason\":\"两份回答都给出了缺乏语境依据的确定时间。\",\"evidence\":[\"A1\",\"B1\"]}],\"strengths\":{\"A\":[{\"reason\":\"直接回应了“什么时候见面”，时间表达清楚。\",\"evidence\":[\"A1\"]}],\"B\":[{\"reason\":\"直接回应了“什么时候见面”，时间表达清楚。\",\"evidence\":[\"B1\"]}]},\"content_issues\":{\"A\":[{\"reason\":\"现有语境未给出已约定的时间，无法确认下午三点是否正确。\",\"evidence\":[\"A1\"]}],\"B\":[{\"reason\":\"现有语境未给出已约定的时间，无法确认下午三点是否正确。\",\"evidence\":[\"B1\"]}]},\"self_defense\":{\"A\":{\"status\":\"absent\",\"target\":\"没有澄清无关异议或维护自身立场的内容。\",\"increment\":\"没有预防性自我辩护带来的信息增量。\",\"deletion\":\"无此类内容可删除。\",\"evidence\":[]},\"B\":{\"status\":\"absent\",\"target\":\"没有澄清无关异议或维护自身立场的内容。\",\"increment\":\"没有预防性自我辩护带来的信息增量。\",\"deletion\":\"无此类内容可删除。\",\"evidence\":[]}}}",
+  "characters": 893,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 875,
+    "output": 629,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 203,
+    "totalTokens": 1504,
+    "cost": {
+      "input": 0.0017499999999999998,
+      "output": 0.0062900000000000005,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.00804,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 14.926,
+  "evidence_text": {
+    "A1": "明天下午三点见。",
+    "B1": "明天下午三点见。"
+  },
+  "judgment": {
+    "choice": "tie",
+    "reason": "两份回答完全相同，都直接给出了见面时间；但提供的语境没有说明已约定下午三点，无法确认这个时间。",
+    "issues": {
+      "A": [
+        {
+          "dimension": "grounding",
+          "reason": "把下午三点表述为已确定的见面时间，但现有语境没有提供这一依据。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "dimension": "grounding",
+          "reason": "把下午三点表述为已确定的见面时间，但现有语境没有提供这一依据。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "shared_issues": [
+      {
+        "reason": "两份回答都给出了缺乏语境依据的确定时间。",
+        "evidence": [
+          "A1",
+          "B1"
+        ]
+      }
+    ],
+    "strengths": {
+      "A": [
+        {
+          "reason": "直接回应了“什么时候见面”，时间表达清楚。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "直接回应了“什么时候见面”，时间表达清楚。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "content_issues": {
+      "A": [
+        {
+          "reason": "现有语境未给出已约定的时间，无法确认下午三点是否正确。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "现有语境未给出已约定的时间，无法确认下午三点是否正确。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "self_defense": {
+      "A": {
+        "status": "absent",
+        "target": "没有澄清无关异议或维护自身立场的内容。",
+        "increment": "没有预防性自我辩护带来的信息增量。",
+        "deletion": "无此类内容可删除。",
+        "evidence": []
+      },
+      "B": {
+        "status": "absent",
+        "target": "没有澄清无关异议或维护自身立场的内容。",
+        "increment": "没有预防性自我辩护带来的信息增量。",
+        "deletion": "无此类内容可删除。",
+        "evidence": []
+      }
+    }
+  }
+}

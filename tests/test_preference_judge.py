@@ -222,3 +222,27 @@ def test_summary_separates_mixed_unknown_missing_and_order_conflicts(
     assert rows["D03"]["primary_agreement"] is None
     assert rows["D08"]["human"] is None
     assert rows["I01"]["prediction"] == "tie"
+
+
+def test_saved_v3_run_reproduces_without_model_calls() -> None:
+    saved = MOD["read_json"]("summary-v3.json")
+    assert MOD["summarize"]() == saved
+    assert saved["attempts_present"] == saved["expected_attempts"] == 24
+    assert saved["primary"] == {
+        "eligible": 7,
+        "agree": 4,
+        "disagree": 1,
+        "conflict": 2,
+        "unavailable": 0,
+        "uncertain": 0,
+    }
+    run = MOD["read_json"]("results-v3/run.json")
+    assert run["manifest"] == MOD["read_json"]("manifest-v3.json")
+    assert {(row["id"], row["order"]) for row in run["jobs"]} == {
+        (row["id"], row["order"]) for row in MOD["jobs"]()
+    }
+    for job in MOD["jobs"]():
+        record = MOD["read_json"](f"results-v3/{job['id']}-{job['order']}.json")
+        assert "error" not in record
+        assert record["model"] == run["protocol"]["judge"]["model"]
+        assert record["provider"] == run["protocol"]["judge"]["provider"]
