@@ -1,0 +1,38 @@
+{
+  "id": "D08",
+  "order": "original",
+  "payload": {
+    "context": "用户问：p=0.03 是不是原假设只有 3% 的概率是真的，所以结论有 97% 的概率正确？",
+    "answers": {
+      "A": {
+        "A1": "不对。**p=0.03 既不表示“原假设只有 3% 的概率是真的”，也不表示“实验结论有 97% 的概率正确”。**",
+        "A2": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      },
+      "B": {
+        "B1": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"先回答“不是”，再给出 p 值的实际含义；用户提出的两步推断都得到回应。\", \"evidence\": [\"A1\", \"A2\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"说明概率以原假设成立、统计模型及其假设适用为条件，没有把它说成原假设为真的概率。\", \"evidence\": [\"A2\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"A1指出推断不成立，A2补上成立的条件概率关系，解释有推进。\", \"evidence\": [\"A1\", \"A2\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接点名用户问的两个概率，并说明 p 值对应什么。\", \"evidence\": [\"A1\", \"A2\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有为维护回答者形象或立场而添加的说明。\", \"evidence\": []}\n    },\n    \"B\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"用“假设原假设成立”下得到观测结果的概率，说明了与用户所问概率不同的条件关系；缺少显式否定不构成遗漏。\", \"evidence\": [\"B1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"交代了原假设和模型适用这两个条件，也说明“极端”取决于检验。\", \"evidence\": [\"B1\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"直接提供纠正这条推断所需的 p 值定义，没有重复铺垫。\", \"evidence\": [\"B1\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接说明所求概率的对象和条件。\", \"evidence\": [\"B1\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预防性维护回答者形象或立场的内容。\", \"evidence\": []}\n    }\n  },\n  \"deletion_audit\": {\n    \"A\": [\n      {\n        \"evidence\": [\"A1\"],\n        \"target\": \"直接回答用户提出的两个概率判断是否成立。\",\n        \"already_known\": \"这是回答的开头，尚未建立 p 值的正确含义。\",\n        \"increment\": \"明确指出两个判断都不成立；A2随后说明 p 值实际表示的条件概率。\",\n        \"lost_if_deleted\": \"仍能从 A2 辨认正确的条件关系，但会失去对两步推断的直接答复。\",\n        \"verdict\": \"keep\"\n      }\n    ],\n    \"B\": []\n  },\n  \"issues\": {\"A\": [], \"B\": []},\n  \"shared_issues\": [],\n  \"strengths\": {\n    \"A\": [{\"reason\": \"既直接回答是非，也给出可对照的正确概率关系。\", \"evidence\": [\"A1\", \"A2\"]}],\n    \"B\": [{\"reason\": \"简短地给出了正确的条件概率关系，足以表明不能把 p 值读作原假设为真的概率。\", \"evidence\": [\"B1\"]}]\n  },\n  \"content_issues\": {\"A\": [], \"B\": []},\n  \"self_defense\": {\n    \"A\": {\"status\": \"absent\", \"target\": \"\", \"increment\": \"\", \"deletion\": \"\", \"evidence\": []},\n    \"B\": {\"status\": \"absent\", \"target\": \"\", \"increment\": \"\", \"deletion\": \"\", \"evidence\": []}\n  },\n  \"choice\": \"A\",\n  \"reason\": \"两者都给出了正确的条件概率关系；A还直接回应了用户提出的两个判断，读者不必自行确认“97%正确”这一结论是否也被否定。\"\n}",
+  "characters": 2030,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1598,
+    "output": 1415,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 516,
+    "totalTokens": 3013,
+    "cost": {
+      "input": 0.003196,
+      "output": 0.014150000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.017346,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 32.596,
+  "error": "Invalid judgment: Empty judgment text"
+}

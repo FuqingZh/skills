@@ -1,8 +1,11 @@
 # Human preference calibration
 
-Status: **v3 calibration executed; not selected for holdout**. All 24 calls were
-structurally valid. Among seven labeled style pairs, four agreed in both orders,
-one disagreed, and two had order conflicts. Runtime prompts remain unchanged.
+Status: **v4 batch closed incomplete; no automatic judge selected**. Of 24 v4
+outputs, five passed validation and 19 failed; all seven primary pairs are
+unavailable. See [v4 results and audit](results-v4.md) and the
+[Promptfoo offline replay probe](evaluation-tools.md). No retry, holdout call or
+runtime change followed. v3 remains preserved with four stable matches among
+seven labeled style pairs, one mismatch and two order conflicts.
 
 See the [implementation plan](../../../docs/implementation-plans/communication-style-preference-optimization.md),
 [five-check rubric](rubric-v3.md), [admission review](admission-v3.json) and

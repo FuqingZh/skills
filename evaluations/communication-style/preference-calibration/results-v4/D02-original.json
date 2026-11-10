@@ -1,0 +1,235 @@
+{
+  "id": "D02",
+  "order": "original",
+  "payload": {
+    "context": "用户问：报告 p=0.03，我应该怎样理解，还需要看什么信息？",
+    "answers": {
+      "A": {
+        "A1": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "A2": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。",
+        "A3": "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。"
+      },
+      "B": {
+        "B1": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "B2": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\n        \"status\": \"issue\",\n        \"reason\": \"回答了两个问题，但“检验假设”指代不清，使 p 值成立的条件含混。\",\n        \"evidence\": [\"A1\"]\n      },\n      \"grounding\": {\n        \"status\": \"clear\",\n        \"reason\": \"把 p 值表述为在特定条件下观察到数据的概率，没有据此推断结论为真的概率。\",\n        \"evidence\": [\"A1\"]\n      },\n      \"progression\": {\n        \"status\": \"issue\",\n        \"reason\": \"A3 再次否定“结论有 97% 的概率正确”；新增的 3% 说法也未进一步解释条件概率的区别。\",\n        \"evidence\": [\"A1\", \"A3\"]\n      },\n      \"naturalness\": {\n        \"status\": \"clear\",\n        \"reason\": \"直接说明 p 值的含义和还需查看的项目；重复问题已计入 progression。\",\n        \"evidence\": [\"A1\", \"A2\"]\n      },\n      \"self_defense\": {\n        \"status\": \"clear\",\n        \"reason\": \"A3 针对的是 p 值的常见误读，不是在保护回答者的形象或立场。\",\n        \"evidence\": [\"A3\"]\n      }\n    },\n    \"B\": {\n      \"response\": {\n        \"status\": \"issue\",\n        \"reason\": \"回答了两个问题，但“检验假设”指代不清，使 p 值成立的条件含混。\",\n        \"evidence\": [\"B1\"]\n      },\n      \"grounding\": {\n        \"status\": \"clear\",\n        \"reason\": \"把 p 值表述为在特定条件下观察到数据的概率，没有据此推断结论为真的概率。\",\n        \"evidence\": [\"B1\"]\n      },\n      \"progression\": {\n        \"status\": \"clear\",\n        \"reason\": \"先解释 p 值，再列出判断结果时还需查看的信息，两段各有作用。\",\n        \"evidence\": [\"B1\", \"B2\"]\n      },\n      \"naturalness\": {\n        \"status\": \"clear\",\n        \"reason\": \"直接说明 p 值的含义和还需查看的项目。\",\n        \"evidence\": [\"B1\", \"B2\"]\n      },\n      \"self_defense\": {\n        \"status\": \"clear\",\n        \"reason\": \"没有为表明自身周全而加入与问题无关的辩解。\",\n        \"evidence\": []\n      }\n    }\n  },\n  \"deletion_audit\": {\n    \"A\": [\n      {\n        \"evidence\": [\"A3\"],\n        \"target\": \"排除把 0.03 当作结论或原假设为真概率的理解。\",\n        \"already_known\": \"A1 已否定“97% 的概率正确”，并说明 p 值谈的是原假设条件下的数据概率。\",\n        \"increment\": \"明确点名“原假设有 3% 的概率为真”这一误读，但未增加区分两种条件概率的解释。\",\n        \"lost_if_deleted\": \"失去对“原假设有 3% 的概率为真”的明示提醒；核心解释仍在 A1。\",\n        \"verdict\": \"remove\"\n      }\n    ],\n    \"B\": []\n  },\n  \"issues\": {\n    \"A\": [\n      {\n        \"dimension\": \"response\",\n        \"reason\": \"“检验假设”未说清是检验所需前提还是被检验的假设，影响对 p 值条件的理解。\",\n        \"evidence\": [\"A1\"]\n      },\n      {\n        \"dimension\": \"progression\",\n        \"reason\": \"A3 重复 A1 的 97% 纠正，对新增的 3% 误读也只作否定，没有推进解释。\",\n        \"evidence\": [\"A1\", \"A3\"]\n      }\n    ],\n    \"B\": [\n      {\n        \"dimension\": \"response\",\n        \"reason\": \"“检验假设”未说清是检验所需前提还是被检验的假设，影响对 p 值条件的理解。\",\n        \"evidence\": [\"B1\"]\n      }\n    ]\n  },\n  \"shared_issues\": [\n    {\n      \"reason\": \"两份答案都使用含混的“检验假设”，未明确 p 值的条件是原假设及检验所需前提。\",\n      \"evidence\": [\"A1\", \"B1\"]\n    }\n  ],\n  \"strengths\": {\n    \"A\": [\n      {\n        \"reason\": \"列出了效应量及区间、研究设计、多重比较和重复结果等后续查看方向。\",\n        \"evidence\": [\"A2\"]\n      }\n    ],\n    \"B\": [\n      {\n        \"reason\": \"在解释 p 值之后直接列出后续查看方向，没有重复已作的纠正。\",\n        \"evidence\": [\"B1\", \"B2\"]\n      }\n    ]\n  },\n  \"content_issues\": {\n    \"A\": [\n      {\n        \"reason\": \"p 值定义中的“检验假设”指代不明，可能使读者误解哪些条件需要成立。\",\n        \"evidence\": [\"A1\"]\n      }\n    ],\n    \"B\": [\n      {\n        \"reason\": \"p 值定义中的“检验假设”指代不明，可能使读者误解哪些条件需要成立。\",\n        \"evidence\": [\"B1\"]\n      }\n    ]\n  },\n  \"self_defense\": {\n    \"A\": {\n      \"status\": \"absent\",\n      \"target\": \"A3 澄清 p 值误读，而非预防对回答者的不利解读。\",\n      \"increment\": \"明确提到“原假设有 3% 的概率为真”这一误读。\",\n      \"deletion\": \"删去后少一条明示提醒，但不影响 A1 已给出的核心解释。\",\n      \"evidence\": [\"A3\"]\n    },\n    \"B\": {\n      \"status\": \"absent\",\n      \"target\": \"无自辩性补充。\",\n      \"increment\": \"不适用。\",\n      \"deletion\": \"不适用。\",\n      \"evidence\": []\n    }\n  },\n  \"choice\": \"B\",\n  \"reason\": \"两份答案都有同一处条件表述含混；B 保留了所需解释和查看项目，同时避免了 A3 对已讲过的误读再作一次否定。\"\n}",
+  "characters": 3438,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1626,
+    "output": 3427,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 1981,
+    "totalTokens": 5053,
+    "cost": {
+      "input": 0.0032519999999999997,
+      "output": 0.03427,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.037522,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 68.803,
+  "evidence_text": {
+    "A1": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+    "A3": "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。",
+    "B1": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+    "A2": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。",
+    "B2": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。"
+  },
+  "judgment": {
+    "checks": {
+      "A": {
+        "response": {
+          "status": "issue",
+          "reason": "回答了两个问题，但“检验假设”指代不清，使 p 值成立的条件含混。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "grounding": {
+          "status": "clear",
+          "reason": "把 p 值表述为在特定条件下观察到数据的概率，没有据此推断结论为真的概率。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "progression": {
+          "status": "issue",
+          "reason": "A3 再次否定“结论有 97% 的概率正确”；新增的 3% 说法也未进一步解释条件概率的区别。",
+          "evidence": [
+            "A1",
+            "A3"
+          ]
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "直接说明 p 值的含义和还需查看的项目；重复问题已计入 progression。",
+          "evidence": [
+            "A1",
+            "A2"
+          ]
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "A3 针对的是 p 值的常见误读，不是在保护回答者的形象或立场。",
+          "evidence": [
+            "A3"
+          ]
+        }
+      },
+      "B": {
+        "response": {
+          "status": "issue",
+          "reason": "回答了两个问题，但“检验假设”指代不清，使 p 值成立的条件含混。",
+          "evidence": [
+            "B1"
+          ]
+        },
+        "grounding": {
+          "status": "clear",
+          "reason": "把 p 值表述为在特定条件下观察到数据的概率，没有据此推断结论为真的概率。",
+          "evidence": [
+            "B1"
+          ]
+        },
+        "progression": {
+          "status": "clear",
+          "reason": "先解释 p 值，再列出判断结果时还需查看的信息，两段各有作用。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "直接说明 p 值的含义和还需查看的项目。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "没有为表明自身周全而加入与问题无关的辩解。",
+          "evidence": []
+        }
+      }
+    },
+    "deletion_audit": {
+      "A": [
+        {
+          "evidence": [
+            "A3"
+          ],
+          "target": "排除把 0.03 当作结论或原假设为真概率的理解。",
+          "already_known": "A1 已否定“97% 的概率正确”，并说明 p 值谈的是原假设条件下的数据概率。",
+          "increment": "明确点名“原假设有 3% 的概率为真”这一误读，但未增加区分两种条件概率的解释。",
+          "lost_if_deleted": "失去对“原假设有 3% 的概率为真”的明示提醒；核心解释仍在 A1。",
+          "verdict": "remove"
+        }
+      ],
+      "B": []
+    },
+    "issues": {
+      "A": [
+        {
+          "dimension": "response",
+          "reason": "“检验假设”未说清是检验所需前提还是被检验的假设，影响对 p 值条件的理解。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        {
+          "dimension": "progression",
+          "reason": "A3 重复 A1 的 97% 纠正，对新增的 3% 误读也只作否定，没有推进解释。",
+          "evidence": [
+            "A1",
+            "A3"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "dimension": "response",
+          "reason": "“检验假设”未说清是检验所需前提还是被检验的假设，影响对 p 值条件的理解。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "shared_issues": [
+      {
+        "reason": "两份答案都使用含混的“检验假设”，未明确 p 值的条件是原假设及检验所需前提。",
+        "evidence": [
+          "A1",
+          "B1"
+        ]
+      }
+    ],
+    "strengths": {
+      "A": [
+        {
+          "reason": "列出了效应量及区间、研究设计、多重比较和重复结果等后续查看方向。",
+          "evidence": [
+            "A2"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "在解释 p 值之后直接列出后续查看方向，没有重复已作的纠正。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        }
+      ]
+    },
+    "content_issues": {
+      "A": [
+        {
+          "reason": "p 值定义中的“检验假设”指代不明，可能使读者误解哪些条件需要成立。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "p 值定义中的“检验假设”指代不明，可能使读者误解哪些条件需要成立。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "self_defense": {
+      "A": {
+        "status": "absent",
+        "target": "A3 澄清 p 值误读，而非预防对回答者的不利解读。",
+        "increment": "明确提到“原假设有 3% 的概率为真”这一误读。",
+        "deletion": "删去后少一条明示提醒，但不影响 A1 已给出的核心解释。",
+        "evidence": [
+          "A3"
+        ]
+      },
+      "B": {
+        "status": "absent",
+        "target": "无自辩性补充。",
+        "increment": "不适用。",
+        "deletion": "不适用。",
+        "evidence": []
+      }
+    },
+    "choice": "B",
+    "reason": "两份答案都有同一处条件表述含混；B 保留了所需解释和查看项目，同时避免了 A3 对已讲过的误读再作一次否定。"
+  }
+}

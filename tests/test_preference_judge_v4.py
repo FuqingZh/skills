@@ -137,3 +137,33 @@ def test_manifest_must_match(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setitem(GLOBALS, "hashes", changed)
     with pytest.raises(ValueError, match="Frozen v4"):
         MOD["verify"]()
+
+
+def test_retained_batch_stays_incomplete_without_repairs() -> None:
+    summary = MOD["summarize"]()
+    assert summary == json.loads((ROOT / "summary-v4.json").read_text())
+    assert summary["primary"]["unavailable"] == 7
+    errors: list[str] = []
+    valid = 0
+    for job in MOD["BASE"]["jobs"]():
+        path = ROOT / "results-v4" / f"{job['id']}-{job['order']}.json"
+        record = json.loads(path.read_text())
+        value = json.loads(record["answer"])
+        if "error" in record:
+            errors.append(record["error"])
+            with pytest.raises(ValueError):
+                MOD["validate"](value, job["payload"])
+            if record["error"] == "Invalid judgment: Empty judgment text":
+                assert any(
+                    finding["status"] == "absent"
+                    and any(
+                        not finding[key] for key in ("target", "increment", "deletion")
+                    )
+                    for finding in value["self_defense"].values()
+                )
+        else:
+            valid += 1
+            assert MOD["validate"](value, job["payload"]) == record["evidence_text"]
+    assert valid == 5
+    assert errors.count("Invalid judgment: Empty judgment text") == 18
+    assert errors.count("Invalid judgment: Unknown check status") == 1

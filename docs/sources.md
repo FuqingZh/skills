@@ -51,6 +51,16 @@ our rubric and protocol are independently written. No evidence here establishes
 current Humanizer's Chinese conversational effectiveness. Its fact-addition rule,
 punctuation bans and vocabulary blacklist are not adopted.
 
+### Evaluation tooling
+
+Reviewed Promptfoo's official Python-provider, assertion, CLI and telemetry
+contracts and Inspect AI's provider and scoring workflows. The
+[tooling report](../evaluations/communication-style/preference-calibration/evaluation-tools.md)
+links those sources and records a Promptfoo 0.125.1 saved-output replay: 48 cells,
+including 19 retained errors, with no model calls. Inspect remains documentation
+research only. Neither tool supplies validated human preferences, and the probe
+does not establish end-to-end speed or judge-quality improvements.
+
 ### S01: talk-normal
 
 - Source: [hexiecs/talk-normal](https://github.com/hexiecs/talk-normal/tree/d89cf329e775e640181427fae071652198264c7e).
