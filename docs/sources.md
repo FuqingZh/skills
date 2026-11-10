@@ -27,6 +27,15 @@ calibration includes an excerpt from the prior public generated answers, paired
 with an edited alternative; no private transcript or new upstream prompt is
 introduced. Scoring and deletion effects are separately frozen and recorded.
 
+The [human preference calibration pilot](../evaluations/communication-style/preference-calibration/README.md)
+uses independently authored local contrasts and cited excerpts from earlier
+public responses. It borrows behavioral testing from
+[CheckList](https://aclanthology.org/2020.acl-main.442/), contextual assessment from
+[WildBench](https://arxiv.org/abs/2406.04770), and pairwise evaluation from
+[AlpacaEval](https://github.com/tatsu-lab/alpaca_eval). Its method register also
+covers human calibration, answer-order bias and length-control limitations.
+No external benchmark data or labels are copied; human labels are pending.
+
 ### S01: talk-normal
 
 - Source: [hexiecs/talk-normal](https://github.com/hexiecs/talk-normal/tree/d89cf329e775e640181427fae071652198264c7e).

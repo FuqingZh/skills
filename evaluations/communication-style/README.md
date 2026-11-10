@@ -21,6 +21,10 @@ The [sentence-deletion study](sentence-ablation/README.md) then measures each
 sentence's conditional contribution, the complete paragraph versus a minimal
 anchor, and the last two sentences' dependency under a separately frozen rubric.
 
+A [human preference calibration pilot](preference-calibration/README.md) now
+prepares source-separated anonymous local comparisons for user annotation.
+It is awaiting labels and makes no claim of a calibrated judge or prompt gain.
+
 ## Question
 
 Can a short instruction reduce self-defense, redundant explanation, invented

@@ -1,0 +1,553 @@
+[
+  {
+    "id": "p1-transition",
+    "split": "calibration",
+    "family": "responsibility",
+    "case_id": "p1",
+    "probe": "minimal-edit",
+    "context": "前文已分别解释：因果来源说明选择怎样形成，判断能力关系到能否理解和控制行为，责任实践涉及解释、修复与追责。用户问：这三个层次怎样连起来理解？",
+    "candidates": [
+      [
+        "因果解释、行动能力和责任实践不是互相排斥的三种答案，而是三个相接的问题：",
+        "是什么使他这样行动？这些因素是否削弱了他的理解与控制？在此基础上，向他提出什么要求才公平？"
+      ],
+      [
+        "因果解释、行动能力和责任实践对应三个相接的问题：",
+        "是什么使他这样行动？这些因素是否削弱了他的理解与控制？在此基础上，向他提出什么要求才公平？"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/p1-revised-2.json",
+      "excerpt": "因果解释、行动能力和责任实践不是互相排斥的三种答案，而是三个相接的问题："
+    }
+  },
+  {
+    "id": "p1-context",
+    "split": "calibration",
+    "family": "responsibility",
+    "case_id": "p1",
+    "probe": "context-contrast",
+    "context": "前文已分别介绍因果来源、判断能力和责任实践。用户追问：这是不是三种互相排斥的理论，只能选一种？请把关系说清楚。",
+    "candidates": [
+      [
+        "因果解释、行动能力和责任实践不是互相排斥的三种答案，而是三个相接的问题：",
+        "是什么使他这样行动？这些因素是否削弱了他的理解与控制？在此基础上，向他提出什么要求才公平？"
+      ],
+      [
+        "因果解释、行动能力和责任实践对应三个相接的问题：",
+        "是什么使他这样行动？这些因素是否削弱了他的理解与控制？在此基础上，向他提出什么要求才公平？"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/p1-revised-2.json",
+      "excerpt": "因果解释、行动能力和责任实践不是互相排斥的三种答案，而是三个相接的问题："
+    }
+  },
+  {
+    "id": "p1-depth",
+    "split": "calibration",
+    "family": "responsibility",
+    "case_id": "p1",
+    "probe": "depth-regression",
+    "context": "用户问：成长环境影响人的选择，为什么还要求他负责？请用一个日常例子讲清楚。",
+    "candidates": [
+      [
+        "如果一个人仍能理解行为的影响、根据理由调整行动，要求他解释和修复损害就可能有意义。环境影响要用于判断他的实际能力和处境；是否还应受到报应性惩罚，哲学上有争议。"
+      ],
+      [
+        "如果一个人仍能理解行为的影响、根据理由调整行动，要求他解释和修复损害就可能有意义。",
+        "例如，小陈因从小害怕批评而隐瞒工作失误。成长经历解释了隐瞒的倾向；若他当时知道隐瞒会让同事返工，也有可行的报告渠道，就仍可以要求他说明情况、参与补救。若他受到严重胁迫，责任程度应相应调整。",
+        "这种修复责任是否还足以支持报应性惩罚，哲学上有争议。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "s2-correction",
+    "split": "calibration",
+    "family": "statistical-correction",
+    "case_id": "s2",
+    "probe": "necessary-correction",
+    "context": "用户问：p=0.03 是不是原假设只有 3% 的概率是真的，所以结论有 97% 的概率正确？",
+    "candidates": [
+      [
+        "不对。**p=0.03 既不表示“原假设只有 3% 的概率是真的”，也不表示“实验结论有 97% 的概率正确”。**",
+        "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      ],
+      [
+        "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/s2-revised-2.json",
+      "excerpt": "不对。**p=0.03 既不表示“原假设只有 3% 的概率是真的”，也不表示“实验结论有 97% 的概率正确”。**\n\n它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+    }
+  },
+  {
+    "id": "s2-validity",
+    "split": "calibration",
+    "family": "statistical-correction",
+    "case_id": "s2",
+    "probe": "content-regression",
+    "context": "用户问：我只知道一项检验报告 p=0.03，能否说结论有 97% 的概率正确？请简要解释。",
+    "candidates": [
+      [
+        "不能。p 值描述的是在原假设及检验假设成立时，观察到当前这样极端或更极端结果的概率，不能直接给出假设为真的概率。还需要结合效应量、研究设计和分析过程判断证据。"
+      ],
+      [
+        "可以。p=0.03 表示结论错误的概率为 3%，因此结论有 97% 的概率正确。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "s2-ending",
+    "split": "calibration",
+    "family": "statistical-correction",
+    "case_id": "s2",
+    "probe": "minimal-edit",
+    "context": "用户问：报告 p=0.03，我应该怎样理解，还需要看什么信息？",
+    "candidates": [
+      [
+        "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。"
+      ],
+      [
+        "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。",
+        "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "c1-framing",
+    "split": "calibration",
+    "family": "friendship",
+    "case_id": "c1",
+    "probe": "minimal-edit",
+    "context": "用户说：临时加班，我提前半小时取消了和朋友的见面。朋友生气，我也很累，不知道怎么聊下去。请先帮我理清双方在意什么。",
+    "candidates": [
+      [
+        "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。"
+      ],
+      [
+        "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/c1-revised-2.json",
+      "excerpt": "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。"
+    }
+  },
+  {
+    "id": "c1-uncertainty",
+    "split": "calibration",
+    "family": "friendship",
+    "case_id": "c1",
+    "probe": "qualification-regression",
+    "context": "用户说：我因加班取消见面，朋友只回了一句“算了”。我不知道这是什么意思。",
+    "candidates": [
+      [
+        "朋友可能因安排被打乱而失望，也可能暂时不想继续聊。可以先承认临时取消的影响，再问对方是否愿意晚些时候谈。"
+      ],
+      [
+        "朋友就是觉得自己不被你重视，所以用“算了”表达不满。可以先承认临时取消的影响，再问对方是否愿意晚些时候谈。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "c1-message",
+    "split": "calibration",
+    "family": "friendship",
+    "case_id": "c1",
+    "probe": "natural-alternatives",
+    "context": "用户说：我临时加班，提前半小时取消约会，朋友生气。我现在也累。帮我写一段能发出去的话，承认影响，也约个继续谈的时间。",
+    "candidates": [
+      [
+        "对不起，提前半小时取消打乱了你的安排。我想听听这次给你带来了哪些麻烦。我今晚很累，怕聊不清楚，明晚我们找个时间好好谈，可以吗？"
+      ],
+      [
+        "今天临时加班，我现在很累。提前半小时才取消，也确实让你的安排落空了，对不起。你愿意的话，我们明晚再聊，我想认真听听这次对你的影响。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/c1-revised-2.json",
+      "excerpt": "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。"
+    }
+  },
+  {
+    "id": "o1-afterword",
+    "split": "calibration",
+    "family": "education-inequality",
+    "case_id": "o1",
+    "probe": "unsolicited-self-defense",
+    "context": "用户问：从社会学视角，家庭资源和个人努力怎样共同影响升学？请简要解释。",
+    "candidates": [
+      [
+        "家庭资源影响学习条件、信息和求助渠道，也影响努力能否得到有效反馈。个人行动仍会改变结果，其成本和回报会因这些条件而不同。"
+      ],
+      [
+        "家庭资源影响学习条件、信息和求助渠道，也影响努力能否得到有效反馈。个人行动仍会改变结果，其成本和回报会因这些条件而不同。",
+        "这不是在为失败寻找借口，也不表示我否认个人努力的价值。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/o1-baseline-1.json",
+      "excerpt": "从社会学视角看，升学差异可以理解为一个**家庭资源经过学校制度转化，并在同伴互动和日常学习中逐步累积的过程**。个人努力参与其中，其投入条件、持续性和回报也受到这些关系的影响。"
+    }
+  },
+  {
+    "id": "o1-synthesis",
+    "split": "calibration",
+    "family": "education-inequality",
+    "case_id": "o1",
+    "probe": "useful-synthesis",
+    "context": "前文已用同一学生的经历解释家庭支持、分班、同伴网络和努力之间的关系，也说明这些机制尚待验证。用户说：最后帮我把这些环节串成一个简短总结。",
+    "candidates": [
+      [
+        "家庭支持影响早期准备，学校规则把表现转化为后续机会，同伴网络影响信息和目标；这些条件共同改变努力的成本与回报，新的成绩又反馈到下一轮机会。"
+      ],
+      [
+        "家庭支持、学校规则、同伴网络和个人努力都会影响升学；这些机制尚待验证，不能仅凭结果差异判断哪个因素最重要。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "o1-alternatives",
+    "split": "calibration",
+    "family": "education-inequality",
+    "case_id": "o1",
+    "probe": "natural-alternatives",
+    "context": "用户问：为什么不能只用每天学习几小时衡量两名学生付出的努力？请简短说明。",
+    "candidates": [
+      [
+        "相同的学习时长可能对应不同条件：有人能及时获得反馈，有人要分担家务，遇到问题也缺少帮助。判断努力还需要看投入方式、专注程度和可获得的支持。"
+      ],
+      [
+        "学习时长只记录了投入的时间。能否专注、遇到困难后多久得到反馈、是否需要分担家务，都会影响这段时间里的学习过程，因此也需要一起观察。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "p2-requested",
+    "split": "holdout",
+    "family": "requested-framing",
+    "case_id": "p2",
+    "probe": "context-contrast",
+    "context": "用户问：你建议把“自由不是随心所欲”改成“自由需要哪些条件”，是不是认为原标题在哲学上错了？请说明理由。",
+    "candidates": [
+      [
+        "建议改标题，并不能据此判定原标题在哲学上错误。",
+        "“自由不是随心所欲”强调概念辨析；“自由需要哪些条件”引向自主选择的条件。若正文主要讨论能力和社会条件，后者更贴切。"
+      ],
+      [
+        "“自由不是随心所欲”强调概念辨析；“自由需要哪些条件”引向自主选择的条件。若正文主要讨论能力和社会条件，后者更贴切。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/p2-revised-1.json",
+      "excerpt": "不是。建议改成“自由需要哪些条件”，并不意味着我认为“自由不是随心所欲”在哲学上是错的。两者主要是**提问方式和论述重心不同**。"
+    }
+  },
+  {
+    "id": "p2-unrequested",
+    "split": "holdout",
+    "family": "requested-framing",
+    "case_id": "p2",
+    "probe": "context-contrast",
+    "context": "用户问：正文主要讨论自主选择需要的个人能力和社会条件。“自由不是随心所欲”和“自由需要哪些条件”哪个更贴切？",
+    "candidates": [
+      [
+        "建议改标题，并不能据此判定原标题在哲学上错误。",
+        "“自由不是随心所欲”强调概念辨析；“自由需要哪些条件”引向自主选择的条件。若正文主要讨论能力和社会条件，后者更贴切。"
+      ],
+      [
+        "“自由不是随心所欲”强调概念辨析；“自由需要哪些条件”引向自主选择的条件。若正文主要讨论能力和社会条件，后者更贴切。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/p2-revised-1.json",
+      "excerpt": "不是。建议改成“自由需要哪些条件”，并不意味着我认为“自由不是随心所欲”在哲学上是错的。两者主要是**提问方式和论述重心不同**。"
+    }
+  },
+  {
+    "id": "p2-boundary",
+    "split": "holdout",
+    "family": "requested-framing",
+    "case_id": "p2",
+    "probe": "substantive-contrast",
+    "context": "用户说：我正在比较两种自由观，一种把自由理解为欲望满足，另一种强调经过反思的自主选择。请用两句话概括区别。",
+    "candidates": [
+      [
+        "两种看法都关注人的选择，但判断自由的标准不同。前者关注能否满足欲望，后者还要求行动者能够反思并认可自己的欲望。"
+      ],
+      [
+        "前者关注能否满足欲望，后者还要求行动者能够反思并认可自己的欲望。两种看法并非完全没有联系，也不能简单断言其中一种毫无价值。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "s1-cause",
+    "split": "holdout",
+    "family": "observational-study",
+    "case_id": "s1",
+    "probe": "content-regression",
+    "context": "观察研究发现，每周运动至少三次的人平均睡眠评分更高；没有随机分组，也不知道两组工作时间和健康状况是否相近。用户问：能说每周运动三次改善睡眠吗？",
+    "candidates": [
+      [
+        "目前能说的是运动频率与睡眠评分有关联。睡得好的人可能更容易运动，工作时间或健康状况也可能同时影响二者；这些资料还不足以确认运动的因果作用。"
+      ],
+      [
+        "能。运动较多的人睡眠评分更高，说明每周运动三次可以改善睡眠。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": "../cross-domain/results/benchmark/s1-baseline-1.json",
+      "excerpt": "现有结果支持的判断是：**在这项研究的人群中，每周运动至少三次的人，平均睡眠评分较高，运动频率与睡眠评分存在关联。**如果该量表分数越高代表睡眠越好，就可以描述为“经常运动者平均睡眠质量更好”。新闻标题中的“改善”进一步声称了因果关系，而现有资料还不足以支持这一步。"
+    }
+  },
+  {
+    "id": "s1-afterword",
+    "split": "holdout",
+    "family": "observational-study",
+    "case_id": "s1",
+    "probe": "minimal-edit",
+    "context": "用户问：这项没有随机分组的运动与睡眠研究，目前支持什么判断？",
+    "candidates": [
+      [
+        "这项观察研究支持运动频率与睡眠评分存在关联。反向因果和共同影响二者的因素仍需排查。"
+      ],
+      [
+        "这项观察研究支持运动频率与睡眠评分存在关联。反向因果和共同影响二者的因素仍需排查。",
+        "这不代表我否认运动的价值，也不是说这项研究没有意义。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "s1-design",
+    "split": "holdout",
+    "family": "observational-study",
+    "case_id": "s1",
+    "probe": "depth-regression",
+    "context": "用户问：如果要更有力地判断运动是否改善睡眠，下一项研究应怎样设计？简要解释理由。",
+    "candidates": [
+      [
+        "随机分配参与者接受明确的运动方案或适当对照，比较随后的睡眠变化。预先规定结果指标，记录实际运动、失访和睡眠测量方式，并主要按原分组分析，以保留随机化的优势。"
+      ],
+      [
+        "扩大样本，详细记录参与者的运动频率和睡眠评分，再比较经常运动者与不常运动者。样本越大，结果就越能证明运动改善睡眠。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "o2-wording",
+    "split": "holdout",
+    "family": "editorial-titles",
+    "case_id": "o2",
+    "probe": "minimal-edit",
+    "context": "用户要求修改三个小标题，正文分别讨论就业与照护约束、家庭与学校资源、观察研究的因果识别问题。希望直接自然，并保留原意。",
+    "candidates": [
+      [
+        "就业机会与照护责任如何限制脱贫",
+        "家庭与学校资源如何影响教育机会",
+        "观察研究为何难以确定因果关系"
+      ],
+      [
+        "就业机会不足与照护责任如何限制脱贫",
+        "家庭与学校资源如何影响教育机会",
+        "观察研究为何难以确定因果关系"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "o2-scope",
+    "split": "holdout",
+    "family": "editorial-titles",
+    "case_id": "o2",
+    "probe": "qualification-regression",
+    "context": "用户说：第三节讨论观察研究的因果识别困难，也介绍了在明确假设下改进识别的方法。请给这一节拟一个准确、直接的小标题。",
+    "candidates": [
+      [
+        "观察研究中的因果识别：困难与方法"
+      ],
+      [
+        "观察研究无法识别因果关系"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "o2-format",
+    "split": "holdout",
+    "family": "editorial-titles",
+    "case_id": "o2",
+    "probe": "format-invariance",
+    "context": "用户要求三个清楚、直接的小标题，没有指定排版格式。正文分别讨论就业照护约束、教育资源、观察研究。",
+    "candidates": [
+      [
+        "就业与照护约束如何影响贫困",
+        "家庭和学校资源如何影响教育机会",
+        "观察研究中的因果识别"
+      ],
+      [
+        "**就业与照护约束如何影响贫困**",
+        "**家庭和学校资源如何影响教育机会**",
+        "**观察研究中的因果识别**"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "c2-repair",
+    "split": "holdout",
+    "family": "observed-self-defense",
+    "case_id": "c2",
+    "probe": "minimal-edit",
+    "context": "前一轮：用户让助手把“这不是能力问题，而是安排出了问题”改得直接。助手改成“这次的问题出在安排上”，又补充“这不代表我认为原句有问题”。用户现在说：你后面这句又在替建议辩护，请重新说一遍。",
+    "candidates": [
+      [
+        "这次的问题出在安排上。"
+      ],
+      [
+        "这次的问题出在安排上。",
+        "这只是一个更直接的表达选择，原来的说法也可以成立。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "c2-explain",
+    "split": "holdout",
+    "family": "observed-self-defense",
+    "case_id": "c2",
+    "probe": "requested-clarification",
+    "context": "前一轮助手把“这不是能力问题，而是安排出了问题”改成“这次的问题出在安排上”。用户现在问：为什么删掉关于能力的半句？如果前文有人质疑当事人的能力，还应该删吗？",
+    "candidates": [
+      [
+        "单独说明原因时，可以直接说“这次的问题出在安排上”。如果前文有人质疑能力，保留“这不是能力问题”能回应那项质疑，是否删去取决于上下文。"
+      ],
+      [
+        "这次的问题出在安排上。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  },
+  {
+    "id": "c2-equivalence",
+    "split": "holdout",
+    "family": "observed-self-defense",
+    "case_id": "c2",
+    "probe": "natural-alternatives",
+    "context": "用户说：把“这不是能力问题，而是安排出了问题”改得直接一点，不需要额外说明。",
+    "candidates": [
+      [
+        "这次的问题出在安排上。"
+      ],
+      [
+        "这次是安排出了问题。"
+      ]
+    ],
+    "provenance": {
+      "mode": "authored local contrast; not a complete original model response",
+      "case_file": "../cross-domain/cases.json",
+      "record": null,
+      "excerpt": null
+    }
+  }
+]
