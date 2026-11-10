@@ -99,3 +99,18 @@ probe、准入类别和人工标签。相同文本控制允许平局，人工未
 首批结果与下一版修订范围见
 [五项裁判 v3](../../evaluations/communication-style/preference-calibration/results-v3.md)。
 本批运行成功，但共有缺陷、非显式自辩和上下文限制判断仍未对齐；保留组保持未启用。
+
+### v4 预注册补充
+
+保持 v3 的题目、准入分类、模型、换序、次数和统计口径，新增逐侧五项检查与删除审查。
+D04 的已知内容混杂继续如实报告，不事后改变主要分母。新版结构校验检查五项覆盖、
+问题列表一致性和共有问题的两侧证据；这些仍不能证明语义判断正确。
+[协议](../../evaluations/communication-style/preference-calibration/protocol-v4.json) 与
+[裁判](../../evaluations/communication-style/preference-calibration/judge-v4.txt) 在调用前冻结。
+本轮最多 24 次调用，不重试、不自动继续 v5。若仍有系统性遗漏，保留组继续关闭，
+优先转向人工主评分，避免无限校准小样本。
+
+成熟工具先试 Promptfoo 0.125.1 的已有结果离线回放与浏览；Inspect AI 作为研究备选。
+本轮不迁移付费调用，不添加项目依赖或全局安装，不上传结果。Promptfoo 初次在 `/tmp`
+安装因当前环境的 2 GiB tmpfs 空间不足而失败；仅清理本次安装缓存，保留错误日志。
+第二次改用仓库 `.venv/` 下独立目录，安装成功。框架实测另行记录，不能将回放当作新评估。

@@ -1,0 +1,17 @@
+{
+  "version": 4,
+  "phase": "calibration_only",
+  "judge": {"provider": "openai", "model": "gpt-6-sol", "thinking": "high"},
+  "workers": 3,
+  "timeout_seconds": 300,
+  "max_calls": 24,
+  "attempts_per_job": 1,
+  "orders": ["original", "swapped"],
+  "human_labels": "labels.round-1.json",
+  "materials": "Unchanged v3 jobs and admission categories; D04 remains in the frozen primary denominator despite its documented content confound.",
+  "change": "Five explicit checks per answer before preference; contextual deletion audit, shared-issue coverage, functional rather than first-person definition of self-defense.",
+  "reporting": "Reuse v3 per-pair normalization and denominators. Report shown-choice reasons separately from normalized choices. Rich diagnostics remain model predictions, not human defect labels.",
+  "stopping": "One 24-call batch, no retries or automatic v5. Review all visible judgments. If disagreements or systematic omissions remain, do not open holdout or declare alignment; prefer human-primary evaluation to unbounded judge tuning.",
+  "tool_probe": "Promptfoo 0.125.1 offline replay of saved results only; no model transport migration in this batch, no cloud upload, no changes to project dependencies or global installation.",
+  "holdout": "Blocked until final judge decision and independent human labels. No new human labels inferred."
+}
