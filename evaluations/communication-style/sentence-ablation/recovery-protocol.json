@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "reason": "The original c1-1 judgment omitted Markdown ** markers and an intervening space from a quality quote. The literal-evidence validator rejected it and the original summary failed closed.",
+  "amendment": "Declare one format-failure retry after observing this failure. Freeze this protocol, adapter and original failed record before the additional model call. This recovery was not part of the initial frozen execution plan.",
+  "scope": "Only c1 replicate 1 judging. No generation, prompt, rubric, case, score threshold, arm order or anonymous answer mapping changes. Use the same provider/model/thinking/timeout and identical packet and judge system text.",
+  "attempts": "Exactly one additional request. Retain the original failed raw judgment. Refuse another attempt or any overwrite. If this retry is invalid, stop without a complete score report.",
+  "acceptance": "The original validators apply unchanged to the entire retry. No quote normalization, manual repair, score selection or combination across the two attempts. Select the whole valid retry only because the initial attempt was format-invalid, not based on whether the scores are favorable.",
+  "summary": "A separate adapter substitutes this one accepted record at read time. The original runner and failed artifact remain unchanged and still reject the original dataset. Include the invalid attempt's cost and recovery provenance in the final report.",
+  "limits": "This is a disclosed post-freeze execution amendment. Rejudging can change model scores and contributes additional judge variability. No new claim of independent human validation or runtime adoption follows."
+}
