@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-astra",
+    "thinking": "high",
+    "temperature": "provider default"
+  },
+  "judge": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "arms": [
+    "full",
+    "drop1",
+    "drop2",
+    "drop3",
+    "drop4",
+    "drop5",
+    "drop6",
+    "drop7",
+    "minimal",
+    "drop67"
+  ],
+  "repetitions": 2,
+  "workers": 3,
+  "timeout_seconds": 300,
+  "order_seed": 71,
+  "scope": "160 fresh generations: eight existing cross-domain development cases, two replicates, ten arms. Judge each case/rep separately with ten shuffled anonymous answers (16 calls).",
+  "system": "Common minimal role anchor in every arm. Remaining sentences retain words, order and paragraph grouping. Full paragraph is whitespace-normalized from the prior revised paragraph. No inherited context, skills or tools.",
+  "dependencies": "S7 refers to S6. Literal deletion does not repair that reference. Joint drop67 supports a 2x2 interaction check; the S6 effect includes any dangling-reference cost.",
+  "measurement": "Seven task-applicable quality dimensions on anchored integer 0-4 scales, plus frozen content coverage, critical findings and evidenced style findings. Overall score is 25 times the mean of applicable dimension scores per answer. Average replicates per task, then weight eight tasks equally. This is a declared measurement convention, not a learned user utility function.",
+  "control_gate": "Judge three authored paired controls before generation. Detect subtle invented framing, preserve necessary correction and requested clarification, detect repeated self-defense. Expected labels withheld. Strict failures stop; no prompt tuning or retries within this frozen study.",
+  "effects": "S_i marginal effect = full minus drop_i. Report overall 0-100 points and the corresponding dimension's 0-100 points on applicable tasks, task-level deltas, coverage and critical changes. Net paragraph effect = full minus minimal. Interaction67 = full - drop6 - drop7 + drop67. Do not force effects to sum to 100 percent.",
+  "uncertainty": "20000 task-cluster bootstrap samples, seed 71, unadjusted percentile 95% intervals. Only eight task clusters (fewer for requested_meta), reused full responses, ordinal rubric, multiple comparisons and one model-family judge; intervals are exploratory, not confirmed significance. No universal sentence weights or Shapley values.",
+  "audit": "Inspect all model-flagged answers, every generation for p2 and c2, and largest absolute task effect per deleted sentence. Preserve raw results and keep author interpretation separate. No hidden reasoning saved.",
+  "failure": "Preserve every attempt; no quality retries or silent exclusions. Incomplete or failed records prevent summary.",
+  "adoption": "No runtime instruction changes. Previous studies and scores remain immutable."
+}
