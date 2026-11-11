@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "manifest_sha256": "04f263afbb2b963a3f0a958610369ec7b54308a27b5dc5fd01bada29ea17224b",
+  "synthetic_calls": 8,
+  "model_calls": 0,
+  "evidence_contract": "paragraph-id-v1",
+  "comparison": "judge_configurations_with_fixed_criteria",
+  "models": {
+    "baseline": {"provider": "openai", "model": "gpt-6-sol", "thinking": "high"},
+    "revised": {"provider": "openrouter", "model": "anthropic/claude-sonnet-4.6", "thinking": "high"}
+  },
+  "in_process_network_attempts": 0
+}

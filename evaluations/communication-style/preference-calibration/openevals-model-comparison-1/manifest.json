@@ -1,0 +1,22 @@
+{
+  "../openevals_model_compare.py": "b6badb79a77b06d0e871712ccd929aab206a2967124a43cc7d077ede5aa879f0",
+  "../openevals_id_evidence.py": "ed5e5ae79464ec2fb6ae67e7d7f3890b45b626c44881ad44992dcf9396cbf56f",
+  "../openevals_compare.py": "80d35c9a1af10ebbfc676e9ffa1592d63ad9e799b697238e832f8ad84baba19f",
+  "../../../../tests/test_openevals_model_compare.py": "1eed91a2d2153cdfd67631abcf5fee149fb30131f056c5b8604ce7a8d9b06e9c",
+  "protocol.json": "5cf9a92f5c99dc22a391eaedc505cc315bfc75e0e51167c1fd0858949469c91d",
+  "jobs.json": "b0a3e4eb297e9a039f0c88f0c729ed5f8ffaecbb18fbd4ddcadfb053d1d0f609",
+  "guidance.txt": "564be078d2993fb1e505daf8dcf9777336d601bb5c2abd9fe7ea8ded714f5926",
+  "revised-helpfulness.txt": "0724762c3df62b39292ca0bcd08ac90725dc960f344821be8baa417c76e52465",
+  "id-instructions.txt": "3cb0df6b3b463394bace6ef15cc063135d49a52c80a0bd9230ab5e7c6dd1278d",
+  "../openevals-pilot-2/manifest.json": "4488acf422b945a5145edcd002b0d493906c8f3f270bcf7bcfd7ce362328a9b9",
+  "../openevals-pilot-2/transport-repair.json": "4f60d081f4d1c5b385cb76dc2a359dec18018d8ed9043560ad5aea9d8b3cf528",
+  "../openevals-pilot-2/diagnostic_transport.py": "04d5f15d0edbdcf13f0cd2f0809b2b13da0684822c79cd66f83f51e29bcb0e00",
+  "../openevals-contribution-v1/jobs.json": "27cc8762d2b2333c51d5396e99b3f95862cea9b3946c6db64912678e0a6a21a5",
+  "../openevals-contribution-v1-id-evidence/manifest.json": "d0a9de374cadcb71775c4b6e5d3649daface9b3696599a7740faf352ee885784",
+  "../openevals-contribution-v1-id-evidence/guidance.txt": "564be078d2993fb1e505daf8dcf9777336d601bb5c2abd9fe7ea8ded714f5926",
+  "../openevals-contribution-v1-id-evidence/revised-helpfulness.txt": "0724762c3df62b39292ca0bcd08ac90725dc960f344821be8baa417c76e52465",
+  "../openevals-contribution-v1-id-evidence/id-instructions.txt": "3cb0df6b3b463394bace6ef15cc063135d49a52c80a0bd9230ab5e7c6dd1278d",
+  "../labels.round-1.json": "94a2e4dad5a5c92324cd34a82e9e654896e58f5452a78bdc5698729fd2fb95f2",
+  "../feedback.round-1.json": "86e6b6ffc9fb762f5f927a08173779e580c3c674ecb807dbf94f43c291fa7c1a",
+  "../deletion-pilot-1-feedback.json": "11bc9cebf5baba5d6c3c4923990f99ef49e30a6eb093e13403839527c7d5dda3"
+}
