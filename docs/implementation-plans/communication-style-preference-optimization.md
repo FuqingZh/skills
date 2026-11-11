@@ -245,3 +245,12 @@ P02-A 机制与 P03-B 条件未观察到误删退步。D06-A 修订版引用漏�
 [内容贡献 v1 结果](../../evaluations/communication-style/preference-calibration/openevals-contribution-v1/README.md)
 记录实际 10 次调用、9 份有效、4 份回答的完整双臂对照，11440 tokens、估计 $0.046728
 （含无效报告）。迁移效果未知，修订仍是实验候选，未替换原提示或采用到 runtime。
+
+引用协议单独冻结为 `6a226f7`：模型返回段落编号，程序提取完整原文；未知编号仍失败，
+原始模型输出、编号诊断和派生引用分开留存，原逐字引用失败不改写。语义准则文件保持
+逐字节一致，组件源码和模型不变；两臂统一采用新引用指令、schema 枚举和目录展示。
+[编号引用下的 D06 对照](../../evaluations/communication-style/preference-calibration/openevals-contribution-v1-id-evidence/README.md)
+四次调用均有效，共 5160 tokens、估计 $0.021344。两臂均未识别共有铺垫、比喻及 B 的
+冗余结尾；补充疲惫的意见有语境依据，但必要性未定。未观察到已选关注点的迁移收益，
+不采用修订提示。17 个新测试、7 个原执行器测试和 8 次实际组件无模型预检通过。
+旧协议完整六组、新协议完成 D06 一组，不能跨协议合并成偏好准确率；本轮预算已用完。
