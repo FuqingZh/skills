@@ -53,3 +53,30 @@ Pyright 为零错误。
 [原题](../deletion-pilot-2.json)、[偏好反馈](../deletion-pilot-2-feedback.json)、
 [共有解释的补充判断](../deletion-pilot-2-feedback-supplement-1.json)。
 P04 共有解释的“合适”标签保留，没有被作者最初的共有缺陷假设替代。
+
+## 失败日志修复：已离线验证，尚未重试
+
+新增 [diagnostic_transport.py](diagnostic_transport.py)，作为新执行入口显式选用的
+适配器。原 runner、协议、manifest 和失败记录均不修改；原入口也不会暗中改变行为。
+新入口可在自己的 pilot namespace 中绑定：
+
+```python
+base["live"].__globals__["CORE"]["invoke"] = diagnostics["invoke"]
+```
+
+绑定本身不发起调用。适配器复用冻结 runner 的进程隔离、终止回收和全部原校验，
+仅为失败结果增加 `failure_metadata`：预期与实际的 model/provider/stopReason、
+不匹配字段、完成消息数量、错误文本中的 HTTP 状态码和固定错误线索。元数据最多
+保留四份完成消息，错误文本最多扫描 8192 字符，不原样保存；非标识符形状、过长
+或具有已知凭证前缀的身份字段会被遮盖。成功结果保持原样。
+
+错误线索只是模式匹配，不等于已确认原因。thinking、失败回答正文、原始错误文本、
+stderr 和任意附加字段均不进入新增诊断。非零退出或超时仍沿用原有 stderr 隐藏规则，
+明确标注没有完成元数据。修复无法恢复旧调用中已经丢失的字段。
+
+局部验证：18 个新增 transport 用例及 3 个第二批控制器用例通过；Ruff、格式和显式
+Pyright 通过。还用实际安装的 OpenEvals 完成一次模拟进程的 evaluate/live/save 链路
+检查，确认新增元数据会写入失败记录，且仍拒绝该结果。模拟错误包含 HTTP 429 和
+usage limit，**这只是测试夹具，不是旧失败的诊断**。真实 Pi/模型调用为零，网络守卫
+记录为零。LSP 未确认 clean，以显式 Pyright 结果为类型检查证据。修复摘要见
+[transport-repair.json](transport-repair.json)。
