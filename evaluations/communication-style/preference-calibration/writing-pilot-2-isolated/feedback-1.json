@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "source": "Explicit user feedback on the isolated A/B packet; no automated judge",
+  "packet_sha256": "2e13acaf37bbb00210411e7f3cb6f6d1c46fafc2abc481b023e32e7538d64748",
+  "mapping_sha256": "4fb4567739ec42892db24d4e9685c5f5c41c0a206638af5c5e889e6cbb4dc3db",
+  "original_message": "s01, 都可接受；s02，b 我觉得 捐赠不应成为录取优势 是多余的，其他部分没什么问题。a b 也差不多，但 b 读起来更顺畅点，a 的挂钩不喜欢；s03  差不多，a 表述更通顺一些，“立即暂停，评估，完成，再确定”，比b感觉论述清晰；d03，区别不大；p02，b 吧；p03，差别不大",
+  "ratings": [
+    {
+      "id": "S01",
+      "choice": null,
+      "overall": "both_acceptable",
+      "acceptable_sides": [
+        "A",
+        "B"
+      ],
+      "comment": "s01, 都可接受"
+    },
+    {
+      "id": "S02",
+      "choice": null,
+      "overall": "similar",
+      "dimensions": {
+        "fluency": {
+          "preferred_side": "B"
+        },
+        "necessity": {
+          "criticized_side": "B",
+          "user_excerpt": "捐赠不应成为录取优势"
+        },
+        "wording": {
+          "criticized_side": "A",
+          "user_excerpt": "挂钩"
+        }
+      },
+      "other_parts": "User reports no problem with the other parts in the comment about B.",
+      "comment": "s02，b 我觉得 捐赠不应成为录取优势 是多余的，其他部分没什么问题。a b 也差不多，但 b 读起来更顺畅点，a 的挂钩不喜欢"
+    },
+    {
+      "id": "S03",
+      "choice": null,
+      "overall": "similar",
+      "dimensions": {
+        "fluency_and_progression": {
+          "preferred_side": "A",
+          "user_description": "立即暂停，评估，完成，再确定",
+          "description_is_contiguous_quote": false
+        }
+      },
+      "comment": "s03  差不多，a 表述更通顺一些，“立即暂停，评估，完成，再确定”，比b感觉论述清晰"
+    },
+    {
+      "id": "D03",
+      "choice": null,
+      "overall": "little_difference",
+      "acceptability": null,
+      "comment": "d03，区别不大"
+    },
+    {
+      "id": "P02",
+      "choice": "B",
+      "overall": "relative_preference",
+      "reason": null,
+      "comment": "p02，b 吧"
+    },
+    {
+      "id": "P03",
+      "choice": null,
+      "overall": "little_difference",
+      "acceptability": null,
+      "comment": "p03，差别不大"
+    }
+  ],
+  "transcription_notes": [
+    "Both acceptable is recorded as acceptance, not a forced tie or a claim of identical answers.",
+    "S02 and S03 are described as similar overall, with explicit fluency/progression preferences. Preserve those preferences separately rather than infer overall winners.",
+    "Little difference in D03 and P03 is not converted into approval or an assertion that neither has problems.",
+    "P02 has an explicit relative choice but no reason; do not infer that the user preferred more detail, a particular mechanism, or scientific accuracy.",
+    "S02's disliked wording is contextual feedback, not a general blacklist. S03's compressed action sequence describes the source; it is not a verbatim continuous excerpt.",
+    "Comments are segmented only on the user's semicolons; the complete original message is retained."
+  ],
+  "analyst_interpretation": {
+    "status": "Implementing assistant's reading of the explicit feedback, separate from the feedback itself",
+    "resolved_overall_choices": {
+      "P02": "revised"
+    },
+    "resolved_dimensional_preferences": {
+      "S02": {
+        "fluency": "baseline"
+      },
+      "S03": {
+        "fluency_and_progression": "baseline"
+      }
+    },
+    "assessment": "No consistent advantage for the short addition observed in this batch. Both isolated configurations are explicitly acceptable for S01. Fluency feedback favors baseline in S02/S03, P02 has a relative preference for revised, and other questions do not establish an overall preference. Do not sum these into a win rate or establish equivalence.",
+    "decision": "Keep the existing global instructions unchanged. No further calls or post-result prompt edits in this batch.",
+    "content_review_boundary": "This feedback describes acceptance and reading preferences, not a scientific or legal audit. In particular, it supplies no rationale or factual validation for P02/B."
+  },
+  "historical_records_preserved": {
+    "summary.json": "7a74de6b982a892aac00c4080e0da9f3e7aec79055d06e054bc5a9cef53bf4a3"
+  },
+  "inventory": {
+    "previous_pair_feedback_records": 22,
+    "previous_explicit_overall_choices": 17,
+    "new_pair_feedback_records": 6,
+    "new_explicit_overall_choices": 1,
+    "new_directional_dimension_preferences": 2,
+    "total_pair_feedback_records": 28,
+    "total_explicit_overall_choices": 18,
+    "note": "Answer-pair feedback records, not unique questions or independent samples. Local rewrite approvals and the accepted three-example set remain separate."
+  },
+  "new_external_evaluation_calls": 0,
+  "prompt_changed": false,
+  "runtime_adoption": false
+}
