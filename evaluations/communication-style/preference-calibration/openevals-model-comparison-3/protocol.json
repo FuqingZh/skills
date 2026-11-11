@@ -1,0 +1,88 @@
+{
+  "status": "authorized_exploratory_judge_configuration_comparison",
+  "authorization": {
+    "user_message": "你可以用 grok 或中国大陆模型",
+    "scope": "Use a Grok or mainland-model challenger with fixed criteria and citation; four existing answers, at most eight calls."
+  },
+  "stages": [
+    "targets",
+    "preservation"
+  ],
+  "max_calls": 8,
+  "workers": 1,
+  "attempts_per_arm_per_answer": 1,
+  "automatic_retries": 0,
+  "models": {
+    "baseline": {
+      "provider": "openai",
+      "model": "gpt-6-sol",
+      "thinking": "high"
+    },
+    "revised": {
+      "provider": "xai",
+      "model": "grok-4.7",
+      "thinking": "high"
+    }
+  },
+  "arm_meaning": "baseline=current judge, revised=Grok challenger; storage keys, not prompt variants",
+  "selection": "The isolated Pi 1.5.0 registry lists xai/grok-4.7 as available and thinking-capable, alongside direct DeepSeek configurations. Select named Grok before outputs, using the xai provider rather than the previously failing OpenRouter route. No credential or provider configuration edits; actual access remains unverified until the budgeted first call.",
+  "fixed": "Byte-identical contribution-v1 revised template, paragraph-id-v1 instructions and four source answers; same catalog/schema, component, transport and guards for both arms. Existing executor reused without code changes.",
+  "pi": "1.5.0",
+  "order": "D02-A challenger first; D05-A current first; P02-A challenger first; D06-B current first. First challenger evaluation is the budgeted access check; no extra canary.",
+  "review_targets": {
+    "D02-A": [
+      "Repeated ending",
+      "Contextual necessity of unasked correction"
+    ],
+    "D05-A": [
+      "Defensive ending",
+      "Marginal value of shared personal-action sentence"
+    ],
+    "P02-A": [
+      "Preserve net-evaporation mechanism and causal connection"
+    ],
+    "D06-B": [
+      "Shared framing and metaphor",
+      "Contextual value of ending",
+      "Preserve articulation of both parties' concerns"
+    ]
+  },
+  "gates": "Review targets before preservation. Stop on transport/schema/ID failure without retry or rescue. Stop expansion on demonstrated materially false diagnosis; optional suggestions, unresolved necessity and human/model disagreement are not automatically material failures. No model or prompt switching after output.",
+  "limits": [
+    "Provider changes with model; compare configurations, not isolated weights.",
+    "High is requested in both; compute and provider clamping are not proven equal.",
+    "Four selected individual answers, not four complete A/B question pairs.",
+    "Author-visible development material; no independent holdout, automatic winner, preference accuracy, model selection or runtime adoption.",
+    "One result per answer/configuration; no stability or general superiority claim.",
+    "Human labels and feedback are audit-only and never enter requests.",
+    "Missing or unpriced cost remains unknown, not zero; provider HTTP request counts unmeasured.",
+    "Claude and Gemini failures remain unchanged; this is a newly authorized configuration, not a repair or retroactive success."
+  ],
+  "frozen_files": [
+    "../openevals_model_compare.py",
+    "../openevals_id_evidence.py",
+    "../openevals_compare.py",
+    "../../../../tests/test_openevals_model_compare.py",
+    "protocol.json",
+    "jobs.json",
+    "guidance.txt",
+    "revised-helpfulness.txt",
+    "id-instructions.txt",
+    "../openevals-pilot-2/manifest.json",
+    "../openevals-pilot-2/transport-repair.json",
+    "../openevals-pilot-2/diagnostic_transport.py",
+    "../openevals-contribution-v1/jobs.json",
+    "../openevals-contribution-v1-id-evidence/manifest.json",
+    "../openevals-contribution-v1-id-evidence/guidance.txt",
+    "../openevals-contribution-v1-id-evidence/revised-helpfulness.txt",
+    "../openevals-contribution-v1-id-evidence/id-instructions.txt",
+    "../openevals-model-comparison-1/manifest.json",
+    "../openevals-model-comparison-1/results/D02-A/revised.json",
+    "../openevals-model-comparison-1/availability-feedback-1.json",
+    "../openevals-model-comparison-2/manifest.json",
+    "../openevals-model-comparison-2/results/D02-A/revised.json",
+    "../labels.round-1.json",
+    "../feedback.round-1.json",
+    "../deletion-pilot-1-feedback.json"
+  ]
+}

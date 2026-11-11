@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "manifest_sha256": "bb8da99ef8ea892feba7e5a576da6af8dd7a13275eacfa968c5fa5e1d760dc1a",
+  "synthetic_calls": 8,
+  "model_calls": 0,
+  "evidence_contract": "paragraph-id-v1",
+  "comparison": "judge_configurations_with_fixed_criteria",
+  "models": {
+    "baseline": {
+      "provider": "openai",
+      "model": "gpt-6-sol",
+      "thinking": "high"
+    },
+    "revised": {
+      "provider": "xai",
+      "model": "grok-4.7",
+      "thinking": "high"
+    }
+  },
+  "in_process_network_attempts": 0
+}
