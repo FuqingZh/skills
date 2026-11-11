@@ -1,7 +1,9 @@
 # OpenEvals helpfulness 两组开发小批
 
-当前已在第一组后停止：目标诊断局部命中，但新增缺陷判断的必要性依据不足。
-P02 未执行；详见 [结果与限制](results.md)。下列冻结命令用于留存，不是重跑授权。
+两组开发评审现已完成：用户澄清第一组附加意见的必要性未定，并授权只续跑 P02。
+见 [续跑结果](continuation-results.md)；[原停止报告](results.md) 与原始输出保持不变。
+此次续跑使用 `continue_p02.py` 读取单独授权，没有修改冻结 runner 或原 stop 记录。
+下列冻结命令用于留存，不是重跑授权。
 
 组件：OpenEvals 提交 `5753dc75d40c2be75ffd38eb6d63bb966cbcc4e3` 的
 `RAG_HELPFULNESS_PROMPT` 和 `create_llm_as_judge(output_schema=...)`。

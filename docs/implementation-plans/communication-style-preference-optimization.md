@@ -179,3 +179,12 @@ P01 选 B，因补充只提到个人选择有作用，却未解释作用；P02 �
 决定，未运行 P02；不据局部命中宣称两组通过或组件已验证。原始请求、可见输出、
 审阅与成本见 [结果记录](../../evaluations/communication-style/preference-calibration/openevals-pilot-1/results.md)。
 无重试、修补、追加提示、保留组调用或运行时采用。
+
+用户随后澄清：第一组 B 的附加意见“可有可无，也不能说不对，也不能说必要”，并
+明确授权继续。另存 `continuation-1.json`，保留原停止审阅和原始输出；冻结评审配置
+不变，仅执行 P02-A/B，各一次。组件引用 A 的机制句并指出 B 中需要读者自行推断的
+关键因果环节；B 的总体赞许偏宽，仍需结合具体诊断阅读。
+
+原定两组现已完成，共四次调用、四份有效结构输出。结论仅支持保留为人工辅助评审
+候选，区分确有缺陷、可选改进与必要性未定，不自动删句、改写或扩量。续跑授权、
+完整诊断与限制见 [续跑结果](../../evaluations/communication-style/preference-calibration/openevals-pilot-1/continuation-results.md)。
