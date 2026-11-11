@@ -236,3 +236,12 @@ D02：未覆盖未问纠错和重复两个关注点，并仅在 A 中质疑共�
 但肯定用户认为多余的共有句。分歧和遗漏如实保留，未计算偏好准确率或自动删改。
 [第三批结果](../../evaluations/communication-style/preference-calibration/openevals-pilot-3/README.md)
 记录 3979 tokens、估计 $0.017886；当前组件完成六组，全部人工反馈仍为十六组。
+
+用户授权一次准则调整与小批对照。冻结 `4951a46` 只添加三项内容贡献准则，组件源码、
+模型、system 和 schema 不变，使用可复用的 `openevals_compare.py`，每份回答均有新鲜
+原提示对照。D02-A 修订版识别重复片段，但未问纠错、D05-A 共有句的必要性分歧仍在；
+P02-A 机制与 P03-B 条件未观察到误删退步。D06-A 修订版引用漏掉 Markdown 标记和空格，
+逐字引用校验失败，按冻结约定停止；D06-B 两臂未执行，没有修补或重试。
+[内容贡献 v1 结果](../../evaluations/communication-style/preference-calibration/openevals-contribution-v1/README.md)
+记录实际 10 次调用、9 份有效、4 份回答的完整双臂对照，11440 tokens、估计 $0.046728
+（含无效报告）。迁移效果未知，修订仍是实验候选，未替换原提示或采用到 runtime。
