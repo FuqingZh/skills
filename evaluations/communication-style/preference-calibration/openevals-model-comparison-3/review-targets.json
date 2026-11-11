@@ -1,0 +1,17 @@
+{
+  "stage": "targets",
+  "reviewer": "Implementing assistant; unblinded exploratory review",
+  "decision": "continue",
+  "valid_reports": 4,
+  "D02-A": {
+    "shared_findings": "Both identify the repeated 97% clause, praise the information checklist, and still endorse misconception corrections, including the separate null-probability correction.",
+    "challenger_only": "Grok categorically criticizes the term 检验假设 as adding a condition that distorts the p-value definition, and comments on the ending's 所以 transition.",
+    "assessment": "No clear advantage on the human's unasked-correction concern. The term 检验假设 is ambiguous: a reading as test assumptions is compatible with the definition, while another interpretation could be problematic. Grok does not establish its interpretation or express this uncertainty; retain an overconfidence/unsupported-criticism risk, not a confirmed factual error in the source."
+  },
+  "D05-A": {
+    "shared_findings": "Both flag the defensive ending as adding no needed mechanism or condition; both endorse the common explanatory paragraph.",
+    "assessment": "No observed advantage on the human's shared personal-action sentence concern. Neither report's paragraph-level endorsement settles that sentence's marginal contribution."
+  },
+  "continuation_reason": "The categorical terminology criticism is a calibration risk. Available evidence does not establish a materially false diagnosis under every plausible reading; uncertainty and disagreement are retained rather than repaired. Continue only the frozen mechanism-preservation and D06 probes, without expanding scope or changing prompts.",
+  "limits": "No new human labels, automatic winner, aggregate score, or adoption. More findings are not better judgments. Model and provider change together, with unequal compute possible."
+}

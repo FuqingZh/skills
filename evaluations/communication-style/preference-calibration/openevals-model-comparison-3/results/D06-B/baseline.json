@@ -1,0 +1,69 @@
+{
+  "context": "用户说：临时加班，我提前半小时取消了和朋友的见面。朋友生气，我也很累，不知道怎么聊下去。请先帮我理清双方在意什么。",
+  "answer_under_review": "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。",
+  "request": {
+    "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须填写 evidence_catalog 中的一个段落编号（如 P1），不要复写原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\", \"enum\": [\"P1\"]}, \"reason\": {\"type\": \"string\"}}}}}}",
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<ContextualContribution>\n在原有准确性和相关性检查之外，按当前问题和完整回答检查内容的实际贡献：\n\n1. 内容正确、相关或通常有帮助，并不足以单独证明这里值得保留。说明它为当前问题增加了什么。新增独立事实不是唯一贡献：机制、适用条件、推理连接、理解所需的例子和导航也可能有用。不要把简短当成优点本身，也不要把这些解释当作冗余。\n\n2. 将句子放回全文，检查前文是否已经完成了同样的解释，以及删去它会具体损失什么。识别没有额外作用的重复，也保留确实帮助理解或限制结论适用范围的表述。不能仅因某句单独看有意义，就忽略它与前文的重复。\n\n3. 纠正常见误解、补充其他因素和提出改进建议，都要检查当前语境是否需要这项帮助。不要只凭“通常有用”就断定本题需要，也不要只因用户没有明说就认定无用。issue 应说明有依据的具体问题及其影响；“还能补充”不自动构成缺陷。可选改进应明确其可选性，不要求扩写。必要性确实未定且值得提示审阅时，用 uncertain 并说明不确定在哪里。\n</ContextualContribution>\n\n<inputs>\n用户说：临时加班，我提前半小时取消了和朋友的见面。朋友生气，我也很累，不知道怎么聊下去。请先帮我理清双方在意什么。\n</inputs>\n\n<outputs>\n这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。\n</outputs>\n\n<evidence_catalog>\n{\"P1\": \"这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。\"}\n</evidence_catalog>\n"
+      }
+    ]
+  },
+  "transport": {
+    "answer": "{\"findings\":[{\"kind\":\"strength\",\"evidence\":\"P1\",\"reason\":\"分别点明用户希望被理解工作压力、朋友可能在意临时取消带来的影响，并说明双方感受可以同时成立，直接帮助理清对话的分歧。\"}]}",
+    "characters": 120,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 1117,
+      "output": 229,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 164,
+      "totalTokens": 1346,
+      "cost": {
+        "input": 0.002234,
+        "output": 0.0022900000000000004,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.004524,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 16.726
+  },
+  "invocations": 1,
+  "evidence_contract": "paragraph-id-v1",
+  "evidence_catalog": {
+    "P1": {
+      "start": 0,
+      "end": 78,
+      "text": "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。"
+    }
+  },
+  "answer_sha256": "d7f05813b3f46a7240054a69f81f8f42a08451d8f34cda2035bbd9a43f2f4c17",
+  "id_diagnostic": {
+    "findings": [
+      {
+        "kind": "strength",
+        "evidence": "P1",
+        "reason": "分别点明用户希望被理解工作压力、朋友可能在意临时取消带来的影响，并说明双方感受可以同时成立，直接帮助理清对话的分歧。"
+      }
+    ]
+  },
+  "diagnostic": {
+    "findings": [
+      {
+        "kind": "strength",
+        "evidence": "这次难聊的地方在于：**你需要对方理解“我确实被工作压住了”，朋友可能需要你先承认“临时取消确实影响了我”。** 这两件事可以同时成立，不必先争出谁更委屈。",
+        "reason": "分别点明用户希望被理解工作压力、朋友可能在意临时取消带来的影响，并说明双方感受可以同时成立，直接帮助理清对话的分歧。"
+      }
+    ]
+  },
+  "judge_configuration": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  }
+}
