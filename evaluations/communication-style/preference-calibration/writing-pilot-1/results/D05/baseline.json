@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用户问：从社会学视角，家庭资源和个人努力怎样共同影响升学？请简要解释。"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "从社会学视角看，家庭的经济、文化和社会资源会影响孩子获得的学校、辅导、信息与支持，从而影响升学机会。个人努力则影响这些机会能否转化为成绩和升学结果；同时，家庭资源也会影响一个人努力的条件，因此相同的努力未必带来相同的结果。",
+    "characters": 111,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 181,
+      "output": 122,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 38,
+      "totalTokens": 303,
+      "cost": {
+        "input": 0.00036199999999999996,
+        "output": 0.0012200000000000002,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.001582,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 5.226
+  }
+}

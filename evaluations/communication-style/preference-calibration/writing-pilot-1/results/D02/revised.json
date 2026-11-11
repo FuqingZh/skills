@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n\nUse plain, concrete wording. Start with what the user wants to understand or decide, without first announcing a framing or describing your own intentions. Prefer ordinary wording to decorative metaphors or staged phrasing.\n\nMake additions earn their place in this answer. If a factor matters, explain its role rather than merely asserting that it also matters. A sentence can be correct and relevant yet unnecessary here. Do not organize the answer around an unstated misconception or opposing position unless a concrete risk or ambiguity makes the clarification necessary. Avoid repeating an explanation or adding a comparison, reassurance, or next step merely to round off the answer.\n\nKeep useful causal links, supporting evidence, applicability conditions, and uncertainty. Give requested examples and connect them to the point being explained. Judge concision by whether the reasoning remains easy to follow, not by sentence count.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用户问：报告 p=0.03，我应该怎样理解，还需要看什么信息？"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "**p=0.03** 表示：如果所用统计模型成立、且零假设为真，得到当前结果或更极端结果的概率是 3%。按预先设定的 0.05 显著性水平，这个结果通常称为“统计显著”。它不表示“零假设只有 3% 的概率为真”。\n\n还需要看：\n\n- **效应有多大**：例如两组实际相差多少。统计显著不等于差异足够重要。\n- **置信区间**：看估计值的精度，以及哪些效应大小仍与数据相容。\n- **研究设计和数据质量**：样本量、抽样与随机分组方式、缺失数据、统计模型的假设，都会影响 p 值是否可信。\n- **检验了多少次**：若同时检验了很多指标或分组，单个 p=0.03 可能需要结合多重比较校正来判断。\n- **是否预先确定分析方法**：事后挑选结果或反复尝试分析方法，会增加偶然得到小 p 值的机会。\n\n如果你有报告中的效应值、置信区间和研究设计，可以一起判断这个结果的实际意义。",
+    "characters": 388,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 338,
+      "output": 375,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 93,
+      "totalTokens": 713,
+      "cost": {
+        "input": 0.000676,
+        "output": 0.0037500000000000003,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.004426,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 10.424
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n\nUse plain, concrete wording. Start with what the user wants to understand or decide, without first announcing a framing or describing your own intentions. Prefer ordinary wording to decorative metaphors or staged phrasing.\n\nMake additions earn their place in this answer. If a factor matters, explain its role rather than merely asserting that it also matters. A sentence can be correct and relevant yet unnecessary here. Do not organize the answer around an unstated misconception or opposing position unless a concrete risk or ambiguity makes the clarification necessary. Avoid repeating an explanation or adding a comparison, reassurance, or next step merely to round off the answer.\n\nKeep useful causal links, supporting evidence, applicability conditions, and uncertainty. Give requested examples and connect them to the point being explained. Judge concision by whether the reasoning remains easy to follow, not by sentence count.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用户问：从社会学视角，家庭资源和个人努力怎样共同影响升学？请简要解释。"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "从社会学视角看，家庭的经济、文化和社会资源会影响升学机会：例如，收入影响能否获得辅导，家长的教育经验影响学习指导，社会关系影响信息获取。个人努力影响知识积累和考试表现，但努力能取得多大成效，也受这些资源和学校环境影响。因此，升学结果是家庭条件与个人努力共同作用的结果。",
+    "characters": 134,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 345,
+      "output": 131,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 38,
+      "totalTokens": 476,
+      "cost": {
+        "input": 0.00069,
+        "output": 0.0013100000000000002,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.002,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 6.073
+  }
+}

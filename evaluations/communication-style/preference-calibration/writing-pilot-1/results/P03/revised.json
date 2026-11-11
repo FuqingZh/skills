@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n\nUse plain, concrete wording. Start with what the user wants to understand or decide, without first announcing a framing or describing your own intentions. Prefer ordinary wording to decorative metaphors or staged phrasing.\n\nMake additions earn their place in this answer. If a factor matters, explain its role rather than merely asserting that it also matters. A sentence can be correct and relevant yet unnecessary here. Do not organize the answer around an unstated misconception or opposing position unless a concrete risk or ambiguity makes the clarification necessary. Avoid repeating an explanation or adding a comparison, reassurance, or next step merely to round off the answer.\n\nKeep useful causal links, supporting evidence, applicability conditions, and uncertainty. Give requested examples and connect them to the point being explained. Judge concision by whether the reasoning remains easy to follow, not by sentence count.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "一台电器标牌上写着1200瓦，开两小时用多少度电？"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "按1200瓦持续运行计算：1200瓦＝1.2千瓦，开2小时用电 **1.2×2＝2.4度**。",
+    "characters": 47,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 341,
+      "output": 73,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 31,
+      "totalTokens": 414,
+      "cost": {
+        "input": 0.000682,
+        "output": 0.0007300000000000001,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.001412,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 8.334
+  }
+}
