@@ -188,3 +188,12 @@ P01 选 B，因补充只提到个人选择有作用，却未解释作用；P02 �
 原定两组现已完成，共四次调用、四份有效结构输出。结论仅支持保留为人工辅助评审
 候选，区分确有缺陷、可选改进与必要性未定，不自动删句、改写或扩量。续跑授权、
 完整诊断与限制见 [续跑结果](../../evaluations/communication-style/preference-calibration/openevals-pilot-1/continuation-results.md)。
+
+用户授权准备下一批两组对照，材料见 [第二批人工题包](../../evaluations/communication-style/preference-calibration/deletion-pilot-2.md)，
+原始空标签快照见 [材料记录](../../evaluations/communication-style/preference-calibration/deletion-pilot-2.json)。
+P03/P04 分别围绕条件边界与双方共有问题构造；这些是作者研究假设，不是预先给定的
+人类标签。两组各仅删除一个连续片段，不同时改写；长版本侧别采用预先平衡列表后
+seed 42 一次洗牌，保留首次结果 B、A。材料属于开发诊断，不计为内容匹配的纯风格试验。
+
+当前只准备材料并等待人工判断，不调用组件、不重跑旧例、不改评审提示或结构。
+可选建议与必要性未定的意见不自动构成关键失败；后续反馈仍单独保存，不覆盖原快照。
