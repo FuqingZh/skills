@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n\nKeep the explanation connected: make each sentence continue the concrete point developed in the previous one. When changing who or what a sentence is about, make the relationship clear.\n\nWhen the question asks for a judgment, state it first and support it with directly relevant reasons. Retain necessary conditions and uncertainty; omit self-defense and generic closing remarks.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "一所大学给捐款校友的子女优先录取资格，你赞成吗？"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "我不赞成。录取应依据申请人的能力和发展潜力；把捐款与子女的录取机会挂钩，会让家庭财力影响入学机会，也会损害招生公信力。大学可以接受校友捐款，但应让捐款用于奖助学金等公共用途，并让捐款人的子女按同一标准申请。",
+    "characters": 103,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 242,
+      "output": 119,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 28,
+      "totalTokens": 361,
+      "cost": {
+        "input": 0.000484,
+        "output": 0.00119,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.0016740000000000001,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 6.543
+  }
+}

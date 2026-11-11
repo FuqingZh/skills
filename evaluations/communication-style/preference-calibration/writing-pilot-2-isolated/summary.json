@@ -1,0 +1,51 @@
+{
+  "freeze_commit": "ac93f1b",
+  "status": "generation_complete_awaiting_human_feedback",
+  "attempted": 12,
+  "valid_generations": 12,
+  "failed_attempts": [],
+  "automated_judge_calls": 0,
+  "question_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "D03",
+    "P02",
+    "P03"
+  ],
+  "totals": {
+    "calls": 12,
+    "total_tokens": 4459,
+    "estimated_cost_usd": 0.02367,
+    "seconds": 114.828,
+    "characters": 1472
+  },
+  "by_arm": {
+    "baseline": {
+      "calls": 6,
+      "total_tokens": 2071,
+      "estimated_cost_usd": 0.011846,
+      "seconds": 60.336,
+      "characters": 706
+    },
+    "revised": {
+      "calls": 6,
+      "total_tokens": 2388,
+      "estimated_cost_usd": 0.011824,
+      "seconds": 54.492,
+      "characters": 766
+    }
+  },
+  "new_human_labels": 0,
+  "assistant_preference": null,
+  "selected_prompt": null,
+  "runtime_adoption": false,
+  "provider_http_requests": null,
+  "costs_are_estimates": true,
+  "limitations": [
+    "Known development questions, one generation per arm; no independent transfer or stable-effect claim.",
+    "Human-facing packet omits arm names but mapping and source metadata remain inspectable.",
+    "No previous approval is transferred to these fresh outputs. No automated quality score or assistant preference is supplied before new user feedback.",
+    "Both arms include the current isolated style paragraph; this is a short addition test, not the full installed runtime or standalone short guidance."
+  ]
+}
