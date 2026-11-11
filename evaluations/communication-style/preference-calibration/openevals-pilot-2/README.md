@@ -80,3 +80,7 @@ Pyright 通过。还用实际安装的 OpenEvals 完成一次模拟进程的 eva
 usage limit，**这只是测试夹具，不是旧失败的诊断**。真实 Pi/模型调用为零，网络守卫
 记录为零。LSP 未确认 clean，以显式 Pyright 结果为类型检查证据。修复摘要见
 [transport-repair.json](transport-repair.json)。
+
+用户随后授权的恢复评审已完成，结果单独保存在
+[openevals-pilot-2-recovery-1](../openevals-pilot-2-recovery-1/README.md)。
+原失败及本页的历史停止记录不变；恢复成功不解释旧失败原因。

@@ -1,0 +1,29 @@
+{
+  "case": "P04",
+  "reviewer": "Implementing assistant, unblinded to previously recorded human feedback",
+  "decision": "bounded_batch_complete_no_expansion",
+  "structural_status": "Both outputs valid; one invocation per answer",
+  "human_assessment": {
+    "preference": "B",
+    "A_added_sentence": "Extraneous and unrelated to the question",
+    "shared_explanation": "Appropriate, explicitly confirmed by the user"
+  },
+  "model_observations": {
+    "A_added_sentence": "这句态度表达没有进一步解释周会发言不均的原因，实际帮助有限。",
+    "shared_strength": "Both reports identify fear of negative evaluation as a relevant possible explanation.",
+    "shared_issue_A": "在缺少团队具体信息时，将一种可能原因断定为所有人沉默的原因，忽略了议程设计、发言机会等其他可能因素。",
+    "shared_issue_B": "将所有人的沉默归于单一原因且表述确定；会议安排、少数人占据发言时间等也可能影响参与。"
+  },
+  "assessment": {
+    "added_sentence": "Diagnostic matches the user's explicit criticism of the deleted final sentence.",
+    "shared_explanation": "Both reports criticize material that the user explicitly judged appropriate. Preserve this disagreement; the author's earlier shared-defect hypothesis is not a replacement human label.",
+    "certainty_concern": "The concern about an unqualified causal claim has textual grounds, but the user accepted the passage. This is a difference in suitability judgment, not proof that the user's label is wrong or that the model finding is necessarily a material error.",
+    "additional_causes": "Mentioning alternative factors does not establish that listing them was required. No automatic requirement to expand the answer is inferred."
+  },
+  "limits": [
+    "No automatic preference, deletion, rewrite or aggregate accuracy",
+    "Same-content reporting is consistent within this pair; stability across runs remains untested",
+    "No new shared-content human label inferred from model output",
+    "Authorized four-call recovery complete; no automatic expansion to D01-D12"
+  ]
+}
