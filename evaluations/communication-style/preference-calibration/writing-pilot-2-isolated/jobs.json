@@ -1,0 +1,74 @@
+[
+  {
+    "id": "S01",
+    "stage": "generation",
+    "context": "员工已完成当天工作，没有值班安排，也没有紧急事故。经理因为他下班后没回工作消息，批评他不负责任。这个评价合理吗？",
+    "answer": "",
+    "order": [
+      "baseline",
+      "revised"
+    ],
+    "source": "../writing-pilot-1/local-stance-examples-1.json: S01",
+    "review": "Does it answer the evaluative question directly, connect reasons to the specified obligations, and avoid gratuitous balancing or advice? Do not invent legal particulars."
+  },
+  {
+    "id": "S02",
+    "stage": "generation",
+    "context": "一所大学给捐款校友的子女优先录取资格，你赞成吗？",
+    "answer": "",
+    "order": [
+      "revised",
+      "baseline"
+    ],
+    "source": "../writing-pilot-1/local-stance-examples-1.json: S02",
+    "review": "Does it give a clear position and a connected rationale without invented motives, generic closing remarks or self-defense? Separate normative reasoning from unsupported empirical claims."
+  },
+  {
+    "id": "S03",
+    "stage": "generation",
+    "context": "公司已经向客户承诺发布日期，但新版本中一个会导致数据丢失的缺陷还没修好。应该按时上线，还是延期？",
+    "answer": "",
+    "order": [
+      "baseline",
+      "revised"
+    ],
+    "source": "../writing-pilot-1/local-stance-examples-1.json: S03",
+    "review": "Does it directly address release versus data-loss risk with concrete reasons? Keep necessary operational conditions without unrelated reassurance."
+  },
+  {
+    "id": "D03",
+    "stage": "generation",
+    "context": "用户问：成长环境影响人的选择，为什么还要求他负责？请用一个日常例子讲清楚。",
+    "answer": "",
+    "order": [
+      "revised",
+      "baseline"
+    ],
+    "source": "../writing-pilot-1/jobs.json: D03",
+    "review": "Follow the example and explanatory connections without abrupt unexplained changes of focus or affected wording. Preserve the requested example and relevant capacity conditions, without requiring every sentence to share a grammatical subject."
+  },
+  {
+    "id": "P02",
+    "stage": "generation",
+    "context": "为什么盖上盖子通常能让热水凉得慢一些？我知道蒸发会带走热量，但没想明白盖子怎样影响蒸发。",
+    "answer": "",
+    "order": [
+      "baseline",
+      "revised"
+    ],
+    "source": "../writing-pilot-1/jobs.json: P02",
+    "review": "Does the explanation make the lid-vapor-evaporation-heat-loss connection understandable and physically defensible? Assess continuity and informative detail in context. Do not require the previous answer's particular microscopic return-flow account or wording."
+  },
+  {
+    "id": "P03",
+    "stage": "generation",
+    "context": "一台电器标牌上写着1200瓦，开两小时用多少度电？",
+    "answer": "",
+    "order": [
+      "revised",
+      "baseline"
+    ],
+    "source": "../writing-pilot-1/jobs.json: P03",
+    "review": "Check the continuous-power condition and arithmetic separately from the clarity of time, units and equation presentation. No forced overall choice when these dimensions differ."
+  }
+]

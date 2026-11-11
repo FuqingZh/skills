@@ -1,0 +1,21 @@
+{
+  "../writing_compare.py": "8fd5f7b506b36569c1d85b79fa6d1c00fd8ac2c4e5b7eac0dbf7f6f413bef075",
+  "../../../../tests/test_writing_compare.py": "e2326955836b89c6fd239e8c47ba555cd54c2e79568ca9e4e1d78c8373d2590b",
+  "../openevals_compare.py": "80d35c9a1af10ebbfc676e9ffa1592d63ad9e799b697238e832f8ad84baba19f",
+  "../openevals-pilot-1/probe.py": "79c301878f1493b5d8f22aa21c7db3ab683c32fe1b834327105f1809f173430b",
+  "../openevals-pilot-2/diagnostic_transport.py": "04d5f15d0edbdcf13f0cd2f0809b2b13da0684822c79cd66f83f51e29bcb0e00",
+  "../openevals-pilot-2/run.py": "523afa37c63f33b936decf98fd5d264fd1d53dbdbff417b4ad68fbdce0d62d44",
+  "../../run.py": "eab8f9281467ff2cb8f15674b2e5840d10c57d7b7f336ca69d032c22fe321950",
+  "../../prompts/baseline.txt": "bd03a3d742800d21ed71a3dadde04c1b1c6b778a338e1d0f59c67363b59ea607",
+  "../../../../codex/AGENTS.md.template": "5ce925886f119842bec0fb8aa1cd6075c2c643f8c2d04c2a037aee074d88ae22",
+  "protocol.json": "0944b891ec9ef7b1c3627e1bdda1ff9650da2a34efd98a37e4787e4b05a72432",
+  "jobs.json": "a11fe1aa668355961f8614e690add36a3b3c388d7cff73e152560853ffc42552",
+  "baseline.txt": "bd03a3d742800d21ed71a3dadde04c1b1c6b778a338e1d0f59c67363b59ea607",
+  "revised.txt": "5a2a24099e29706e733283c67476efd141714ed3e6bf4b9c09c88c28b63af73f",
+  "guidance.txt": "89a22dcb03f4585d086eb325852d7a27a9367ecd3358f28dc863d0916612895a",
+  "../writing-pilot-1/manifest.json": "390bc42bd93af0b6b858e1ff9d3f088b003b835e9db26d6c4689575d349726d4",
+  "../writing-pilot-1/jobs.json": "311fac273293cab5b07a71f460a54a0d9926fa6844b122c80203fbb24a729a32",
+  "../writing-pilot-1/feedback-1.json": "9e9df353116da7a206139393a87e04128203d686f7a03b0f6268e92f9abaa8f0",
+  "../writing-pilot-1/local-rewrite-D03-1.json": "4c06f8c399232b6b89b54fbe1c67f8bbd32b20fefb9a9312ac7d2b77e2b256e3",
+  "../writing-pilot-1/local-stance-examples-1.json": "6f5bde2eb17612793076e28e0120cba6e07c8ce7db3e9543c179e62aad8eb4c3"
+}

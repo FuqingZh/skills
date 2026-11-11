@@ -1,0 +1,56 @@
+{
+  "status": "authorized_isolated_short_guidance_probe",
+  "authorization": "User said 继续吧 after the proposal to test short instructions outside the feedback-rich conversation. Twelve attempts on six specified questions; no automatic judge or runtime adoption.",
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "pi": "1.5.0",
+  "stages": [
+    "generation"
+  ],
+  "max_calls": 12,
+  "workers": 1,
+  "attempts_per_arm_per_question": 1,
+  "automatic_retries": 0,
+  "intervention": "Unchanged current English style paragraph versus that paragraph plus a short two-paragraph guidance bundle about connected exposition and direct evaluative answers. Same model, provider, requested thinking and question. No demonstrations, prior answers, labels, conversation context, skills or tools are sent.",
+  "purpose": "Check whether isolated instructions can yield acceptable writing on already discussed questions, without relying on the current conversation. Exploratory same-question reproduction, not independent transfer or isolated clause attribution.",
+  "review": "Present all complete A/B answers without arm names before publishing an assistant preference. Wait for new user feedback. Prior approvals are references for designing this probe, not labels for new outputs. No model judge or automatic preference score. Preserve content/condition concerns separately from style judgments.",
+  "packet": {
+    "seed": 42,
+    "assignment": "First random.Random(42) shuffle of ['baseline','revised'] * 3 selects A per question; B is the other arm. Mapping retained separately. Inspectable metadata, known questions and visible style prevent a strict blinding claim."
+  },
+  "stop": "Stop on transport/completion failure; retain attempted records and reservations without retry or repair. Do not change prompts, cases, order or model after outputs. Retain all successful generations regardless of quality. No expansion or second realization in this batch.",
+  "limits": [
+    "Six known development questions, one sample per arm. No fresh holdout, stable-effect estimate or general adoption claim.",
+    "The original style paragraph remains present in both arms. This tests a short addition, not the addition as a standalone system prompt.",
+    "The new bundle is not an ablation of each sentence. Reading or structural checks do not establish writing quality.",
+    "Twenty-two existing answer-pair feedback records and seventeen overall relative choices remain distinct from the approved local rewrites and the accepted three-example set. None transfers to these outputs.",
+    "Question-specific review notes are audit-only. Do not turn a preferred explanatory detail into a mandatory phrase or fixed mechanism checklist.",
+    "No phrase blacklist, forced colloquialism, universal same-subject rule, or automatic reward for brevity. Keep genuine conditions and uncertainty.",
+    "Only visible answers and usage retained. Costs are estimates; missing values stay unknown. Provider HTTP counts are not measured.",
+    "Reuse writing_compare.py and the existing serial runner without code changes; no OpenEvals judging component is called. No global instruction or installation change."
+  ],
+  "frozen_files": [
+    "../writing_compare.py",
+    "../../../../tests/test_writing_compare.py",
+    "../openevals_compare.py",
+    "../openevals-pilot-1/probe.py",
+    "../openevals-pilot-2/diagnostic_transport.py",
+    "../openevals-pilot-2/run.py",
+    "../../run.py",
+    "../../prompts/baseline.txt",
+    "../../../../codex/AGENTS.md.template",
+    "protocol.json",
+    "jobs.json",
+    "baseline.txt",
+    "revised.txt",
+    "guidance.txt",
+    "../writing-pilot-1/manifest.json",
+    "../writing-pilot-1/jobs.json",
+    "../writing-pilot-1/feedback-1.json",
+    "../writing-pilot-1/local-rewrite-D03-1.json",
+    "../writing-pilot-1/local-stance-examples-1.json"
+  ]
+}
