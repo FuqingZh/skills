@@ -1,0 +1,29 @@
+{
+  "decision": "continue",
+  "authorized_case": "P02",
+  "max_additional_invocations": 2,
+  "original_freeze": "88e4947",
+  "original_results_commit": "3915eff",
+  "preserve": {
+    "review-P01.json": "0e24ed3483256aed3ddb3a5a0e8beeac7abadecd03b9aa762b54a4ab13ea31b5",
+    "results/P01/A.json": "1c40e1ab2307b19b0ad8d7fde834544001cbbcb038d9cf51e9fa7ff2c769a48e",
+    "results/P01/B.json": "a12e87fcd24a3cf67a4a388435a8e513f2ed321ba1158add8802e7d086909dca"
+  },
+  "human_messages_verbatim": [
+    "感觉 B 的评审意见，可有可无，也不能说不对，也不能说必要",
+    "那是继续用此组件评审，还是怎么说",
+    "继续吧"
+  ],
+  "analyst_interpretation": {
+    "B_extra_criticism": "Necessity unresolved; may be an optional improvement. Not a confirmed material error or established obligation to expand B.",
+    "P01_status": "Target diagnostic matched; previous conservative stop remains historical and is not rewritten as an original pass.",
+    "continuation": "Explicit user authorization reopens only the gate for the already planned P02. No new human preference or overall endorsement is inferred."
+  },
+  "unchanged": ["component", "upstream prompt", "local format instructions", "output schema", "model", "thinking", "transport settings", "per-answer attempt cap", "original raw outputs"],
+  "runtime": "Use existing Pi 1.5.0 via process-local PATH; do not use the updated default Pi or change global installation.",
+  "execution_gate": "continue_p02.py substitutes this continuation record only when the frozen runner reads review-P01.json. Frozen files and original stop record remain byte-identical.",
+  "review_policy": "Inspect concrete mechanism diagnostics and separate justified defects, optional improvements, and uncertain necessity. Do not alter model output or supply human feedback to the model.",
+  "no_retry": true,
+  "no_holdout": true,
+  "no_automatic_expansion": true
+}
