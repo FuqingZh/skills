@@ -1,0 +1,59 @@
+{
+  "status": "authorized_bounded_recovery",
+  "authorization": {
+    "user_message": "那就继续吧",
+    "scope": "Resume interrupted P03/P04 judgments: retry P03-A once, then assess the three unattempted answers. Do not expand to the earlier twelve pairs."
+  },
+  "original_protocol": "../openevals-pilot-2/protocol.json",
+  "original_failed_attempt": "../openevals-pilot-2/results/P03/A.json",
+  "repair": "../openevals-pilot-2/transport-repair.json",
+  "cases": [
+    "P03",
+    "P04"
+  ],
+  "order": [
+    "P03-A",
+    "P03-B",
+    "P04-A",
+    "P04-B"
+  ],
+  "max_new_calls": 4,
+  "candidate_attempt_numbers": {
+    "P03-A": 2,
+    "P03-B": 1,
+    "P04-A": 1,
+    "P04-B": 1
+  },
+  "attempts_per_answer_in_this_recovery": 1,
+  "automatic_retries": 0,
+  "workers": 1,
+  "model": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "pi": "1.5.0",
+  "changed": [
+    "output root",
+    "P03-A attempt number",
+    "additive failure metadata"
+  ],
+  "unchanged": [
+    "OpenEvals component",
+    "helpfulness prompt",
+    "format instructions",
+    "schema",
+    "question/answer text",
+    "label isolation",
+    "model",
+    "single-attempt transport",
+    "original failure preservation"
+  ],
+  "review_gate": "Review P03 before P04. Execution/structural failure stops remaining calls; optional suggestions or unresolved necessity do not automatically constitute semantic failure.",
+  "scope_limits": [
+    "No additional old-packet cases",
+    "No prompt tuning, repair, automatic winner or aggregate accuracy",
+    "No runtime adoption",
+    "Actual provider HTTP request count remains unmeasured"
+  ]
+}
