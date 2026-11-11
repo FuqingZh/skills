@@ -1,0 +1,9 @@
+{
+  "run.py": "523afa37c63f33b936decf98fd5d264fd1d53dbdbff417b4ad68fbdce0d62d44",
+  "protocol.json": "c64a99ef00c85da63162905607c564adb3d260bcd35e3bea87dd4f7c545ff121",
+  "../deletion-pilot-2.json": "9cfdf7c390022e83fe1f83a22586a5db003de83be2c1dd412181210615abaac6",
+  "../deletion-pilot-2-feedback.json": "cdff0b64e7c4298c189a1df97ea3e26ed231ac80085efa6fda7c0fb5e3a40dde",
+  "../deletion-pilot-2-feedback-supplement-1.json": "20556abaf895d903f0c152874d68e82de5a43b06a9cd54035363de85d46ef81d",
+  "../openevals-pilot-1/manifest.json": "a48077a1a0c023ee86e2b996855204482ccd94a272ad75de44f8b383bfd4f14f",
+  "../openevals-pilot-1/preflight.json": "77dadeefc308b0761d78f456f364acb5e838f4efadd1eba473fc6a1a2d4bd169"
+}

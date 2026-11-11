@@ -1,0 +1,49 @@
+{
+  "phase": "second_human_labeled_development_batch",
+  "judge_source": "../openevals-pilot-1/probe.py",
+  "judge_freeze": "88e4947",
+  "source": "../deletion-pilot-2.json",
+  "feedback": [
+    "../deletion-pilot-2-feedback.json",
+    "../deletion-pilot-2-feedback-supplement-1.json"
+  ],
+  "feedback_to_model": false,
+  "model": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "pi": "1.5.0",
+  "cases": [
+    "P03",
+    "P04"
+  ],
+  "order": [
+    "P03-A",
+    "P03-B",
+    "P04-A",
+    "P04-B"
+  ],
+  "max_calls": 4,
+  "attempts_per_answer": 1,
+  "workers": 1,
+  "timeout_seconds": 300,
+  "retries": 0,
+  "repairs": false,
+  "aggregate_score": false,
+  "prompt_changes": false,
+  "criteria": {
+    "P03": "Inspect whether the diagnosis identifies the sustained-power assumption, rather than treating the added condition as filler. Both versions contain 就是; do not invent a lexical presence/absence contrast.",
+    "P04": "Inspect whether A's final sentence is recognized as extraneous. The user judged the shared explanation appropriate; the original author's shared-defect hypothesis is not a human label. Report any human/model disagreement honestly, rather than requiring a shared defect."
+  },
+  "stop_rule": "Structural or execution failure stops remaining calls. Review P03 before P04; confirmed material diagnostic failure stops continuation. Optional improvements, unclear necessity, and human/model disagreement are reviewed with evidence, not automatically treated as failure.",
+  "limits": [
+    "No human feedback in requests",
+    "No reference answer or automatic winner",
+    "No retries, swaps or prior-case reruns",
+    "Already labeled developmental data; no independent validation or accuracy estimate",
+    "No automatic expansion, prompt tuning, or runtime adoption",
+    "Only visible text and usage retained; provider HTTP attempts not independently measured"
+  ],
+  "validation": "Reuse unchanged first-pilot evaluator/transport and eight-fixture evidence; validate new controller with scoped offline tests, version/package/source checks, and changed-file checks."
+}
