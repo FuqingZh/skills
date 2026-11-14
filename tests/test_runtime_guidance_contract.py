@@ -228,3 +228,22 @@ def test_verification_scopes_checks_and_reports_to_material_claims() -> None:
     assert "For checks not run, state the exact command" not in verification
     assert "risk acceptance" in harness
     assert "irreversible or high-impact external operations" in harness
+
+
+def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
+    refactor = compact("skills/calibration/references/discipline/refactor.md")
+    for guidance in (
+        "Identify the public behavior and compatibility contracts to preserve",
+        "documented separately from structural changes",
+        "justify any necessary increase in complexity",
+        "transition debt created or exposed by this move",
+        "Keep the cleanup within the affected scope",
+        "when deciding whether to introduce, retain, or remove",
+        "harness.md#diagnostic-suppression-baseline",
+        "preserve historical records and frozen evidence",
+        "where existing coverage is insufficient",
+        "explicit retirement condition",
+        "checks that would detect a regression",
+        "[verification discipline](verification.md)",
+    ):
+        assert guidance in refactor
