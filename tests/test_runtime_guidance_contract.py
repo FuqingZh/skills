@@ -139,6 +139,8 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     assert "references/discipline/harness.md" not in skill
     assert "`harness.md`" in discipline
     assert "`debugging.md`" in discipline
+    assert "Implementation or contract verification" in discipline
+    assert "| Completion claim," not in discipline
     assert "environment evidence boundaries" in discipline
     assert (
         "Workspace search boundaries, ownership transfer, or runtime release"

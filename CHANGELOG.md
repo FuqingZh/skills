@@ -15,7 +15,8 @@
   These rules now depend on task-based skill selection.
 - Make verification routing conditional on implementation, delivery, or contract
   evidence needs. Keep material evidence and risk reporting while removing fixed
-  opening statements, generic checklists, and duplicate permission rules.
+  opening statements, generic checklists, and duplicate permission rules. Align
+  the discipline index with this verification scope.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
