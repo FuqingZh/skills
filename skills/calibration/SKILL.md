@@ -25,6 +25,6 @@ Load only the routers required by the decisions at hand:
 
 ## Completion
 
-Apply `references/discipline/verification.md` before claiming completion,
-including public or cross-boundary contract claims. Select checks according to
-the affected contract and the evidence needed to support the claim.
+When the task requires implementation or delivery verification, or evidence
+for public or cross-boundary contract claims, use
+`references/discipline/verification.md` to select checks for the affected contract.

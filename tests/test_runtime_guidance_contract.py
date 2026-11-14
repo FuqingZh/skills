@@ -166,6 +166,7 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
 def test_calibration_keeps_verification_without_unsolicited_retrospectives() -> None:
     skill = text("skills/calibration/SKILL.md")
     assert skill.count("references/discipline/verification.md") == 1
+    assert "When the task requires implementation or delivery verification" in skill
     assert "$retrospect" not in skill
     assert "continue from the baseline" not in skill
     assert "public or cross-boundary contract claims" in compact(
@@ -202,3 +203,26 @@ def test_retained_principles_have_task_specific_owners() -> None:
     assert "Follow its existing layout" in docs
     for path in (REPOSITORY_ROOT / "skills/calibration").rglob("*.md"):
         assert "principles.md" not in path.read_text(), path
+
+
+def test_verification_scopes_checks_and_reports_to_material_claims() -> None:
+    verification = compact("skills/calibration/references/discipline/verification.md")
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    for guidance in (
+        "Discussion of a proposed approach alone does not require delivery checks",
+        "smallest relevant checks at a repository-owned validation entrypoint",
+        "Broaden only when repository-local policy explicitly requires it",
+        "evidence leaves an obligation uncovered",
+        "Inspect generated outputs at their expected path",
+        "verify the live endpoint, process, rollout, or service state",
+        "documentation consistency affected by the change",
+        "unverified items that materially affect the completion judgment",
+        "Give follow-up commands or evidence locations when needed",
+        "do not invent a prior failure or imply an old version was executed",
+        "effects that would remain after reverting the code",
+    ):
+        assert guidance in verification
+    assert "State the completion claim" not in verification
+    assert "For checks not run, state the exact command" not in verification
+    assert "risk acceptance" in harness
+    assert "irreversible or high-impact external operations" in harness
