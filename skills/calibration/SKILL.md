@@ -13,13 +13,13 @@ proportionate approach and revise it as feedback changes the evidence.
 
 ## Route
 
-Load only the routers required by the decisions at hand:
+Load only the references required by the decisions at hand:
 
 - naming: `references/naming/README.md`
 - engineering discipline and repository capabilities:
   `references/discipline/README.md`
 - architecture, module boundaries, interfaces, and abstraction:
-  `references/design/README.md`
+  `references/design/codebase.md`
 - cross-boundary contract documentation or long-form engineering specifications:
   `references/docs_index.md`
 

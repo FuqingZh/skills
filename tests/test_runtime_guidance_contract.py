@@ -294,3 +294,13 @@ def test_harness_cleanup_keeps_boundaries_without_tool_recipes() -> None:
     }
     assert {7, 9, 14}.isdisjoint(cases)
     assert "不能因为预算耗尽就必须选择 PR 拓扑" in cases[21]["expected"]
+
+
+def test_calibration_routes_directly_to_codebase_design() -> None:
+    skill = text("skills/calibration/SKILL.md")
+    assert "Load only the references required" in skill
+    assert skill.count("references/design/codebase.md") == 1
+    assert "references/design/README.md" not in skill
+    design = REPOSITORY_ROOT / "skills/calibration/references/design"
+    assert (design / "codebase.md").is_file()
+    assert not (design / "README.md").exists()
