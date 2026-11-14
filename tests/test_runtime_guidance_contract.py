@@ -323,3 +323,24 @@ def test_design_guidance_uses_contracts_without_absolute_shape_rules() -> None:
         "[verification discipline](../discipline/verification.md)",
     ):
         assert guidance in design
+
+
+def test_docs_index_defers_to_local_contracts_without_duplicate_routes() -> None:
+    index = compact("skills/calibration/references/docs_index.md")
+    assert "Load only references material to the current task" in index
+    assert "Follow repository-owned documentation and collaboration contracts" in index
+    assert "guidance to fill gaps in those contracts" in index
+    assert "project documentation layout" in index
+    for retired in ("$retrospect", ".traces/", "## Schema", "stricter local contract"):
+        assert retired not in index
+    for retained in (
+        "docs/technology/main_path_readability/20260318-v1.0.md",
+        "docs/document-types/README.md",
+        "branch_and_pr_collaboration/20260602-v1.0.md",
+        "20260805-v1.1-project-docs-architecture.md",
+        "Do not use it for PR body generation",
+    ):
+        assert retained in index
+    naming = text("skills/calibration/references/naming/README.md")
+    assert "](schema.md)" in naming
+    assert "](artifact.md)" in naming

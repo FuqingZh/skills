@@ -1,13 +1,14 @@
 # Docs Index
 
-This file is navigation only. It points to longer documents under `docs/` that
-may be loaded selectively when the task requires more detail.
+Use this index to select documentation and collaboration references needed for
+the current task.
 
-## Default Loading Policy
+## Use And Placement
 
-- Do not load `docs/` by default.
-- Load a specific document only when the current task materially depends on its
-  rules.
+- Load only references material to the current task; do not expand the whole
+  reference tree by default.
+- Follow repository-owned documentation and collaboration contracts. Use this
+  guidance to fill gaps in those contracts.
 - Keep long-lived architecture, contracts, plans, test plans, and benchmark
   records in the project's maintained documentation. Follow its existing layout
   rather than requiring a universal directory name.
@@ -30,19 +31,5 @@ may be loaded selectively when the task requires more detail.
     queues. Use when a decision depends on those platform behaviors; repository
     rules own release and deployment exceptions.
 - `docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md`
-  - Use when defining project `docs/` layout, documentation file names,
+  - Use when defining project documentation layout, documentation file names,
     README navigation, document lifecycle, and long-lived knowledge placement.
-- `$retrospect`
-  - Use when defining `.traces/` layout, task retrospectives, evidence
-    handling, and when to promote trace observations into project docs or canon.
-
-## Schema
-
-- `naming/schema.md` and `naming/artifact.md`
-  - Use for locating repository-owned field and artifact contracts; follow the
-    applicable protocol or workflow engine instead of a cross-project layout.
-
-## Selection Rule
-
-- If a repository already has a stricter local contract for one of these areas,
-  follow the repository-local contract for that repository.
