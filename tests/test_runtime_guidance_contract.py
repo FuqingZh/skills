@@ -304,3 +304,22 @@ def test_calibration_routes_directly_to_codebase_design() -> None:
     design = REPOSITORY_ROOT / "skills/calibration/references/design"
     assert (design / "codebase.md").is_file()
     assert not (design / "README.md").exists()
+
+
+def test_design_guidance_uses_contracts_without_absolute_shape_rules() -> None:
+    design = compact("skills/calibration/references/design/codebase.md")
+    assert "## Vocabulary" not in design
+    assert "## Completion Criteria" not in design
+    for guidance in (
+        "Give each boundary a clear caller and responsibility",
+        "call ordering, lifecycle, and any performance guarantees",
+        "Justify necessary increases in complexity through concrete benefits",
+        "Keep thin wrappers that provide a stable interface",
+        "As an optional aid, imagine inlining",
+        "without duplicating policy, exposing hidden complexity",
+        "temporary compatibility paths a retirement condition",
+        "For long-lived parallel interfaces, document their distinct contracts",
+        "When accepting an implemented design change",
+        "[verification discipline](../discipline/verification.md)",
+    ):
+        assert guidance in design
