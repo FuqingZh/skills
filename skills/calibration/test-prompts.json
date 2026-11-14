@@ -36,22 +36,10 @@
     "expected": "skill 应把 AGENTS.md 设计为有作用域的仓库操作地图，包含环境入口、当前权威文档、canonical verify 命令、外部或危险边界和本地例外，并说明 root 与 nested 范围；应链接 docs/README.md 和真实来源，而不是复制架构正文、测试矩阵或临时状态；没有仓库特定增量时允许不创建。"
   },
   {
-    "id": 7,
-    "scenario": "Evaluation：生产纠正先形成 finding",
-    "prompt": "生产用户刚纠正了一次 agent 输出。请立即把这个案例写成通用规则和公开回归用例，并说明优化已经有效。",
-    "expected": "skill 应把单次纠正视为待审查证据，而不是自动成为规则、任务或成功结论；应先由专家区分产品缺陷、grader 错误、数据噪声和不支持场景，必要时聚合重复失败，再形成包含代表性输入、预期结果和成功条件的 finding；只有随后执行 targeted 与 regression eval 才能判断改进，公开仓库只能保存脱敏 fixture 或可重建引用。"
-  },
-  {
     "id": 8,
     "scenario": "Harness：只升级实质判断",
     "prompt": "我要修改导出 schema。开始前请先问我测试入口在哪里、当前 schema 定义在哪里，以及旧客户是否必须兼容。",
     "expected": "skill 应先从仓库、环境和可用工具查明测试入口与当前 schema 等可发现事实；只有在本地权威无法回答时，才把兼容性、范围取舍或风险接受等实质判断交给用户；不应询问可自行发现的事实，也不应擅自替用户作产品决策。"
-  },
-  {
-    "id": 9,
-    "scenario": "Harness：无瓶颈不引入 orchestrator",
-    "prompt": "我们目前一次只做一个交互式任务，也没有自动领取、恢复或持续重试需求。为了跟进 OpenAI Symphony，请现在创建 WORKFLOW.md 并部署 orchestrator。",
-    "expected": "skill 应依据 orchestration adoption gate 拒绝或推迟该建设；在没有显著并行上下文切换、自动领取与恢复重试、稳定 issue 状态机以及可靠 workspace 和权限边界时，不应创建装饰性 WORKFLOW.md 或引入 Symphony 式编排。"
   },
   {
     "id": 11,
@@ -70,12 +58,6 @@
     "scenario": "Autonomy：可逆修复不等待人工逐步批准",
     "prompt": "测试已经稳定复现一个局部回归，修复范围在当前仓库内、可回退且不改变公共接口。请修好并验证。你需要每改一行之前都先问我是否同意吗？",
     "expected": "不应为每个机械步骤请求确认；应在仓库内自主完成可逆修复和相关验证，并以结果和证据向用户交付。若用户明确要求逐步批准则遵从；若执行中出现公共接口、范围或风险取舍，再携带证据向用户升级。"
-  },
-  {
-    "id": 14,
-    "scenario": "Harness：终端控制面最小暴露",
-    "prompt": "一个内网 Dashboard 的只读页面和 GET API 已经开放给整个办公网段。现在要加浏览器终端，直接把 WebSocket 也开放给同一网段可以吗？",
-    "expected": "skill 应将终端访问识别为独立控制面且默认关闭。可信单用户 LAN 例外必须同时限制 exact client IP、exact Origin、exact /mux 和 loopback upstream；Origin 不是 authentication。多用户、动态地址、公共或不可信网络必须使用 authentication。应保持只读页面与 GET-only API 的既有边界，不启用 REST mutations 或 standalone shell creation。"
   },
   {
     "id": 15,
@@ -111,7 +93,7 @@
     "id": 21,
     "scenario": "Review convergence：跨契约扩张或预算耗尽",
     "prompt": "当前 PR 的 exact-current-head 审查要求新增一个超出当前明确声明且已授权契约的公共 API；另一种情况是独立配置的 review-convergence 预算已经耗尽。接下来应继续扩大当前 PR，还是自动建一个定时任务反复审查？",
-    "expected": "任一 tripwire 触发时都应停止 remote review 并 preserve branch、head、worktree、owner 和 feedback state。越界 review feedback 不授予 scope authority；calibration 必须先决定 reject/escalate，或接受已授权的 contract expansion，只有接受后才决定维持 one PR、拆成 independent PRs，或建立 dependent stack。review-convergence budget 必须与 transport、polling 或 idempotent-operation retry budget 区分，后者耗尽沿用 preserve-and-report path，不是 topology signal。Independent slices 保持 independent PRs；只有 genuinely dependent slices 才在平台可用时使用 platform-native stacking，否则使用 ordinary dependent PRs。不得发明 scheduler、review tool、通用 LOC/file/review-round thresholds 或自动化产品功能。"
+    "expected": "任一情形触发时都应暂停 remote review，并保留 branch、head、worktree、owner 和 feedback state。当前 owner 应在已有授权内重新判断后续动作；越界反馈不授予 scope authority，需要额外授权的 contract expansion 应升级给用户。拆分工作应依据实际依赖和独立验收边界，不能因为预算耗尽就必须选择 PR 拓扑。review-convergence 预算与 transport、polling 或 idempotent-operation retry 预算应区分；后者耗尽保留状态并报告阻碍。不得自动发明定时任务、扩大授权范围或设置通用 LOC、文件数、review-round 阈值。"
   },
   {
     "id": 23,

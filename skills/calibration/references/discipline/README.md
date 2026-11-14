@@ -9,10 +9,10 @@ Use this index as a router. Read only the file needed for the current task.
 | Refactor, migration, extraction, file split, import cleanup, suppression cleanup, or convergence work | `refactor.md` |
 | Bug, runtime failure, failing test, unclear behavior, environment evidence boundaries, or root-cause analysis | `debugging.md` |
 | Implementation or contract verification, release or deployment checks, generated outputs, external writes, or user-visible artifact validation | `verification.md` |
-| Repeated agent stalls, missing repository capability, `AGENTS.md`, human escalation, or orchestration adoption | `harness.md` |
+| Repeated agent stalls, missing repository capability, `AGENTS.md`, or human escalation | `harness.md` |
 | Workspace search boundaries, ownership transfer, or runtime release | `harness.md` (Implementation Task Intake) |
 | Repeated delivery failure, missing CI or review capability, cross-contract feedback, review-convergence exhaustion, or cloud execution failure | `harness.md` |
-| Repository quality-gate adoption, Python lint policy, or Ruff rule selection | `harness.md` |
+| Repository quality-gate adoption | `harness.md` |
 | Diagnostic suppression or exclusion decisions | `harness.md` (Diagnostic suppression baseline) |
 
 ## Related References

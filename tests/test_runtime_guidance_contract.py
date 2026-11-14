@@ -262,3 +262,35 @@ def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
         "[verification discipline](verification.md)",
     ):
         assert guidance in refactor
+
+
+def test_harness_cleanup_keeps_boundaries_without_tool_recipes() -> None:
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    router = compact("skills/calibration/references/discipline/README.md")
+    for retired in (
+        "Ruff quality-gate baseline",
+        "Orchestration Adoption Gate",
+        "Symphony",
+        "WebSocket Origin",
+        ".traces/",
+        "invoke calibration",
+    ):
+        assert retired not in harness
+    assert "Ruff rule selection" not in router
+    assert "orchestration adoption" not in router
+    for retained in (
+        "intent and authorization remain governed by applicable instructions",
+        "without treating that request as authorization to execute",
+        "Do not broaden suppressions to hide first-party failures",
+        "accepted responsibility for observing the work",
+        "pause remote review and preserve branch, head, worktree",
+        "Transport, polling, or idempotent-operation retry exhaustion",
+        "decisions that exceed current authorization",
+    ):
+        assert retained in harness
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    assert {7, 9, 14}.isdisjoint(cases)
+    assert "不能因为预算耗尽就必须选择 PR 拓扑" in cases[21]["expected"]
