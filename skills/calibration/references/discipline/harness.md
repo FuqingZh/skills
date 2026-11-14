@@ -249,6 +249,9 @@ Start from the repository's current feedback loop. Add the smallest capability
 that addresses an observed gap, verify that it changes the failure mode, and
 stop when the loop is adequate. Repository category or size does not imply a
 mandatory harness checklist.
+Add plans, specifications, or approval stages only when coordination, risk,
+interruption, or repeated failure warrants them. A code change alone does not
+require these stages or renewed approval for already-authorized work.
 
 ## Human Escalation
 

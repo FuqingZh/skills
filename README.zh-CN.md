@@ -135,8 +135,7 @@ pdm run validate-skills
 ## 文档与支持
 
 - [文档索引](docs/README.md)：现行决策、评估结果、迁移历史和实施计划。
-- [工程原则](skills/calibration/references/principles.md)与
-  [技能路由](skills/calibration/SKILL.md)：按任务选择参考资料。
+- [Calibration 路由](skills/calibration/SKILL.md)：工程判断与按任务选择的参考资料。
 - [skills CLI 分发决策](docs/decisions/2026-11-08-skills-cli-distribution.md)：
   当前所有权、全局指令安装与标记迁移。
 - [早期多客户端安装](docs/decisions/2026-09-24-multi-client-skill-installation.md)：

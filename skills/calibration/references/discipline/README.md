@@ -22,5 +22,5 @@ Use this index as a router. Read only the file needed for the current task.
 
 These files are operational decision references and execution gates. They
 should change what the agent diagnoses, places, evaluates, or checks before
-claiming progress or completion. Keep broad principles in `../principles.md`
-and long domain specifications under `../docs/`.
+claiming progress or completion. Keep design guidance in `../design/` and
+long domain specifications under `../docs/`.

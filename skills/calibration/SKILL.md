@@ -6,12 +6,10 @@ description: Use for substantive cross-project engineering judgment, non-local a
 # Calibration
 
 Resolve material engineering decisions against the most specific applicable
-source of truth. Identify the decision, constraints, and acceptance evidence;
-choose a proportionate approach and revise it as feedback changes the evidence.
-
-## Baseline
-
-Read `references/principles.md`.
+source of truth. Correct false constraints, abstractions, or requirements when
+they materially change the solution. Identify the decision, constraints, and
+acceptance evidence. Within authorized, reversible local work, choose a
+proportionate approach and revise it as feedback changes the evidence.
 
 ## Route
 

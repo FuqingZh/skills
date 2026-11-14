@@ -13,6 +13,9 @@
   remove unsolicited retrospective suggestions and duplicate expression guidance,
   and keep environment and workspace boundaries in their relevant references.
   These rules now depend on task-based skill selection.
+- Retire the mandatory principles bundle. Keep core decision framing in the skill
+  and place design, process, documentation, and verification guidance with their
+  topic owners; remove universal seed and trace-directory defaults from the bundle.
 - Add synthetic behavioral prompts and static packaging checks. These checks
   do not establish English-version answer quality or reliable model routing.
 

@@ -16,6 +16,10 @@ user-visible behavior, generated outputs, external writes, or deployments.
 - For APIs, CLIs, schemas, and compatibility surfaces, verify naming, backward
   compatibility, tests, and documentation impact, using checks proportionate
   to the affected contract.
+- For performance claims, use reproducible benchmarks with explicit inputs,
+  environment, and scale; validate outputs as well as runtime. Make the random
+  seed explicit when it materially affects reproducibility or public behavior,
+  following the project's contract.
 - Report what changed, what was verified, and the command, artifact, endpoint,
   or readback supporting the claim. For checks not run, state the exact command
   or evidence path, why it was skipped, and the remaining risk to the user.

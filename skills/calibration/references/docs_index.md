@@ -8,9 +8,9 @@ may be loaded selectively when the task requires more detail.
 - Do not load `docs/` by default.
 - Load a specific document only when the current task materially depends on its
   rules.
-- Prefer `principles.md` and `naming/README.md` unless the task is specifically about
-  document-type selection, project documentation architecture, engineering traces,
-  retrospectives, or main-path readability.
+- Keep long-lived architecture, contracts, plans, test plans, and benchmark
+  records in the project's maintained documentation. Follow its existing layout
+  rather than requiring a universal directory name.
 
 ## Technology
 

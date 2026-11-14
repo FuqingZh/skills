@@ -171,4 +171,34 @@ def test_calibration_keeps_verification_without_unsolicited_retrospectives() -> 
     assert "public or cross-boundary contract claims" in compact(
         "skills/calibration/SKILL.md"
     )
-    assert "## Communication" not in text("skills/calibration/references/principles.md")
+    assert "## Baseline" not in skill
+    retired = REPOSITORY_ROOT / "skills/calibration/references/principles.md"
+    assert not retired.exists()
+
+
+def test_retained_principles_have_task_specific_owners() -> None:
+    skill = compact("skills/calibration/SKILL.md")
+    design = compact("skills/calibration/references/design/codebase.md")
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    verification = compact("skills/calibration/references/discipline/verification.md")
+    docs = compact("skills/calibration/references/docs_index.md")
+    assert "Correct false constraints, abstractions, or requirements" in skill
+    assert "Within authorized, reversible local work" in skill
+    assert "revise it as feedback changes the evidence" in skill
+    for guidance in (
+        "established domain parsers",
+        "algorithm or consumer boundary",
+        "installed version and applicable API",
+        "sources inspectable",
+        "Preserve tolerated metadata and extension keys",
+        "Expose an override only when",
+        "Keep caller taste, product defaults, and presentation policy",
+    ):
+        assert guidance in design
+    assert "A code change alone does not require these stages" in harness
+    assert "validate outputs as well as runtime" in verification
+    assert "seed explicit when it materially affects reproducibility" in verification
+    assert "reconstructable reference or an approved evidence location" in verification
+    assert "Follow its existing layout" in docs
+    for path in (REPOSITORY_ROOT / "skills/calibration").rglob("*.md"):
+        assert "principles.md" not in path.read_text(), path

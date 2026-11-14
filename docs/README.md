@@ -24,7 +24,7 @@ orchestrator integration.
 | Need | Source |
 | --- | --- |
 | Repository and installer contract | [README](../README.md) |
-| Cross-project judgment and routing | [Principles](../skills/calibration/references/principles.md), [skill router](../skills/calibration/SKILL.md) |
+| Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
 | Repository capability and delivery placement | [Harness](../skills/calibration/references/discipline/harness.md) |
@@ -54,8 +54,8 @@ and evidence limits; experimental results remain with their protocols.
   local slices are complete; the recorded downstream owner migration remains
   pending. This index does not verify another repository's current state.
 - [Body compression trial](decisions/2026-09-20-calibration-body-compression-and-routing.md):
-  the three adopted bodies remain current; metadata candidates and real-work
-  performance remain unverified.
+  historical adoption evidence is retained; current guidance follows the skill
+  router. Metadata candidates and real-work performance remain unverified.
 - [Coding-protocol retirement trial](decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md):
   the runtime entry remains retired; retained source supports restoration.
 

@@ -29,7 +29,7 @@ contracts; the historical rules do not apply to new work by default.
 | Record | Lifecycle and current source |
 | --- | --- |
 | [Self-contained skill migration](../implementation-plans/20260826-v1.0-self-contained-first-party-skills-migration-implementation-plan.md) | Implemented; historical migration evidence. Current package contracts live in the skills and validator. |
-| [Proportional validation wording](../implementation-plans/20260807-v1.0-proportional-validation-selection-implementation-plan.md) | Completed wording increment; [principles](../../skills/calibration/references/principles.md) own current guidance. |
+| [Proportional validation wording](../implementation-plans/20260807-v1.0-proportional-validation-selection-implementation-plan.md) | Completed wording increment; [verification discipline](../../skills/calibration/references/discipline/verification.md) owns current guidance. |
 | [Progressive validation v2.0](../implementation-plans/20260824-v2.0-progressive-validation-selection-implementation-plan.md) | Historical implementation and smoke/recovery evidence; later comparisons supersede its replacement protocol. |
 | [Relative replacement v2.1](../testing/20260825-v2.1-progressive-validation-relative-replacement-test-plan.md) | Executed diagnostic history; its outcome interpretation was superseded by v2.2. |
 | [Corrected relative replacement v2.2](../testing/20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md) | Completed comparison; the [corrected decision](../decisions/2026-08-25-progressive-validation-relative-replacement-acceptance.md) supersedes the earlier acceptance interpretation. |

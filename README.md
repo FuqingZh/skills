@@ -148,8 +148,8 @@ validation requirements.
 
 - [Documentation index](docs/README.md): current decisions, evaluation results,
   migration history, and implementation plans.
-- [Engineering references](skills/calibration/references/principles.md): principles
-  and the [skill router](skills/calibration/SKILL.md) for focused guidance.
+- [Calibration router](skills/calibration/SKILL.md): engineering judgment and
+  task-selected references.
 - [Skills CLI distribution](docs/decisions/2026-11-08-skills-cli-distribution.md):
   current ownership, global instruction installation, and marker migration.
 - [Earlier multi-client installation](docs/decisions/2026-09-24-multi-client-skill-installation.md):

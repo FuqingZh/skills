@@ -1,7 +1,8 @@
 # Codebase Design
 
 Use this when deciding module boundaries, interface shape, abstraction depth,
-adapters, shared helpers, wrapper layers, and where logic belongs.
+adapters, shared helpers, wrapper layers, data flow, configuration, and where
+logic belongs.
 
 ## Vocabulary
 
@@ -34,6 +35,23 @@ adapters, shared helpers, wrapper layers, and where logic belongs.
   paths are necessary, document their retirement condition.
 - Choose names and boundaries that make the main path read as the user's mental
   model, not as the implementation accident.
+
+## Implementation Choices
+
+- Prefer established domain parsers, writers, and bulk or vectorized APIs over
+  reimplementing their operations.
+- Keep related information together. Split, convert, or materialize data only
+  at an algorithm or consumer boundary that requires it.
+- For fast-moving libraries, verify the installed version and applicable API
+  through source, documentation, or a small executable example.
+- Keep technical defaults in explicit configuration structures and make their
+  sources inspectable. Follow the project's configuration mechanism without
+  scattering defaults through orchestration logic or requiring a separate file.
+- Validate extensible configuration by the invariants a consumer requires.
+  Preserve tolerated metadata and extension keys unless the owning contract
+  requires a rewrite.
+- Give non-obvious thresholds meaningful names and an applicability rationale.
+  Expose an override only when callers or operations need to adjust the value.
 
 ## Completion Criteria
 
