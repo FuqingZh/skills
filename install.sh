@@ -24,34 +24,16 @@ CALIBRATION_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 OPERATION=install
 # shellcheck source=scripts/agent-homes.sh
 source "$CALIBRATION_ROOT/scripts/agent-homes.sh"
-TEMPLATE="$CALIBRATION_ROOT/codex/AGENTS.md.template"
+TEMPLATE="$CALIBRATION_ROOT/templates/AGENTS.md.template"
 [[ -f "$TEMPLATE" ]] || fail_usage "Missing template: $TEMPLATE"
-if [[ -n "${XDG_CONFIG_HOME:-}" ]]; then
-  [[ "$XDG_CONFIG_HOME" == /* ]] || fail_usage 'XDG_CONFIG_HOME must be absolute'
-  HOST_CONFIG_ROOT="$XDG_CONFIG_HOME"
-else
-  [[ "${HOME:-}" == /* ]] || fail_usage 'Set absolute HOME or XDG_CONFIG_HOME'
-  HOST_CONFIG_ROOT="$HOME/.config"
-fi
-HOST_AUTHORITY="$(realpath -m -- "$HOST_CONFIG_ROOT")/calibration/AGENTS.md"
 BEGIN_MARKER='<!-- FuqingZh/skills:begin -->'
 END_MARKER='<!-- FuqingZh/skills:end -->'
 LEGACY_BEGIN='<!-- calibration:begin -->'
 LEGACY_END='<!-- calibration:end -->'
 
-render_body() {
-  local escaped
-  escaped="$(printf '%s' "$HOST_AUTHORITY" | sed 's/[\\/&]/\\&/g')"
-  if [[ "$AGENT" == codex ]]; then
-    sed "s/{{HOST_AUTHORITY}}/$escaped/g" "$TEMPLATE"
-  else
-    sed -e "s/{{HOST_AUTHORITY}}/$escaped/g" -e 's/[$]calibration/calibration/g' "$TEMPLATE"
-  fi
-}
-
 render_template() {
   local body input=/dev/null final_newline=true
-  body="$(render_body)"
+  body="$(<"$TEMPLATE")"
   [[ ! -f "$AGENTS_TARGET" ]] || input="$AGENTS_TARGET"
   [[ ! -s "$input" || -z "$(tail -c 1 -- "$input")" ]] || final_newline=false
   CALIBRATION_BODY="$body" awk -v agent="$AGENT" -v force="$FORCE" -v final_newline="$final_newline" \

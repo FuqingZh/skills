@@ -16,11 +16,14 @@ def compact(path: str) -> str:
     return " ".join(text(path).split())
 
 
-def test_generated_agents_is_the_only_private_profile_discovery_path() -> None:
-    template = text("codex/AGENTS.md.template")
-    assert "{{HOST_AUTHORITY}}" in template
-    assert "if that file exists" in " ".join(template.split())
-    assert "Do not load it for ordinary engineering work" in template
+def test_public_entrypoints_do_not_discover_private_profiles() -> None:
+    for entrypoint in ("templates/AGENTS.md.template", "install.sh"):
+        content = text(entrypoint)
+        assert "HOST_AUTHORITY" not in content
+        assert "HOST_CONFIG_ROOT" not in content
+        assert "XDG_CONFIG_HOME" not in content
+        assert ".config/calibration" not in content
+        assert "calibration/AGENTS.md" not in content
 
     for root in ("skills", "references"):
         for path in (REPOSITORY_ROOT / root).rglob("*"):
@@ -110,7 +113,7 @@ def test_retired_guidance_preserves_exact_bytes_outside_skill_loading() -> None:
 def test_runtime_entrypoints_are_independent_of_retired_integration() -> None:
     for path in (
         "AGENTS.md",
-        "codex/AGENTS.md.template",
+        "templates/AGENTS.md.template",
         "skills/calibration/SKILL.md",
         "skills/calibration/references/discipline/harness.md",
         "skills/calibration/test-prompts.json",
@@ -127,12 +130,44 @@ def test_runtime_entrypoints_are_independent_of_retired_integration() -> None:
     ).is_file()
 
 
-def test_generic_ownership_and_release_rules_survive_retirement() -> None:
-    template = compact("codex/AGENTS.md.template")
+def test_generic_boundaries_have_reachable_reference_owners() -> None:
+    skill = compact("skills/calibration/SKILL.md")
+    discipline = compact("skills/calibration/references/discipline/README.md")
     harness = compact("skills/calibration/references/discipline/harness.md")
-    for surface in (template, harness):
-        assert "write-authority revocation and runtime release" in surface
-        assert "sibling worktree" in surface
-        assert "empty OS-owned containment boundary" in surface
-    assert "traversal-aware bound" in template
-    assert "terminated session is not proof" in template
+    debugging = compact("skills/calibration/references/discipline/debugging.md")
+    assert "references/discipline/README.md" in skill
+    assert "references/discipline/harness.md" in skill
+    assert "environment diagnosis" in skill
+    assert "workspace boundaries and ownership" in skill
+    assert "environment evidence boundaries" in discipline
+    assert (
+        "Workspace search boundaries, ownership transfer, or runtime release"
+        in discipline
+    )
+    for rule in (
+        "write-authority revocation and runtime release",
+        "sibling worktree",
+        "empty OS-owned containment boundary",
+        "traversal-aware bound",
+        "terminated session is not proof",
+        "rejected filesystem escalation",
+    ):
+        assert rule in harness
+    assert (
+        "For first-party code and interfaces, repair the contract or implementation"
+        in harness
+    )
+    assert "do not use an ignore comment" in harness.lower()
+    assert "environment actually observed" in debugging
+    assert "before changing persistent configuration" in debugging
+    assert "exact check still needed" in debugging
+
+
+def test_calibration_has_one_completion_and_retrospective_entry() -> None:
+    skill = text("skills/calibration/SKILL.md")
+    assert skill.count("references/discipline/verification.md") == 1
+    assert skill.count("$retrospect") == 1
+    assert "public or cross-boundary contract claims" in compact(
+        "skills/calibration/SKILL.md"
+    )
+    assert "## Communication" not in text("skills/calibration/references/principles.md")

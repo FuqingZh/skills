@@ -65,9 +65,3 @@ changes the solution.
 
 Keep reproducible benchmarks with explicit inputs, environment, and scale;
 validate outputs as well as runtime.
-
-## Communication
-
-Lead with the conclusion and give the rationale and evidence needed to assess
-it, material uncertainty and risk with their impact, and any next action.
-Remove repeated background and boilerplate; keep decision rationale concise.

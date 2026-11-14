@@ -10,6 +10,11 @@ analysis.
 - Distinguish symptoms, hypotheses, and causes supported by evidence. When
   environment drift is plausible, inspect actual versions, images, service
   configuration, paths, permissions, and generated artifacts.
+- Keep conclusions within the environment actually observed. Absence or a
+  mismatch inside a sandbox or worker does not establish the state of an
+  external host or service. Verify the relevant state from an authoritative
+  context before changing persistent configuration. When that context is
+  unavailable, report the boundary and the exact check still needed.
 - Fix the supported cause with the smallest effective change. Do not hide the
   failure through broader exception handling or silent fallback.
 - Rerun the original failing check or an equivalent that would detect the

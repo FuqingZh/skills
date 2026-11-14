@@ -17,7 +17,14 @@ HOME_VARIABLES = {
     "grok": "CALIBRATION_GROK_HOME",
     "pi": "PI_CODING_AGENT_DIR",
 }
-FIRST_PARTY = ("calibration", "writing-code-docs", "closeout", "retrospect")
+FIRST_PARTY = (
+    "calibration",
+    "writing-code-docs",
+    "plainspoken",
+    "dissect",
+    "closeout",
+    "retrospect",
+)
 BEGIN = "<!-- FuqingZh/skills:begin -->"
 END = "<!-- FuqingZh/skills:end -->"
 LEGACY_BEGIN = "<!-- calibration:begin -->"
@@ -74,15 +81,8 @@ def test_install_renders_only_global_block(tmp_path: Path, agent: str) -> None:
     home = tmp_path / agent
     result = install(home, agent)
     assert result.returncode == 0, result.stderr
-    template = (
-        (REPOSITORY_ROOT / "codex/AGENTS.md.template")
-        .read_text()
-        .replace("{{HOST_AUTHORITY}}", str(tmp_path / "config/calibration/AGENTS.md"))
-        .rstrip("\n")
-    )
-    if agent != "codex":
-        template = template.replace("$calibration", "calibration")
-    assert (home / "AGENTS.md").read_text() == f"{BEGIN}\n{template}\n{END}\n"
+    template = (REPOSITORY_ROOT / "templates/AGENTS.md.template").read_text()
+    assert (home / "AGENTS.md").read_text() == f"{BEGIN}\n{template}{END}\n"
     assert list(home.iterdir()) == [home / "AGENTS.md"]
     before = snapshot_tree(home)
     assert install(home, agent).returncode == 0
@@ -247,18 +247,41 @@ def test_invalid_or_retired_options_fail_without_writes(
     assert snapshot_tree(tmp_path) == before
 
 
-def test_missing_homes_and_relative_xdg_fail(tmp_path: Path) -> None:
+def test_missing_homes_fail_without_writes(tmp_path: Path) -> None:
+    before = snapshot_tree(tmp_path)
     result = run_installer(
         None, "--agent", "pi", unset_env=("HOME", "PI_CODING_AGENT_DIR")
     )
     assert result.returncode != 0
-    assert (
-        run_installer(
-            tmp_path / "codex", env_updates={"XDG_CONFIG_HOME": "relative"}
-        ).returncode
-        != 0
+    assert snapshot_tree(tmp_path) == before
+
+
+@pytest.mark.parametrize("agent", AGENTS)
+@pytest.mark.parametrize("xdg", [None, "", "relative", "absolute"])
+def test_install_is_independent_of_private_host_configuration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, agent: str, xdg: str | None
+) -> None:
+    private_root = tmp_path / "config"
+    profiles = (
+        private_root / "calibration/AGENTS.md",
+        Path(os.environ["HOME"]) / ".config/calibration/AGENTS.md",
     )
-    assert not (tmp_path / "codex").exists()
+    for profile in profiles:
+        profile.parent.mkdir(parents=True)
+        profile.write_text("PRIVATE_CONFIGURATION_SENTINEL\n")
+    if xdg is None:
+        monkeypatch.delenv("XDG_CONFIG_HOME", raising=False)
+    else:
+        monkeypatch.setenv(
+            "XDG_CONFIG_HOME", str(private_root) if xdg == "absolute" else xdg
+        )
+    before = [snapshot_tree(profile.parent) for profile in profiles]
+    home = tmp_path / agent
+    result = install(home, agent)
+    assert result.returncode == 0, result.stderr
+    template = (REPOSITORY_ROOT / "templates/AGENTS.md.template").read_text()
+    assert (home / "AGENTS.md").read_text() == f"{BEGIN}\n{template}{END}\n"
+    assert [snapshot_tree(profile.parent) for profile in profiles] == before
 
 
 @pytest.mark.parametrize("agent", AGENTS)
@@ -313,9 +336,9 @@ def test_dry_run_and_paths_with_special_characters(tmp_path: Path) -> None:
         },
     )
     assert result.returncode == 0, result.stderr
-    assert (
-        str(home / "config/calibration/AGENTS.md") in (home / "AGENTS.md").read_text()
-    )
+    template = (REPOSITORY_ROOT / "templates/AGENTS.md.template").read_text()
+    assert (home / "AGENTS.md").read_text() == f"{BEGIN}\n{template}{END}\n"
+    assert not (home / "config").exists()
 
 
 def test_install_never_touches_skill_paths(tmp_path: Path) -> None:

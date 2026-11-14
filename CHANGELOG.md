@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased
+
+- Add `plainspoken` for substantive natural-language expression and `dissect`
+  for in-depth analysis, with English instructions and implicit invocation metadata.
+- Move the shared global template to `templates/AGENTS.md.template` and reduce
+  it to three routes: `plainspoken`, `dissect`, and `calibration`. Install the
+  skills before refreshing global instructions.
+- Remove private host-profile discovery and path rendering from the installer;
+  retain client-home selection, backups, marker migration, and idempotent updates.
+- Consolidate calibration's completion and retrospective routes, remove duplicate
+  expression guidance, and keep environment and workspace boundaries in their
+  relevant references. These rules now depend on task-based skill selection.
+- Add synthetic behavioral prompts and static packaging checks. These checks
+  do not establish English-version answer quality or reliable model routing.
+
 ## 1.0.0 — 2026-11-09
 
 First repository-level versioned distribution.

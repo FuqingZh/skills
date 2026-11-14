@@ -498,10 +498,6 @@ def test_w07_paired_results_preserve_controls_and_bounded_claim() -> None:
         arms["candidate"]["agents_template_sha256"]
         == "d71053d50e0835912d84b85ad6492744db376ca80cac723688a9a20a27a216e2"
     )
-    current_template = (
-        Path(__file__).resolve().parents[1] / "codex/AGENTS.md.template"
-    ).read_text(encoding="utf-8")
-    assert "Do not silence or weaken required diagnostics" in current_template
     assert (
         cast(int, arms["candidate"]["agents_template_words"])
         - cast(int, arms["baseline"]["agents_template_words"])

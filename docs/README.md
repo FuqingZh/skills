@@ -14,9 +14,10 @@ authority, recorded open work, and historical evidence.
 ## Public Architecture
 
 Reusable references live inside the owning skills, which provide model
-interaction entrypoints. Repository tools own setup and validation. Private host
-configuration stays outside this repository and is read only for explicit host
-operations. The repository does not provide an orchestrator integration.
+interaction entrypoints. Repository tools own setup and validation. The shared
+[global template](../templates/AGENTS.md.template) only routes to skills; the
+public package does not discover private host configuration or provide an
+orchestrator integration.
 
 ## Current Authority
 
@@ -24,6 +25,8 @@ operations. The repository does not provide an orchestrator integration.
 | --- | --- |
 | Repository and installer contract | [README](../README.md) |
 | Cross-project judgment and routing | [Principles](../skills/calibration/references/principles.md), [skill router](../skills/calibration/SKILL.md) |
+| Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
+| In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
 | Repository capability and delivery placement | [Harness](../skills/calibration/references/discipline/harness.md) |
 | Completion and external-result evidence | [Verification](../skills/calibration/references/discipline/verification.md) |
 | Agent and workflow comparisons | [Evaluation](../skills/calibration/references/discipline/evaluation.md) |

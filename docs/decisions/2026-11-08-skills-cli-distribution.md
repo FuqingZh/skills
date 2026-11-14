@@ -1,11 +1,12 @@
 # Skills CLI distribution and global instructions
 
-Status: accepted and implemented; included in repository release 1.0.0.
+Status: accepted. The initial distribution shipped in repository release 1.0.0;
+subsequent instruction changes are recorded under [Unreleased](../../CHANGELOG.md#unreleased).
 
 ## Ownership
 
 Upstream skills CLI owns skill add/update/remove and its lock format. FuqingZh/skills
-owns four first-party skills and global instructions. `install.sh` manages only
+owns first-party skills and global instructions. `install.sh` manages only
 global blocks; `scripts/cleanup-legacy-links.sh` only removes confirmed checkout-owned legacy links.
 Setup owns personal source selection and tool declarations. Its independent
 `skills` bootstrap profile prepares tools and attaches the native global lock;
@@ -18,11 +19,11 @@ requires explicit force and a verified backup before replacement. Foreign links,
 ordinary skill directories, private learning data, and malformed global files
 are preserved. The [README](../../README.md) owns commands and migration details.
 
-The active distribution is `calibration`, `writing-code-docs`, `closeout`, and
+The initial distribution was `calibration`, `writing-code-docs`, `closeout`, and
 `retrospect`. Patched `teach` and `grilling` are archived unchanged. Matt grilling
 is selected directly from upstream, accepting its invocation policy, batched
-questions, and subagent assumptions. Existing behavioral cases and historical
-evaluations remain unchanged.
+questions, and subagent assumptions. That release preserved existing behavioral
+cases and historical evaluations. The current skill catalog is in the README.
 
 The executable Bash installer exposes `--agent`, `--dry-run`, `--force`, and
 `--help`. Existing changed files always receive verified backups. Custom homes
@@ -41,6 +42,16 @@ The installer recognizes valid legacy `calibration:begin/end` pairs, backs them
 up, and migrates them without force. Mixed namespaces, duplicate blocks, and
 mismatched pairs fail before any selected target is changed. Historical source
 names remain intact. See the [migration guide](../migrations/skills-cli.md).
+
+## Current global instruction contract
+
+The shared [template](../../templates/AGENTS.md.template) contains only routes
+to `plainspoken`, `dissect`, and `calibration`. Detailed requirements live in the
+skills and their task-selected references. The installer copies the same body
+to every client and no longer discovers or renders private host configuration;
+existing private files remain untouched. Install the skills before refreshing
+the global block. Static routing and discovery checks do not establish reliable
+model selection or behavioral equivalence to the former always-loaded guidance.
 
 ## Versions and evidence
 
