@@ -136,9 +136,9 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     harness = compact("skills/calibration/references/discipline/harness.md")
     debugging = compact("skills/calibration/references/discipline/debugging.md")
     assert "references/discipline/README.md" in skill
-    assert "references/discipline/harness.md" in skill
-    assert "environment diagnosis" in skill
-    assert "workspace boundaries and ownership" in skill
+    assert "references/discipline/harness.md" not in skill
+    assert "`harness.md`" in discipline
+    assert "`debugging.md`" in discipline
     assert "environment evidence boundaries" in discipline
     assert (
         "Workspace search boundaries, ownership transfer, or runtime release"
@@ -163,10 +163,11 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     assert "exact check still needed" in debugging
 
 
-def test_calibration_has_one_completion_and_retrospective_entry() -> None:
+def test_calibration_keeps_verification_without_unsolicited_retrospectives() -> None:
     skill = text("skills/calibration/SKILL.md")
     assert skill.count("references/discipline/verification.md") == 1
-    assert skill.count("$retrospect") == 1
+    assert "$retrospect" not in skill
+    assert "continue from the baseline" not in skill
     assert "public or cross-boundary contract claims" in compact(
         "skills/calibration/SKILL.md"
     )
