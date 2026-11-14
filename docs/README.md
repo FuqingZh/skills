@@ -29,7 +29,6 @@ orchestrator integration.
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
 | Repository capability and delivery placement | [Harness](../skills/calibration/references/discipline/harness.md) |
 | Completion and external-result evidence | [Verification](../skills/calibration/references/discipline/verification.md) |
-| Agent and workflow comparisons | [Evaluation](../skills/calibration/references/discipline/evaluation.md) |
 | Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |
 | Explicit conversation closeout | [Closeout skill](../skills/closeout/SKILL.md) |

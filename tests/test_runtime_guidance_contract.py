@@ -181,6 +181,19 @@ def test_calibration_keeps_verification_without_unsolicited_retrospectives() -> 
     assert not retired.exists()
 
 
+def test_calibration_retires_general_evaluation_routing() -> None:
+    root = REPOSITORY_ROOT / "skills/calibration"
+    assert not (root / "references/discipline/evaluation.md").exists()
+    skill = compact("skills/calibration/SKILL.md")
+    assert "agent or workflow evaluation" not in skill
+    assert "repository harnesses" in skill
+    for path in root.rglob("*.md"):
+        assert "evaluation.md" not in path.read_text(), path
+    assert "discipline/evaluation.md" not in text("docs/README.md")
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    assert "Evaluate representative behavior separately" in harness
+
+
 def test_retained_principles_have_task_specific_owners() -> None:
     skill = compact("skills/calibration/SKILL.md")
     design = compact("skills/calibration/references/design/codebase.md")

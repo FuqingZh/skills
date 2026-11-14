@@ -1,6 +1,6 @@
 ---
 name: calibration
-description: Use for substantive cross-project engineering judgment, non-local architecture or refactoring, public or compatibility-sensitive contracts, unclear validation, repository harnesses, or agent or workflow evaluation. Ordinary local implementation and repository prose with clear repository rules and executable feedback do not require this skill; cross-boundary contract documentation does.
+description: Use for substantive cross-project engineering judgment, non-local architecture or refactoring, public or compatibility-sensitive contracts, unclear validation, or repository harnesses. Ordinary local implementation and repository prose with clear repository rules and executable feedback do not require this skill; cross-boundary contract documentation does.
 ---
 
 # Calibration
@@ -16,8 +16,8 @@ proportionate approach and revise it as feedback changes the evidence.
 Load only the routers required by the decisions at hand:
 
 - naming: `references/naming/README.md`
-- engineering discipline, repository capabilities, and agent or workflow
-  evaluation: `references/discipline/README.md`
+- engineering discipline and repository capabilities:
+  `references/discipline/README.md`
 - architecture, module boundaries, interfaces, and abstraction:
   `references/design/README.md`
 - cross-boundary contract documentation or long-form engineering specifications:
