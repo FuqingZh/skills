@@ -163,6 +163,8 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     assert "environment actually observed" in debugging
     assert "before changing persistent configuration" in debugging
     assert "exact check still needed" in debugging
+    assert "runtime state implicated by the failure" in debugging
+    assert "When claiming a fix or a verified runtime outcome" in debugging
 
 
 def test_calibration_keeps_verification_without_unsolicited_retrospectives() -> None:

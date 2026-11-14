@@ -8,8 +8,8 @@ analysis.
   or runtime state and name the evidence gap. An existing failure record can
   supply this evidence without manufacturing a fresh failing test.
 - Distinguish symptoms, hypotheses, and causes supported by evidence. When
-  environment drift is plausible, inspect actual versions, images, service
-  configuration, paths, permissions, and generated artifacts.
+  environment drift is plausible, inspect the actual versions, configuration,
+  and runtime state implicated by the failure.
 - Keep conclusions within the environment actually observed. Absence or a
   mismatch inside a sandbox or worker does not establish the state of an
   external host or service. Verify the relevant state from an authoritative
@@ -20,5 +20,5 @@ analysis.
 - Rerun the original failing check or an equivalent that would detect the
   original symptom under the same triggering conditions. Exercising the same
   path or obtaining exit status zero is insufficient by itself.
-- Apply [verification discipline](verification.md) for completion evidence and
-  reporting.
+- When claiming a fix or a verified runtime outcome, apply
+  [verification discipline](verification.md) for completion evidence and reporting.
