@@ -122,7 +122,7 @@ def test_working_material_ownership_does_not_depend_on_directory_name() -> None:
         "Formal project documents remain project-owned",
         "One-off observations need not be persisted automatically",
         "Hidden paths do not provide privacy",
-        "when none is defined, `.traces/` remains the fallback",
+        "otherwise use `.calibration/notes/`",
     ):
         assert rule in layout
     assert "owning investigation's task records" in compatibility
@@ -145,9 +145,9 @@ def test_retrospect_loads_one_persistence_contract_and_preserves_fallbacks() -> 
         "user asks to persist a confirmed task-level lesson",
         "Routine investigation notes remain with their owning task",
         "Follow repository-local retrospective rules",
-        ".traces/retros/",
-        ".traces/evidence/",
-        "fallback out of git unless repository-local policy explicitly permits",
+        ".retrospect/",
+        ".retrospect/evidence/",
+        "fallback out of Git unless repository-local policy explicitly permits",
         "no bulk migration is required",
         "Remaining hypotheses and verification gaps",
         "Future action",

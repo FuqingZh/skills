@@ -43,7 +43,7 @@ def test_focused_document_routing_cases_choose_one_primary_type() -> None:
         26: (
             "compatibility record",
             "docs/compatibility/",
-            ("architecture overview", "tutorial", ".traces/"),
+            ("architecture overview", "tutorial", ".calibration/notes/"),
         ),
         27: (
             "decision record",

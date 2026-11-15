@@ -3,7 +3,7 @@
     "id": "D01",
     "scenario": "Compare causes and select discriminating evidence",
     "prompt": "A fictional library moved its entrance and reduced Saturday opening hours from 12 to 8. Average Saturday visits fell from 600 to 360 while weekday visits stayed stable. The director blames ebooks. Analyze the explanations and identify the most useful next record to inspect.",
-    "expected": "Compare opening hours, entrance access and ebook substitution, including visits per open hour. Give a supported provisional ranking and select records that distinguish remaining explanations rather than merely listing missing information.",
+    "expected": "Use the core evidence and causal method; mentioning a director alone does not require actors-and-interactions.md or historical-change.md. Compare opening hours, entrance access and ebook substitution, including visits per open hour. Give a supported provisional ranking and select records that distinguish remaining explanations rather than merely listing missing information.",
     "expected_skills": [
       "plainspoken",
       "dissect"
@@ -13,7 +13,7 @@
     "id": "D02",
     "scenario": "Profile choices and model interaction",
     "prompt": "In a fictional research partnership, one director previously accepted a smaller budget to retain staffing authority; another accepted outside oversight to secure long-term funding. A new grant requires a shared board. Predict how each might negotiate, using their past choices and the new constraints.",
-    "expected": "Use past costly choices to distinguish preferences from available options, explain how proposed concessions alter the other party's incentives, and derive conditional predictions with observable signals. Do not turn one past decision into a fixed personality diagnosis.",
+    "expected": "Read references/actors-and-interactions.md. Use past costly choices to distinguish preferences from available options, explain how proposed concessions alter the other party's incentives, and derive conditional predictions with observable signals. Do not turn one past decision into a fixed personality diagnosis.",
     "expected_skills": [
       "plainspoken",
       "dissect"
@@ -23,7 +23,7 @@
     "id": "D03",
     "scenario": "Connect an event to changes in an era",
     "prompt": "Several fictional towns are replacing household diesel generators with a shared electricity grid. Analyze how ownership and pricing choices could change production, local organization, and residents' ability to pursue new activities over the next generation.",
-    "expected": "Connect technology, access, ownership and pricing mechanisms to changes in productive organization and agency. Compare plausible alternatives, identify the historical reference and evaluative criteria, and develop a continuous explanation rather than independent topic summaries.",
+    "expected": "Read references/historical-change.md. Connect technology, access, ownership and pricing mechanisms to changes in productive organization and agency. Compare plausible alternatives, identify the historical reference and evaluative criteria, and develop a continuous explanation rather than independent topic summaries.",
     "expected_skills": [
       "plainspoken",
       "dissect"
@@ -35,5 +35,19 @@
     "prompt": "Convert 15 centimeters to millimeters. Return only the number.",
     "expected": "Return 150 without expanding the task into an analysis or loading either skill in a fresh context.",
     "expected_skills": []
+  },
+  {
+    "id": "D05",
+    "scenario": "Technical causal analysis uses the core method",
+    "prompt": "A queueing service doubled its worker count. Throughput stayed flat and p99 latency increased. Analyze plausible mechanisms and identify the observations that would distinguish them.",
+    "expected": "Use core evidence comparison, mechanisms, and conditional forecasts without loading actors-and-interactions.md or historical-change.md. Consider bottlenecks, contention, queue behavior, and measurement conditions without inventing measurements.",
+    "expected_skills": ["plainspoken", "dissect"]
+  },
+  {
+    "id": "D06",
+    "scenario": "Persist research through an existing local convention",
+    "prompt": "Continue comparing the two explanations and save the working notes. This project keeps research notes in research/working/. Source snapshots already exist under research/sources/; no new copies are needed.",
+    "expected": "Read references/working-material.md. Use research/working/ rather than creating .dissect/notes/, cite the existing research/sources/ snapshots without copying them, and preserve uncertainty. Do not create an evidence directory without need or move historical records.",
+    "expected_skills": ["plainspoken", "dissect"]
   }
 ]

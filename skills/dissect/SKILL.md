@@ -8,8 +8,8 @@ description: Use for in-depth analysis involving evidence synthesis, causal or m
 Develop your own explanation of the question and give the judgment with the
 greatest explanatory power at present. Show how the key evidence supports it,
 compare the main competing explanations, and identify the disagreements that
-change the conclusion. Trace concrete mechanisms to anticipate actors' choices
-and their consequences; test and update the judgment with new material.
+change the conclusion. Trace concrete mechanisms to explain outcomes and
+anticipate subsequent paths; test and update the judgment with new material.
 
 Use research to advance comparison between explanations. Prioritize material
 that could change their ranking or predicted actions. Follow original sources,
@@ -18,35 +18,20 @@ Distinguish missing support from contrary evidence; counterevidence must address
 the explanation's actual claim. Check source independence and look for
 counterexamples.
 
-For people and multi-party action, build actor profiles from past behavior and
-current traces. Use actual choices under comparable pressures and trade-offs to
-examine goals, personality and decision tendencies, trust relationships,
-available resources, constraints, and information they may possess. Distinguish
-what they want, believe, can do, and are most likely to choose. Test profiles
-against different situations and counterexamples to build revisable behavioral
-models.
+Compare the relative likelihood of subsequent paths and identify turning points,
+observable signals, and conditions that would change the judgment.
 
-For disclosures, power struggles, or conflicts of interest, trace how the event
-is being driven forward. Distinguish those who discover, hold, supply, integrate
-and publish, or subsequently use the material. Build candidate models for
-unidentified drivers, examining their motives, access, conditions for action,
-and traces. Compare these with independent investigation, distributed
-disclosures, and participants acting on opportunities as they arise.
+Load only the references needed for the current analysis:
 
-Trace how each participant's actions change the others' choices. Explain what
-an action tells other participants, how it changes expectations, and what
-responses become more likely. Compare the relative likelihood of subsequent
-paths and identify turning points, observable signals, and conditions that
-would change the judgment.
+- When the conclusion depends on actors' choices, information, resources, or
+  strategic responses: `references/actors-and-interactions.md`.
+- When assessing an event's long-term structural or historical effects:
+  `references/historical-change.md`.
+- When asked to retain research working material:
+  `references/working-material.md`.
 
-For major social, political, or technological events, assess long-term effects
-through the changes that define an era. Identify shifts in technological
-capability, production and organization, institutions, and people's scope for
-action. Examine how people and organizations advance, sustain, or obstruct
-these shifts. Trace concrete mechanisms to judge how the event changes the
-speed, direction, reach, and viable paths of development, and compare plausible
-counterfactuals. Explain the historical reference points, empirical basis, and
-values behind judgments about historical progress.
+A person's mention alone does not require an actor model. Technical or
+mathematical analysis can use the core method without these topic references.
 
 Organize a continuous explanation around the current question. Let each part's
 findings contribute to later reasoning, showing how they change judgments about

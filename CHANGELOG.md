@@ -69,6 +69,14 @@
 - Extract quality gates, workspace ownership, and delivery feedback into directly
   routed references. Preserve their safeguards and legacy harness anchors;
   add static routing and cross-document consistency coverage.
+- Disclose actor-interaction and historical-change guidance only for relevant
+  dissect branches; retain evidence comparison and forecasting in its core.
+- Cover distinct caller-facing usage contracts with locatable examples, allowing
+  shared examples while preserving explicit repository per-symbol requirements.
+- Use skill-owned working-material fallbacks: `.calibration/notes/`,
+  `.retrospect/`, and `.dissect/notes/`, with separate evidence directories.
+  Preserve local conventions, publication controls, and historical `.traces/`
+  records without automatic persistence or migration.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

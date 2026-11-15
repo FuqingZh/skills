@@ -45,11 +45,17 @@ already show.
 
 For callers, show how to use the symbol and what they may rely on.
 
-Give every caller-facing class, function, method, and property its own example,
-even when its contract is simple.
+Cover each distinct caller-facing usage contract with a short, locatable
+example. Show meaningful parameter interactions, boundary results, exceptions,
+and side effects when they affect how callers use the symbol.
 
-Use short examples that exercise the symbol and show each distinct public
-consequence once.
+Simple properties, aliases, and symbols sharing the same usage contract may
+point to a shared example on their owning type or API. Cover any distinct
+behavior that the shared example does not demonstrate. Follow repository rules
+that explicitly require an example for every public symbol.
+
+Show each distinct public consequence once; avoid duplicating examples merely
+to give every symbol a separate snippet.
 
 If coverage remains unclear, consult
 [Polars: Writing doc examples](https://docs.pola.rs/development/contributing/test/#writing-doc-examples)

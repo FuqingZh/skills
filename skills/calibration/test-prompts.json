@@ -117,7 +117,7 @@
     "id": 26,
     "scenario": "文档路由：第三方黑箱兼容规则",
     "prompt": "我们反复验证了某供应商解析器在版本 4.2 下对这个字段的特殊行为，并找到安全适配方式。请记录下来供后续调用者使用。",
-    "expected": "主类型应是 compatibility record，放在 docs/compatibility/；需要记录外部边界、版本、环境、观察证据、失败特征和安全适配，并区分事实与推断。不能放成 architecture overview 或 tutorial；尚未重复验证的试错过程应留在 .traces/。"
+    "expected": "主类型应是 compatibility record，放在 docs/compatibility/；需要记录外部边界、版本、环境、观察证据、失败特征和安全适配，并区分事实与推断。不能放成 architecture overview 或 tutorial；尚未重复验证的试错过程保留在仓库的调查记录位置，无约定时用 .calibration/notes/，不自动迁移旧记录。"
   },
   {
     "id": 27,

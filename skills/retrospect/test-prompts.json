@@ -39,13 +39,13 @@
     "id": 7,
     "scenario": "确认后记录任务复盘",
     "prompt": "$retrospect 刚才的任务教训和边界已经确认，现在把它记录下来。",
-    "expected": "识别为后续明确持久化请求，读取 task trace references，按仓库约定写入 .traces/retros/ 并维护简短索引；不自动提交。"
+    "expected": "识别为后续明确持久化请求，读取唯一的 task-traces-and-retros 参考；优先按仓库位置保存，没有约定时用 .retrospect/，集合需要导航时维护简短索引；不自动提交或迁移旧 .traces/ 材料。"
   },
   {
     "id": 8,
     "scenario": "方向画像不进入任务 trace",
     "prompt": "$retrospect 刚才确认的跨项目工程画像需要长期保存，请写到当前 future_direction 复盘目录。",
-    "expected": "按用户指定的长期方向路径落地，不把跨阶段画像强制写入 .traces/retros/，也不套用任务级 Expected/Actual 模板。"
+    "expected": "按用户指定的长期方向路径落地，不把跨阶段画像强制写入 .retrospect/，也不套用任务级 Expected/Actual 模板。"
   },
   {
     "id": 9,
