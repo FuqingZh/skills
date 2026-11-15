@@ -81,6 +81,10 @@
   contributing, and optional runbooks, assets, and archive locations. Keep type
   contracts distinct, group change-specific material by topic, and distinguish
   accepted proposals from implemented facts without migrating existing documents.
+- Simplify compatibility records around evidence-supported scope, distinguishing
+  provider contracts from local observations. Preserve reproducibility, adaptation
+  checks, conditional revalidation, and optional method references without a
+  universal repeated-verification requirement.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

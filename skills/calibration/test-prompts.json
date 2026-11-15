@@ -117,7 +117,7 @@
     "id": 26,
     "scenario": "文档路由：第三方黑箱兼容规则",
     "prompt": "我们反复验证了某供应商解析器在版本 4.2 下对这个字段的特殊行为，并找到安全适配方式。请记录下来供后续调用者使用。",
-    "expected": "主类型应是 compatibility record，无仓库本地约定时放在 docs/reference/；需要记录外部边界、版本、环境、观察证据、失败特征和安全适配，并区分事实与推断。不能放成 architecture overview 或 tutorial；尚未重复验证的试错过程保留在仓库的调查记录位置，无约定时用 .calibration/notes/，不自动迁移旧记录。"
+    "expected": "主类型应是 compatibility record，无仓库本地约定时放在 docs/reference/；需要记录外部边界、版本、环境、观察证据、失败特征和安全适配，并区分事实与推断。不能放成 architecture overview 或 tutorial；尚未形成有证据支持结论的试错过程保留在仓库的调查记录位置，无约定时用 .calibration/notes/，不自动迁移旧记录。"
   },
   {
     "id": 27,
@@ -190,5 +190,17 @@
     "scenario": "Documentation layout: minimal structure and preserved history",
     "prompt": "A small project has one getting-started lesson, one import guide and a superseded architecture decision with useful history. Should adopting the shared layout create all eight directories and move every old record?",
     "expected": "Keep tutorial and how-to purposes distinct within docs/guides/ when no local convention exists. Create only needed files and directories; no empty scaffolding or mandatory subdirectories. Preserve the decision at its existing path with status and a replacement link; archive/ is optional. Create runbooks/ when operational procedures need it, retaining their authorization, verification, recovery and stop conditions. Do not migrate historical evidence."
+  },
+  {
+    "id": 39,
+    "scenario": "Compatibility evidence: bounded reproduction and provider contract",
+    "prompt": "A controlled regression check demonstrates a deterministic parser deviation for a specified input on version 4.2 in one environment. The provider documentation describes different behavior. Can we retain a narrowly scoped compatibility record before repeating the same check many times, and call the workaround officially supported?",
+    "expected": "No fixed repetition count is required for every record; assess whether the reproducible evidence supports the tested scope and keep unresolved uncertainty explicit. Distinguish local observations from the provider's stated contract. Local success does not establish provider support. Record versions, environment, input, reproducible evidence, affected callers, and whether the adaptation was tested. Do not generalize to other versions or environments."
+  },
+  {
+    "id": 40,
+    "scenario": "Compatibility evidence: repeated success and intermittent failure",
+    "prompt": "Ten runs of one input succeed on version 4.2, but earlier intermittent failures remain unexplained. May we state that all versions are stable, discard the failures, and skip further checks because repeated verification is complete?",
+    "expected": "Repeated success on one input does not establish cross-version support or stability outside the tested conditions. Do not erase earlier failures; preserve their evidence and competing explanations. Use representative repeated checks when needed to characterize variable behavior, and report limitations and unresolved uncertainty. State conditions for revalidation and identify an owner when follow-up remains. Retain raw investigation material with its owning task."
   }
 ]

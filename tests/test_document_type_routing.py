@@ -263,3 +263,61 @@ def test_runbook_keeps_operational_boundaries_and_location_fallback() -> None:
         "out of the public document",
     ):
         assert guidance in runbook
+
+
+def test_compatibility_record_preserves_evidence_scope_and_local_defaults() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/compatibility-record.md"
+    )
+    record = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "Follow the repository's compatibility-reference location. "
+        "If none is defined, use `docs/reference/`",
+        "provider's stated contract from locally observed behavior",
+        "observations, inferences, recommendations, and unresolved questions",
+        "Describe reproducible checks and link their evidence",
+        "failure signatures, affected callers or artifacts",
+        "whether adaptations were tested",
+        "Limit conclusions to the scope supported by the evidence",
+        "Use repeated checks when needed to establish stability",
+        "characterize variable behavior",
+        "conditions that require revalidation",
+        "identify an owner when follow-up work remains",
+        "owning investigation's task records",
+        "#working-material)",
+        "apply the adaptation within its validated scope",
+        "recognize when the record no longer applies",
+        "are optional examples",
+        "https://kubernetes.io/releases/version-skew-policy/",
+        "https://developer.mozilla.org/en-US/docs/MDN/",
+    ):
+        assert guidance in record
+    for retired in (
+        "## Use When",
+        "## Method Reference",
+        "## Local Requirements",
+        "## Complete When",
+        "Promote only repeatedly verified",
+    ):
+        assert retired not in record
+
+
+def test_compatibility_cases_separate_scope_support_and_stability() -> None:
+    cases = _prompt_cases()
+    assert "尚未重复验证" not in cases[26]["expected"]
+    for case_id, requirements in {
+        39: (
+            "No fixed repetition count",
+            "tested scope",
+            "provider support",
+            "whether the adaptation was tested",
+        ),
+        40: (
+            "not establish cross-version support",
+            "not erase earlier failures",
+            "repeated checks",
+            "conditions for revalidation",
+        ),
+    }.items():
+        for requirement in requirements:
+            assert requirement in cases[case_id]["expected"]
