@@ -198,3 +198,24 @@ def test_benchmark_record_keeps_evidence_and_comparison_scope() -> None:
         "the limits of its conclusions",
     ):
         assert guidance in record
+
+
+def test_tutorial_keeps_learning_path_and_record_boundaries() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/tutorial.md"
+    )
+    tutorial = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "stated prerequisites to a demonstrable new capability",
+        "without reconstructing the conversation that produced it",
+        "https://diataxis.fr/tutorials/",
+        "Follow the repository's tutorial location. If none is defined, use "
+        "`docs/tutorials/`.",
+        "audience, prerequisites, and one tangible learning outcome",
+        "Sequence small steps that build toward the outcome",
+        "verification or exercise that demonstrates the reader reached the outcome",
+        "Link external sources for claims that are not project-owned facts",
+        "personal learner records and teaching-session notes "
+        "outside team documentation",
+    ):
+        assert guidance in tutorial

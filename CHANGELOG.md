@@ -53,6 +53,8 @@
   add `docs/testing/` as a fallback while preserving project-local placement.
 - Simplify benchmark records while preserving reproducibility and evidence;
   scope baselines to comparisons and add a project-overridable placement fallback.
+- Simplify tutorials around a coherent learning path and demonstrated capability;
+  retain source and personal-record boundaries and add a placement fallback.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
