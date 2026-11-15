@@ -219,3 +219,23 @@ def test_tutorial_keeps_learning_path_and_record_boundaries() -> None:
         "outside team documentation",
     ):
         assert guidance in tutorial
+
+
+def test_how_to_keeps_task_verification_and_recovery() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/how-to-guide.md"
+    )
+    guide = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "stated prerequisites perform and verify one concrete task",
+        "https://diataxis.fr/how-to-guides/",
+        "Follow the repository's how-to location. If none is defined, use "
+        "`docs/how-to-guides/`.",
+        "prerequisites, applicable versions, and assumptions",
+        "commands or exact interface labels where ambiguity would cause failure",
+        "distinguish success from partial completion or failure",
+        "Link architecture, compatibility, or runbook documents",
+        "recovery or escalation guidance when a partial result can leave the "
+        "system in a confusing or unsafe state",
+    ):
+        assert guidance in guide

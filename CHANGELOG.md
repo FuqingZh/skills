@@ -55,6 +55,8 @@
   scope baselines to comparisons and add a project-overridable placement fallback.
 - Simplify tutorials around a coherent learning path and demonstrated capability;
   retain source and personal-record boundaries and add a placement fallback.
+- Simplify how-to guides around concrete task completion and recovery;
+  preserve prerequisites and result checks and add a placement fallback.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
