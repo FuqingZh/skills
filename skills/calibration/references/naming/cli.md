@@ -1,13 +1,11 @@
 # CLI Option Naming
 
-Follow the [GNU CLI conventions](https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html),
-its [long-option table](https://www.gnu.org/prep/standards/html_node/Option-Table.html),
-and the [CLI Guidelines](https://clig.dev/).
+Follow the [naming entrypoint's authority rules](README.md#authority).
 
-Local additions:
-
-- Follow the parser's native spelling; absent a stronger convention, use
-  lowercase kebab-case for long options.
-- Use operands for unambiguous required primary inputs and options for
-  configuration or output, including `-o` / `--output` when appropriate.
-- Preserve published compatibility and repository-local terminology.
+- For GNU-style interfaces, use the [GNU CLI conventions](https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html)
+  and [long-option table](https://www.gnu.org/prep/standards/html_node/Option-Table.html)
+  for argument syntax and standard option names.
+- Consult [CLI Guidelines](https://clig.dev/) when the decision involves
+  usability or interaction.
+- For new long options without an established convention, default to
+  lowercase kebab-case.
