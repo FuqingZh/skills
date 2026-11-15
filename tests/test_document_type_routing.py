@@ -96,3 +96,20 @@ def test_architecture_overview_keeps_local_precedence_and_fallback() -> None:
         "Distinguish current behavior from proposals and historical behavior"
         in overview
     )
+
+
+def test_design_proposal_keeps_fallback_and_decision_context() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/design-proposal.md"
+    )
+    proposal = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "Follow the repository's proposal location. If none is defined, use "
+        "`docs/architecture/`.",
+        "current architecture and contracts of the affected boundary",
+        "Compare viable alternatives and recommend a direction with reasons",
+        "Distinguish proposed directions from accepted decisions",
+        "without reconstructing the conversation that produced it",
+    ):
+        assert guidance in proposal
+    assert "separate from an implementation plan until" not in proposal
