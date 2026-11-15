@@ -134,3 +134,29 @@ def test_decision_record_keeps_rationale_and_local_defaults() -> None:
         assert guidance in record
     assert "https://adr.github.io/" in record
     assert "https://adr.github.io/adr-templates/" in record
+
+
+def test_implementation_plan_preserves_defaults_and_readiness() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/implementation-plan.md"
+    )
+    plan = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "Follow the repository's planning location. If none is defined, use "
+        "`docs/implementation-plans/`.",
+        "Persist or commit the plan only when explicitly requested or required "
+        "by repository workflow",
+        "Preserve established boundaries unless the settled design "
+        "explicitly changes them",
+        "acceptance checks, and evidence locations",
+        "before starting implementation that depends on them",
+        "bounded investigations with questions, expected evidence, decision criteria",
+        "conditions for starting dependent work",
+        "representative inputs or states and observable acceptance results",
+        "Describe review splits when needed for delivery",
+        "Make ready slices executable",
+        "Keep unresolved details explicit",
+    ):
+        assert guidance in plan
+    assert "Use separate plans for independent subsystems" not in plan
+    assert "before decomposing tasks" not in plan
