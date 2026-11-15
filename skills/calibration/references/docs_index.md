@@ -13,12 +13,6 @@ the current task.
   records in the project's maintained documentation. Follow its existing layout
   rather than requiring a universal directory name.
 
-## Technology
-
-- `docs/technology/main_path_readability/20260318-v1.0.md`
-  - Use when reviewing wrapper layers, orchestration shape, or whether the main
-    business path is too deeply hidden.
-
 ## Workflow
 
 - `docs/document-types/README.md`
