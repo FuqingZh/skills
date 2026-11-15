@@ -239,3 +239,25 @@ def test_how_to_keeps_task_verification_and_recovery() -> None:
         "system in a confusing or unsafe state",
     ):
         assert guidance in guide
+
+
+def test_runbook_keeps_operational_boundaries_and_location_fallback() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/runbook.md"
+    )
+    runbook = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "authorized operators to verify results",
+        "checkpoint or recovery failures",
+        "Repository-local commands, permissions, and rollback "
+        "rules remain authoritative",
+        "Follow the repository's runbook location. If none is defined, use "
+        "`docs/runbooks/`.",
+        "owner, prerequisites, access requirements, and conditions for use",
+        "checkpoints and expected observations",
+        "verification, recovery, rollback, escalation, and stop conditions",
+        "version, environment, and dependency assumptions that affect safety",
+        "Keep secrets, private host state, and unreconstructable raw evidence "
+        "out of the public document",
+    ):
+        assert guidance in runbook
