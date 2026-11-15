@@ -25,7 +25,7 @@ def test_retired_pipeline_snapshots_are_preserved() -> None:
 
 
 def test_retired_paths_redirect_without_active_routing() -> None:
-    index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
+    index = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
     redirects = {
         "pipeline_directory_layout_specification": "artifact",
         "step_to_step_artifact_flow_specification": "artifact",

@@ -8,7 +8,8 @@ authority, recorded open work, and historical evidence.
 1. Read the repository README ([English](../README.md) / [简体中文](../README.zh-CN.md))
    for installation and development.
 2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
-   references; long-form guidance has one [document router](../skills/calibration/references/docs_index.md).
+   references; use the [document-type router](../skills/calibration/references/docs/document-types/README.md)
+   for a document's minimum contract and the layout reference for project organization.
 3. Follow [AGENTS.md](../AGENTS.md) for repository validation and contribution rules.
 
 ## Public Architecture
@@ -27,7 +28,10 @@ orchestrator integration.
 | Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
-| Repository capability and delivery placement | [Harness](../skills/calibration/references/discipline/harness.md) |
+| Repository capability adoption and instructions | [Harness](../skills/calibration/references/discipline/harness.md) |
+| Quality gates and diagnostic ownership | [Quality gates](../skills/calibration/references/discipline/quality-gates.md) |
+| Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
+| Delegated delivery, review, and durable continuation | [Delivery feedback](../skills/calibration/references/discipline/delivery-feedback.md) |
 | Completion and external-result evidence | [Verification](../skills/calibration/references/discipline/verification.md) |
 | Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |

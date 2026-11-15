@@ -1,87 +1,40 @@
 # Task Traces And Retros
 
-Version: v1.0
-Date: 2026-05-27
-Status: current
+Use when the user asks to persist a confirmed task-level lesson from retrospect.
+Record expectation versus outcome, the consequential delta, and the action that
+should change next time. Routine investigation notes remain with their owning
+task; this contract does not turn them into retrospectives or require a new
+permanent rule for an omission already covered by existing guidance.
 
-This document defines lightweight task traces for cross-project engineering
-work. The goal is judgment calibration: record what was expected, what actually
-happened, where the estimate was wrong, and what rule should carry forward.
+## Placement And Evidence
 
-## Purpose
-
-Use `.traces/` for task-level execution knowledge:
-
-- complex task retrospectives
-- expectation versus actual outcome
-- underestimated or overestimated risk
-- validation path quality
-- observations that may later become project docs or global canon
-
-Do not use `.traces/` as a raw log archive. Raw process history normally already
-exists in git history, agent/session logs, command history, test artifacts, or
-product logs.
-
-## When To Write A Trace
-
-Write a trace when the task has meaningful learning value, such as:
-
-- broad or cross-module code changes
-- real-data validation or customer-facing delivery
-- repeated failures, interruptions, or wrong assumptions
-- deployment, permission, container, or production-adjacent risk
-- a task whose future repeat should start from a known rule
-
-Do not require traces for small edits, direct answers, simple test runs, or
-routine low-risk changes.
-
-## Recommended Layout
-
-```text
-.traces/
-  README.md
-  index.md
-  retros/
-```
-
-Do not create these directories by default:
-
-```text
-.traces/raw/
-.traces/tmp/
-```
-
-If a project needs raw evidence that cannot be reconstructed from git, session
-logs, test output, product logs, or formal artifacts, use:
-
-```text
-.traces/evidence/
-```
-
-Keep `.traces/evidence/` out of git by default unless the repository-local
-policy explicitly allows committing a narrow evidence file.
-
-## File Naming
-
-Retrospective summaries use lowercase kebab-case:
+Follow repository-local retrospective rules. Otherwise use `.traces/retros/`
+and lowercase kebab-case filenames:
 
 ```text
 YYYYMMDD-topic-retro.md
 ```
 
-Examples:
+Name the actual task or failure pattern rather than an agent, thread, or person.
+Keep existing records and links in place; no bulk migration is required.
 
-```text
-20260527-gwas-ko-facet-retro.md
-20260527-proteomics-wgcna-threading-retro.md
-```
+Reference git history, session logs, command history, test artifacts, product
+logs, and formal artifacts instead of copying reconstructable raw history.
+When additional evidence cannot be reconstructed from those sources, use the
+repository's evidence location, falling back to `.traces/evidence/`. Keep that
+fallback out of git unless repository-local policy explicitly permits a narrow
+evidence file. A hidden directory does not provide privacy or publication rights.
 
-The `topic` should name the actual task or failure pattern, not the agent,
-thread, or person.
+Create only the files and directories needed for the requested record. Do not
+scaffold `.traces/raw/` or `.traces/tmp/`, or require a trace for small edits,
+direct answers, simple test runs, or routine low-risk changes.
 
-## Trace Template
+## Record
 
-Use concise sections. Preserve the judgment signal, not the whole transcript.
+Use concise sections that preserve the judgment signal, not a transcript. The
+record should let the next similar task start from a better assumption,
+validation path, or action. The following fields are a starting template; follow
+the repository's format when it supplies one.
 
 ```markdown
 # <Task Title>
@@ -100,7 +53,7 @@ Status:
 ## Actual
 
 - Changes:
-- Validation:
+- Validation and evidence locations:
 - Result:
 
 ## Delta
@@ -108,29 +61,23 @@ Status:
 - Underestimated:
 - Overestimated:
 - Surprise:
+- Remaining hypotheses and verification gaps:
 
-## Rule To Carry Forward
+## Action To Carry Forward
 
-- Future rule:
-- Promote to docs/canon: yes/no
+- Future action:
+- Promotion destination, if warranted:
 ```
 
-## Index Requirements
+## Navigation And Promotion
 
-`.traces/index.md` should be a short map, not a second archive. Maintain:
+When a collection needs navigation, keep its README or index a short map of
+important retros, repeated patterns, promoted observations, and open hypotheses.
+Under the fallback layout, use `.traces/index.md` for that map; do not maintain
+a second archive in it.
 
-- recent important retros
-- repeated failure patterns
-- observations already promoted into `docs/`
-- observations still under watch
-
-## Promotion Rule
-
-Promote a trace observation when it is stable enough to guide future work:
-
-- project-specific contract or validation rule -> project `docs/`
-- repository-local workflow exception -> repository `AGENTS.md` or local docs
-- cross-project engineering principle -> `calibration`
-
-Once promoted, keep the retro as evidence, but make the promoted location the
-source of truth.
+Stable project contracts and validation rules belong in project documentation;
+repository workflow exceptions belong in local instructions or docs;
+cross-project engineering judgment may belong in calibration. Promotion needs
+the separate authorization required by retrospect. Once promoted, retain the
+retrospective as evidence and make the promoted location the source of truth.

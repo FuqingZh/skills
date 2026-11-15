@@ -133,17 +133,26 @@ def test_runtime_entrypoints_are_independent_of_retired_integration() -> None:
 def test_generic_boundaries_have_reachable_reference_owners() -> None:
     skill = compact("skills/calibration/SKILL.md")
     discipline = compact("skills/calibration/references/discipline/README.md")
-    harness = compact("skills/calibration/references/discipline/harness.md")
+    workspace = compact(
+        "skills/calibration/references/discipline/workspace-ownership.md"
+    )
+    gates = compact("skills/calibration/references/discipline/quality-gates.md")
     debugging = compact("skills/calibration/references/discipline/debugging.md")
     assert "references/discipline/README.md" in skill
     assert "references/discipline/harness.md" not in skill
-    assert "`harness.md`" in discipline
-    assert "`debugging.md`" in discipline
+    for reference in (
+        "harness.md",
+        "debugging.md",
+        "workspace-ownership.md",
+        "delivery-feedback.md",
+        "quality-gates.md",
+    ):
+        assert f"`{reference}`" in discipline
     assert "Implementation or contract verification" in discipline
     assert "| Completion claim," not in discipline
     assert "environment evidence boundaries" in discipline
     assert (
-        "Workspace search boundaries, ownership transfer, or runtime release"
+        "workspace search boundaries, ownership transfer, or runtime release"
         in discipline
     )
     for rule in (
@@ -154,12 +163,12 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "terminated session is not proof",
         "rejected filesystem escalation",
     ):
-        assert rule in harness
+        assert rule in workspace
     assert (
         "For first-party code and interfaces, repair the contract or implementation"
-        in harness
+        in gates
     )
-    assert "do not use an ignore comment" in harness.lower()
+    assert "do not use an ignore comment" in gates.lower()
     assert "environment actually observed" in debugging
     assert "before changing persistent configuration" in debugging
     assert "exact check still needed" in debugging
@@ -199,7 +208,10 @@ def test_retained_principles_have_task_specific_owners() -> None:
     design = compact("skills/calibration/references/design/codebase.md")
     harness = compact("skills/calibration/references/discipline/harness.md")
     verification = compact("skills/calibration/references/discipline/verification.md")
-    docs = compact("skills/calibration/references/docs_index.md")
+    docs = compact(
+        "skills/calibration/references/docs/workflow/project_docs_architecture/"
+        "20260805-v1.1-project-docs-architecture.md"
+    )
     assert "Correct false constraints, abstractions, or requirements" in skill
     assert "Within authorized, reversible local work" in skill
     assert "revise it as feedback changes the evidence" in skill
@@ -254,7 +266,7 @@ def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
         "transition debt created or exposed by this move",
         "Keep the cleanup within the affected scope",
         "when deciding whether to introduce, retain, or remove",
-        "harness.md#diagnostic-suppression-baseline",
+        "quality-gates.md#diagnostic-suppression-baseline",
         "preserve historical records and frozen evidence",
         "where existing coverage is insufficient",
         "explicit retirement condition",
@@ -266,6 +278,11 @@ def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
 
 def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     harness = compact("skills/calibration/references/discipline/harness.md")
+    workspace = compact(
+        "skills/calibration/references/discipline/workspace-ownership.md"
+    )
+    delivery = compact("skills/calibration/references/discipline/delivery-feedback.md")
+    gates = compact("skills/calibration/references/discipline/quality-gates.md")
     router = compact("skills/calibration/references/discipline/README.md")
     for retired in (
         "Orchestration Adoption Gate",
@@ -274,18 +291,21 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         ".traces/",
         "invoke calibration",
     ):
-        assert retired not in harness
+        for reference in (harness, workspace, delivery, gates):
+            assert retired not in reference
     assert "orchestration adoption" not in router
+    assert (
+        "intent and authorization remain governed by applicable instructions" in harness
+    )
+    assert "decisions that exceed current authorization" in harness
+    assert "without treating that request as authorization to execute" in workspace
+    assert "Do not broaden suppressions to hide first-party failures" in gates
     for retained in (
-        "intent and authorization remain governed by applicable instructions",
-        "without treating that request as authorization to execute",
-        "Do not broaden suppressions to hide first-party failures",
         "accepted responsibility for observing the work",
         "pause remote review and preserve branch, head, worktree",
         "Transport, polling, or idempotent-operation retry exhaustion",
-        "decisions that exceed current authorization",
     ):
-        assert retained in harness
+        assert retained in delivery
     cases = {
         case["id"]: case
         for case in json.loads(text("skills/calibration/test-prompts.json"))
@@ -323,25 +343,29 @@ def test_design_guidance_uses_contracts_without_absolute_shape_rules() -> None:
         assert guidance in design
 
 
-def test_docs_index_defers_to_local_contracts_without_duplicate_routes() -> None:
+def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() -> None:
+    skill = compact("skills/calibration/SKILL.md")
     index = compact("skills/calibration/references/docs_index.md")
-    assert "Load only references material to the current task" in index
-    assert "Follow repository-owned documentation and collaboration contracts" in index
-    assert "guidance to fill gaps in those contracts" in index
-    assert "project documentation layout" in index
+    assert "Load only the references required" in skill
+    assert "Follow repository-owned documentation and collaboration contracts" in skill
+    assert "guidance to fill gaps in those contracts" in skill
+    assert "project documentation layout" in skill
+    assert "references/docs_index.md" not in skill
+    assert "](../SKILL.md#route)" in index
+    assert "adds no separate rules" in index
     retired = "docs/technology/main_path_readability/20260318-v1.0.md"
-    assert retired not in index
     assert not (REPOSITORY_ROOT / "skills/calibration/references" / retired).exists()
-    assert "## Technology" not in index
-    for retired in ("$retrospect", ".traces/", "## Schema", "stricter local contract"):
+    for retired in ("$retrospect", ".traces/", "## Schema", "## Technology"):
+        assert retired not in skill
         assert retired not in index
     for retained in (
-        "docs/document-types/README.md",
+        "references/docs/document-types/README.md",
         "branch_and_pr_collaboration/20260602-v1.0.md",
         "20260805-v1.1-project-docs-architecture.md",
-        "Do not use it for PR body generation",
+        "for routine PR body generation",
     ):
-        assert retained in index
+        assert retained in skill
+    assert "task retrospectives" not in index
     naming = text("skills/calibration/references/naming/README.md")
     assert "](schema.md)" in naming
     assert "](artifact.md)" in naming
@@ -357,7 +381,7 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         "Do not apply this fallback to security-sensitive randomness",
     ):
         assert guidance in verification
-    harness = compact("skills/calibration/references/discipline/harness.md")
+    gates = compact("skills/calibration/references/discipline/quality-gates.md")
     for guidance in (
         "When Ruff is appropriate for the repository",
         "follow its existing rule selection",
@@ -366,9 +390,7 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         "Additional rule families, `ALL`, and preview rules",
         "repository-specific choices, not defaults",
     ):
-        assert guidance in harness
+        assert guidance in gates
     router = text("skills/calibration/references/discipline/README.md")
-    assert (
-        "| Repository quality-gate adoption or Ruff rule defaults | `harness.md` |"
-        in router
-    )
+    assert "Ruff rule defaults" in router
+    assert "`quality-gates.md`" in router

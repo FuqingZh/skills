@@ -21,8 +21,9 @@ for explicit versions, scope, and supported combinations.
 - Record reproducible evidence, failure signatures, safe adaptations, and
   affected callers or artifacts.
 - State scope, expiry or review conditions, and the owner of follow-up.
-- Promote only repeatedly verified reusable rules; keep raw trial-and-error in
-  `.traces/`.
+- Promote only repeatedly verified reusable rules; keep raw trial-and-error with
+  the owning investigation's task records. When retaining exploration notes, use
+  the [working-material placement rules](../workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md#working-material).
 
 ## Complete When
 

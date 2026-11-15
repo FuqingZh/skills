@@ -10,10 +10,9 @@ Use this index as a router. Read only the file needed for the current task.
 | Bug, runtime failure, failing test, unclear behavior, environment evidence boundaries, or root-cause analysis | `debugging.md` |
 | Implementation or contract verification, release or deployment checks, generated outputs, external writes, or user-visible artifact validation | `verification.md` |
 | Repeated agent stalls, missing repository capability, `AGENTS.md`, or human escalation | `harness.md` |
-| Workspace search boundaries, ownership transfer, or runtime release | `harness.md` (Implementation Task Intake) |
-| Repeated delivery failure, missing CI or review capability, cross-contract feedback, review-convergence exhaustion, or cloud execution failure | `harness.md` |
-| Repository quality-gate adoption or Ruff rule defaults | `harness.md` |
-| Diagnostic suppression or exclusion decisions | `harness.md` (Diagnostic suppression baseline) |
+| Execution authority, workspace search boundaries, ownership transfer, or runtime release | `workspace-ownership.md` |
+| Delegation, delivery feedback, durable continuation, cross-contract review, review-convergence exhaustion, or cloud execution | `delivery-feedback.md` |
+| Repository quality-gate adoption, Ruff rule defaults, or diagnostic suppression and exclusion decisions | `quality-gates.md` |
 
 ## Related References
 

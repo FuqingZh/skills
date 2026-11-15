@@ -20,8 +20,17 @@ Load only the references required by the decisions at hand:
   `references/discipline/README.md`
 - architecture, module boundaries, interfaces, and abstraction:
   `references/design/codebase.md`
-- cross-boundary contract documentation or long-form engineering specifications:
-  `references/docs_index.md`
+- document type and minimum content for cross-boundary contracts or long-form
+  engineering specifications: `references/docs/document-types/README.md`
+- project documentation layout, naming, navigation, and lifecycle:
+  `references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md`
+- decisions depending on GitHub collaboration, protection, or merge behavior:
+  `references/docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md`
+
+Follow repository-owned documentation and collaboration contracts; use shared
+guidance to fill gaps in those contracts. Do not use the document-type route
+for routine PR body generation unless the user asks how summaries relate to
+durable project docs.
 
 ## Completion
 

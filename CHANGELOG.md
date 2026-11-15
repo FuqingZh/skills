@@ -59,6 +59,16 @@
   preserve prerequisites and result checks and add a placement fallback.
 - Simplify runbooks while preserving authorization, checkpoints, recovery,
   stop conditions, and public-document boundaries; add a placement fallback.
+- Route document types, layout, and platform decisions directly from calibration;
+  retain the old docs index as a compatibility pointer. Remove duplicated type
+  selection and authoring rules from project layout, and distinguish current
+  architecture from proposals sharing the same directory.
+- Separate investigation records, retrospectives, and formal project documents
+  by ownership while retaining existing trace-location fallbacks. Consolidate
+  retrospective persistence into one reference without moving historical evidence.
+- Extract quality gates, workspace ownership, and delivery feedback into directly
+  routed references. Preserve their safeguards and legacy harness anchors;
+  add static routing and cross-document consistency coverage.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

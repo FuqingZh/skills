@@ -25,11 +25,13 @@ def test_document_routing_overview_covers_all_current_neighbors() -> None:
         "compatibility-record",
         "test-plan",
         "benchmark-record",
-        "trace-retro",
     ):
         assert document_type in expected
     assert "PR body 不是长期文档" in expected
     assert "archive 是生命周期状态\uff0c不是文档类型" in expected
+    assert "任务复盘由 retrospect 的持久化契约负责" in expected
+    assert "不属于该文档类型索引" in expected
+    assert "docs_index" not in expected
 
 
 def test_focused_document_routing_cases_choose_one_primary_type() -> None:

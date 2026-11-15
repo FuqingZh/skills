@@ -58,4 +58,6 @@ def test_legacy_naming_paths_reach_current_sources() -> None:
     branch = (REFERENCES / "naming/branch.md").read_text(encoding="utf-8")
     assert f"](../{BRANCH_GUIDE})" in branch
     index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
-    assert f"`{BRANCH_GUIDE}`" in index
+    assert "](../SKILL.md#route)" in index
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert f"`references/{BRANCH_GUIDE}`" in skill
