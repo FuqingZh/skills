@@ -32,6 +32,3 @@ Read only the source needed for the current language, framework, or interface.
 - Schema fields and exported headers: [schema guidance](schema.md).
 - Workflow artifact filenames: [artifact guidance](artifact.md).
 - Git branches: [collaboration sources](../docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md).
-
-The former function, method, type, variable, loop, and branch paths remain as
-compatibility pointers. They add no separate naming taxonomy.

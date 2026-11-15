@@ -85,6 +85,11 @@
   provider contracts from local observations. Preserve reproducibility, adaptation
   checks, conditional revalidation, and optional method references without a
   universal repeated-verification requirement.
+- Remove the six legacy naming reference paths: `function.md`, `method.md`,
+  `type.md`, `variable.md`, `loop.md`, and `branch.md` under `references/naming/`.
+  Direct consumers must use the [naming entrypoint](skills/calibration/references/naming/README.md)
+  for code names and the [collaboration guide](skills/calibration/references/docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md)
+  for branches. Historical records and frozen source inventories remain unchanged.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

@@ -51,12 +51,28 @@ def test_adopted_upstream_sources_remain_linked(
         assert f"]({source})" in text
 
 
-def test_legacy_naming_paths_reach_current_sources() -> None:
-    for name in ("function", "method", "type", "variable", "loop"):
-        text = (REFERENCES / f"naming/{name}.md").read_text(encoding="utf-8")
-        assert "](README.md)" in text
-    branch = (REFERENCES / "naming/branch.md").read_text(encoding="utf-8")
-    assert f"](../{BRANCH_GUIDE})" in branch
+def test_current_naming_routes_reach_their_owning_sources() -> None:
+    naming = REFERENCES / "naming"
+    index = (naming / "README.md").read_text(encoding="utf-8")
+    for target in (
+        "cli.md",
+        "version.md",
+        "schema.md",
+        "artifact.md",
+        f"../{BRANCH_GUIDE}",
+    ):
+        assert f"]({target})" in index
+        assert (naming / target).is_file()
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "`references/naming/README.md`" in skill
+
+
+def test_retired_naming_paths_are_not_shipped() -> None:
+    for name in ("function", "method", "type", "variable", "loop", "branch"):
+        assert not (REFERENCES / f"naming/{name}.md").exists()
+
+
+def test_docs_compatibility_pointer_reaches_direct_routes() -> None:
     index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
     assert "](../SKILL.md#route)" in index
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
