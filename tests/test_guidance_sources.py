@@ -26,7 +26,7 @@ GITHUB_BRANCHES = (
         (
             "naming/version.md",
             (
-                "https://semver.org/spec/v2.0.0.html",
+                "https://semver.org/",
                 "https://packaging.python.org/en/latest/discussions/versioning/",
                 "https://packaging.python.org/en/latest/discussions/single-source-version/",
             ),

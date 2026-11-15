@@ -4,7 +4,7 @@ Identify the versioned unit and the repository's declared versioning and release
 policy. Consult the relevant source rather than inferring compatibility from a
 version string or imposing one scheme across ecosystems:
 
-- [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html) for projects adopting SemVer.
+- [Semantic Versioning](https://semver.org/) for projects adopting SemVer.
 - [PyPA versioning](https://packaging.python.org/en/latest/discussions/versioning/)
   for Python version syntax, scheme choices, and ecosystem behavior.
 - [PyPA single-source guidance](https://packaging.python.org/en/latest/discussions/single-source-version/)

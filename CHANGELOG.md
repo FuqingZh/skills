@@ -94,6 +94,8 @@
   and standard names, CLI Guidelines for usability and interaction. Inherit
   naming authority and retain the lowercase kebab-case fallback without repeating
   upstream input/output rules or deferring external spelling to parser defaults.
+- Point shared SemVer guidance to the official entrypoint while preserving each
+  repository's declared versioning and release contract.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
