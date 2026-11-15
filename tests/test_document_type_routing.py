@@ -179,3 +179,22 @@ def test_test_plan_keeps_reusable_checks_and_location_fallback() -> None:
         "compatibility, cleanup, and rollback implications when applicable",
     ):
         assert guidance in plan
+
+
+def test_benchmark_record_keeps_evidence_and_comparison_scope() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/benchmark-record.md"
+    )
+    record = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "Follow the repository's benchmark-record location. If none is defined, use "
+        "`docs/benchmarks/`.",
+        "Follow project measurement and reproducibility rules",
+        "For comparisons, identify the baseline and comparison method",
+        "metrics, protocol, repetitions, and the random seed where relevant",
+        "Preserve the output path or artifact needed to inspect the result",
+        "uncertainty, limitations, and any failed or skipped checks",
+        "conditions under which the result remains comparable or should be rerun",
+        "the limits of its conclusions",
+    ):
+        assert guidance in record

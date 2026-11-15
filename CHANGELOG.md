@@ -51,6 +51,8 @@
   preserve placement and persistence defaults without fixed document splits.
 - Simplify reusable test plans around repository checks and acceptance evidence;
   add `docs/testing/` as a fallback while preserving project-local placement.
+- Simplify benchmark records while preserving reproducibility and evidence;
+  scope baselines to comparisons and add a project-overridable placement fallback.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
