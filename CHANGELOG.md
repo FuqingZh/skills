@@ -36,6 +36,8 @@
   contracts; remove the retrospective-skill binding and duplicate naming routes.
 - Remove the duplicate main-path readability guide and its depth thresholds;
   keep abstraction and readability judgments in codebase design guidance.
+- Reduce the document-type index to purpose-based routes; remove duplicated
+  loading, workflow, authority, and retrospective-skill instructions.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

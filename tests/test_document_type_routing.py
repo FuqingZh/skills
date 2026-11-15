@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from tests.support import REPOSITORY_ROOT
 
@@ -61,3 +62,19 @@ def test_focused_document_routing_cases_choose_one_primary_type() -> None:
         assert path in expected
         for neighbor in rejected_neighbors:
             assert neighbor in expected
+
+
+def test_document_type_index_contains_only_routes_to_type_files() -> None:
+    directory = REPOSITORY_ROOT / "skills/calibration/references/docs/document-types"
+    index = directory / "README.md"
+    lines = index.read_text(encoding="utf-8").splitlines()
+    assert lines[:2] == ["# Document Types", ""]
+    targets: list[Path] = []
+    for purpose, route in zip(lines[2::2], lines[3::2], strict=True):
+        assert purpose.startswith("- ") and purpose.endswith(":")
+        assert route.startswith("  `") and route.endswith(".md`")
+        target = directory / route.removeprefix("  `").removesuffix("`")
+        assert target.is_file()
+        targets.append(target)
+    assert len(targets) == len(set(targets)) == 10
+    assert set(targets) == set(directory.glob("*.md")) - {index}
