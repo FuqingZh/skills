@@ -6,7 +6,7 @@ contributor to reproduce the measurement, inspect its output, and understand
 the limits of its conclusions.
 
 - Follow the repository's benchmark-record location. If none is defined, use
-  `docs/benchmarks/`.
+  `docs/contributing/`.
 - Follow project measurement and reproducibility rules.
 - State the question, workload, inputs, environment, and versions. For
   comparisons, identify the baseline and comparison method.

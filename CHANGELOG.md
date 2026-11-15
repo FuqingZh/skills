@@ -50,7 +50,7 @@
 - Focus implementation plans on executable slices and conditional investigations;
   preserve placement and persistence defaults without fixed document splits.
 - Simplify reusable test plans around repository checks and acceptance evidence;
-  add `docs/testing/` as a fallback while preserving project-local placement.
+  preserve project-local placement and provide a shared location fallback.
 - Simplify benchmark records while preserving reproducibility and evidence;
   scope baselines to comparisons and add a project-overridable placement fallback.
 - Simplify tutorials around a coherent learning path and demonstrated capability;
@@ -62,7 +62,7 @@
 - Route document types, layout, and platform decisions directly from calibration;
   retain the old docs index as a compatibility pointer. Remove duplicated type
   selection and authoring rules from project layout, and distinguish current
-  architecture from proposals sharing the same directory.
+  architecture from proposals regardless of their directory.
 - Separate investigation records, retrospectives, and formal project documents
   by ownership while retaining existing trace-location fallbacks. Consolidate
   retrospective persistence into one reference without moving historical evidence.
@@ -77,6 +77,10 @@
   `.retrospect/`, and `.dissect/notes/`, with separate evidence directories.
   Preserve local conventions, publication controls, and historical `.traces/`
   records without automatic persistence or migration.
+- Consolidate documentation fallbacks into architecture, design, guides, reference,
+  contributing, and optional runbooks, assets, and archive locations. Keep type
+  contracts distinct, group change-specific material by topic, and distinguish
+  accepted proposals from implemented facts without migrating existing documents.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

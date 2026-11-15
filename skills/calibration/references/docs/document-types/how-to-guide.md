@@ -7,7 +7,7 @@ Use the [Diataxis how-to guidance](https://diataxis.fr/how-to-guides/) to keep
 the guide focused on successful task completion.
 
 - Follow the repository's how-to location. If none is defined, use
-  `docs/how-to-guides/`.
+  `docs/guides/`.
 - State the goal, scope, prerequisites, applicable versions, and assumptions.
 - Give ordered, actionable steps with commands or exact interface labels
   where ambiguity would cause failure.

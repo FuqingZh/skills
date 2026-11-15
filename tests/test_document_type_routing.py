@@ -37,22 +37,22 @@ def test_document_routing_overview_covers_all_current_neighbors() -> None:
 def test_focused_document_routing_cases_choose_one_primary_type() -> None:
     cases = _prompt_cases()
     expected_routes = {
-        23: ("tutorial", "docs/tutorials/", ("how-to guide", "architecture overview")),
-        24: ("how-to guide", "docs/how-to-guides/", ("tutorial", "runbook")),
+        23: ("tutorial", "docs/guides/", ("how-to guide", "architecture overview")),
+        24: ("how-to guide", "docs/guides/", ("tutorial", "runbook")),
         25: ("runbook", "docs/runbooks/", ("how-to guide", "未经验证")),
         26: (
             "compatibility record",
-            "docs/compatibility/",
+            "docs/reference/",
             ("architecture overview", "tutorial", ".calibration/notes/"),
         ),
         27: (
             "decision record",
-            "docs/decisions/",
+            "docs/architecture/decisions/",
             ("architecture overview", "尚未决定"),
         ),
         28: (
             "implementation plan",
-            "docs/implementation-plans/",
+            "docs/design/",
             ("design proposal", "decision record", "PR body"),
         ),
     }
@@ -107,7 +107,7 @@ def test_design_proposal_keeps_fallback_and_decision_context() -> None:
     proposal = " ".join(path.read_text(encoding="utf-8").split())
     for guidance in (
         "Follow the repository's proposal location. If none is defined, use "
-        "`docs/architecture/`.",
+        "`docs/design/`.",
         "current architecture and contracts of the affected boundary",
         "Compare viable alternatives and recommend a direction with reasons",
         "Distinguish proposed directions from accepted decisions",
@@ -125,7 +125,7 @@ def test_decision_record_keeps_rationale_and_local_defaults() -> None:
     for guidance in (
         "Record settled, high-impact choices whose rationale matters",
         "Follow the repository's decision-record location. If none is defined, use "
-        "`docs/decisions/`.",
+        "`docs/architecture/decisions/` for architecture decisions.",
         "Follow the repository's record format when defined",
         "are optional format references",
         "Record the decision date and status",
@@ -145,7 +145,7 @@ def test_implementation_plan_preserves_defaults_and_readiness() -> None:
     plan = " ".join(path.read_text(encoding="utf-8").split())
     for guidance in (
         "Follow the repository's planning location. If none is defined, use "
-        "`docs/implementation-plans/`.",
+        "`docs/design/`.",
         "Persist or commit the plan only when explicitly requested or required "
         "by repository workflow",
         "Preserve established boundaries unless the settled design "
@@ -172,7 +172,7 @@ def test_test_plan_keeps_reusable_checks_and_location_fallback() -> None:
     for guidance in (
         "need reuse across changes, releases, or environments",
         "Follow the repository's testing-documentation location. "
-        "If none is defined, use `docs/testing/`.",
+        "If none is defined, use `docs/contributing/`.",
         "Use configured test and verification entrypoints",
         "implementation details with their owning code",
         "fixtures, data boundaries, environment assumptions, and required setup",
@@ -190,7 +190,7 @@ def test_benchmark_record_keeps_evidence_and_comparison_scope() -> None:
     record = " ".join(path.read_text(encoding="utf-8").split())
     for guidance in (
         "Follow the repository's benchmark-record location. If none is defined, use "
-        "`docs/benchmarks/`.",
+        "`docs/contributing/`.",
         "Follow project measurement and reproducibility rules",
         "For comparisons, identify the baseline and comparison method",
         "metrics, protocol, repetitions, and the random seed where relevant",
@@ -212,7 +212,7 @@ def test_tutorial_keeps_learning_path_and_record_boundaries() -> None:
         "without reconstructing the conversation that produced it",
         "https://diataxis.fr/tutorials/",
         "Follow the repository's tutorial location. If none is defined, use "
-        "`docs/tutorials/`.",
+        "`docs/guides/`.",
         "audience, prerequisites, and one tangible learning outcome",
         "Sequence small steps that build toward the outcome",
         "verification or exercise that demonstrates the reader reached the outcome",
@@ -232,7 +232,7 @@ def test_how_to_keeps_task_verification_and_recovery() -> None:
         "stated prerequisites perform and verify one concrete task",
         "https://diataxis.fr/how-to-guides/",
         "Follow the repository's how-to location. If none is defined, use "
-        "`docs/how-to-guides/`.",
+        "`docs/guides/`.",
         "prerequisites, applicable versions, and assumptions",
         "commands or exact interface labels where ambiguity would cause failure",
         "distinguish success from partial completion or failure",

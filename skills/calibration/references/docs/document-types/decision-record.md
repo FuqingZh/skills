@@ -8,7 +8,8 @@ Use the [ADR](https://adr.github.io/) model;
 references. Follow the repository's record format when defined.
 
 - Follow the repository's decision-record location. If none is defined, use
-  `docs/decisions/`.
+  `docs/architecture/decisions/` for architecture decisions. Keep other decisions
+  with their owning project topic.
 - Record the decision date and status.
 - Explain the context that made the decision necessary.
 - Compare the viable alternatives that materially affected the choice.

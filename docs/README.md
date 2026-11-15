@@ -10,6 +10,8 @@ authority, recorded open work, and historical evidence.
 2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
    references; use the [document-type router](../skills/calibration/references/docs/document-types/README.md)
    for a document's minimum contract and the layout reference for project organization.
+   Shared locations are fallbacks for projects without local conventions;
+   this repository keeps its existing document paths.
 3. Follow [AGENTS.md](../AGENTS.md) for repository validation and contribution rules.
 
 ## Public Architecture

@@ -4,7 +4,7 @@ Present a proposed change and the reasoning needed to accept, reject, or
 revise its direction.
 
 - Follow the repository's proposal location. If none is defined, use
-  `docs/architecture/`.
+  `docs/design/`.
 - Ground the proposal in the current architecture and contracts of the
   affected boundary.
 - State the problem, goals, non-goals, and constraints.

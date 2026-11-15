@@ -4,7 +4,7 @@ Turn a settled requirement or accepted direction into executable work with
 clear dependencies and acceptance criteria.
 
 - Follow the repository's planning location. If none is defined, use
-  `docs/implementation-plans/`.
+  `docs/design/`.
 - Persist or commit the plan only when explicitly requested or required by
   repository workflow.
 - Ground the plan in the requirement or design, repository instructions,

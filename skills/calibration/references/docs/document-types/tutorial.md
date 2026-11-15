@@ -8,7 +8,7 @@ Use the [Diataxis tutorial guidance](https://diataxis.fr/tutorials/) to build a
 coherent learning experience.
 
 - Follow the repository's tutorial location. If none is defined, use
-  `docs/tutorials/`.
+  `docs/guides/`.
 - State the audience, prerequisites, and one tangible learning outcome.
 - Sequence small steps that build toward the outcome.
 - Use project commands, examples, and terminology from current authoritative

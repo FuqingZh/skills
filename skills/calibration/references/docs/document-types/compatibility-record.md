@@ -14,8 +14,8 @@ for explicit versions, scope, and supported combinations.
 
 ## Local Requirements
 
-- Place it in project `docs/compatibility/` when the project uses the shared
-  compatibility location.
+- Follow the repository's compatibility-reference location. If none is defined,
+  use `docs/reference/`.
 - Identify the external boundary, version, environment, and expected contract.
 - Separate observed behavior from inference or recommendation.
 - Record reproducible evidence, failure signatures, safe adaptations, and

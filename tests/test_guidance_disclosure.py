@@ -91,14 +91,18 @@ def test_layout_and_type_defaults_agree_without_duplicate_type_rules() -> None:
     directories = set(re.findall(r"^  ([a-z-]+)/$", source, flags=re.MULTILINE))
     type_directories: set[str] = set()
     for path in TYPES.glob("*.md"):
-        type_directories.update(re.findall(r"`docs/([a-z-]+)/`", path.read_text()))
+        type_directories.update(
+            location.split("/", 1)[0]
+            for location in re.findall(r"`docs/([a-z/-]+)/`", path.read_text())
+        )
     assert directories == type_directories | {"assets", "archive"}
     assert "](../../document-types/README.md)" in source
     assert "Each type owns its minimum content and fallback location" in layout
-    assert "both current architecture overviews and design proposals" in layout
+    assert "a document type need not own a separate directory" in layout
+    assert "Co-location does not merge document contracts" in layout
     assert (
-        "proposal does not become accepted architecture because of its directory"
-        in layout
+        "acceptance records agreement on a direction, "
+        "not evidence that it is implemented" in layout
     )
     for retired in (
         "do not use for unapproved future direction",
