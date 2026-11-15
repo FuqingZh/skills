@@ -160,3 +160,22 @@ def test_implementation_plan_preserves_defaults_and_readiness() -> None:
         assert guidance in plan
     assert "Use separate plans for independent subsystems" not in plan
     assert "before decomposing tasks" not in plan
+
+
+def test_test_plan_keeps_reusable_checks_and_location_fallback() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/test-plan.md"
+    )
+    plan = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "need reuse across changes, releases, or environments",
+        "Follow the repository's testing-documentation location. "
+        "If none is defined, use `docs/testing/`.",
+        "Use configured test and verification entrypoints",
+        "implementation details with their owning code",
+        "fixtures, data boundaries, environment assumptions, and required setup",
+        "commands or CI checks, expected evidence, and failure interpretation",
+        "acceptance criteria and any required manual artifact or runtime inspection",
+        "compatibility, cleanup, and rollback implications when applicable",
+    ):
+        assert guidance in plan
