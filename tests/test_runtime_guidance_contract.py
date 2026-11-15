@@ -264,11 +264,10 @@ def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
         assert guidance in refactor
 
 
-def test_harness_cleanup_keeps_boundaries_without_tool_recipes() -> None:
+def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     harness = compact("skills/calibration/references/discipline/harness.md")
     router = compact("skills/calibration/references/discipline/README.md")
     for retired in (
-        "Ruff quality-gate baseline",
         "Orchestration Adoption Gate",
         "Symphony",
         "WebSocket Origin",
@@ -276,7 +275,6 @@ def test_harness_cleanup_keeps_boundaries_without_tool_recipes() -> None:
         "invoke calibration",
     ):
         assert retired not in harness
-    assert "Ruff rule selection" not in router
     assert "orchestration adoption" not in router
     for retained in (
         "intent and authorization remain governed by applicable instructions",
@@ -347,3 +345,30 @@ def test_docs_index_defers_to_local_contracts_without_duplicate_routes() -> None
     naming = text("skills/calibration/references/naming/README.md")
     assert "](schema.md)" in naming
     assert "](artifact.md)" in naming
+
+
+def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
+    verification = compact("skills/calibration/references/discipline/verification.md")
+    for guidance in (
+        "tests, experiments, or benchmarks that require reproducible randomness",
+        "use `42` as the fallback seed when no repository rule, caller value",
+        "compatibility contract, or domain requirement supplies one",
+        "Preserve existing seeds and allow caller overrides where needed",
+        "Do not apply this fallback to security-sensitive randomness",
+    ):
+        assert guidance in verification
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    for guidance in (
+        "When Ruff is appropriate for the repository",
+        "follow its existing rule selection",
+        "If no repository-local selection exists",
+        "start with `E`, `F`, `I`, `UP`, `B`, `SIM`, and `RUF`",
+        "Additional rule families, `ALL`, and preview rules",
+        "repository-specific choices, not defaults",
+    ):
+        assert guidance in harness
+    router = text("skills/calibration/references/discipline/README.md")
+    assert (
+        "| Repository quality-gate adoption or Ruff rule defaults | `harness.md` |"
+        in router
+    )

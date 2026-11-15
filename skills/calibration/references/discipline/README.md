@@ -12,7 +12,7 @@ Use this index as a router. Read only the file needed for the current task.
 | Repeated agent stalls, missing repository capability, `AGENTS.md`, or human escalation | `harness.md` |
 | Workspace search boundaries, ownership transfer, or runtime release | `harness.md` (Implementation Task Intake) |
 | Repeated delivery failure, missing CI or review capability, cross-contract feedback, review-convergence exhaustion, or cloud execution failure | `harness.md` |
-| Repository quality-gate adoption | `harness.md` |
+| Repository quality-gate adoption or Ruff rule defaults | `harness.md` |
 | Diagnostic suppression or exclusion decisions | `harness.md` (Diagnostic suppression baseline) |
 
 ## Related References

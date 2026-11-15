@@ -21,6 +21,11 @@ alone does not require delivery checks.
   environment, and scale; validate outputs as well as runtime. Make the random
   seed explicit when it materially affects reproducibility or public behavior,
   following the project's contract.
+- For tests, experiments, or benchmarks that require reproducible randomness,
+  use `42` as the fallback seed when no repository rule, caller value,
+  compatibility contract, or domain requirement supplies one. Preserve existing
+  seeds and allow caller overrides where needed. Do not apply this fallback to
+  security-sensitive randomness.
 - Report what changed, what was verified, and the command, artifact, endpoint,
   or readback supporting the claim. Identify unverified items that materially
   affect the completion judgment, why they remain unverified, and the remaining

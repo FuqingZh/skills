@@ -70,6 +70,13 @@ Add plans, specifications, or approval stages only when coordination, risk,
 interruption, or repeated failure warrants them. A code change alone does not
 require these stages or renewed approval for already-authorized work.
 
+### Ruff Defaults
+
+When Ruff is appropriate for the repository, follow its existing rule selection.
+If no repository-local selection exists, start with `E`, `F`, `I`, `UP`, `B`,
+`SIM`, and `RUF`. Additional rule families, `ALL`, and preview rules are
+repository-specific choices, not defaults.
+
 ### Diagnostic suppression baseline
 
 Classify a diagnostic by the owner of the invalid or incomplete contract, not

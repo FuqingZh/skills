@@ -40,6 +40,9 @@
   loading, workflow, authority, and retrospective-skill instructions.
 - Simplify architecture-overview guidance while retaining `docs/architecture/`
   as the fallback when the repository has no defined architecture location.
+- Restore conditional defaults for reproducible seeds (`42`) and Ruff rule
+  selection, preserving existing project and caller choices. These defaults
+  supersede their removal during the earlier principles and harness cleanup.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
