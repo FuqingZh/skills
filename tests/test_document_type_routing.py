@@ -113,3 +113,24 @@ def test_design_proposal_keeps_fallback_and_decision_context() -> None:
     ):
         assert guidance in proposal
     assert "separate from an implementation plan until" not in proposal
+
+
+def test_decision_record_keeps_rationale_and_local_defaults() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/decision-record.md"
+    )
+    record = " ".join(path.read_text(encoding="utf-8").split())
+    for guidance in (
+        "Record settled, high-impact choices whose rationale matters",
+        "Follow the repository's decision-record location. If none is defined, use "
+        "`docs/decisions/`.",
+        "Follow the repository's record format when defined",
+        "are optional format references",
+        "Record the decision date and status",
+        "alternatives that materially affected the choice",
+        "consequences, including follow-up obligations",
+        "Record conditions that would justify reopening it",
+    ):
+        assert guidance in record
+    assert "https://adr.github.io/" in record
+    assert "https://adr.github.io/adr-templates/" in record
