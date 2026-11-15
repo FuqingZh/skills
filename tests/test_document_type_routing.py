@@ -78,3 +78,21 @@ def test_document_type_index_contains_only_routes_to_type_files() -> None:
         targets.append(target)
     assert len(targets) == len(set(targets)) == 10
     assert set(targets) == set(directory.glob("*.md")) - {index}
+
+
+def test_architecture_overview_keeps_local_precedence_and_fallback() -> None:
+    path = REPOSITORY_ROOT / (
+        "skills/calibration/references/docs/document-types/architecture-overview.md"
+    )
+    overview = " ".join(path.read_text(encoding="utf-8").split())
+    assert (
+        "Follow the repository's documentation convention. If no architecture "
+        "location is defined, use `docs/architecture/`."
+    ) in overview
+    assert "using the repository's current source of truth" in overview
+    assert "ownership boundaries, and data flow" in overview
+    assert "records when they exist" in overview
+    assert (
+        "Distinguish current behavior from proposals and historical behavior"
+        in overview
+    )
