@@ -81,7 +81,6 @@ def test_current_naming_routes_reach_their_owning_sources() -> None:
         "cli.md",
         "version.md",
         "schema.md",
-        "artifact.md",
         f"../{BRANCH_GUIDE}",
     ):
         assert f"]({target})" in index
@@ -93,6 +92,7 @@ def test_current_naming_routes_reach_their_owning_sources() -> None:
 def test_retired_naming_paths_are_not_shipped() -> None:
     for name in ("function", "method", "type", "variable", "loop", "branch"):
         assert not (REFERENCES / f"naming/{name}.md").exists()
+    assert not (REFERENCES / "naming/artifact.md").exists()
 
 
 def test_docs_compatibility_pointer_reaches_direct_routes() -> None:

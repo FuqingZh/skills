@@ -101,6 +101,10 @@
   references, and Table Schema. Preserve consumer contracts, native mappings,
   identifier semantics, and compatibility checks without a global casing rule
   or a required adapter layer.
+- Remove the standalone workflow-artifact naming reference and route. Keep the
+  downstream-output interface safeguard in refactor compatibility checks, and
+  redirect existing retirement pointers and archive navigation to that owner.
+  Historical snapshots and frozen experiment records remain unchanged.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

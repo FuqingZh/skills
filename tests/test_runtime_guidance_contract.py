@@ -368,7 +368,10 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
     assert "task retrospectives" not in index
     naming = text("skills/calibration/references/naming/README.md")
     assert "](schema.md)" in naming
-    assert "](artifact.md)" in naming
+    assert "](artifact.md)" not in naming
+    refactor = compact("skills/calibration/references/discipline/refactor.md")
+    assert "For outputs consumed downstream" in refactor
+    assert "names, locations, formats, and delivery behavior" in refactor
 
 
 def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:

@@ -27,12 +27,17 @@ def test_retired_pipeline_snapshots_are_preserved() -> None:
 def test_retired_paths_redirect_without_active_routing() -> None:
     index = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
     redirects = {
-        "pipeline_directory_layout_specification": "artifact",
-        "step_to_step_artifact_flow_specification": "artifact",
-        "identifier": "schema",
+        "pipeline_directory_layout_specification": (
+            "discipline/refactor.md#judgment-checks"
+        ),
+        "step_to_step_artifact_flow_specification": (
+            "discipline/refactor.md#judgment-checks"
+        ),
+        "identifier": "naming/schema.md",
     }
     for directory, target in redirects.items():
         path = f"docs/schema/{directory}/20260304-v1.1.md"
         pointer = (REFERENCES / path).read_text(encoding="utf-8")
-        assert f"](../../../naming/{target}.md)" in pointer
+        assert f"](../../../{target})" in pointer
+        assert (REFERENCES / target.split("#", 1)[0]).is_file()
         assert path not in index

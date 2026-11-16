@@ -13,7 +13,7 @@ and are outside the installed skill tree.
 | [Identifier protocol](identifier.md) | `docs/schema/identifier/20260304-v1.1.md` |
 
 Current [schema](../../../skills/calibration/references/naming/schema.md) and
-[artifact](../../../skills/calibration/references/naming/artifact.md) guidance
+[consumer compatibility](../../../skills/calibration/references/discipline/refactor.md#judgment-checks) guidance
 defer concrete conventions to the protocol, workflow engine, and repository.
 The old pipeline and identifier paths remain as retirement pointers. Existing
 projects may retain their own adopted contracts; retirement does not authorize migration

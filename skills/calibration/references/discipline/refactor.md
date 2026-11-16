@@ -8,7 +8,9 @@ cleanup, or staged convergence work.
 
 - Identify the public behavior and compatibility contracts to preserve. Changes
   to public APIs, CLIs, schemas, file layouts, and generated outputs must be
-  intentional and documented separately from structural changes.
+  intentional and documented separately from structural changes. For outputs
+  consumed downstream, include names, locations, formats, and delivery behavior
+  in consumer compatibility checks.
 - Introduce a layer only for a concrete boundary, policy, lifecycle, reuse point,
   or readability benefit. Review main-path readability and justify any necessary
   increase in complexity.
