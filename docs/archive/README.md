@@ -1,8 +1,8 @@
 # Historical Records
 
 This index records lifecycle status, not a second set of operating rules.
-Completed plans and superseded protocols are archived in place: their existing
-paths and evidence remain available, but they are not active execution plans.
+Completed plans and superseded protocols remain available as historical records,
+but they are not active execution plans.
 Settled adoption decisions can still explain current behavior; follow the
 [current authority map](../README.md#current-authority) for runtime contracts.
 
@@ -16,6 +16,17 @@ The [retired guidance manifest](retired-guidance-manifest.json) preserves the fo
 older AO rule files and the CAL-1 plan byte for byte. These integrity checks
 replace historical wording assertions; runtime isolation, ownership rules,
 installer compatibility, provenance, and evaluation-result checks remain active.
+
+## Superseded Project Documentation Layout
+
+The [v1.0 snapshot](project-docs-layout/20260527-v1.0-project-docs-architecture.md.txt)
+preserves the former
+`skills/calibration/references/docs/workflow/project_docs_architecture/20260527-v1.0-project-docs-architecture.md`
+byte for byte. It was superseded by the
+[current layout](../../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md).
+The text snapshot retains its original relative links as historical content and
+is outside the installed skill tree. The [layout tests](../../tests/test_document_layout.py)
+check its digest and absence from active skill references.
 
 ## Retired Pipeline Conventions
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -102,6 +103,27 @@ def test_acceptance_and_implementation_have_distinct_authority() -> None:
         "acceptance or evidence quality",
     ):
         assert rule in body
+    assert "keeps its original document type and is not current authority" in body
+    assert "unless a current document explicitly cites it" not in body
+
+
+def test_superseded_layout_is_archived_without_active_routes() -> None:
+    old_name = "20260527-v1.0-project-docs-architecture.md"
+    old_path = f"references/docs/workflow/project_docs_architecture/{old_name}"
+    archive = REPOSITORY_ROOT / "docs/archive/project-docs-layout" / f"{old_name}.txt"
+    expected_digest = "f6b60bfdcf1960de69c95d39d391019dc800e61c442fec7f31c3039ec3c3a61d"
+    assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected_digest
+    assert not (CALIBRATION / old_path).exists()
+    assert "Supersedes:" not in LAYOUT.read_text(encoding="utf-8")
+    for path in CALIBRATION.rglob("*.md"):
+        body = path.read_text(encoding="utf-8")
+        assert old_name not in body, path
+        assert "project-docs-layout/" not in body, path
+    index = (REPOSITORY_ROOT / "docs/archive/README.md").read_text(encoding="utf-8")
+    assert f"`skills/calibration/{old_path}`" in index
+    assert f"](project-docs-layout/{old_name}.txt)" in index
+    current_path = LAYOUT.relative_to(REPOSITORY_ROOT).as_posix()
+    assert f"](../../{current_path})" in index
 
 
 @pytest.mark.parametrize(

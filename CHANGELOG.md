@@ -129,6 +129,11 @@
   `references/docs/schema/`; external references to those paths will no longer
   resolve. Keep current schema and consumer-compatibility guidance and preserve
   the five archived convention snapshots byte for byte.
+- Archive the superseded v1.0 documentation layout outside the skill tree as an
+  unchanged text snapshot. Remove the current layout's `Supersedes` line and
+  citation-based authority exception without adding replacement metadata or
+  adoption instructions. Record provenance only in the archive index; the old
+  skill path no longer resolves.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
