@@ -141,6 +141,9 @@
   sections. Keep direct discipline routes and the substantive rules with their
   existing owners. The three former harness section anchors no longer resolve;
   consumers of those anchors must update their references.
+- Remove retrospect's `references/trace-retro.md` compatibility pointer. The skill
+  continues to load `references/task-traces-and-retros.md` directly; persistence
+  rules and historical records are unchanged. The removed path no longer resolves.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

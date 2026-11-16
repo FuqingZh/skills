@@ -183,9 +183,9 @@ def test_retrospect_loads_one_persistence_contract_and_preserves_fallbacks() -> 
     ]
     assert "disable-model-invocation: true" in skill
     assert "only after a separate explicit request" in compact(RETROSPECT / "SKILL.md")
-    pointer = compact(RETROSPECT / "references/trace-retro.md")
-    assert "](task-traces-and-retros.md)" in pointer
-    assert "adds no separate requirements" in pointer
+    assert not (RETROSPECT / "references/trace-retro.md").exists()
+    for path in CALIBRATION.parent.rglob("*.md"):
+        assert "trace-retro.md" not in path.read_text(encoding="utf-8"), path
     contract = compact(RETROSPECT / "references/task-traces-and-retros.md")
     for rule in (
         "user asks to persist a confirmed task-level lesson",
