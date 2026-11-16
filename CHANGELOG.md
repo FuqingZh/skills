@@ -121,6 +121,10 @@
   Keep only scoped unfinished-work handoff and review-stop safeguards in harness,
   preserving its existing section anchor. Leave authorization and completion
   evidence with workspace ownership and verification; retain historical records.
+- Remove the unused `references/docs_index.md` compatibility pointer. Direct
+  consumers must use [calibration's task router](skills/calibration/SKILL.md#route);
+  old external path references will no longer resolve. Historical documents and
+  frozen experiment inventories remain unchanged.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

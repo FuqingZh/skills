@@ -86,9 +86,10 @@ def test_retired_naming_paths_are_not_shipped() -> None:
     assert not (REFERENCES / "naming/artifact.md").exists()
 
 
-def test_docs_compatibility_pointer_reaches_direct_routes() -> None:
-    index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
-    assert "](../SKILL.md#route)" in index
+def test_retired_docs_index_is_not_shipped_or_routed() -> None:
+    assert not (REFERENCES / "docs_index.md").exists()
+    for path in REFERENCES.parent.rglob("*.md"):
+        assert "docs_index.md" not in path.read_text(encoding="utf-8"), path
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
     assert "`references/docs/document-types/README.md`" in skill
 

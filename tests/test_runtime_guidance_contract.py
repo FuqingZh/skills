@@ -344,26 +344,22 @@ def test_design_guidance_uses_contracts_without_absolute_shape_rules() -> None:
 
 def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() -> None:
     skill = compact("skills/calibration/SKILL.md")
-    index = compact("skills/calibration/references/docs_index.md")
     assert "Load only the references required" in skill
     assert "Follow repository-owned documentation and collaboration contracts" in skill
     assert "guidance to fill gaps in those contracts" in skill
     assert "project documentation layout" in skill
     assert "references/docs_index.md" not in skill
-    assert "](../SKILL.md#route)" in index
-    assert "adds no separate rules" in index
     retired = "docs/technology/main_path_readability/20260318-v1.0.md"
     assert not (REPOSITORY_ROOT / "skills/calibration/references" / retired).exists()
     for retired in ("$retrospect", ".traces/", "## Schema", "## Technology"):
         assert retired not in skill
-        assert retired not in index
     for retained in (
         "references/docs/document-types/README.md",
         "20260805-v1.1-project-docs-architecture.md",
         "for routine PR body generation",
     ):
         assert retained in skill
-    assert "task retrospectives" not in index
+    assert "task retrospectives" not in skill
     naming = text("skills/calibration/references/naming/README.md")
     assert "](schema.md)" in naming
     assert "](artifact.md)" not in naming
