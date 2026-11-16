@@ -30,10 +30,9 @@ orchestrator integration.
 | Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
-| Repository capability adoption and instructions | [Harness](../skills/calibration/references/discipline/harness.md) |
+| Repository capabilities, instructions, and continuation/review boundaries | [Harness](../skills/calibration/references/discipline/harness.md) |
 | Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
 | Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
-| Delegated delivery, review, and durable continuation | [Delivery feedback](../skills/calibration/references/discipline/delivery-feedback.md) |
 | Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
 | Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |

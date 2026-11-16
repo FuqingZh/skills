@@ -144,7 +144,6 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "harness.md",
         "debugging.md",
         "workspace-ownership.md",
-        "delivery-feedback.md",
         "verification.md",
         "../linters/README.md",
     ):
@@ -282,7 +281,6 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     workspace = compact(
         "skills/calibration/references/discipline/workspace-ownership.md"
     )
-    delivery = compact("skills/calibration/references/discipline/delivery-feedback.md")
     verification = compact("skills/calibration/references/discipline/verification.md")
     router = compact("skills/calibration/references/discipline/README.md")
     for retired in (
@@ -292,7 +290,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         ".traces/",
         "invoke calibration",
     ):
-        for reference in (harness, workspace, delivery, verification):
+        for reference in (harness, workspace, verification):
             assert retired not in reference
     assert "orchestration adoption" not in router
     assert (
@@ -306,7 +304,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         "pause remote review and preserve branch, head, worktree",
         "Transport, polling, or idempotent-operation retry exhaustion",
     ):
-        assert retained in delivery
+        assert retained in harness
     cases = {
         case["id"]: case
         for case in json.loads(text("skills/calibration/test-prompts.json"))
@@ -431,3 +429,30 @@ def test_workspace_discovery_bounds_do_not_impose_generic_intake() -> None:
     }
     assert "traversal-aware bound" in cases[18]["expected"]
     assert "Use a targeted read of the authorized file" in cases[50]["expected"]
+
+
+def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
+    harness = compact("skills/calibration/references/discipline/harness.md")
+    for required in (
+        "When authorized unfinished work must continue after foreground tracking ends",
+        "resuming its owner, and notifying a reachable recipient",
+        "Saved task state or PR submission alone does not establish this handoff",
+        "continue bounded observation within scope or report the blocker",
+        "review on the exact current head exceeds the authorized contract",
+        "the configured review-convergence budget",
+        "branch, head, worktree, owner, and feedback state",
+        "escalate any additional authorization needed",
+        "Budget exhaustion alone does not determine PR boundaries",
+        "retry exhaustion remains a separate preserve-and-report condition",
+    ):
+        assert required in harness
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    for case_id, expected in (
+        (51, "Report completion of the authorized PR-submission task"),
+        (52, "Saved state and a live daemon do not establish a handoff"),
+        (53, "a separate preserve-and-report condition"),
+    ):
+        assert expected in cases[case_id]["expected"]

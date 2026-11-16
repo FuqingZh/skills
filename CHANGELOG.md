@@ -117,6 +117,10 @@
   remove the generic intake requirement to discover a delivery path. Keep task
   authorization, assigned-workspace scope, ownership transfer, and runtime-release
   safeguards unchanged.
+- Remove the standalone delivery-feedback reference and broad delivery route.
+  Keep only scoped unfinished-work handoff and review-stop safeguards in harness,
+  preserving its existing section anchor. Leave authorization and completion
+  evidence with workspace ownership and verification; retain historical records.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

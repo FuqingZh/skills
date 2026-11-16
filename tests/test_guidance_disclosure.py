@@ -51,11 +51,6 @@ def test_harness_branches_are_direct_with_legacy_anchor_forwarding() -> None:
             "## Implementation Task Intake",
             "workspace-ownership.md",
         ),
-        "durable continuation": (
-            "delivery-feedback.md",
-            "## Repository Delivery Feedback Loop",
-            "delivery-feedback.md",
-        ),
     }
     for trigger, (target, heading, link) in branches.items():
         row = next(line for line in router.splitlines() if trigger in line)
@@ -80,9 +75,9 @@ def test_extracted_rules_have_one_body_owner() -> None:
             "A terminated session is not proof",
             "Follow the user's authorized scope",
         ),
-        "discipline/delivery-feedback.md": (
-            "Before ending foreground tracking",
-            "Handle same-scope mechanical review feedback",
+        "discipline/harness.md": (
+            "When authorized unfinished work must continue",
+            "If review on the exact current head exceeds the authorized contract",
         ),
     }
     texts = {
@@ -92,6 +87,28 @@ def test_extracted_rules_have_one_body_owner() -> None:
     for owner, rules in owners.items():
         for rule in rules:
             assert {name for name, body in texts.items() if rule in body} == {owner}
+
+
+def test_continuation_and_review_boundaries_route_to_harness() -> None:
+    router = (DISCIPLINE / "README.md").read_text(encoding="utf-8")
+    for trigger in (
+        "durable continuation",
+        "cross-contract review",
+        "review-convergence exhaustion",
+    ):
+        row = next(line for line in router.splitlines() if trigger in line)
+        assert "`harness.md`" in row
+    assert not (DISCIPLINE / "delivery-feedback.md").exists()
+    for path in REFERENCES.rglob("*.md"):
+        assert "delivery-feedback.md" not in path.read_text(encoding="utf-8"), path
+    harness = (DISCIPLINE / "harness.md").read_text(encoding="utf-8")
+    assert "## Repository Delivery Feedback Loop" in harness
+    for removed in (
+        "Keep the repository as the source of truth across execution environments",
+        "Add recurring monitoring",
+        "Handle same-scope mechanical review feedback",
+    ):
+        assert removed not in harness
 
 
 def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> None:
