@@ -150,6 +150,10 @@
   v1.0 snapshot unchanged; the former versioned path no longer resolves.
 - Remove automatic format-gap reporting from code-documentation guidance while
   retaining disclosure of material gaps in behavior and contracts.
+- Scope retrospect's automatic `deep` selection to reviews requiring comparison
+  of repeated failures or cross-stage patterns. Preserve explicit `deep` requests,
+  bounded searches, and the `standard` fallback; risk and delivery labels alone
+  no longer select `deep`. Add review cases without claiming model evaluation.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

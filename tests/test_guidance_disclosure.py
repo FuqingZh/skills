@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -172,6 +173,37 @@ def test_working_material_ownership_does_not_depend_on_directory_name() -> None:
     assert "owning investigation's task records" in compatibility
     assert "#working-material)" in compatibility
     assert "retrospect" not in compatibility.lower()
+
+
+def test_retrospect_depth_depends_on_request_or_comparison_scope() -> None:
+    body = compact(RETROSPECT / "SKILL.md")
+    depth = body.split("## Depth ", 1)[1].split("## Stop", 1)[0]
+    for rule in (
+        "Use `standard` by default",
+        "Use `deep` when the user explicitly requests it",
+        "when the review requires comparing repeated failures or cross-stage patterns",
+        "Bound searches with terms from the task",
+        "Fall back to `standard` when no credible search boundary exists",
+    ):
+        assert rule in depth
+    for retired_trigger in (
+        "high-risk",
+        "customer-facing",
+        "production-adjacent",
+        "broad changes",
+    ):
+        assert retired_trigger not in depth
+
+
+def test_retrospect_cases_cover_explicit_and_automatic_depth() -> None:
+    cases = json.loads((RETROSPECT / "test-prompts.json").read_text(encoding="utf-8"))
+    by_id = {case["id"]: case for case in cases}
+    assert "$retrospect deep" in by_id[5]["prompt"]
+    assert "退回 standard" in by_id[5]["expected"]
+    assert "使用 standard" in by_id[10]["expected"]
+    assert "使用 deep" in by_id[11]["expected"]
+    assert "限定历史检索" in by_id[11]["expected"]
+    assert "退回 standard" in by_id[11]["expected"]
 
 
 def test_retrospect_loads_one_persistence_contract_and_preserves_fallbacks() -> None:

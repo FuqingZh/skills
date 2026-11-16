@@ -40,11 +40,10 @@ consequence for future action.
 
 Use `standard` by default and inspect evidence directly tied to the review.
 
-Use `deep` for repeated failures, high-risk or customer-facing delivery,
-production-adjacent work, broad changes, or cross-stage direction and portrait
-reviews. Bound searches with terms from the task, symptom, file, plan, test,
-command, or artifact. Fall back to `standard` when no credible search boundary
-exists.
+Use `deep` when the user explicitly requests it, or when the review requires
+comparing repeated failures or cross-stage patterns. Bound searches with terms
+from the task, symptom, file, plan, test, command, or artifact. Fall back to
+`standard` when no credible search boundary exists.
 
 Summarize evidence and cite its location rather than copying raw logs or long
 conversation transcripts.
