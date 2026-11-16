@@ -232,5 +232,29 @@
     "scenario": "Schema naming: tabular source names and display labels",
     "prompt": "A CSV export has stable mixed-case column names required by a downstream importer. We want to document field names and friendlier display labels. Should Table Schema guidance make us rename every column or change the data format?",
     "expected": "Consult Table Schema for field names, human-readable titles, and column correspondence. Preserve the existing source and consumer names; no automatic case conversion. Use the naming concepts without requiring a new data format or framework. Keep identifier semantics and compatibility commitments with the owning contract."
+  },
+  {
+    "id": 46,
+    "scenario": "Ruff: fallback without repository rule selection",
+    "prompt": "We have chosen Ruff for a new Python project with no existing rule selection. Which rule groups should we start with? Should we enable ALL and preview?",
+    "expected": "Use calibration's fallback selection E, F, I, UP, B, SIM, and RUF. Do not describe it as Ruff's built-in default. ALL, preview, and additional rule groups are repository-specific choices, not automatic additions. Consult Ruff's official documentation for configuration and rule behavior."
+  },
+  {
+    "id": 47,
+    "scenario": "Ruff: preserve repository rule selection",
+    "prompt": "This Python repository deliberately selects only E4 and F in Ruff. Should calibration replace this with its seven-group fallback while I fix one unrelated defect?",
+    "expected": "Preserve the repository's existing rule selection. The fallback does not authorize changing established checks or expanding this task. Fix and validate the defect with repository-owned checks."
+  },
+  {
+    "id": 48,
+    "scenario": "Diagnostics: first-party error and external typing gap",
+    "prompt": "Pyright reports a genuine return-type error in our function and an incomplete third-party type declaration. A file-wide ignore makes both disappear. May I use it to pass the check?",
+    "expected": "Repair the real first-party error. An external typing gap does not justify hiding that error or weakening the checker. Any exception for the demonstrated external gap must be narrow, identify the exact diagnostic, and retain reviewable evidence. These constraints apply to type checkers as well as linters."
+  },
+  {
+    "id": 49,
+    "scenario": "Diagnostics: evidenced checker false positive",
+    "prompt": "A minimal reproduction and checker issue establish that one warning is a false positive. A precise local exception would affect only that diagnostic. Must I first create an adapter or wrapper to avoid any source-level suppression?",
+    "expected": "No mandatory adapter-first sequence applies. A narrow exception for the demonstrated checker gap is acceptable with the exact diagnostic and reviewable evidence, provided it does not hide real first-party errors. Do not add a wrapper solely to satisfy a retired suppression workflow."
   }
 ]

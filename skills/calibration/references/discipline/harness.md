@@ -72,12 +72,12 @@ require these stages or renewed approval for already-authorized work.
 
 ### Ruff Defaults
 
-For Ruff rule selection, use [quality-gate defaults](quality-gates.md#ruff-defaults).
+For Ruff rule selection, use [Ruff defaults](../linters/ruff.md).
 
 ### Diagnostic suppression baseline
 
 When deciding on a suppression or exclusion, use the
-[quality-gate boundary rules](quality-gates.md#diagnostic-suppression-baseline).
+[diagnostic exception rules](verification.md#diagnostic-exceptions).
 
 ## `AGENTS.md` Contract
 

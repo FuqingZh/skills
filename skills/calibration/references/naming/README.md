@@ -11,8 +11,9 @@ Read only the source needed for the current language, framework, or interface.
 - Follow repository conventions and the API being extended. For new surfaces
   without an established convention, use the relevant language or framework
   guidance below.
-- Let configured formatters and linters check mechanical conventions. Keep any
-  additional domain vocabulary or naming policy in the owning repository.
+- Let configured formatters and linters check mechanical conventions. For linter
+  selection or rule defaults, use [linter references](../linters/README.md).
+  Keep additional domain vocabulary or naming policy in the owning repository.
 
 ## Language And Framework Sources
 

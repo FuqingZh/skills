@@ -36,10 +36,15 @@ def test_harness_branches_are_direct_with_legacy_anchor_forwarding() -> None:
     router = (DISCIPLINE / "README.md").read_text(encoding="utf-8")
     harness = (DISCIPLINE / "harness.md").read_text(encoding="utf-8")
     branches = {
-        "Ruff rule defaults": (
-            "quality-gates.md",
+        "Linter selection": (
+            "../linters/README.md",
             "### Ruff Defaults",
-            "quality-gates.md#ruff-defaults",
+            "../linters/ruff.md",
+        ),
+        "diagnostic suppression or exclusion decisions": (
+            "verification.md",
+            "### Diagnostic suppression baseline",
+            "verification.md#diagnostic-exceptions",
         ),
         "runtime release": (
             "workspace-ownership.md",
@@ -59,30 +64,54 @@ def test_harness_branches_are_direct_with_legacy_anchor_forwarding() -> None:
         assert (DISCIPLINE / target).is_file()
         section = harness.split(heading + "\n", 1)[1].split("\n#", 1)[0]
         assert f"]({link})" in section
-    assert "](quality-gates.md#diagnostic-suppression-baseline)" in (
+    assert "](verification.md#diagnostic-exceptions)" in (
         DISCIPLINE / "refactor.md"
     ).read_text(encoding="utf-8")
 
 
 def test_extracted_rules_have_one_body_owner() -> None:
     owners = {
-        "quality-gates.md": (
-            "Classify a diagnostic by the owner",
-            "When Ruff is appropriate for the repository",
+        "linters/ruff.md": ("When Ruff is appropriate for the repository",),
+        "discipline/verification.md": (
+            "Repair real errors in first-party code and interfaces",
+            "For demonstrated external or checker gaps",
         ),
-        "workspace-ownership.md": (
+        "discipline/workspace-ownership.md": (
             "A terminated session is not proof",
             "Follow the user's authorized scope",
         ),
-        "delivery-feedback.md": (
+        "discipline/delivery-feedback.md": (
             "Before ending foreground tracking",
             "Handle same-scope mechanical review feedback",
         ),
     }
-    texts = {path.name: compact(path) for path in DISCIPLINE.glob("*.md")}
+    texts = {
+        path.relative_to(REFERENCES).as_posix(): compact(path)
+        for path in REFERENCES.rglob("*.md")
+    }
     for owner, rules in owners.items():
         for rule in rules:
             assert {name for name, body in texts.items() if rule in body} == {owner}
+
+
+def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> None:
+    index = compact(REFERENCES / "linters/README.md")
+    naming = compact(REFERENCES / "naming/README.md")
+    assert (
+        "Read only the reference for the linter relevant to the current task" in index
+    )
+    assert "](ruff.md)" in index
+    assert "selection or rule defaults, use [linter references]" in naming
+    assert "](../linters/README.md)" in naming
+    assert not (DISCIPLINE / "quality-gates.md").exists()
+    for path in REFERENCES.rglob("*.md"):
+        body = compact(path)
+        for retired in (
+            "quality-gates.md",
+            "typed adapter, stub, wrapper",
+            "Use a source-level suppression only when no such boundary",
+        ):
+            assert retired not in body, path
 
 
 def test_layout_and_type_defaults_agree_without_duplicate_type_rules() -> None:

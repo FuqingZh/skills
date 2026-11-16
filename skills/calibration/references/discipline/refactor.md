@@ -18,7 +18,7 @@ cleanup, or staged convergence work.
   same batch: unnecessary broad imports, unused exports, duplicate helpers,
   obsolete compatibility aliases, suppression comments, temporary names, and
   dead routes. Keep the cleanup within the affected scope.
-- Apply the [diagnostic suppression baseline](quality-gates.md#diagnostic-suppression-baseline)
+- Apply the [diagnostic exception rules](verification.md#diagnostic-exceptions)
   when deciding whether to introduce, retain, or remove a diagnostic suppression
   or exclusion.
 - Check relevant old paths, names, call sites, docs, tests, fixtures, and generated

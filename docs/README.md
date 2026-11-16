@@ -31,10 +31,10 @@ orchestrator integration.
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
 | Repository capability adoption and instructions | [Harness](../skills/calibration/references/discipline/harness.md) |
-| Quality gates and diagnostic ownership | [Quality gates](../skills/calibration/references/discipline/quality-gates.md) |
+| Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
 | Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
 | Delegated delivery, review, and durable continuation | [Delivery feedback](../skills/calibration/references/discipline/delivery-feedback.md) |
-| Completion and external-result evidence | [Verification](../skills/calibration/references/discipline/verification.md) |
+| Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
 | Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |
 | Explicit conversation closeout | [Closeout skill](../skills/closeout/SKILL.md) |

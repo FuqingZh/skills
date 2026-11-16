@@ -38,3 +38,10 @@ alone does not require delivery checks.
   [design](../design/codebase.md).
 - Describe risk through the affected consumers or operations and any effects
   that would remain after reverting the code.
+
+## Diagnostic Exceptions
+
+- Repair real errors in first-party code and interfaces. Do not hide them with
+  diagnostic suppressions or weaker checker configuration.
+- For demonstrated external or checker gaps, keep each exception narrow, identify
+  the exact diagnostic, and retain reviewable evidence.

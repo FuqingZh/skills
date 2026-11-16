@@ -49,6 +49,13 @@ REFERENCES = REPOSITORY_ROOT / "skills/calibration/references"
                 "https://datapackage.org/standard/table-schema/",
             ),
         ),
+        (
+            "linters/ruff.md",
+            (
+                "https://docs.astral.sh/ruff/linter/#rule-selection",
+                "https://docs.astral.sh/ruff/rules/",
+            ),
+        ),
     ],
 )
 def test_adopted_upstream_sources_remain_linked(

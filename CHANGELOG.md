@@ -108,6 +108,11 @@
   including the shared GitHub flow default, without moving its workflow into
   other guidance. Existing authorization, ownership, and verification requirements
   remain unchanged; frozen source inventories are preserved.
+- Move Ruff's unchanged fallback rule selection to a tool-specific linter
+  reference and thin index. Move the two shared diagnostic safeguards to
+  verification; remove `quality-gates.md` and its adapter-first exception workflow.
+  Update active routes and keep legacy harness anchors forwarding to the owners.
+  Historical policy evaluations and frozen evidence remain unchanged.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

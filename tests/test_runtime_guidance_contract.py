@@ -136,7 +136,7 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     workspace = compact(
         "skills/calibration/references/discipline/workspace-ownership.md"
     )
-    gates = compact("skills/calibration/references/discipline/quality-gates.md")
+    verification = compact("skills/calibration/references/discipline/verification.md")
     debugging = compact("skills/calibration/references/discipline/debugging.md")
     assert "references/discipline/README.md" in skill
     assert "references/discipline/harness.md" not in skill
@@ -145,7 +145,8 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "debugging.md",
         "workspace-ownership.md",
         "delivery-feedback.md",
-        "quality-gates.md",
+        "verification.md",
+        "../linters/README.md",
     ):
         assert f"`{reference}`" in discipline
     assert "Implementation or contract verification" in discipline
@@ -164,11 +165,11 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "rejected filesystem escalation",
     ):
         assert rule in workspace
-    assert (
-        "For first-party code and interfaces, repair the contract or implementation"
-        in gates
-    )
-    assert "do not use an ignore comment" in gates.lower()
+    assert "Repair real errors in first-party code and interfaces" in verification
+    assert "diagnostic suppressions or weaker checker configuration" in verification
+    assert "For demonstrated external or checker gaps" in verification
+    assert "keep each exception narrow" in verification
+    assert "the exact diagnostic, and retain reviewable evidence" in verification
     assert "environment actually observed" in debugging
     assert "before changing persistent configuration" in debugging
     assert "exact check still needed" in debugging
@@ -266,7 +267,7 @@ def test_refactoring_preserves_contracts_and_bounds_cleanup() -> None:
         "transition debt created or exposed by this move",
         "Keep the cleanup within the affected scope",
         "when deciding whether to introduce, retain, or remove",
-        "quality-gates.md#diagnostic-suppression-baseline",
+        "verification.md#diagnostic-exceptions",
         "preserve historical records and frozen evidence",
         "where existing coverage is insufficient",
         "explicit retirement condition",
@@ -282,7 +283,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         "skills/calibration/references/discipline/workspace-ownership.md"
     )
     delivery = compact("skills/calibration/references/discipline/delivery-feedback.md")
-    gates = compact("skills/calibration/references/discipline/quality-gates.md")
+    verification = compact("skills/calibration/references/discipline/verification.md")
     router = compact("skills/calibration/references/discipline/README.md")
     for retired in (
         "Orchestration Adoption Gate",
@@ -291,7 +292,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         ".traces/",
         "invoke calibration",
     ):
-        for reference in (harness, workspace, delivery, gates):
+        for reference in (harness, workspace, delivery, verification):
             assert retired not in reference
     assert "orchestration adoption" not in router
     assert (
@@ -299,7 +300,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     )
     assert "decisions that exceed current authorization" in harness
     assert "without treating that request as authorization to execute" in workspace
-    assert "Do not broaden suppressions to hide first-party failures" in gates
+    assert "Do not hide them with diagnostic suppressions" in verification
     for retained in (
         "accepted responsibility for observing the work",
         "pause remote review and preserve branch, head, worktree",
@@ -383,7 +384,7 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         "Do not apply this fallback to security-sensitive randomness",
     ):
         assert guidance in verification
-    gates = compact("skills/calibration/references/discipline/quality-gates.md")
+    ruff = compact("skills/calibration/references/linters/ruff.md")
     for guidance in (
         "When Ruff is appropriate for the repository",
         "follow its existing rule selection",
@@ -392,7 +393,22 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         "Additional rule families, `ALL`, and preview rules",
         "repository-specific choices, not defaults",
     ):
-        assert guidance in gates
+        assert guidance in ruff
     router = text("skills/calibration/references/discipline/README.md")
-    assert "Ruff rule defaults" in router
-    assert "`quality-gates.md`" in router
+    assert "Linter selection or rule defaults" in router
+    assert "`../linters/README.md`" in router
+
+
+def test_linter_and_diagnostic_cases_cover_defaults_and_exception_boundaries() -> None:
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    expectations = {
+        46: "fallback selection E, F, I, UP, B, SIM, and RUF",
+        47: "Preserve the repository's existing rule selection",
+        48: "These constraints apply to type checkers as well as linters",
+        49: "No mandatory adapter-first sequence applies",
+    }
+    for case_id, expected in expectations.items():
+        assert expected in cases[case_id]["expected"]
