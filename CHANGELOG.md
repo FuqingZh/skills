@@ -137,6 +137,10 @@
 - Remove the discipline index's redundant directory navigation and the naming
   entrypoint's automatic gap-reporting instruction. Preserve direct task routes,
   official naming sources, and the existing-repository-convention fallback.
+- Remove the harness's Ruff, diagnostic-suppression, and task-intake forwarding
+  sections. Keep direct discipline routes and the substantive rules with their
+  existing owners. The three former harness section anchors no longer resolve;
+  consumers of those anchors must update their references.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

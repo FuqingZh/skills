@@ -32,33 +32,29 @@ def test_document_selection_is_direct_and_layout_is_a_separate_branch() -> None:
     assert "project documentation layout, naming, navigation, and lifecycle" in skill
 
 
-def test_harness_branches_are_direct_with_legacy_anchor_forwarding() -> None:
+def test_discipline_routes_bypass_retired_harness_forwarders() -> None:
     router = (DISCIPLINE / "README.md").read_text(encoding="utf-8")
     harness = (DISCIPLINE / "harness.md").read_text(encoding="utf-8")
     branches = {
         "Linter selection": (
             "../linters/README.md",
             "### Ruff Defaults",
-            "../linters/ruff.md",
         ),
         "diagnostic suppression or exclusion decisions": (
             "verification.md",
             "### Diagnostic suppression baseline",
-            "verification.md#diagnostic-exceptions",
         ),
         "runtime release": (
             "workspace-ownership.md",
             "## Implementation Task Intake",
-            "workspace-ownership.md",
         ),
     }
-    for trigger, (target, heading, link) in branches.items():
+    for trigger, (target, retired_heading) in branches.items():
         row = next(line for line in router.splitlines() if trigger in line)
         assert f"`{target}`" in row
         assert "`harness.md`" not in row
         assert (DISCIPLINE / target).is_file()
-        section = harness.split(heading + "\n", 1)[1].split("\n#", 1)[0]
-        assert f"]({link})" in section
+        assert retired_heading not in harness
     assert "](verification.md#diagnostic-exceptions)" in (
         DISCIPLINE / "refactor.md"
     ).read_text(encoding="utf-8")

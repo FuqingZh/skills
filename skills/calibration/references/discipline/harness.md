@@ -70,15 +70,6 @@ Add plans, specifications, or approval stages only when coordination, risk,
 interruption, or repeated failure warrants them. A code change alone does not
 require these stages or renewed approval for already-authorized work.
 
-### Ruff Defaults
-
-For Ruff rule selection, use [Ruff defaults](../linters/ruff.md).
-
-### Diagnostic suppression baseline
-
-When deciding on a suppression or exclusion, use the
-[diagnostic exception rules](verification.md#diagnostic-exceptions).
-
 ## `AGENTS.md` Contract
 
 Treat `AGENTS.md` as an operational map for an agent entering a repository or
@@ -97,11 +88,6 @@ Keep root and nested scopes explicit. Point to `docs/README.md` when the
 repository has one. Do not copy architecture prose, test matrices, temporary
 task state, generic engineering guidance, or source articles into
 `AGENTS.md`. A repository with no useful local increment may omit it.
-
-## Implementation Task Intake
-
-For execution authority, workspace search boundaries, ownership transfer, or
-runtime release, use [workspace ownership](workspace-ownership.md).
 
 ## Repository Delivery Feedback Loop
 
