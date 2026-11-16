@@ -34,7 +34,7 @@ orchestrator integration.
 | Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
 | Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
 | Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
-| Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
+| Document layout and lifecycle | [Project documentation layout](../skills/calibration/references/docs/project-layout.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |
 | Explicit conversation closeout | [Closeout skill](../skills/closeout/SKILL.md) |
 

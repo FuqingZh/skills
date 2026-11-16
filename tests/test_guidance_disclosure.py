@@ -9,9 +9,7 @@ CALIBRATION = REPOSITORY_ROOT / "skills/calibration"
 REFERENCES = CALIBRATION / "references"
 DISCIPLINE = REFERENCES / "discipline"
 TYPES = REFERENCES / "docs/document-types"
-LAYOUT = REFERENCES / (
-    "docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md"
-)
+LAYOUT = REFERENCES / "docs/project-layout.md"
 RETROSPECT = REPOSITORY_ROOT / "skills/retrospect"
 
 
@@ -138,7 +136,7 @@ def test_layout_and_type_defaults_agree_without_duplicate_type_rules() -> None:
             for location in re.findall(r"`docs/([a-z/-]+)/`", path.read_text())
         )
     assert directories == type_directories | {"assets", "archive"}
-    assert "](../../document-types/README.md)" in source
+    assert "](document-types/README.md)" in source
     assert "Each type owns its minimum content and fallback location" in layout
     assert "a document type need not own a separate directory" in layout
     assert "Co-location does not merge document contracts" in layout

@@ -144,6 +144,12 @@
 - Remove retrospect's `references/trace-retro.md` compatibility pointer. The skill
   continues to load `references/task-traces-and-retros.md` directly; persistence
   rules and historical records are unchanged. The removed path no longer resolves.
+- Move the current project documentation layout to the stable
+  `references/docs/project-layout.md` path, remove snapshot-style header metadata,
+  and update current routes and links. Keep its substantive rules and the archived
+  v1.0 snapshot unchanged; the former versioned path no longer resolves.
+- Remove automatic format-gap reporting from code-documentation guidance while
+  retaining disclosure of material gaps in behavior and contracts.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

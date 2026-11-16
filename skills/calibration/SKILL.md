@@ -24,7 +24,7 @@ Load only the references required by the decisions at hand:
   engineering specifications: `references/docs/document-types/README.md`
 - project documentation layout, naming, navigation, and lifecycle, or placement
   of investigation working material:
-  `references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md`
+  `references/docs/project-layout.md`
 
 Follow repository-owned documentation and collaboration contracts; use shared
 guidance to fill gaps in those contracts. Do not use the document-type route

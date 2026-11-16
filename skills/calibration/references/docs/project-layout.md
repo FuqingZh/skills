@@ -1,8 +1,4 @@
-# Project Docs Architecture
-
-Version: v1.1
-Date: 2026-08-05
-Status: current
+# Project Documentation Layout
 
 Use for project documentation layout, navigation, naming, and lifecycle.
 Follow repository-owned documentation contracts; this shared layout fills gaps.
@@ -28,7 +24,7 @@ docs/
   archive/
 ```
 
-Use the [document-type router](../../document-types/README.md) to select a type
+Use the [document-type router](document-types/README.md) to select a type
 when needed. Each type owns its minimum content and fallback location; this
 layout does not prescribe a second authoring template or acceptance checklist.
 
@@ -84,7 +80,7 @@ policy until reviewed and adopted. Keep enough local guidance to remain usable
 when an external link is unavailable.
 
 When defining repository instructions, use the
-[AGENTS.md contract](../../../discipline/harness.md#agentsmd-contract).
+[AGENTS.md contract](../discipline/harness.md#agentsmd-contract).
 Keep operational instructions with their harness owner rather than copying them
 into architecture prose.
 

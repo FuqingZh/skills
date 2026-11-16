@@ -208,10 +208,7 @@ def test_retained_principles_have_task_specific_owners() -> None:
     design = compact("skills/calibration/references/design/codebase.md")
     harness = compact("skills/calibration/references/discipline/harness.md")
     verification = compact("skills/calibration/references/discipline/verification.md")
-    docs = compact(
-        "skills/calibration/references/docs/workflow/project_docs_architecture/"
-        "20260805-v1.1-project-docs-architecture.md"
-    )
+    docs = compact("skills/calibration/references/docs/project-layout.md")
     assert "Correct false constraints, abstractions, or requirements" in skill
     assert "Within authorized, reversible local work" in skill
     assert "revise it as feedback changes the evidence" in skill
@@ -355,7 +352,7 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
         assert retired not in skill
     for retained in (
         "references/docs/document-types/README.md",
-        "20260805-v1.1-project-docs-architecture.md",
+        "references/docs/project-layout.md",
         "for routine PR body generation",
     ):
         assert retained in skill

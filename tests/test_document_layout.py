@@ -13,10 +13,7 @@ from tests.support import REPOSITORY_ROOT
 
 CALIBRATION = REPOSITORY_ROOT / "skills/calibration"
 TYPES = CALIBRATION / "references/docs/document-types"
-LAYOUT = CALIBRATION / (
-    "references/docs/workflow/project_docs_architecture/"
-    "20260805-v1.1-project-docs-architecture.md"
-)
+LAYOUT = CALIBRATION / "references/docs/project-layout.md"
 DEFAULTS = {
     "architecture-overview": "architecture",
     "design-proposal": "design",
@@ -105,6 +102,18 @@ def test_acceptance_and_implementation_have_distinct_authority() -> None:
         assert rule in body
     assert "keeps its original document type and is not current authority" in body
     assert "unless a current document explicitly cites it" not in body
+
+
+def test_current_layout_uses_a_stable_path_without_version_metadata() -> None:
+    body = LAYOUT.read_text(encoding="utf-8")
+    assert body.startswith("# Project Documentation Layout\n\nUse for")
+    assert not re.search(r"^(Version|Date|Status):", body, flags=re.MULTILINE)
+    retired = CALIBRATION / "references/docs/workflow/project_docs_architecture"
+    assert not retired.exists()
+    for path in CALIBRATION.rglob("*.md"):
+        assert "20260805-v1.1-project-docs-architecture.md" not in path.read_text(
+            encoding="utf-8"
+        ), path
 
 
 def test_superseded_layout_is_archived_without_active_routes() -> None:

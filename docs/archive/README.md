@@ -23,7 +23,7 @@ The [v1.0 snapshot](project-docs-layout/20260527-v1.0-project-docs-architecture.
 preserves the former
 `skills/calibration/references/docs/workflow/project_docs_architecture/20260527-v1.0-project-docs-architecture.md`
 byte for byte. It was superseded by the
-[current layout](../../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md).
+[current layout](../../skills/calibration/references/docs/project-layout.md).
 The text snapshot retains its original relative links as historical content and
 is outside the installed skill tree. The [layout tests](../../tests/test_document_layout.py)
 check its digest and absence from active skill references.

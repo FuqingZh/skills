@@ -29,9 +29,8 @@ Under that fallback, use
 [doctest-style](https://docs.python.org/3/library/doctest.html) `Examples:` for
 caller-facing examples and `Notes:` for maintenance boundaries.
 
-For other languages without a local convention, follow the official
-documentation convention; if none exists, state the gap before choosing a
-format.
+For other languages without a local convention, use the official documentation
+convention when one is available.
 
 Do not transfer Python sections by analogy.
 

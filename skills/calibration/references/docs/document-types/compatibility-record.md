@@ -17,7 +17,7 @@ within their demonstrated scope.
   when follow-up work remains.
 - Keep raw trial-and-error with the owning investigation's task records. When
   retaining exploration notes, follow the
-  [working-material placement rules](../workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md#working-material).
+  [working-material placement rules](../project-layout.md#working-material).
 - Give readers enough information to reproduce the relevant observation,
   apply the adaptation within its validated scope, and recognize when the
   record no longer applies.

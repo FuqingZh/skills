@@ -12,10 +12,7 @@ from tests.support import REPOSITORY_ROOT
 
 SKILLS = REPOSITORY_ROOT / "skills"
 DISSECT = SKILLS / "dissect"
-LAYOUT = SKILLS / (
-    "calibration/references/docs/workflow/project_docs_architecture/"
-    "20260805-v1.1-project-docs-architecture.md"
-)
+LAYOUT = SKILLS / "calibration/references/docs/project-layout.md"
 RETROS = SKILLS / "retrospect/references/task-traces-and-retros.md"
 
 
@@ -101,6 +98,16 @@ def test_skills_without_working_material_do_not_acquire_storage_defaults() -> No
     assert "of investigation working material" in compact(
         SKILLS / "calibration/SKILL.md"
     )
+
+
+def test_code_doc_format_fallback_preserves_material_gap_reporting() -> None:
+    body = compact(SKILLS / "writing-code-docs/SKILL.md")
+    assert (
+        "For other languages without a local convention, use the official "
+        "documentation convention when one is available." in body
+    )
+    assert "state the gap before choosing a format" not in body
+    assert "State material gaps rather than inventing behavior" in body
 
 
 def test_code_examples_cover_contracts_with_local_per_symbol_overrides() -> None:
