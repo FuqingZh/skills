@@ -113,6 +113,10 @@
   verification; remove `quality-gates.md` and its adapter-first exception workflow.
   Update active routes and keep legacy harness anchors forwarding to the owners.
   Historical policy evaluations and frozen evidence remain unchanged.
+- Limit workspace traversal safeguards to recursive searches and broad discovery;
+  remove the generic intake requirement to discover a delivery path. Keep task
+  authorization, assigned-workspace scope, ownership transfer, and runtime-release
+  safeguards unchanged.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

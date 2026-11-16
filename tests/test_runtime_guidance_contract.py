@@ -412,3 +412,22 @@ def test_linter_and_diagnostic_cases_cover_defaults_and_exception_boundaries() -
     }
     for case_id, expected in expectations.items():
         assert expected in cases[case_id]["expected"]
+
+
+def test_workspace_discovery_bounds_do_not_impose_generic_intake() -> None:
+    workspace = compact(
+        "skills/calibration/references/discipline/workspace-ownership.md"
+    )
+    assert "Before recursive searches or broad discovery" in workspace
+    assert "within the assigned repository or task workspace" in workspace
+    assert "stop the broad search and report the narrower check needed" in workspace
+    assert "Keep partial cleanup observable and retryable" in workspace
+    assert "preserve dirty worktrees" in workspace
+    assert "accepted delivery path" not in workspace
+    assert "issue tracker or an orchestrator session" not in workspace
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    assert "traversal-aware bound" in cases[18]["expected"]
+    assert "Use a targeted read of the authorized file" in cases[50]["expected"]
