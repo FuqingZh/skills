@@ -7,11 +7,6 @@ import pytest
 from tests.support import REPOSITORY_ROOT
 
 REFERENCES = REPOSITORY_ROOT / "skills/calibration/references"
-BRANCH_GUIDE = "docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md"
-GITHUB_BRANCHES = (
-    "https://docs.github.com/en/repositories/"
-    "configuring-branches-and-merges-in-your-repository/"
-)
 
 
 @pytest.mark.parametrize(
@@ -31,16 +26,6 @@ GITHUB_BRANCHES = (
                 "https://semver.org/",
                 "https://packaging.python.org/en/latest/discussions/versioning/",
                 "https://packaging.python.org/en/latest/discussions/single-source-version/",
-            ),
-        ),
-        (
-            BRANCH_GUIDE,
-            (
-                "https://docs.github.com/en/get-started/using-github/github-flow",
-                GITHUB_BRANCHES
-                + "managing-protected-branches/about-protected-branches",
-                GITHUB_BRANCHES
-                + "configuring-pull-request-merges/managing-a-merge-queue",
             ),
         ),
         (
@@ -81,7 +66,6 @@ def test_current_naming_routes_reach_their_owning_sources() -> None:
         "cli.md",
         "version.md",
         "schema.md",
-        f"../{BRANCH_GUIDE}",
     ):
         assert f"]({target})" in index
         assert (naming / target).is_file()
@@ -99,7 +83,15 @@ def test_docs_compatibility_pointer_reaches_direct_routes() -> None:
     index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
     assert "](../SKILL.md#route)" in index
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
-    assert f"`references/{BRANCH_GUIDE}`" in skill
+    assert "`references/docs/document-types/README.md`" in skill
+
+
+def test_retired_collaboration_guide_is_not_shipped_or_routed() -> None:
+    retired = "docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md"
+    assert not (REFERENCES / retired).exists()
+    for path in REFERENCES.parent.rglob("*.md"):
+        content = path.read_text(encoding="utf-8")
+        assert "branch_and_pr_collaboration/" not in content, path
 
 
 def test_cli_naming_scopes_sources_and_inherits_authority() -> None:

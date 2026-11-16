@@ -30,4 +30,3 @@ Read only the source needed for the current language, framework, or interface.
 - CLI options: [CLI sources](cli.md).
 - Versions and release compatibility: [version guidance](version.md).
 - Schema fields and exported headers: [schema guidance](schema.md).
-- Git branches: [collaboration sources](../docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md).

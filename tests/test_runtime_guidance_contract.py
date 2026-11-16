@@ -360,7 +360,6 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
         assert retired not in index
     for retained in (
         "references/docs/document-types/README.md",
-        "branch_and_pr_collaboration/20260602-v1.0.md",
         "20260805-v1.1-project-docs-architecture.md",
         "for routine PR body generation",
     ):

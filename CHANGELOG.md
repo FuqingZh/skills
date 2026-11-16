@@ -88,8 +88,7 @@
 - Remove the six legacy naming reference paths: `function.md`, `method.md`,
   `type.md`, `variable.md`, `loop.md`, and `branch.md` under `references/naming/`.
   Direct consumers must use the [naming entrypoint](skills/calibration/references/naming/README.md)
-  for code names and the [collaboration guide](skills/calibration/references/docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md)
-  for branches. Historical records and frozen source inventories remain unchanged.
+  for code names. Historical records and frozen source inventories remain unchanged.
 - Scope CLI naming references by purpose: GNU conventions for GNU-style syntax
   and standard names, CLI Guidelines for usability and interaction. Inherit
   naming authority and retain the lowercase kebab-case fallback without repeating
@@ -105,6 +104,10 @@
   downstream-output interface safeguard in refactor compatibility checks, and
   redirect existing retirement pointers and archive navigation to that owner.
   Historical snapshots and frozen experiment records remain unchanged.
+- Remove the standalone branch and PR collaboration reference and its routes,
+  including the shared GitHub flow default, without moving its workflow into
+  other guidance. Existing authorization, ownership, and verification requirements
+  remain unchanged; frozen source inventories are preserved.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
