@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from tests.support import REPOSITORY_ROOT
@@ -48,6 +50,18 @@ GITHUB_BRANCHES = (
                 "Command_002dLine-Interfaces.html",
                 "https://www.gnu.org/prep/standards/html_node/Option-Table.html",
                 "https://clig.dev/",
+            ),
+        ),
+        (
+            "naming/schema.md",
+            (
+                "https://google.aip.dev/140",
+                "https://protobuf.dev/programming-guides/json/"
+                "#field-names-as-json-keys",
+                "https://google.github.io/styleguide/jsoncguide.html"
+                "#property-name-format",
+                "https://www.sqlstyle.guide/#naming-conventions",
+                "https://datapackage.org/standard/table-schema/",
             ),
         ),
     ],
@@ -109,3 +123,45 @@ def test_cli_naming_scopes_sources_and_inherits_authority() -> None:
     )
     assert "Preserve published compatibility" in authority
     assert "Follow repository conventions and the API being extended" in authority
+
+
+def test_schema_naming_routes_by_surface_without_a_global_case_rule() -> None:
+    body = " ".join(
+        (REFERENCES / "naming/schema.md").read_text(encoding="utf-8").split()
+    )
+    for rule in (
+        "](README.md#authority)",
+        "target protocol and consumer schema, including native serialization mappings",
+        "Consult only the source relevant to the current surface",
+        "- Protobuf:",
+        "New JSON interfaces without an adopted naming style",
+        "as the naming default",
+        "- SQL: follow the database or ORM rules",
+        "The database governs identifier limits, quoting, and reserved words",
+        "- Tabular exports:",
+        "field names, human-readable titles, and column correspondence",
+        "Preserve source or consumer names",
+        "do not require adopting new formats or frameworks",
+        "identity, uniqueness, stability, and cross-system mapping requirements",
+        "reversibility and encoding are choices of the owning contract",
+        "Assess published field changes for compatibility",
+        "at the owning serialization or integration boundary",
+        "](../discipline/verification.md)",
+    ):
+        assert rule in body
+    assert "at explicit adapters" not in body
+    assert "default to lowercase snake_case" not in body
+
+
+def test_schema_cases_cover_defaults_native_mappings_and_existing_contracts() -> None:
+    path = REFERENCES.parent / "test-prompts.json"
+    cases = {case["id"]: case for case in json.loads(path.read_text(encoding="utf-8"))}
+    for case_id, requirements in {
+        41: ("AIP-140", "displayName", "native serializer", "new adapter"),
+        42: ("Google JSON", "lowerCamelCase", "framework"),
+        43: ("Keep the adopted", "not rename", "consumer schema"),
+        44: ("actual database", "global 30-byte", "word separation"),
+        45: ("Table Schema", "human-readable", "case conversion"),
+    }.items():
+        for requirement in requirements:
+            assert requirement in cases[case_id]["expected"]

@@ -202,5 +202,35 @@
     "scenario": "Compatibility evidence: repeated success and intermittent failure",
     "prompt": "Ten runs of one input succeed on version 4.2, but earlier intermittent failures remain unexplained. May we state that all versions are stable, discard the failures, and skip further checks because repeated verification is complete?",
     "expected": "Repeated success on one input does not establish cross-version support or stability outside the tested conditions. Do not erase earlier failures; preserve their evidence and competing explanations. Use representative repeated checks when needed to characterize variable behavior, and report limitations and unresolved uncertainty. State conditions for revalidation and identify an owner when follow-up remains. Retain raw investigation material with its owning task."
+  },
+  {
+    "id": 41,
+    "scenario": "Schema naming: native Protobuf and JSON representations",
+    "prompt": "A new Protobuf message has a display_name field and uses the standard ProtoJSON serializer. Should we force its JSON spelling to display_name or add a handwritten adapter to keep internal and external names identical?",
+    "expected": "Consult AIP-140 for the proto field and ProtoJSON for its JSON mapping. The default JSON key is displayName; honor any explicitly declared mapping and preserve the native serializer behavior. Do not force identical spelling or add a new adapter solely for casing. Check consumer compatibility before changing a published mapping."
+  },
+  {
+    "id": 42,
+    "scenario": "Schema naming: a new JSON interface without a style",
+    "prompt": "Design field names for a new plain JSON interface. There is no consumer schema or repository naming policy. Does the shared guidance have a source-backed default, and must we adopt a new schema framework?",
+    "expected": "Use the Google JSON property-name conventions as the naming default, including lowerCamelCase for ordinary schema properties. Consult the relevant naming section only. Do not impose a global snake_case rule or require adopting Protobuf, a new envelope format, or another schema framework."
+  },
+  {
+    "id": 43,
+    "scenario": "Schema naming: an existing API style takes precedence",
+    "prompt": "An API already follows Zalando naming and publishes snake_case fields used by clients. Our shared guide points new JSON interfaces to Google JSON naming. Should we rename the existing fields to lowerCamelCase?",
+    "expected": "Keep the adopted repository policy and consumer schema. Do not rename published fields just to match the fallback for new interfaces. The Google default applies only without an adopted style. Any separately authorized field change needs compatibility assessment and consumer verification."
+  },
+  {
+    "id": 44,
+    "scenario": "Schema naming: SQL reference scope",
+    "prompt": "Our database permits identifiers longer than 30 bytes, and the ORM has existing mapping rules. We are naming new columns and consulting a general SQL style guide. Should we impose that guide's length limit or bypass the ORM mappings?",
+    "expected": "Follow the actual database identifier limits, reserved words, quoting rules, and existing ORM mappings. Use the SQL Style Guide for descriptive names and word separation as needed. Do not invent a global 30-byte limit or replace established mappings with an extra adapter."
+  },
+  {
+    "id": 45,
+    "scenario": "Schema naming: tabular source names and display labels",
+    "prompt": "A CSV export has stable mixed-case column names required by a downstream importer. We want to document field names and friendlier display labels. Should Table Schema guidance make us rename every column or change the data format?",
+    "expected": "Consult Table Schema for field names, human-readable titles, and column correspondence. Preserve the existing source and consumer names; no automatic case conversion. Use the naming concepts without requiring a new data format or framework. Keep identifier semantics and compatibility commitments with the owning contract."
   }
 ]
