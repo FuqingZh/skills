@@ -12,8 +12,3 @@ Use this index as a router. Read only the file needed for the current task.
 | Repeated agent stalls, missing repository capability, `AGENTS.md`, durable continuation, cross-contract review, review-convergence exhaustion, or human escalation | `harness.md` |
 | Execution authority, workspace search boundaries, ownership transfer, or runtime release | `workspace-ownership.md` |
 | Linter selection or rule defaults | `../linters/README.md` |
-
-## Related References
-
-Design guidance lives in `../design/`; long domain specifications live in
-`../docs/`.

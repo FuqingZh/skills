@@ -23,8 +23,8 @@ Read only the source needed for the current language, framework, or interface.
   [Tidyverse style guide](https://style.tidyverse.org/syntax.html#object-names).
   Follow existing base R or other ecosystem conventions where they apply.
 - For other languages or framework-specific interfaces, consult their official
-  guidance when needed. If no applicable source is available, state the gap and
-  follow the nearest existing repository convention.
+  guidance when needed. If no applicable source is available, follow the nearest
+  existing repository convention.
 
 ## Other Contracts
 

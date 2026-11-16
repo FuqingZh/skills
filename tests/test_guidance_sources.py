@@ -80,6 +80,24 @@ def test_current_naming_routes_reach_their_owning_sources() -> None:
     assert "`references/naming/README.md`" in skill
 
 
+def test_indexes_keep_direct_routes_and_repository_naming_fallback() -> None:
+    discipline = (REFERENCES / "discipline/README.md").read_text(encoding="utf-8")
+    assert "## Related References" not in discipline
+    assert "../design/" not in discipline
+    assert "../docs/" not in discipline
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "`references/design/codebase.md`" in skill
+    assert "`references/docs/document-types/README.md`" in skill
+    naming = " ".join(
+        (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
+    )
+    assert (
+        "If no applicable source is available, follow the nearest "
+        "existing repository convention" in naming
+    )
+    assert "state the gap" not in naming
+
+
 def test_retired_naming_paths_are_not_shipped() -> None:
     for name in ("function", "method", "type", "variable", "loop", "branch"):
         assert not (REFERENCES / f"naming/{name}.md").exists()

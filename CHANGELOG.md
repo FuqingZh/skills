@@ -134,6 +134,9 @@
   citation-based authority exception without adding replacement metadata or
   adoption instructions. Record provenance only in the archive index; the old
   skill path no longer resolves.
+- Remove the discipline index's redundant directory navigation and the naming
+  entrypoint's automatic gap-reporting instruction. Preserve direct task routes,
+  official naming sources, and the existing-repository-convention fallback.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.
