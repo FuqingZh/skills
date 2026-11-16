@@ -38,11 +38,13 @@ def test_dissect_discloses_topics_and_persistence_by_condition() -> None:
         "A person's mention alone does not require an actor model",
         "mathematical analysis can use the core method without these topic references",
         "Check source independence",
-        "Compare the relative likelihood of subsequent paths",
+        "For forecasts or judgments about future developments, compare the relative "
+        "likelihood of possible paths",
         "Organize a continuous explanation",
     ):
         assert rule in core
     assert "build actor profiles" not in core
+    assert "anticipate subsequent paths" not in core
     assert "changes that define an era" not in core
     actors = compact(DISSECT / "references/actors-and-interactions.md")
     for rule in (
@@ -142,6 +144,14 @@ def test_dissect_cases_cover_conditional_loading_and_local_storage() -> None:
     assert "Read references/actors-and-interactions.md" in cases["D02"]["expected"]
     assert "Read references/historical-change.md" in cases["D03"]["expected"]
     assert "without loading" in cases["D05"]["expected"]
+    assert (
+        "testable predictions tied to the candidate mechanisms"
+        in cases["D05"]["expected"]
+    )
+    assert "conditional predictions with observable signals" in cases["D02"]["expected"]
+    assert "Do not append future scenarios" in cases["D07"]["expected"]
+    assert "explicit cost assumptions" in cases["D07"]["expected"]
+    assert cases["D07"]["expected_skills"] == ["plainspoken", "dissect"]
     assert "Read references/working-material.md" in cases["D06"]["expected"]
     assert (
         "research/working/ rather than creating .dissect/notes/"

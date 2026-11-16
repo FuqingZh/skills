@@ -154,6 +154,10 @@
   of repeated failures or cross-stage patterns. Preserve explicit `deep` requests,
   bounded searches, and the `standard` fallback; risk and delivery labels alone
   no longer select `deep`. Add review cases without claiming model evaluation.
+- Limit dissect's future-path comparison requirements to forecasts and judgments
+  about future developments. Retain mechanism-based diagnostic predictions, clarify
+  their technical case, and add a mathematical-analysis case without running a
+  model evaluation.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

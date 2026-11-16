@@ -8,8 +8,8 @@ description: Use for in-depth analysis involving evidence synthesis, causal or m
 Develop your own explanation of the question and give the judgment with the
 greatest explanatory power at present. Show how the key evidence supports it,
 compare the main competing explanations, and identify the disagreements that
-change the conclusion. Trace concrete mechanisms to explain outcomes and
-anticipate subsequent paths; test and update the judgment with new material.
+change the conclusion. Trace concrete mechanisms to explain outcomes; test and
+update the judgment with new material.
 
 Use research to advance comparison between explanations. Prioritize material
 that could change their ranking or predicted actions. Follow original sources,
@@ -18,8 +18,9 @@ Distinguish missing support from contrary evidence; counterevidence must address
 the explanation's actual claim. Check source independence and look for
 counterexamples.
 
-Compare the relative likelihood of subsequent paths and identify turning points,
-observable signals, and conditions that would change the judgment.
+For forecasts or judgments about future developments, compare the relative
+likelihood of possible paths and identify turning points, observable signals,
+and conditions that would change the judgment.
 
 Load only the references needed for the current analysis:
 

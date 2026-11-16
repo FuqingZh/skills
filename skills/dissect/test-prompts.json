@@ -40,7 +40,7 @@
     "id": "D05",
     "scenario": "Technical causal analysis uses the core method",
     "prompt": "A queueing service doubled its worker count. Throughput stayed flat and p99 latency increased. Analyze plausible mechanisms and identify the observations that would distinguish them.",
-    "expected": "Use core evidence comparison, mechanisms, and conditional forecasts without loading actors-and-interactions.md or historical-change.md. Consider bottlenecks, contention, queue behavior, and measurement conditions without inventing measurements.",
+    "expected": "Use core evidence comparison, mechanisms, and testable predictions tied to the candidate mechanisms without loading actors-and-interactions.md or historical-change.md. Consider bottlenecks, contention, queue behavior, and measurement conditions without inventing measurements.",
     "expected_skills": ["plainspoken", "dissect"]
   },
   {
@@ -48,6 +48,13 @@
     "scenario": "Persist research through an existing local convention",
     "prompt": "Continue comparing the two explanations and save the working notes. This project keeps research notes in research/working/. Source snapshots already exist under research/sources/; no new copies are needed.",
     "expected": "Read references/working-material.md. Use research/working/ rather than creating .dissect/notes/, cite the existing research/sources/ snapshots without copying them, and preserve uncertainty. Do not create an evidence directory without need or move historical records.",
+    "expected_skills": ["plainspoken", "dissect"]
+  },
+  {
+    "id": "D07",
+    "scenario": "Mathematical analysis does not require future scenarios",
+    "prompt": "Starting from an empty dynamic array with capacity one, explain why appending has amortized O(1) cost when capacity doubles on growth, even though an individual append can cost O(n). Derive the bound and distinguish amortized from worst-case complexity.",
+    "expected": "Use explicit cost assumptions and mathematical reasoning, such as a geometric-series bound or accounting argument, to explain amortized versus worst-case cost. Do not append future scenarios, turning points, or probability comparisons merely because the analysis is in-depth. Use the core method without loading actors-and-interactions.md or historical-change.md.",
     "expected_skills": ["plainspoken", "dissect"]
   }
 ]
