@@ -73,6 +73,5 @@ records why Nx is not adopted in this cleanup.
 ## Historical Evidence
 
 Use the [archive index](archive/README.md) for completed plans, corrected or
-superseded comparisons, adoption decisions, and old AO guidance. Historical
-records stay at their existing paths for link compatibility. Raw evidence,
+superseded comparisons, adoption decisions, and old AO guidance. Raw evidence,
 manifests, hashes, provenance, and compatibility cleanup remain preserved.
