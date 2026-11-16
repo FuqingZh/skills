@@ -125,6 +125,10 @@
   consumers must use [calibration's task router](skills/calibration/SKILL.md#route);
   old external path references will no longer resolve. Historical documents and
   frozen experiment inventories remain unchanged.
+- Remove the three retired pipeline and identifier compatibility pointers under
+  `references/docs/schema/`; external references to those paths will no longer
+  resolve. Keep current schema and consumer-compatibility guidance and preserve
+  the five archived convention snapshots byte for byte.
 - Retire the mandatory principles bundle. Keep core decision framing in the skill
   and place design, process, documentation, and verification guidance with their
   topic owners; remove universal seed and trace-directory defaults from the bundle.

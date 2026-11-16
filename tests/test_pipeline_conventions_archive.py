@@ -24,20 +24,26 @@ def test_retired_pipeline_snapshots_are_preserved() -> None:
         assert hashlib.sha256((ARCHIVE / name).read_bytes()).hexdigest() == digest
 
 
-def test_retired_paths_redirect_without_active_routing() -> None:
-    index = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
-    redirects = {
-        "pipeline_directory_layout_specification": (
-            "discipline/refactor.md#judgment-checks"
-        ),
-        "step_to_step_artifact_flow_specification": (
-            "discipline/refactor.md#judgment-checks"
-        ),
-        "identifier": "naming/schema.md",
-    }
-    for directory, target in redirects.items():
-        path = f"docs/schema/{directory}/20260304-v1.1.md"
-        pointer = (REFERENCES / path).read_text(encoding="utf-8")
-        assert f"](../../../{target})" in pointer
+def test_retired_pipeline_paths_are_not_shipped_or_routed() -> None:
+    retired = tuple(
+        f"docs/schema/{directory}/20260304-v1.1.md"
+        for directory in (
+            "pipeline_directory_layout_specification",
+            "step_to_step_artifact_flow_specification",
+            "identifier",
+        )
+    )
+    for target in retired:
+        assert not (REFERENCES / target).exists()
+    for path in REFERENCES.parent.rglob("*.md"):
+        body = path.read_text(encoding="utf-8")
+        for target in retired:
+            assert target not in body, path
+
+
+def test_archive_navigation_links_to_current_contracts() -> None:
+    index = (ARCHIVE / "README.md").read_text(encoding="utf-8")
+    for target in ("naming/schema.md", "discipline/refactor.md#judgment-checks"):
+        assert f"](../../../skills/calibration/references/{target})" in index
         assert (REFERENCES / target.split("#", 1)[0]).is_file()
-        assert path not in index
+    assert "paths have been removed" in index

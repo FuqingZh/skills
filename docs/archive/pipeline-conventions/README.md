@@ -15,9 +15,9 @@ and are outside the installed skill tree.
 Current [schema](../../../skills/calibration/references/naming/schema.md) and
 [consumer compatibility](../../../skills/calibration/references/discipline/refactor.md#judgment-checks) guidance
 defer concrete conventions to the protocol, workflow engine, and repository.
-The old pipeline and identifier paths remain as retirement pointers. Existing
-projects may retain their own adopted contracts; retirement does not authorize migration
-of their fields, files, directories, or configuration.
+The old pipeline and identifier compatibility paths have been removed. Existing
+projects may retain their own adopted contracts; retirement does not authorize
+migration of their fields, files, directories, or configuration.
 
 The [archive tests](../../../tests/test_pipeline_conventions_archive.py) check
 snapshot hashes and current routing. This is a scope and ownership change;
