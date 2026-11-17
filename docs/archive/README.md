@@ -1,8 +1,8 @@
 # Historical Records
 
 This index records lifecycle status, not a second set of operating rules.
-Completed plans and superseded protocols are archived in place: their existing
-paths and evidence remain available, but they are not active execution plans.
+Completed plans and superseded protocols remain available as historical records,
+but they are not active execution plans.
 Settled adoption decisions can still explain current behavior; follow the
 [current authority map](../README.md#current-authority) for runtime contracts.
 
@@ -17,6 +17,17 @@ older AO rule files and the CAL-1 plan byte for byte. These integrity checks
 replace historical wording assertions; runtime isolation, ownership rules,
 installer compatibility, provenance, and evaluation-result checks remain active.
 
+## Superseded Project Documentation Layout
+
+The [v1.0 snapshot](project-docs-layout/20260527-v1.0-project-docs-architecture.md.txt)
+preserves the former
+`skills/calibration/references/docs/workflow/project_docs_architecture/20260527-v1.0-project-docs-architecture.md`
+byte for byte. It was superseded by the
+[current layout](../../skills/calibration/references/docs/project-layout.md).
+The text snapshot retains its original relative links as historical content and
+is outside the installed skill tree. The [layout tests](../../tests/test_document_layout.py)
+check its digest and absence from active skill references.
+
 ## Retired Pipeline Conventions
 
 The [pipeline convention archive](pipeline-conventions/README.md) preserves the
@@ -24,12 +35,19 @@ former schema/header naming, artifact prefixes, identifier encoding, directory
 layout, and stage handoff rules. Current guidance defers these choices to repository and consumer
 contracts; the historical rules do not apply to new work by default.
 
+## Retired Evaluation Runtime
+
+The [writable-agent runtime archive](../../evaluations/archive/writable-agent-runtime/README.md)
+retains byte-identical executor, batch-controller, and dedicated test sources.
+These tools are no longer supported execution entrypoints. Original experiment
+evidence remains in place; independent integrity and provenance checks remain active.
+
 ## Completed Plans And Superseded Protocols
 
 | Record | Lifecycle and current source |
 | --- | --- |
 | [Self-contained skill migration](../implementation-plans/20260826-v1.0-self-contained-first-party-skills-migration-implementation-plan.md) | Implemented; historical migration evidence. Current package contracts live in the skills and validator. |
-| [Proportional validation wording](../implementation-plans/20260807-v1.0-proportional-validation-selection-implementation-plan.md) | Completed wording increment; [principles](../../skills/calibration/references/principles.md) own current guidance. |
+| [Proportional validation wording](../implementation-plans/20260807-v1.0-proportional-validation-selection-implementation-plan.md) | Completed wording increment; [verification discipline](../../skills/calibration/references/discipline/verification.md) owns current guidance. |
 | [Progressive validation v2.0](../implementation-plans/20260824-v2.0-progressive-validation-selection-implementation-plan.md) | Historical implementation and smoke/recovery evidence; later comparisons supersede its replacement protocol. |
 | [Relative replacement v2.1](../testing/20260825-v2.1-progressive-validation-relative-replacement-test-plan.md) | Executed diagnostic history; its outcome interpretation was superseded by v2.2. |
 | [Corrected relative replacement v2.2](../testing/20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md) | Completed comparison; the [corrected decision](../decisions/2026-08-25-progressive-validation-relative-replacement-acceptance.md) supersedes the earlier acceptance interpretation. |

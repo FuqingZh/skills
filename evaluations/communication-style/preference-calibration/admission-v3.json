@@ -1,0 +1,125 @@
+{
+  "authority": "Author review before new judge calls; categories are not human preferences or defect labels",
+  "pairs": [
+    {
+      "id": "p1-transition",
+      "category": "style",
+      "reason": "Same substantive relationship; contrast framing differs."
+    },
+    {
+      "id": "p1-context",
+      "category": "style",
+      "reason": "Same relationship under an explicit question; no expected preference flip."
+    },
+    {
+      "id": "p1-depth",
+      "category": "mixed",
+      "reason": "Example request coverage and explanatory depth differ."
+    },
+    {
+      "id": "s2-correction",
+      "category": "style",
+      "reason": "Same p-value meaning; direct correction and logical framing differ."
+    },
+    {
+      "id": "s2-validity",
+      "category": "correctness",
+      "reason": "Opposite factual verdict about p-values; excluded from style scoring."
+    },
+    {
+      "id": "s2-ending",
+      "category": "style",
+      "reason": "Same definition and next checks; added correction repeats and expands the ending."
+    },
+    {
+      "id": "c1-framing",
+      "category": "style",
+      "reason": "Same account of both concerns; added unrequested conflict framing."
+    },
+    {
+      "id": "c1-uncertainty",
+      "category": "mixed",
+      "reason": "Changes epistemic certainty and the proposed explanation of the friend's motive."
+    },
+    {
+      "id": "c1-message",
+      "category": "style",
+      "reason": "Both acknowledge impact and propose tomorrow; ordering and wording differ."
+    },
+    {
+      "id": "o1-afterword",
+      "category": "style",
+      "reason": "Same mechanism; added declaration defends the speaker's stance."
+    },
+    {
+      "id": "o1-synthesis",
+      "category": "mixed",
+      "reason": "Causal chain versus factor list plus qualification changes explanatory coverage."
+    },
+    {
+      "id": "o1-alternatives",
+      "category": "style",
+      "reason": "Both explain learning time's limits through conditions, attention and support."
+    },
+    {
+      "id": "p2-requested",
+      "category": "style",
+      "reason": "Same title comparison; explicit clarification varies under a direct question."
+    },
+    {
+      "id": "p2-unrequested",
+      "category": "style",
+      "reason": "Same title comparison; explicit clarification varies without that question."
+    },
+    {
+      "id": "p2-boundary",
+      "category": "style",
+      "reason": "Same distinction between desire satisfaction and reflective endorsement; framing differs."
+    },
+    {
+      "id": "s1-cause",
+      "category": "correctness",
+      "reason": "Opposite causal verdict from the same observational evidence."
+    },
+    {
+      "id": "s1-afterword",
+      "category": "style",
+      "reason": "Same association and causal limitations; added speaker defense."
+    },
+    {
+      "id": "s1-design",
+      "category": "correctness",
+      "reason": "Different research designs and false claim that sample size proves causation."
+    },
+    {
+      "id": "o2-wording",
+      "category": "mixed",
+      "reason": "Adding shortage changes the referent and scope of a causal claim."
+    },
+    {
+      "id": "o2-scope",
+      "category": "correctness",
+      "reason": "Absolute impossibility contradicts the stated section's content."
+    },
+    {
+      "id": "o2-format",
+      "category": "style",
+      "reason": "Same heading words; bold formatting only."
+    },
+    {
+      "id": "c2-repair",
+      "category": "style",
+      "reason": "Same revision; additional justification after explicit feedback."
+    },
+    {
+      "id": "c2-explain",
+      "category": "mixed",
+      "reason": "One candidate answers the requested explanation; the other only repeats the edit."
+    },
+    {
+      "id": "c2-equivalence",
+      "category": "style",
+      "reason": "Equivalent arrangement diagnosis with different wording."
+    }
+  ]
+}

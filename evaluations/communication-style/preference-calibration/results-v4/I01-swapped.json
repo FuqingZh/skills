@@ -1,0 +1,147 @@
+{
+  "id": "I01",
+  "order": "swapped",
+  "payload": {
+    "context": "用户问: 明天什么时候见面?",
+    "answers": {
+      "A": {
+        "A1": "明天下午三点见。"
+      },
+      "B": {
+        "B1": "明天下午三点见。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"直接回答了明天何时见面。\", \"evidence\": []},\n      \"grounding\": {\"status\": \"uncertain\", \"reason\": \"题面没有给出既定时间；无法判断下午三点是在提出安排，还是在陈述已有安排。\", \"evidence\": []},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"一句话给出时间，没有重复或无关内容。\", \"evidence\": []},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接说明见面的时间，表达自然。\", \"evidence\": []},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预防性澄清或维护回答者立场的文字。\", \"evidence\": []}\n    },\n    \"B\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"直接回答了明天何时见面。\", \"evidence\": []},\n      \"grounding\": {\"status\": \"uncertain\", \"reason\": \"题面没有给出既定时间；无法判断下午三点是在提出安排，还是在陈述已有安排。\", \"evidence\": []},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"一句话给出时间，没有重复或无关内容。\", \"evidence\": []},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接说明见面的时间，表达自然。\", \"evidence\": []},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预防性澄清或维护回答者立场的文字。\", \"evidence\": []}\n    }\n  },\n  \"deletion_audit\": {\"A\": [], \"B\": []},\n  \"issues\": {\"A\": [], \"B\": []},\n  \"shared_issues\": [],\n  \"strengths\": {\n    \"A\": [{\"reason\": \"简短、明确地给出具体时间。\", \"evidence\": [\"A1\"]}],\n    \"B\": [{\"reason\": \"简短、明确地给出具体时间。\", \"evidence\": [\"B1\"]}]\n  },\n  \"content_issues\": {\"A\": [], \"B\": []},\n  \"self_defense\": {\n    \"A\": {\"status\": \"absent\", \"target\": \"无\", \"increment\": \"无\", \"deletion\": \"无须删除\", \"evidence\": []},\n    \"B\": {\"status\": \"absent\", \"target\": \"无\", \"increment\": \"无\", \"deletion\": \"无须删除\", \"evidence\": []}\n  },\n  \"choice\": \"tie\",\n  \"reason\": \"两份回答完全相同，均直接给出明天下午三点；题面也同样不足以判断这是新约定还是已有安排，因此没有偏好。\"\n}",
+  "characters": 1559,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1426,
+    "output": 1161,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 516,
+    "totalTokens": 2587,
+    "cost": {
+      "input": 0.002852,
+      "output": 0.01161,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.014462000000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 26.482,
+  "evidence_text": {
+    "A1": "明天下午三点见。",
+    "B1": "明天下午三点见。"
+  },
+  "judgment": {
+    "checks": {
+      "A": {
+        "response": {
+          "status": "clear",
+          "reason": "直接回答了明天何时见面。",
+          "evidence": []
+        },
+        "grounding": {
+          "status": "uncertain",
+          "reason": "题面没有给出既定时间；无法判断下午三点是在提出安排，还是在陈述已有安排。",
+          "evidence": []
+        },
+        "progression": {
+          "status": "clear",
+          "reason": "一句话给出时间，没有重复或无关内容。",
+          "evidence": []
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "直接说明见面的时间，表达自然。",
+          "evidence": []
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "没有预防性澄清或维护回答者立场的文字。",
+          "evidence": []
+        }
+      },
+      "B": {
+        "response": {
+          "status": "clear",
+          "reason": "直接回答了明天何时见面。",
+          "evidence": []
+        },
+        "grounding": {
+          "status": "uncertain",
+          "reason": "题面没有给出既定时间；无法判断下午三点是在提出安排，还是在陈述已有安排。",
+          "evidence": []
+        },
+        "progression": {
+          "status": "clear",
+          "reason": "一句话给出时间，没有重复或无关内容。",
+          "evidence": []
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "直接说明见面的时间，表达自然。",
+          "evidence": []
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "没有预防性澄清或维护回答者立场的文字。",
+          "evidence": []
+        }
+      }
+    },
+    "deletion_audit": {
+      "A": [],
+      "B": []
+    },
+    "issues": {
+      "A": [],
+      "B": []
+    },
+    "shared_issues": [],
+    "strengths": {
+      "A": [
+        {
+          "reason": "简短、明确地给出具体时间。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "简短、明确地给出具体时间。",
+          "evidence": [
+            "B1"
+          ]
+        }
+      ]
+    },
+    "content_issues": {
+      "A": [],
+      "B": []
+    },
+    "self_defense": {
+      "A": {
+        "status": "absent",
+        "target": "无",
+        "increment": "无",
+        "deletion": "无须删除",
+        "evidence": []
+      },
+      "B": {
+        "status": "absent",
+        "target": "无",
+        "increment": "无",
+        "deletion": "无须删除",
+        "evidence": []
+      }
+    },
+    "choice": "tie",
+    "reason": "两份回答完全相同，均直接给出明天下午三点；题面也同样不足以判断这是新约定还是已有安排，因此没有偏好。"
+  }
+}

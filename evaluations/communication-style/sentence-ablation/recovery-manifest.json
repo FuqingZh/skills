@@ -1,0 +1,8 @@
+{
+  "sha256": {
+    "recovery.py": "076fd23b34d461e0a3b6900ba9f17a83e32985db6a5d0d7f42047ce9ae5b5bb4",
+    "recovery-protocol.json": "035d29593d079e94392c9ddbbc07f30573fd76fc11ddb42b3d80108dae47e4b5",
+    "execution-manifest.json": "abb4314e80de48e857f3842441326861b9605089c5d528bbb10cfcfbea96393a",
+    "results/judgments/c1-1.json": "95cd3894811b5e67646f3b21a604f7767ebf3da98cdcc43b0a4e1adfedbc9438"
+  }
+}

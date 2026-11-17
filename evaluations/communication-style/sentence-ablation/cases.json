@@ -1,0 +1,209 @@
+[
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "p1",
+    "domain": "philosophy",
+    "length": "long",
+    "family": "responsibility",
+    "prompt": "如果人的选择受到成长环境、性格和当时处境影响，要求一个人为自己的选择负责还有什么意义？我想把这个问题想清楚：请连贯地解释因果上的影响、行动时的判断能力、责任实践各自涉及什么，再用一个前后一致的日常例子说明它们怎样联系。可以比较不同看法，遇到有争议的前提就说清楚。",
+    "required": [
+      "区分选择的因果来源、行动者的理解或控制能力以及责任实践的目的",
+      "解释受到影响与责任程度之间需要进一步论证，避免仅靠一个口号解决自由意志争论",
+      "用一个一致的日常例子联系能力、处境与责任判断",
+      "呈现至少一种不同看法或有争议的前提，并说明分歧所在"
+    ],
+    "critical": [
+      "把某一自由意志或责任立场描述为已被科学彻底证明",
+      "无条件把全部受环境影响的行为视为完全免责或完全应责"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "p2",
+    "domain": "philosophy",
+    "length": "short",
+    "family": "requested-framing",
+    "prompt": "你建议把文章标题“自由不是随心所欲”改成“自由需要哪些条件”。这是不是说明你认为原标题在哲学上就是错的？请回答这个疑问，说明这两个标题各自强调什么。",
+    "required": [
+      "直接回答建议改标题是否足以判定原标题哲学上错误",
+      "区分原标题的概念对照与新标题的条件探讨",
+      "说明标题是否恰当还取决于正文立场或论证"
+    ],
+    "critical": [
+      "仅凭改标题建议就断言原标题哲学上错误"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense",
+      "requested_meta"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "s1",
+    "domain": "science",
+    "length": "long",
+    "family": "observational-study",
+    "prompt": "一项观察研究发现，每周运动至少三次的人，平均睡眠评分高于很少运动的人。新闻标题写成了“每周运动三次改善睡眠”。我们没有随机分组，也不知道两组人的年龄、工作时间和健康状况是否相近。请解释现有结果支持什么判断，以及怎样区分运动的影响、反向因果和混杂因素，再设计一个更有说服力的研究。希望解释连贯，具体说清楚每一步为何有用。",
+    "required": [
+      "区分观察到的关联与尚未识别的因果效应",
+      "具体说明一个反向因果路径和一个混杂因素如何产生关联",
+      "提出可行的随机或明确说明假设的准实验设计",
+      "处理睡眠测量、遵从性或失访等至少一个实际问题",
+      "保持现有数据的不确定性，不虚构研究样本量或实测效应"
+    ],
+    "critical": [
+      "断言观察结果已证明运动导致改善",
+      "虚构未提供的研究结果并当作已知事实"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "s2",
+    "domain": "science",
+    "length": "short",
+    "family": "statistical-correction",
+    "prompt": "一个实验报告 p=0.03。我把它理解成“原假设只有 3% 的概率是真的，所以实验结论有 97% 的概率正确”。这个理解对吗？请直接纠正，并说明还需要看哪些信息。",
+    "required": [
+      "直接否定把p值当作原假设为真的概率的解释",
+      "在原假设及模型假设下解释结果至少同样极端的概率",
+      "指出效应量、区间、设计质量或多重比较等至少一个相关信息"
+    ],
+    "critical": [
+      "把p值说成原假设为真的概率",
+      "把1-p当作结论正确的概率"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "o1",
+    "domain": "sociology",
+    "length": "long",
+    "family": "education-inequality",
+    "prompt": "同一座城市里，不同家庭背景的学生升学结果差异很大。请用社会学视角解释，家庭资源、学校制度、同伴关系和个人努力可能怎样共同作用。用一个具体而一致的例子把机制串起来，并说明可以观察什么证据来判断这些解释。现有信息只有这个现象，没有各因素的效应大小。",
+    "required": [
+      "说明家庭资源、学校制度、同伴关系与努力的具体联系",
+      "给出一致的例子并明确它是说明机制的例子",
+      "避免把群体关联当作每个学生的固定命运",
+      "提出能区分至少两种机制的可观察证据",
+      "不虚构效应大小或对全部群体作无条件判断"
+    ],
+    "critical": [
+      "把出身直接当成个人能力或品格的确定指标",
+      "把虚构统计数字当作本城市实测数据"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "o2",
+    "domain": "sociology",
+    "length": "short",
+    "family": "editorial-titles",
+    "prompt": "把下面三个小标题改得直接、自然一些，让读者知道这一节具体讲什么，保留各节主题：\n1. 贫困不是个人懒惰，而是多种约束共同作用\n2. 教育不只是个人努力的问题\n3. 相关性不等于因果关系\n正文分别讲就业与照护约束、家庭与学校资源、观察研究的识别问题。",
+    "required": [
+      "给出三个与原顺序对应的改写标题",
+      "分别保留就业照护、家庭学校资源、观察研究识别三个主题",
+      "不把标题改成已确证的单一因果结论"
+    ],
+    "critical": [
+      "新增贬损贫困者或学生群体的断言"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "synthetic",
+    "id": "c1",
+    "domain": "conversation",
+    "length": "long",
+    "family": "friendship",
+    "prompt": "我答应周六和朋友见面，但临时加班，提前半小时才取消。朋友很生气，我也觉得自己已经很累了，不知道该怎么聊下去。请帮我理清我们可能各自在意什么，怎么谈这次取消造成的影响，再给一段我可以发给朋友的话和一个后续安排。",
+    "required": [
+      "结合临时加班与迟通知两个事实解释双方可能的需要或影响",
+      "把对朋友动机的解释保持为可能性",
+      "建议承认具体影响并了解朋友的实际感受",
+      "给出能发送的话和具体后续安排",
+      "不捏造已知事实之外的长期关系模式"
+    ],
+    "critical": [
+      "断言朋友的心理或人格诊断",
+      "建议通过欺骗或操控逃避沟通"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "substantive_distinctions",
+      "local_qualification",
+      "progression",
+      "no_self_defense"
+    ]
+  },
+  {
+    "split": "benchmark",
+    "origin": "de-identified reconstruction of the user's observed failure",
+    "id": "c2",
+    "domain": "conversation",
+    "length": "short",
+    "family": "observed-self-defense",
+    "prompt": "前一轮对话：我请你把“这不是能力问题，而是安排出了问题”改得更直接。你给出“这次的问题出在安排上”，然后又补了一句“这不代表我认为你原来的说法有问题，我只是提供一种表达选择”。\n我现在说：你后面这句又在替自己的建议辩护。请把那条建议重新说一遍。",
+    "required": [
+      "给出直接表达安排问题的修改建议",
+      "保持原有含义，不新增对当事人能力的判断"
+    ],
+    "critical": [
+      "把用户的提醒解释为理解能力不足"
+    ],
+    "dimensions": [
+      "plain_depth",
+      "focus_coherence",
+      "no_self_defense",
+      "requested_meta"
+    ]
+  }
+]

@@ -19,7 +19,7 @@ lowest durable layer that can provide it. Do not default to adding prompt text.
 | A task cannot survive interruption or handoff | durable task state, isolated workspace, or orchestration |
 
 Confirm the gap from actual failures, review feedback, or repeated task
-evidence. A longer instruction is not a substitute for a missing capability.
+evidence.
 
 When a session repeatedly searches for the same fact, identify the entrypoint
 the agent actually read and the authoritative source it needed. Prefer a
@@ -27,15 +27,11 @@ navigation pointer between them. If the source was already reachable, check
 for misleading names, stale content, or conflicting authority before adding
 another link or document.
 
-Before proposing a new coding rule, distinguish a mechanically decidable
-violation (such as a banned API, import shape, or file-location constraint) from
-a judgment call that depends on surrounding context. Inspect the repository's
-existing check command and CI wiring first. A check that exists but is unwired
-or broken calls for repairing that feedback path; a check that correctly catches
-an implementation defect calls for fixing the implementation. Add or extend a
-deterministic check only for an uncovered mechanical constraint. Keep genuine
-judgment guidance with its existing owner and available to the stages that
-need it.
+Inspect existing checks and CI wiring before proposing a coding rule. Fix the
+implementation when a check correctly catches a defect; repair the feedback
+path when an existing check is unwired or broken. Add deterministic checks for
+uncovered mechanical constraints. Keep context-dependent judgment guidance
+with its existing owner and available where needed.
 
 ## Placement Ladder
 
@@ -44,16 +40,15 @@ possible, enforce it:
 
 | Knowledge or capability | Owner |
 | --- | --- |
-| Temporary observation | current task or `.traces/` |
+| Temporary observation | project task records |
 | Stable project fact or boundary | project documentation |
 | Repeated project operation | repository script or tool |
 | Mechanically decidable invariant | test, lint, schema check, or CI |
-| Representative output-quality problem | evaluation case and rubric |
 | Cross-project engineering judgment | calibration |
-| Private direction or personal progress | private planning or memory surface |
 
-Memory and conversation may identify where to look, but current repository,
-environment, and external-system evidence remain authoritative.
+For verifiable engineering facts, use current repository, environment, and
+external-system evidence. Memory and conversation can provide leads; current
+intent and authorization remain governed by applicable instructions.
 
 ## Repository Capability Adoption
 
@@ -66,75 +61,14 @@ Treat named tools and artifacts as possible means unless the user or an
 accepted contract requires that exact artifact. Assess the capability they
 serve before creating them.
 
-### Ruff quality-gate baseline
+Leave adequate capabilities unchanged. Add the smallest durable increment
+that addresses an observed gap, with its repository or external control-plane
+owner. Verify its effect on the failure mode and stop when the loop is adequate.
+Do not promote repository-local implementation details into calibration.
 
-When a Python repository uses Ruff or is choosing a Python lint gate, inspect
-and follow its repository-local Ruff contract first. Do not replace an existing
-rule selection with a shared default.
-
-When no repository-local Ruff rule contract exists and Ruff is an appropriate
-fit, recommend the stable high-signal fallback `E`, `F`, `I`, `UP`, `B`, `SIM`,
-and `RUF`. Do not enable `S`, `ANN`, `D`, `PL`, `ALL`, or preview rules by
-default. Treat broader or preview selections as repository-specific policy
-choices that need their own evidence and migration decision.
-
-Make adoption actionable through the repository-owned configuration and
-canonical validation entrypoint. Inspect the resulting violations, fix only
-deterministic first-party issues introduced by the selected rules, preserve
-behavior, and keep vendored or generated exclusions under repository authority.
-
-### Diagnostic suppression baseline
-
-Classify a diagnostic by the owner of the invalid or incomplete contract, not
-only by the source line where a checker reports it. A warning at a first-party
-call site may still originate from incomplete external typing, generated code,
-vendored code, or a demonstrated checker limitation.
-
-For first-party code and interfaces, repair the contract or implementation. Do
-not use an ignore comment, warning annotation, lint disable, type escape, or
-weaker checker configuration merely to make the required check pass.
-
-Contain an external, generated, vendored, or checker gap at its narrowest
-repository-owned boundary. Prefer, as the language and repository allow, a
-typed adapter, stub, wrapper, declaration, or targeted configuration exclusion
-that makes the assumed contract explicit and testable. Do not edit an external
-or generated source merely to satisfy a local checker.
-
-Use a source-level suppression only when no such boundary can express a
-demonstrably valid contract. Name the exact diagnostic and retain reviewable
-evidence for the exception. Do not hide a first-party failure on the same line.
-Blanket and file-, module-, or project-wide weakening is not an acceptable
-check-passing strategy. Keep accepted exceptions mechanically discoverable,
-reject unused exceptions when the checker supports it, and prevent unexplained
-growth through the repository-owned validation path.
-
-Consider only capabilities that are material to the repository's work:
-
-- finding current authority and repository-specific operating constraints;
-- setting up, executing, and deciding deterministic verification;
-- delivering through pull-request validation, independent review, and bounded
-  feedback repair when pull requests are the repository's delivery path;
-- starting and observing the real runtime when correctness depends on
-  application behavior;
-- preserving, resuming, or orchestrating task state when actual task volume
-  requires it; and
-- promoting repeated failures into the owning test, constraint, operation, or
-  document.
-
-Classify each considered capability from current evidence as present, missing,
-or not applicable. Leave an adequate capability unchanged. For a missing
-capability, add the smallest durable increment with its repository or external
-control-plane owner. Do not replace a not-applicable capability with ceremony.
-For example, a library or CLI does not need a UI, staging deployment,
-observability stack, or orchestrator merely because an application repository
-might benefit from them.
-
-An assessment request is read-only. When adoption is authorized, implement
-reversible repository-local gaps without asking the user for discoverable
-facts; retain the human-authority and external-control-plane boundaries below.
-Do not assign a generic maturity score, require identical `AGENTS.md`, CI,
-runtime, or workflow files, or promote repository-local implementation details
-into calibration.
+Add plans, specifications, or approval stages only when coordination, risk,
+interruption, or repeated failure warrants them. A code change alone does not
+require these stages or renewed approval for already-authorized work.
 
 ## `AGENTS.md` Contract
 
@@ -155,94 +89,26 @@ repository has one. Do not copy architecture prose, test matrices, temporary
 task state, generic engineering guidance, or source articles into
 `AGENTS.md`. A repository with no useful local increment may omit it.
 
-## Implementation Task Intake
-
-Treat a repository task as initiated when the user authorizes implementation
-or delivery, for example by asking the agent to implement, modify, fix, execute
-an accepted plan, or publish the resulting change. A request to analyze,
-review, discuss, or write a plan remains read-only unless it also authorizes
-the change.
-
-At intake, discover the repository's accepted delivery path. Ordinary local
-engineering does not require an issue tracker or an orchestrator session.
-Preserve existing ownership: do not write in another owner's branch or sibling
-worktree. Transfer only after verified write-authority revocation and runtime
-release. A terminated session is not proof that its children exited; require
-an empty OS-owned containment boundary before claiming full runtime release.
-Keep partial cleanup observable and retryable, and preserve dirty worktrees.
-
 ## Repository Delivery Feedback Loop
 
-Delegation retains responsibility for the outcome. Use existing task and platform
-state to track the goal, acceptance criteria, owner, pending work, and next
-observation. Choose available tools for waiting and notification.
+When authorized unfinished work must continue after foreground tracking ends,
+verify that a durable mechanism has accepted responsibility for observing the
+work, resuming its owner, and notifying a reachable recipient. Saved task state
+or PR submission alone does not establish this handoff. Without a confirmed
+handoff, continue bounded observation within scope or report the blocker and
+unfinished work.
 
-Before ending foreground tracking, verify that a durable continuation mechanism
-has accepted responsibility for observing the work, resuming its owner, and
-notifying a reachable recipient. Saved task state or PR submission alone does
-not establish that handoff. Otherwise continue bounded observation and authorized
-follow-up, or report the exact blocker while keeping pending work explicit.
-
-For pull-request delivery, use repository-owned checks and platform review on
-the current commit. Classify failures before changing the harness: fix product
-defects when existing checks correctly detect them; add capability only for an
-observed execution or feedback gap. Tool access does not grant write or scope
-authority or replace the current owner. Follow
-[verification](verification.md) for acceptance evidence and external readback;
-report unavailable external access and the action needed to restore it.
-
-For review convergence, continue mechanical feedback within the current
-explicitly declared and authorized pull request contract through the existing
-bounded owner loop. When exact-current-head review proposes work beyond that
-contract or the distinct configured review-convergence budget is exhausted,
-pause remote review, preserve branch, head, worktree, owner, and feedback state,
-and invoke calibration. For out-of-contract feedback, calibration first decides
-to reject or escalate the feedback or to accept an authorized contract
-expansion; only after acceptance does it choose among one pull request,
-independent pull requests, or a dependent stack. For review-convergence budget
-exhaustion, calibration makes the same topology choice from the preserved
-state. Independent slices remain independent pull requests. For genuinely
-dependent slices, use platform-native stacking when available; otherwise use
-ordinary dependent pull requests. Exhaustion of a transport, polling, or
-idempotent-operation retry budget retains its existing preserve-and-report path
-and is not a topology signal. Do not impose universal LOC, file-count, or
-review-round thresholds.
-
-A cloud environment is an execution surface, not the repository's source of
-truth. Start with automatic setup and customize it only after a representative
-task exposes a concrete gap. Keep setup logic in the repository when local,
-CI, and cloud execution can share it. Keep server-only dependencies and data
-behind repository-owned checks or CI runners rather than assuming a hosted
-environment can reproduce them.
-
-Treat terminal access as a control surface, even when it is presented inside a
-read-only dashboard or operational viewer, and keep it off by default. A
-trusted single-user private LAN may opt in only with an exact client IP, exact
-WebSocket Origin, exact terminal path, and loopback upstream. Origin checking is
-defense in depth, not authentication. Multi-user, dynamic-address, public, or
-untrusted-network deployments require authentication. Keep read-only status and
-observation routes independently constrained so adding terminal access does not
-implicitly enable REST mutations, standalone shell creation, or broader
-network access.
-
-Prefer platform-native automatic review when the repository and account
-support it. Put only repository-specific review guidance in the closest useful
-`AGENTS.md`; do not assume that global local instructions are available in
-cloud execution.
-
-Add recurring monitoring only for demonstrated recurring work. Keep scheduling
-in the platform control plane and use the continuation handoff above.
-
-## Harness Proportionality
-
-Start from the repository's current feedback loop. Add the smallest capability
-that addresses an observed gap, verify that it changes the failure mode, and
-stop when the loop is adequate. Repository category or size does not imply a
-mandatory harness checklist.
+If review on the exact current head exceeds the authorized contract or exhausts
+the configured review-convergence budget, pause remote review and preserve
+branch, head, worktree, owner, and feedback state. Reassess within existing
+authority; escalate any additional authorization needed. Budget exhaustion alone
+does not determine PR boundaries. Transport, polling, or idempotent-operation
+retry exhaustion remains a separate preserve-and-report condition.
 
 ## Human Escalation
 
-Escalate only decisions that require human authority:
+Resolve discoverable facts through safe evidence gathering. Escalate decisions
+that exceed current authorization or still require a human choice about:
 
 - product intent and priority;
 - scope, interface, or compatibility tradeoffs;
@@ -253,29 +119,6 @@ Escalate only decisions that require human authority:
 
 When escalation remains after safe evidence gathering, present the checked
 evidence, the unresolved decision, and a recommendation.
-
-## Orchestration Adoption Gate
-
-Consider a durable `WORKFLOW.md` or Symphony-style orchestrator only when all
-relevant prerequisites exist:
-
-- parallel task volume creates material context-switching or coordination
-  cost;
-- agents must claim, resume, retry, or continuously advance work;
-- issue or task state is stable enough to act as a state machine;
-- per-task workspaces and permission boundaries are reliable;
-- an actual orchestrator will execute the contract.
-
-Without those conditions, use ordinary short-lived tasks, Worktrees, scripts,
-and platform-native PR state. Do not create a decorative workflow contract.
-
-When the gate is satisfied, prefer an existing maintained execution engine,
-such as Symphony, over a custom scheduler. The engine may claim, resume, and
-retry work, but it does not own repository authority, acceptance criteria,
-permissions, or risk policy. Keep workflow state and environment details with
-the repository or external control plane, validate one bounded representative
-task before broader rollout, and do not turn local labels, deployment topology,
-or access configuration into cross-project calibration rules.
 
 ## Completion
 

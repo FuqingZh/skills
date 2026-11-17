@@ -1,0 +1,24 @@
+{
+  "stage": "targets",
+  "reviewer": "Implementing assistant; unblinded review",
+  "decision": "stop",
+  "classification": "provider_completion_failure_with_permission_signal",
+  "attempted": ["D02-A/baseline", "D02-A/revised"],
+  "not_attempted": ["D05-A/revised", "D05-A/baseline", "P02-A/baseline", "P02-A/revised", "D06-B/revised", "D06-B/baseline"],
+  "observed_failure": {
+    "configuration": "openrouter / anthropic/claude-sonnet-4.6 / high",
+    "top_level_error": "Model identity or completion status mismatch",
+    "mismatch_fields": ["stopReason"],
+    "observed_stop_reason": "error",
+    "http_statuses_in_error_metadata": [403],
+    "pattern_matched_error_signals": ["permission"],
+    "raw_error_retained": false,
+    "usage": null,
+    "cost_usd": null
+  },
+  "interpretation": "The retained metadata identifies unsuccessful completion, with a 403/permission signal. It does not establish the specific account, credential, endpoint, policy, region or routing cause. Being listed in the local registry is not proof of successful live access.",
+  "baseline_only_observation": "The current judge identifies the repeated 97% clause but still praises the common correction and the separate null-probability correction. This unpaired valid report does not establish relative model performance.",
+  "relative_effectiveness": null,
+  "automatic_winner": null,
+  "disposition": "Preserve both records. Do not retry, change model/provider or run remaining jobs under this freeze. Resolve provider-side access from authoritative request/account information before any separately authorized continuation; do not request or publish credentials."
+}

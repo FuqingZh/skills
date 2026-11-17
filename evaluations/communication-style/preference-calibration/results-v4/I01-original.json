@@ -1,0 +1,37 @@
+{
+  "id": "I01",
+  "order": "original",
+  "payload": {
+    "context": "用户问: 明天什么时候见面?",
+    "answers": {
+      "A": {
+        "A1": "明天下午三点见。"
+      },
+      "B": {
+        "B1": "明天下午三点见。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"直接回答了明天见面的时间。\", \"evidence\": [\"A1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"可理解为提出见面时间；没有将推断说成已知事实。\", \"evidence\": [\"A1\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"一句话给出所需时间，没有重复内容。\", \"evidence\": [\"A1\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"对象和时间明确，表达直接。\", \"evidence\": [\"A1\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预防性辩解或无关补充。\", \"evidence\": []}\n    },\n    \"B\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"直接回答了明天见面的时间。\", \"evidence\": [\"B1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"可理解为提出见面时间；没有将推断说成已知事实。\", \"evidence\": [\"B1\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"一句话给出所需时间，没有重复内容。\", \"evidence\": [\"B1\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"对象和时间明确，表达直接。\", \"evidence\": [\"B1\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预防性辩解或无关补充。\", \"evidence\": []}\n    }\n  },\n  \"deletion_audit\": {\"A\": [], \"B\": []},\n  \"issues\": {\"A\": [], \"B\": []},\n  \"shared_issues\": [],\n  \"strengths\": {\n    \"A\": [{\"reason\": \"直接给出具体见面时间。\", \"evidence\": [\"A1\"]}],\n    \"B\": [{\"reason\": \"直接给出具体见面时间。\", \"evidence\": [\"B1\"]}]\n  },\n  \"content_issues\": {\"A\": [], \"B\": []},\n  \"self_defense\": {\n    \"A\": {\"status\": \"absent\", \"target\": \"\", \"increment\": \"\", \"deletion\": \"\", \"evidence\": []},\n    \"B\": {\"status\": \"absent\", \"target\": \"\", \"increment\": \"\", \"deletion\": \"\", \"evidence\": []}\n  },\n  \"choice\": \"tie\",\n  \"reason\": \"两份回答完全相同，都直接给出了明天下午三点，没有实质偏好。\"\n}",
+  "characters": 1504,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1426,
+    "output": 883,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 278,
+    "totalTokens": 2309,
+    "cost": {
+      "input": 0.002852,
+      "output": 0.008830000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.011682000000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 20.143,
+  "error": "Invalid judgment: Empty judgment text"
+}

@@ -1,0 +1,71 @@
+{
+  "freeze_commit": "adbd967",
+  "status": "completed_budget",
+  "planned_calls": 8,
+  "attempted": 8,
+  "valid_reports": 8,
+  "failed_attempts": [],
+  "complete_answer_level_comparisons": [
+    "D02-A",
+    "D05-A",
+    "P02-A",
+    "D06-B"
+  ],
+  "totals": {
+    "calls": 8,
+    "total_tokens": 26536,
+    "estimated_cost_usd": 0.100776,
+    "seconds": 243.171
+  },
+  "by_arm": {
+    "baseline": {
+      "calls": 4,
+      "total_tokens": 5526,
+      "estimated_cost_usd": 0.018932,
+      "seconds": 50.439
+    },
+    "revised": {
+      "calls": 4,
+      "total_tokens": 21010,
+      "estimated_cost_usd": 0.081844,
+      "seconds": 192.732
+    }
+  },
+  "by_stage": {
+    "targets": {
+      "calls": 4,
+      "total_tokens": 14367,
+      "estimated_cost_usd": 0.057114,
+      "seconds": 129.5
+    },
+    "preservation": {
+      "calls": 4,
+      "total_tokens": 12169,
+      "estimated_cost_usd": 0.043662,
+      "seconds": 113.671
+    }
+  },
+  "costs_are_estimates": true,
+  "provider_http_requests": null,
+  "selected_model": null,
+  "automatic_winner": null,
+  "runtime_adoption": false,
+  "author_assessment": "No clear Grok advantage on selected human concerns; useful mechanism preserved in both, necessity disagreements remain, extra Grok terminology criticism overstates certainty. No general ranking.",
+  "checks": [
+    "Both arms have identical recorded system/messages per answer",
+    "Raw ID diagnostics and exact source resolution validated",
+    "Expected provider/model metadata, eight single attempts, two stages",
+    "Original source materials and all five study freezes unchanged",
+    "No code change, retry, repair, prompt adjustment or model switch"
+  ],
+  "result_sha256": {
+    "results/D02-A/revised.json": "d930a55f1a2faa58ab1f668d8ada2cd95c0c4e56721ddd32904617131006ac74",
+    "results/D02-A/baseline.json": "c25cbe7be960e9ed0ed25be52cbcf26f21abe03362f192d41986b19538cd5a95",
+    "results/D05-A/baseline.json": "830df602f99c3881d1e0dd042783243ef0fbbac0faf3f0c00887a34e152e9691",
+    "results/D05-A/revised.json": "22af94044943145d2a490b8839301fe95f728eab37bfdda7df1a523e2c0e86ba",
+    "results/P02-A/revised.json": "50dae71a1a5210de0cffdeb53834923f613d45f7c1f94cd9afbae223fe87ce6c",
+    "results/P02-A/baseline.json": "6eafb9b0894fa3089f12c670bffbf793e21c218e537bb452e9c679f33baf0277",
+    "results/D06-B/baseline.json": "7dc9efbcd94fc03d8d625868aed5a599bab1762a45a46e1d82c65eeeb1ee74da",
+    "results/D06-B/revised.json": "a9f05a80262d7c748f771776b764ae80b3b52c73aa88bab2d4f8e90d88c12b07"
+  }
+}

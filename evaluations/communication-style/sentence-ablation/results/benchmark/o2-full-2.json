@@ -1,0 +1,28 @@
+{
+  "case": "o2",
+  "arm": "full",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "1. **贫困背后的就业限制与照护负担**\n2. **家庭和学校资源如何影响教育机会与结果**\n3. **观察研究中识别因果关系的难点**",
+  "characters": 69,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 215,
+    "output": 251,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 201,
+    "totalTokens": 466,
+    "cost": {
+      "input": 0.00215,
+      "output": 0.01255,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.014700000000000001,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 18.691
+}

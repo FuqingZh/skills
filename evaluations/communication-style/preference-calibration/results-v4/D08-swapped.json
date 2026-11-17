@@ -1,0 +1,169 @@
+{
+  "id": "D08",
+  "order": "swapped",
+  "payload": {
+    "context": "用户问：p=0.03 是不是原假设只有 3% 的概率是真的，所以结论有 97% 的概率正确？",
+    "answers": {
+      "A": {
+        "A1": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      },
+      "B": {
+        "B1": "不对。**p=0.03 既不表示“原假设只有 3% 的概率是真的”，也不表示“实验结论有 97% 的概率正确”。**",
+        "B2": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"用正确的条件概率含义回应了提问；这与原假设或结论本身的概率不同。\", \"evidence\": [\"A1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"说明了原假设成立、模型适用以及检验定义“极端”的条件。\", \"evidence\": [\"A1\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"直接给出理解 p 值所需的条件和事件，没有重复铺垫。\", \"evidence\": [\"A1\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接说明概率所对应的条件和结果。\", \"evidence\": [\"A1\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有为维护回答者立场而添加的补充。\", \"evidence\": []}\n    },\n    \"B\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"明确回答两个判断都不成立，再给出 p 值实际表示的概率。\", \"evidence\": [\"B1\", \"B2\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"以原假设成立和模型适用为条件解释 p 值，并交代“极端”取决于检验。\", \"evidence\": [\"B2\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"先回应用户的推导，再补上两项判断为何不能视作 p 值含义的关键区别。\", \"evidence\": [\"B1\", \"B2\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"否定对象明确，随后直接说明概率对应的事件。\", \"evidence\": [\"B1\", \"B2\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"补充的模型条件用于界定解释，并非预防性维护立场。\", \"evidence\": []}\n    }\n  },\n  \"deletion_audit\": {\"A\": [], \"B\": []},\n  \"issues\": {\"A\": [], \"B\": []},\n  \"shared_issues\": [],\n  \"strengths\": {\n    \"A\": [{\"reason\": \"准确给出 p 值的条件概率含义。\", \"evidence\": [\"A1\"]}],\n    \"B\": [{\"reason\": \"将用户提出的两个判断逐一对上，再说明正确含义，便于立即确认答案。\", \"evidence\": [\"B1\", \"B2\"]}]\n  },\n  \"content_issues\": {\"A\": [], \"B\": []},\n  \"self_defense\": {\n    \"A\": {\"status\": \"absent\", \"target\": \"无\", \"increment\": \"无\", \"deletion\": \"无须删除\", \"evidence\": []},\n    \"B\": {\"status\": \"absent\", \"target\": \"无\", \"increment\": \"无\", \"deletion\": \"无须删除\", \"evidence\": []}\n  },\n  \"choice\": \"B\",\n  \"reason\": \"两份都准确解释了 p 值；B 还直接回应了用户提出的两个概率判断，使答案更容易确认。\"\n}",
+  "characters": 1678,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1598,
+    "output": 1578,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 844,
+    "totalTokens": 3176,
+    "cost": {
+      "input": 0.003196,
+      "output": 0.015780000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.018976000000000003,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 31.695,
+  "evidence_text": {
+    "A1": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。",
+    "B1": "不对。**p=0.03 既不表示“原假设只有 3% 的概率是真的”，也不表示“实验结论有 97% 的概率正确”。**",
+    "B2": "它的含义是：**假设原假设成立，且所用统计模型及其假设适用，得到像当前观测结果这么极端或更极端结果的概率为 3%。**“极端”由所选检验定义。"
+  },
+  "judgment": {
+    "checks": {
+      "A": {
+        "response": {
+          "status": "clear",
+          "reason": "用正确的条件概率含义回应了提问；这与原假设或结论本身的概率不同。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "grounding": {
+          "status": "clear",
+          "reason": "说明了原假设成立、模型适用以及检验定义“极端”的条件。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "progression": {
+          "status": "clear",
+          "reason": "直接给出理解 p 值所需的条件和事件，没有重复铺垫。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "直接说明概率所对应的条件和结果。",
+          "evidence": [
+            "A1"
+          ]
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "没有为维护回答者立场而添加的补充。",
+          "evidence": []
+        }
+      },
+      "B": {
+        "response": {
+          "status": "clear",
+          "reason": "明确回答两个判断都不成立，再给出 p 值实际表示的概率。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        },
+        "grounding": {
+          "status": "clear",
+          "reason": "以原假设成立和模型适用为条件解释 p 值，并交代“极端”取决于检验。",
+          "evidence": [
+            "B2"
+          ]
+        },
+        "progression": {
+          "status": "clear",
+          "reason": "先回应用户的推导，再补上两项判断为何不能视作 p 值含义的关键区别。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        },
+        "naturalness": {
+          "status": "clear",
+          "reason": "否定对象明确，随后直接说明概率对应的事件。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        },
+        "self_defense": {
+          "status": "clear",
+          "reason": "补充的模型条件用于界定解释，并非预防性维护立场。",
+          "evidence": []
+        }
+      }
+    },
+    "deletion_audit": {
+      "A": [],
+      "B": []
+    },
+    "issues": {
+      "A": [],
+      "B": []
+    },
+    "shared_issues": [],
+    "strengths": {
+      "A": [
+        {
+          "reason": "准确给出 p 值的条件概率含义。",
+          "evidence": [
+            "A1"
+          ]
+        }
+      ],
+      "B": [
+        {
+          "reason": "将用户提出的两个判断逐一对上，再说明正确含义，便于立即确认答案。",
+          "evidence": [
+            "B1",
+            "B2"
+          ]
+        }
+      ]
+    },
+    "content_issues": {
+      "A": [],
+      "B": []
+    },
+    "self_defense": {
+      "A": {
+        "status": "absent",
+        "target": "无",
+        "increment": "无",
+        "deletion": "无须删除",
+        "evidence": []
+      },
+      "B": {
+        "status": "absent",
+        "target": "无",
+        "increment": "无",
+        "deletion": "无须删除",
+        "evidence": []
+      }
+    },
+    "choice": "B",
+    "reason": "两份都准确解释了 p 值；B 还直接回应了用户提出的两个概率判断，使答案更容易确认。"
+  }
+}

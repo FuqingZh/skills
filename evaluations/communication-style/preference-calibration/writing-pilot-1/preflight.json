@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "manifest_sha256": "390bc42bd93af0b6b858e1ff9d3f088b003b835e9db26d6c4689575d349726d4",
+  "synthetic_calls": 12,
+  "model_calls": 0,
+  "task": "answer_generation_without_judge",
+  "in_process_network_attempts": 0,
+  "validation": {
+    "tests": 36,
+    "new_adapter_tests": 11,
+    "ruff": "passed",
+    "format": "passed",
+    "pyright": "passed",
+    "lsp": "two files inconclusive; explicit Pyright passed",
+    "source_questions": "six exact matches",
+    "baseline": "matches current global style paragraph",
+    "initial_preflight": "Failed before model calls: revised.txt lacked its final newline. Corrected before freeze; exact composition now verified."
+  }
+}

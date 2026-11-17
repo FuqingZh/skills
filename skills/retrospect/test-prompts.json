@@ -39,18 +39,30 @@
     "id": 7,
     "scenario": "确认后记录任务复盘",
     "prompt": "$retrospect 刚才的任务教训和边界已经确认，现在把它记录下来。",
-    "expected": "识别为后续明确持久化请求，读取 task trace references，按仓库约定写入 .traces/retros/ 并维护简短索引；不自动提交。"
+    "expected": "识别为后续明确持久化请求，读取唯一的 task-traces-and-retros 参考；优先按仓库位置保存，没有约定时用 .retrospect/，集合需要导航时维护简短索引；不自动提交或迁移旧 .traces/ 材料。"
   },
   {
     "id": 8,
     "scenario": "方向画像不进入任务 trace",
     "prompt": "$retrospect 刚才确认的跨项目工程画像需要长期保存，请写到当前 future_direction 复盘目录。",
-    "expected": "按用户指定的长期方向路径落地，不把跨阶段画像强制写入 .traces/retros/，也不套用任务级 Expected/Actual 模板。"
+    "expected": "按用户指定的长期方向路径落地，不把跨阶段画像强制写入 .retrospect/，也不套用任务级 Expected/Actual 模板。"
   },
   {
     "id": 9,
     "scenario": "规则晋升是独立动作",
     "prompt": "$retrospect 这次复盘发现一条规则可能适合 calibration。",
     "expected": "讨论该规则是否稳定、适用边界和证据，只提出晋升建议；没有后续明确请求时，不修改 calibration、AGENTS.md、项目文档或 memory。"
+  },
+  {
+    "id": 10,
+    "scenario": "高风险但局部偏差保持 standard",
+    "prompt": "$retrospect 这次是面向客户的生产发布。执行记录显示漏跑了一条已有检查；补跑和线上读回均正常，历史记录中未见重复。只复盘这次遗漏。",
+    "expected": "使用 standard 核对直接相关的执行记录、补检结果和线上读回，不因面向客户或生产发布自动进入 deep；保留证据限制，不降低对当前交付结果的验证要求，不把局部遗漏提炼成跨阶段模式。"
+  },
+  {
+    "id": 11,
+    "scenario": "重复模式自动扩大比较",
+    "prompt": "$retrospect 最近三次发布都出现了 schema 输入格式与资源版本不匹配。请比较对应迁移计划、版本记录和失败日志，判断是否存在共同模式，以及它在哪些条件下不成立。",
+    "expected": "因问题需要比较重复失败而使用 deep，无需用户提供模式名称；用 schema、资源版本、相关发布和迁移计划限定历史检索，核实共同点和反例。无法形成可信搜索边界时退回 standard，缺失证据保留为验证缺口。"
   }
 ]

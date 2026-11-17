@@ -1,5 +1,180 @@
 # Changelog
 
+## Unreleased
+
+- Retire the historical Codex writable-agent executor and progressive-validation
+  batch controller together with their dedicated runtime tests. Preserve all 20
+  source files as byte-identical text snapshots, retain independent historical
+  evidence and provenance checks, and leave existing quality thresholds unchanged.
+  The former `scripts/run_writable_agent_eval.py` and
+  `scripts/run_progressive_validation_selection_eval.py` entrypoints are removed.
+- Add `plainspoken` for substantive natural-language expression and `dissect`
+  for in-depth analysis, with English instructions and implicit invocation metadata.
+- Move the shared global template to `templates/AGENTS.md.template` and reduce
+  it to three routes: `plainspoken`, `dissect`, and `calibration`. Install the
+  skills before refreshing global instructions.
+- Remove private host-profile discovery and path rendering from the installer;
+  retain client-home selection, backups, marker migration, and idempotent updates.
+- Consolidate calibration's completion route and engineering-discipline entry,
+  remove unsolicited retrospective suggestions and duplicate expression guidance,
+  and keep environment and workspace boundaries in their relevant references.
+  These rules now depend on task-based skill selection.
+- Make verification routing conditional on implementation, delivery, or contract
+  evidence needs. Keep material evidence and risk reporting while removing fixed
+  opening statements, generic checklists, and duplicate permission rules. Align
+  the discipline index with this verification scope.
+- Focus refactoring guidance on preserved contracts, scoped transition cleanup,
+  intentional compatibility entrypoints, and regression evidence. Preserve
+  historical records and frozen evidence during reference cleanup.
+- Keep debugging environment checks relevant to the observed failure and apply
+  completion verification when claiming a fix or verified runtime outcome.
+- Remove the general agent/workflow evaluation reference and its dedicated
+  calibration trigger and routes. Keep experiment-specific protocols and frozen
+  evidence; pin the historical ablation plan's reference to its registered baseline.
+- Focus harness guidance on evidenced capability gaps, repository ownership,
+  bounded delivery, and authorization. Remove the shared Ruff recipe, terminal
+  deployment recipe, and fixed orchestration adoption gate; retire their dedicated
+  prompt cases and the stale evaluation case without altering frozen studies.
+- Remove the single-target design index and route directly to codebase design
+  guidance. Consolidate design judgments, retain wrappers with clear roles and
+  long-lived parallel interfaces, and scope verification to implemented changes.
+- Keep the documentation index focused on task-selected references and local
+  contracts; remove the retrospective-skill binding and duplicate naming routes.
+- Remove the duplicate main-path readability guide and its depth thresholds;
+  keep abstraction and readability judgments in codebase design guidance.
+- Reduce the document-type index to purpose-based routes; remove duplicated
+  loading, workflow, authority, and retrospective-skill instructions.
+- Simplify architecture-overview guidance while retaining `docs/architecture/`
+  as the fallback when the repository has no defined architecture location.
+- Restore conditional defaults for reproducible seeds (`42`) and Ruff rule
+  selection, preserving existing project and caller choices. These defaults
+  supersede their removal during the earlier principles and harness cleanup.
+- Simplify design proposals around decision rationale and explicit status,
+  retaining a fallback location without prescribing a separate planning stage.
+- Simplify decision-record guidance while retaining rationale, alternatives,
+  consequences, reopening conditions, optional formats, and a default location.
+- Focus implementation plans on executable slices and conditional investigations;
+  preserve placement and persistence defaults without fixed document splits.
+- Simplify reusable test plans around repository checks and acceptance evidence;
+  preserve project-local placement and provide a shared location fallback.
+- Simplify benchmark records while preserving reproducibility and evidence;
+  scope baselines to comparisons and add a project-overridable placement fallback.
+- Simplify tutorials around a coherent learning path and demonstrated capability;
+  retain source and personal-record boundaries and add a placement fallback.
+- Simplify how-to guides around concrete task completion and recovery;
+  preserve prerequisites and result checks and add a placement fallback.
+- Simplify runbooks while preserving authorization, checkpoints, recovery,
+  stop conditions, and public-document boundaries; add a placement fallback.
+- Route document types, layout, and platform decisions directly from calibration;
+  retain the old docs index as a compatibility pointer. Remove duplicated type
+  selection and authoring rules from project layout, and distinguish current
+  architecture from proposals regardless of their directory.
+- Separate investigation records, retrospectives, and formal project documents
+  by ownership while retaining existing trace-location fallbacks. Consolidate
+  retrospective persistence into one reference without moving historical evidence.
+- Extract quality gates, workspace ownership, and delivery feedback into directly
+  routed references. Preserve their safeguards and legacy harness anchors;
+  add static routing and cross-document consistency coverage.
+- Disclose actor-interaction and historical-change guidance only for relevant
+  dissect branches; retain evidence comparison and forecasting in its core.
+- Cover distinct caller-facing usage contracts with locatable examples, allowing
+  shared examples while preserving explicit repository per-symbol requirements.
+- Use skill-owned working-material fallbacks: `.calibration/notes/`,
+  `.retrospect/`, and `.dissect/notes/`, with separate evidence directories.
+  Preserve local conventions, publication controls, and historical `.traces/`
+  records without automatic persistence or migration.
+- Consolidate documentation fallbacks into architecture, design, guides, reference,
+  contributing, and optional runbooks, assets, and archive locations. Keep type
+  contracts distinct, group change-specific material by topic, and distinguish
+  accepted proposals from implemented facts without migrating existing documents.
+- Simplify compatibility records around evidence-supported scope, distinguishing
+  provider contracts from local observations. Preserve reproducibility, adaptation
+  checks, conditional revalidation, and optional method references without a
+  universal repeated-verification requirement.
+- Remove the six legacy naming reference paths: `function.md`, `method.md`,
+  `type.md`, `variable.md`, `loop.md`, and `branch.md` under `references/naming/`.
+  Direct consumers must use the [naming entrypoint](skills/calibration/references/naming/README.md)
+  for code names. Historical records and frozen source inventories remain unchanged.
+- Scope CLI naming references by purpose: GNU conventions for GNU-style syntax
+  and standard names, CLI Guidelines for usability and interaction. Inherit
+  naming authority and retain the lowercase kebab-case fallback without repeating
+  upstream input/output rules or deferring external spelling to parser defaults.
+- Point shared SemVer guidance to the official entrypoint while preserving each
+  repository's declared versioning and release contract.
+- Route schema naming to surface-specific sources: Protobuf and ProtoJSON,
+  Google JSON naming for otherwise-unconstrained new JSON interfaces, SQL naming
+  references, and Table Schema. Preserve consumer contracts, native mappings,
+  identifier semantics, and compatibility checks without a global casing rule
+  or a required adapter layer.
+- Remove the standalone workflow-artifact naming reference and route. Keep the
+  downstream-output interface safeguard in refactor compatibility checks, and
+  redirect existing retirement pointers and archive navigation to that owner.
+  Historical snapshots and frozen experiment records remain unchanged.
+- Remove the standalone branch and PR collaboration reference and its routes,
+  including the shared GitHub flow default, without moving its workflow into
+  other guidance. Existing authorization, ownership, and verification requirements
+  remain unchanged; frozen source inventories are preserved.
+- Move Ruff's unchanged fallback rule selection to a tool-specific linter
+  reference and thin index. Move the two shared diagnostic safeguards to
+  verification; remove `quality-gates.md` and its adapter-first exception workflow.
+  Update active routes and keep legacy harness anchors forwarding to the owners.
+  Historical policy evaluations and frozen evidence remain unchanged.
+- Limit workspace traversal safeguards to recursive searches and broad discovery;
+  remove the generic intake requirement to discover a delivery path. Keep task
+  authorization, assigned-workspace scope, ownership transfer, and runtime-release
+  safeguards unchanged.
+- Remove the standalone delivery-feedback reference and broad delivery route.
+  Keep only scoped unfinished-work handoff and review-stop safeguards in harness,
+  preserving its existing section anchor. Leave authorization and completion
+  evidence with workspace ownership and verification; retain historical records.
+- Remove the unused `references/docs_index.md` compatibility pointer. Direct
+  consumers must use [calibration's task router](skills/calibration/SKILL.md#route);
+  old external path references will no longer resolve. Historical documents and
+  frozen experiment inventories remain unchanged.
+- Remove the three retired pipeline and identifier compatibility pointers under
+  `references/docs/schema/`; external references to those paths will no longer
+  resolve. Keep current schema and consumer-compatibility guidance and preserve
+  the five archived convention snapshots byte for byte.
+- Archive the superseded v1.0 documentation layout outside the skill tree as an
+  unchanged text snapshot. Remove the current layout's `Supersedes` line and
+  citation-based authority exception without adding replacement metadata or
+  adoption instructions. Record provenance only in the archive index; the old
+  skill path no longer resolves.
+- Remove the discipline index's redundant directory navigation and the naming
+  entrypoint's automatic gap-reporting instruction. Preserve direct task routes,
+  official naming sources, and the existing-repository-convention fallback.
+- Remove the harness's Ruff, diagnostic-suppression, and task-intake forwarding
+  sections. Keep direct discipline routes and the substantive rules with their
+  existing owners. The three former harness section anchors no longer resolve;
+  consumers of those anchors must update their references.
+- Remove retrospect's `references/trace-retro.md` compatibility pointer. The skill
+  continues to load `references/task-traces-and-retros.md` directly; persistence
+  rules and historical records are unchanged. The removed path no longer resolves.
+- Move the current project documentation layout to the stable
+  `references/docs/project-layout.md` path, remove snapshot-style header metadata,
+  and update current routes and links. Keep its substantive rules and the archived
+  v1.0 snapshot unchanged; the former versioned path no longer resolves.
+- Remove automatic format-gap reporting from code-documentation guidance while
+  retaining disclosure of material gaps in behavior and contracts.
+- Scope retrospect's automatic `deep` selection to reviews requiring comparison
+  of repeated failures or cross-stage patterns. Preserve explicit `deep` requests,
+  bounded searches, and the `standard` fallback; risk and delivery labels alone
+  no longer select `deep`. Add review cases without claiming model evaluation.
+- Limit dissect's future-path comparison requirements to forecasts and judgments
+  about future developments. Retain mechanism-based diagnostic predictions, clarify
+  their technical case, and add a mathematical-analysis case without running a
+  model evaluation.
+- Remove redundant OpenAI display metadata and default prompts from first-party
+  skills. Only closeout and retrospect retain `agents/openai.yaml`, with their
+  explicit-only invocation policy. Validate optional metadata using Codex's
+  default implicit-invocation behavior while preserving explicit-only and
+  cross-client consistency checks. Historical and third-party assets are unchanged.
+- Retire the mandatory principles bundle. Keep core decision framing in the skill
+  and place design, process, documentation, and verification guidance with their
+  topic owners; remove universal seed and trace-directory defaults from the bundle.
+- Add synthetic behavioral prompts and static packaging checks. These checks
+  do not establish English-version answer quality or reliable model routing.
+
 ## 1.0.0 — 2026-11-09
 
 First repository-level versioned distribution.

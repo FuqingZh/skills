@@ -1,31 +1,27 @@
 # Compatibility Record
 
-## Use When
+Document verified behavior, constraints, failure signatures, and adaptations
+at an external or third-party boundary so others can reuse the findings
+within their demonstrated scope.
 
-Use this type for verified constraints, deviations, failure signatures, or safe
-adaptations at an external or third-party boundary.
+- Follow the repository's compatibility-reference location. If none is defined,
+  use `docs/reference/`.
+- Identify the boundary, versions, environment, and applicable conditions.
+  Distinguish the provider's stated contract from locally observed behavior.
+- Separate observations, inferences, recommendations, and unresolved questions.
+- Describe reproducible checks and link their evidence. Record failure
+  signatures, affected callers or artifacts, and whether adaptations were tested.
+- Limit conclusions to the scope supported by the evidence. Use repeated checks
+  when needed to establish stability or characterize variable behavior.
+- State limitations and conditions that require revalidation; identify an owner
+  when follow-up work remains.
+- Keep raw trial-and-error with the owning investigation's task records. When
+  retaining exploration notes, follow the
+  [working-material placement rules](../project-layout.md#working-material).
+- Give readers enough information to reproduce the relevant observation,
+  apply the adaptation within its validated scope, and recognize when the
+  record no longer applies.
 
-## Method Reference
-
-Use compatibility-policy examples such as the [Kubernetes version skew
-policy](https://kubernetes.io/releases/version-skew-policy/) and [MDN
-compatibility tables](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables)
-for explicit versions, scope, and supported combinations.
-
-## Local Requirements
-
-- Place it in project `docs/compatibility/` when the project uses the shared
-  compatibility location.
-- Identify the external boundary, version, environment, and expected contract.
-- Separate observed behavior from inference or recommendation.
-- Record reproducible evidence, failure signatures, safe adaptations, and
-  affected callers or artifacts.
-- State scope, expiry or review conditions, and the owner of follow-up.
-- Promote only repeatedly verified reusable rules; keep raw trial-and-error in
-  `.traces/`.
-
-## Complete When
-
-An independent contributor can tell what behavior is supported, reproduce the
-relevant observation, apply the documented adaptation, and recognize when the
-record no longer applies.
+[Kubernetes version-skew policies](https://kubernetes.io/releases/version-skew-policy/)
+and [MDN compatibility tables](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables)
+are optional examples of presenting versions, scope, and supported combinations.

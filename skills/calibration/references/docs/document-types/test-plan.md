@@ -1,28 +1,17 @@
 # Test Plan
 
-## Use When
+Document validation strategies or acceptance contracts that need reuse across
+changes, releases, or environments. Give contributors enough information to
+run the checks and judge whether the acceptance criteria are met.
 
-Use this type for a durable validation strategy or acceptance contract that
-must be reused across changes, releases, or environments.
-
-## Method Reference
-
-Use the repository's configured test and verification entrypoints. Keep test
-plans complementary to executable tests and CI rather than duplicating their
-implementation details.
-
-## Local Requirements
-
-- Place it in project `docs/testing/` when the project maintains durable testing
-  guidance there.
-- State the scope, risks, affected contracts, and test levels.
+- Follow the repository's testing-documentation location. If none is defined,
+  use `docs/contributing/`.
+- Use configured test and verification entrypoints. Link executable tests and
+  CI definitions, keeping implementation details with their owning code.
+- State scope, risks, affected contracts, and relevant test levels.
 - Identify fixtures, data boundaries, environment assumptions, and required
   setup.
 - Give commands or CI checks, expected evidence, and failure interpretation.
-- Define acceptance criteria and any manual artifact or runtime inspection.
+- Define acceptance criteria and any required manual artifact or runtime
+  inspection.
 - Record compatibility, cleanup, and rollback implications when applicable.
-
-## Complete When
-
-Another contributor can run the stated checks and determine whether the
-documented change satisfies its acceptance contract.

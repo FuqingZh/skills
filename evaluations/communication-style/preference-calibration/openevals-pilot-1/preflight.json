@@ -1,0 +1,228 @@
+{
+  "fixtures": [
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[{\"kind\":\"strength\",\"evidence\":\"甲\",\"reason\":\"fixture\"}]}"
+      },
+      "diagnostic": {
+        "findings": [
+          {
+            "kind": "strength",
+            "evidence": "甲",
+            "reason": "fixture"
+          }
+        ]
+      },
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[]}"
+      },
+      "diagnostic": {
+        "findings": []
+      },
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[],}"
+      },
+      "error": "JSONDecodeError: Illegal trailing comma before end of object: line 1 column 15 (char 14)",
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"wrong\":[]}"
+      },
+      "error": "ValueError: Expected findings array only",
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[{\"kind\":\"strength\",\"evidence\":\"乙\",\"reason\":\"fixture\"}]}"
+      },
+      "error": "ValueError: Evidence absent from answer",
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[{\"kind\":\"unknown\",\"evidence\":\"甲\",\"reason\":\"fixture\"}]}"
+      },
+      "error": "ValueError: Invalid finding kind",
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "answer": "{\"findings\":[{\"kind\":\"strength\",\"evidence\":\"甲\",\"reason\":\"\"}]}"
+      },
+      "error": "ValueError: Empty finding text",
+      "invocations": 1
+    },
+    {
+      "context": "合成问题",
+      "answer_under_review": "甲",
+      "request": {
+        "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须逐字引用待检查回答的一段连续原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\"}, \"reason\": {\"type\": \"string\"}}}}}}",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<inputs>\n合成问题\n</inputs>\n\n<outputs>\n甲\n</outputs>\n"
+          }
+        ]
+      },
+      "transport": {
+        "error": "fixture transport failure"
+      },
+      "error": "RuntimeError: fixture transport failure",
+      "invocations": 1
+    }
+  ],
+  "exclusive_write": true,
+  "pi_version": "1.5.0",
+  "agent_settings": {
+    "retry": {
+      "enabled": false,
+      "maxRetries": 0,
+      "provider": {
+        "maxRetries": 0
+      }
+    },
+    "compaction": {
+      "enabled": false
+    },
+    "cacheWarming": "off",
+    "transport": "sse",
+    "enableInstallTelemetry": false,
+    "enableAnalytics": false
+  },
+  "packages": {
+    "jsonpointer": "3.10",
+    "langchain-core": "1.7.7",
+    "idna": "3.20",
+    "markdown-it-py": "4.2.0",
+    "truststore": "0.10.5",
+    "httpx": "0.28.1",
+    "tenacity": "9.2.1",
+    "httpcore": "1.0.9",
+    "Pygments": "2.21.0",
+    "sniffio": "1.3.1",
+    "requests-toolbelt": "1.0.0",
+    "openevals": "0.2.2",
+    "annotated-types": "0.8.0",
+    "rich": "15.0.0",
+    "langchain": "1.4.9",
+    "httpcore2": "2.16.0",
+    "langgraph-sdk": "0.4.14",
+    "PyYAML": "6.0.3",
+    "charset-normalizer": "3.5.2",
+    "packaging": "26.3",
+    "jiter": "0.19.0",
+    "tiktoken": "0.14.0",
+    "certifi": "2026.10.23",
+    "h11": "0.16.0",
+    "regex": "2026.11.9",
+    "httpx2": "2.16.0",
+    "urllib3": "2.8.0",
+    "xxhash": "4.1.0",
+    "zstandard": "0.25.0",
+    "langchain-protocol": "0.0.21",
+    "langgraph-checkpoint": "4.3.1",
+    "langgraph": "1.2.20",
+    "websockets": "17.4",
+    "openai": "3.49.0",
+    "langsmith": "0.14.17",
+    "pydantic": "2.14.3",
+    "mdurl": "0.1.2",
+    "typing_extensions": "4.16.0",
+    "orjson": "3.13.0",
+    "uuid_utils": "0.19.0",
+    "langgraph-prebuilt": "1.1.1",
+    "langchain-openai": "1.7.4",
+    "anyio": "4.16.0",
+    "pydantic_core": "2.50.4",
+    "jsonpatch": "1.45",
+    "typing-inspection": "0.4.5",
+    "requests": "2.34.2",
+    "ormsgpack": "1.13.1",
+    "distro": "1.9.0"
+  },
+  "model_calls": 0
+}

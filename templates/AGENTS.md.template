@@ -1,0 +1,5 @@
+# Global AGENTS.md
+
+Use `plainspoken` for substantive natural-language responses.
+Use `dissect` for tasks requiring in-depth analysis.
+Use `calibration` when its scope matches the task.

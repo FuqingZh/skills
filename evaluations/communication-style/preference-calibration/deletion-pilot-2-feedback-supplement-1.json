@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "prior_feedback": "deletion-pilot-2-feedback.json",
+  "prior_feedback_sha256": "cdff0b64e7c4298c189a1df97ea3e26ed231ac80085efa6fda7c0fb5e3a40dde",
+  "source": "deletion-pilot-2.json",
+  "source_sha256": "9cfdf7c390022e83fe1f83a22586a5db003de83be2c1dd412181210615abaac6",
+  "provenance": "Explicit follow-up human assessment of the shared P04 passage. Original feedback and source snapshots remain unchanged.",
+  "question_context": {
+    "case": "P04",
+    "question": "P04 两版共有的前两句，你觉得本身是否合适？",
+    "shared_passage": "其他人不发言，是因为担心说错话后被同事否定。沉默能避免这种风险，所以他们更愿意先听别人说。"
+  },
+  "original_message": "合适",
+  "human_assessment": {
+    "case": "P04",
+    "scope": "shared_passage",
+    "assessment": "appropriate"
+  },
+  "analyst_interpretation": {
+    "status": "Implementing assistant interpretation, separate from the explicit assessment.",
+    "preference": "The previously supplied B preference remains unchanged; the added sentence in A is still labeled extraneous.",
+    "research_target": "The author's initial shared-defect hypothesis is not supported by this human assessment. P04 cannot serve as a human-confirmed shared-defect positive case; it can instead inspect unnecessary criticism of shared content judged appropriate by the user.",
+    "scope": "Contextual human suitability judgment, not independent proof of coworkers' motives, a universal rule, or a label for any future model criticism. No model call has run for P03/P04."
+  }
+}

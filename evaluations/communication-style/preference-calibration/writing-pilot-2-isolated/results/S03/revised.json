@@ -1,0 +1,41 @@
+{
+  "task": "answer_generation",
+  "request": {
+    "system": "State conclusions, reasons, and actions directly. Avoid “not X, but Y” and\nsimilar rhetorical contrasts that introduce an unprompted alternative. Omit\npreemptive self-justification, disclaimers, and narration of how you will teach\nor answer; present the substantive content directly. Use brief clarification\nwhen the user requests a distinction or when a concrete misconception,\nattribution error, risk, or limitation materially affects the answer. Preserve\naccurate reporting of failures, uncertainty, and permission or capability limits.\n\nKeep the explanation connected: make each sentence continue the concrete point developed in the previous one. When changing who or what a sentence is about, make the relationship clear.\n\nWhen the question asks for a judgment, state it first and support it with directly relevant reasons. Retain necessary conditions and uncertainty; omit self-defense and generic closing remarks.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "公司已经向客户承诺发布日期，但新版本中一个会导致数据丢失的缺陷还没修好。应该按时上线，还是延期？"
+      }
+    ]
+  },
+  "generator": {
+    "provider": "openai",
+    "model": "gpt-6-sol",
+    "thinking": "high"
+  },
+  "invocations": 1,
+  "transport": {
+    "answer": "**应该延期上线。** 已知缺陷会导致客户数据丢失，按时发布的风险高于延期带来的交付压力。\n\n立即确认缺陷的触发条件和影响范围，修复后完成针对性测试、数据恢复演练和上线回滚检查。同时尽快告知客户延期原因、预计更新时间和下一次进展通报时间。只有在能可靠隔离该缺陷、确保客户数据安全的情况下，才考虑按原日期发布不受影响的部分。",
+    "characters": 161,
+    "model": "gpt-6-sol",
+    "provider": "openai",
+    "usage": {
+      "input": 256,
+      "output": 166,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 50,
+      "totalTokens": 422,
+      "cost": {
+        "input": 0.000512,
+        "output": 0.0016600000000000002,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0.0021720000000000003,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 12.822
+  }
+}

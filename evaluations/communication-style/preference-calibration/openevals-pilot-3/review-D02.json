@@ -1,0 +1,19 @@
+{
+  "case": "D02",
+  "reviewer": "Implementing assistant, unblinded to existing human feedback",
+  "decision": "continue",
+  "structural_status": "Two valid single-invocation reports",
+  "human_feedback": {
+    "preference": "B",
+    "common_opening": "The user criticized correcting the unasked 97% interpretation in both answers.",
+    "A_ending": "The user criticized the repeated correction in A3."
+  },
+  "observations": {
+    "common_opening": "Both model reports praise correction of a common misconception, contrary to the user's relevance judgment.",
+    "A_ending": "No finding identifies the repetition criticized by the user.",
+    "shared_term": "A alone receives an uncertain finding about whether 检验假设 means test assumptions or the alternative hypothesis, although the same phrase occurs in B. This is a reporting asymmetry, not an answer-text difference."
+  },
+  "assessment": "Neither targeted human concern was surfaced. This is negative calibration evidence for this use case, not full or partial preference agreement. The supplied statistical correction is true; that does not establish its contextual necessity. The shared-term uncertainty is not proof of a unique A defect or a necessary revision.",
+  "continuation_reason": "The user accepted prior disagreements for continued bounded testing. The reports omit human concerns and disagree about relevance, but do not establish a materially false semantic claim: the correction is mathematically valid and the terminology concern is explicitly conditional. Findings are not an exhaustive defect guarantee. Proceed only to the already authorized D05, preserving this unsuccessful coverage result without retry, prompt tuning or automatic preference inference.",
+  "automatic_winner": null
+}

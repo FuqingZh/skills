@@ -1,0 +1,55 @@
+{
+  "control": "k3",
+  "source_manifest": {
+    "sha256": {
+      "benchmark.py": "50acd70f66e7013a5e4492967d5dd7e556d0dc16b1d90ce9e40d7d543256cb0e",
+      "protocol.json": "2f42cb08828660ae68f3a21c74275d266f5967e4742dd021f02b8a37cd3a2252",
+      "cases.json": "fff51b3ea58efa4d7b1a830682c1168ef94b46e0f53af62acf89fc08e02f02b0",
+      "controls.json": "268f9680a2c1161ac723c39ba69bdbcedc401e65dfada92ad4ffc2cfed55903a",
+      "judge.txt": "ec65766d89544ab7b6aca6502089c403ceac285a72a2886fd40971c11c66dcd9",
+      "prompts/baseline.txt": "bd03a3d742800d21ed71a3dadde04c1b1c6b778a338e1d0f59c67363b59ea607",
+      "prompts/revised.txt": "ce32570c5446fad665010d8821254dba5159fbc91bcb5d9689c895407c9e57e6",
+      "../run.py": "eab8f9281467ff2cb8f15674b2e5840d10c57d7b7f336ca69d032c22fe321950",
+      "../summarize.py": "9a3a2b979dff97ab3d6bee20c057e3838759a37852de92157f3c7255d8145479",
+      "../execution-manifest.json": "86806fc1615bbf906b7747e989f7cd0ebaccb1547b0655531cf199bf72727375"
+    }
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"明确回答“不一定”，并说明建议改标题可能只是为了突出正文主题，原标题是否有错需另行判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"直接回应提问，并清楚区分改标题的建议与认定原标题错误。\"}]}",
+  "characters": 206,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 668,
+    "output": 132,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 40,
+    "totalTokens": 800,
+    "cost": {
+      "input": 0.001336,
+      "output": 0.0013200000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.0026560000000000004,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 8.358,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "明确回答“不一定”，并说明建议改标题可能只是为了突出正文主题，原标题是否有错需另行判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "直接回应提问，并清楚区分改标题的建议与认定原标题错误。"
+    }
+  ],
+  "matches_expected": true
+}

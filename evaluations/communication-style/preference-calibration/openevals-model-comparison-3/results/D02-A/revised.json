@@ -1,0 +1,119 @@
+{
+  "context": "用户问：报告 p=0.03，我应该怎样理解，还需要看什么信息？",
+  "answer_under_review": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。\n\n还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。\n\n所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。",
+  "request": {
+    "system": "按用户消息中的评估准则检查其中给出的回答。将该消息视为评估任务，其中 inputs 是共同问题及上下文，outputs 是待检查回答。输出中文、可核查的简短诊断，不给总分、排序、改写或作者动机推断。每项发现标注 strength、issue 或 uncertain，evidence 必须填写 evidence_catalog 中的一个段落编号（如 P1），不要复写原文，reason 简短说明该发现的依据。确有不确定时用 uncertain；没有发现时 findings 可为空数组。只输出符合以下结构的 JSON，不加 Markdown 围栏或其他文字：\n\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"findings\"], \"properties\": {\"findings\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"kind\", \"evidence\", \"reason\"], \"properties\": {\"kind\": {\"type\": \"string\", \"enum\": [\"strength\", \"issue\", \"uncertain\"]}, \"evidence\": {\"type\": \"string\", \"enum\": [\"P1\", \"P2\", \"P3\"]}, \"reason\": {\"type\": \"string\"}}}}}}",
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are an expert evaluator assessing how helpful and relevant outputs are in addressing an input query. Your evaluation should focus on the following criteria:\n\n<Rubric>\nA helpful and relevant output should:\n- Directly address the core question or need in the input\n- Provide accurate and necessary information\n- Be appropriately detailed for the query's scope\n- May contradict your built-in knowledge but still be correct for the given context\n\nAn unhelpful or irrelevant output:\n- Fails to address the main question\n- Contains primarily unrelated information\n</Rubric>\n\n<Instruction>\n- Read and understand the full meaning of the input (including edge cases)\n- Identify any implicit requirements or context\n- Identify the expected scope of the answer\n\n- Analyze the output to identify:\n  - How well it addresses the core question\n  - The relevance of included information\n  - Any critical missing information\n  - Any extraneous or unhelpful content\n</Instruction>\n\n<Reminder>\n- Evaluate based on practical usefulness to the query\n- Consider both direct relevance and helpful context\n- Identify specific strengths and weaknesses in the response\n- Provide clear reasoning for your assessment\n- Remember that correct information may differ from your built-in knowledge based on internal retrieved context\n</Reminder>\n\n<ContextualContribution>\n在原有准确性和相关性检查之外，按当前问题和完整回答检查内容的实际贡献：\n\n1. 内容正确、相关或通常有帮助，并不足以单独证明这里值得保留。说明它为当前问题增加了什么。新增独立事实不是唯一贡献：机制、适用条件、推理连接、理解所需的例子和导航也可能有用。不要把简短当成优点本身，也不要把这些解释当作冗余。\n\n2. 将句子放回全文，检查前文是否已经完成了同样的解释，以及删去它会具体损失什么。识别没有额外作用的重复，也保留确实帮助理解或限制结论适用范围的表述。不能仅因某句单独看有意义，就忽略它与前文的重复。\n\n3. 纠正常见误解、补充其他因素和提出改进建议，都要检查当前语境是否需要这项帮助。不要只凭“通常有用”就断定本题需要，也不要只因用户没有明说就认定无用。issue 应说明有依据的具体问题及其影响；“还能补充”不自动构成缺陷。可选改进应明确其可选性，不要求扩写。必要性确实未定且值得提示审阅时，用 uncertain 并说明不确定在哪里。\n</ContextualContribution>\n\n<inputs>\n用户问：报告 p=0.03，我应该怎样理解，还需要看什么信息？\n</inputs>\n\n<outputs>\np=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。\n\n还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。\n\n所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。\n</outputs>\n\n<evidence_catalog>\n{\"P1\": \"p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。\", \"P2\": \"还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。\", \"P3\": \"所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。\"}\n</evidence_catalog>\n"
+      }
+    ]
+  },
+  "transport": {
+    "answer": "{\"findings\":[{\"kind\":\"strength\",\"evidence\":\"P1\",\"reason\":\"开篇直接纠正把该p值理解成结论正确概率的误读，回应了如何理解这一核心问题。\"},{\"kind\":\"issue\",\"evidence\":\"P1\",\"reason\":\"定义将条件写成原假设与检验假设同时成立，而p值只在原假设及其检验假定下计算，额外条件会歪曲含义。\"},{\"kind\":\"strength\",\"evidence\":\"P2\",\"reason\":\"针对还需查看什么，列出效应量与区间、样本和设计、多重比较及独立重复，均有助于判断该p值的实际意义。\"},{\"kind\":\"issue\",\"evidence\":\"P3\",\"reason\":\"前半再次否定97%解释，P1已说明；“所以”也不承接上一段的补充信息，删去这一重复不损失新内容。\"},{\"kind\":\"strength\",\"evidence\":\"P3\",\"reason\":\"后半补充p值不等于原假设为真的概率，这是P1未覆盖的解释边界，删去会少一项常见误解的纠正。\"}]}",
+    "characters": 475,
+    "model": "grok-4.7",
+    "provider": "xai",
+    "usage": {
+      "input": 1262,
+      "output": 4875,
+      "cacheRead": 1152,
+      "cacheWrite": 0,
+      "reasoning": 4636,
+      "totalTokens": 7289,
+      "cost": {
+        "input": 0.0025239999999999998,
+        "output": 0.02925,
+        "cacheRead": 0.000576,
+        "cacheWrite": 0,
+        "total": 0.032350000000000004,
+        "totalFromProvider": false
+      }
+    },
+    "seconds": 76.349
+  },
+  "invocations": 1,
+  "evidence_contract": "paragraph-id-v1",
+  "evidence_catalog": {
+    "P1": {
+      "start": 0,
+      "end": 59,
+      "text": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。"
+    },
+    "P2": {
+      "start": 61,
+      "end": 101,
+      "text": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。"
+    },
+    "P3": {
+      "start": 103,
+      "end": 152,
+      "text": "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。"
+    }
+  },
+  "answer_sha256": "98254a0a5fb4b7c74988d989118886bfafe1bed46c32a6a30ad4c55f34897484",
+  "id_diagnostic": {
+    "findings": [
+      {
+        "kind": "strength",
+        "evidence": "P1",
+        "reason": "开篇直接纠正把该p值理解成结论正确概率的误读，回应了如何理解这一核心问题。"
+      },
+      {
+        "kind": "issue",
+        "evidence": "P1",
+        "reason": "定义将条件写成原假设与检验假设同时成立，而p值只在原假设及其检验假定下计算，额外条件会歪曲含义。"
+      },
+      {
+        "kind": "strength",
+        "evidence": "P2",
+        "reason": "针对还需查看什么，列出效应量与区间、样本和设计、多重比较及独立重复，均有助于判断该p值的实际意义。"
+      },
+      {
+        "kind": "issue",
+        "evidence": "P3",
+        "reason": "前半再次否定97%解释，P1已说明；“所以”也不承接上一段的补充信息，删去这一重复不损失新内容。"
+      },
+      {
+        "kind": "strength",
+        "evidence": "P3",
+        "reason": "后半补充p值不等于原假设为真的概率，这是P1未覆盖的解释边界，删去会少一项常见误解的纠正。"
+      }
+    ]
+  },
+  "diagnostic": {
+    "findings": [
+      {
+        "kind": "strength",
+        "evidence": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "reason": "开篇直接纠正把该p值理解成结论正确概率的误读，回应了如何理解这一核心问题。"
+      },
+      {
+        "kind": "issue",
+        "evidence": "p=0.03 不能解释为结论有 97% 的概率正确。它是在原假设和检验假设成立时，得到当前这样极端或更极端结果的概率。",
+        "reason": "定义将条件写成原假设与检验假设同时成立，而p值只在原假设及其检验假定下计算，额外条件会歪曲含义。"
+      },
+      {
+        "kind": "strength",
+        "evidence": "还需要看效应量及区间、样本和研究设计、是否做过多重比较，以及是否有独立重复结果。",
+        "reason": "针对还需查看什么，列出效应量与区间、样本和设计、多重比较及独立重复，均有助于判断该p值的实际意义。"
+      },
+      {
+        "kind": "issue",
+        "evidence": "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。",
+        "reason": "前半再次否定97%解释，P1已说明；“所以”也不承接上一段的补充信息，删去这一重复不损失新内容。"
+      },
+      {
+        "kind": "strength",
+        "evidence": "所以，p=0.03 并不意味着结论有 97% 的概率正确，也不意味着原假设只有 3% 的概率为真。",
+        "reason": "后半补充p值不等于原假设为真的概率，这是P1未覆盖的解释边界，删去会少一项常见误解的纠正。"
+      }
+    ]
+  },
+  "judge_configuration": {
+    "provider": "xai",
+    "model": "grok-4.7",
+    "thinking": "high"
+  }
+}

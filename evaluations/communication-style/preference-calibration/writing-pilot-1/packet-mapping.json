@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "assignment": "first shuffle of ['baseline','revised'] * 3; inspectable mapping, not secure blinding",
+  "mapping": {
+    "D02": {
+      "A": "revised",
+      "B": "baseline"
+    },
+    "D05": {
+      "A": "revised",
+      "B": "baseline"
+    },
+    "D06": {
+      "A": "baseline",
+      "B": "revised"
+    },
+    "P02": {
+      "A": "baseline",
+      "B": "revised"
+    },
+    "P03": {
+      "A": "baseline",
+      "B": "revised"
+    },
+    "D03": {
+      "A": "revised",
+      "B": "baseline"
+    }
+  }
+}

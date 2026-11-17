@@ -2,16 +2,16 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Portable engineering skills and global agent instructions for Codex, Grok Build,
+Portable skills and global agent instructions for Codex, Grok Build,
 and Pi. Repository-owned contracts and upstream standards guide local work;
 calibration supplies reusable judgment and safety boundaries.
 The repository was formerly named `FuqingZh/calibration`; the `calibration` skill
-name and its private configuration namespace remain unchanged.
+name remains unchanged.
 
 ## Quick start
 
 Install [skills CLI](https://github.com/vercel-labs/skills) through your tool
-manager (for example, mise's `"npm:skills" = "latest"`). Then install the four
+manager (for example, mise's `"npm:skills" = "latest"`). Then install the six
 first-party skills:
 
 ```bash
@@ -42,6 +42,8 @@ not an isolation boundary.
 | --- | --- | --- |
 | [calibration](skills/calibration/SKILL.md) | Engineering judgment and reference routing | When relevant |
 | [writing-code-docs](skills/writing-code-docs/SKILL.md) | Public API and maintainer documentation | When relevant |
+| [plainspoken](skills/plainspoken/SKILL.md) | Plain, direct expression with useful detail | Substantive natural-language responses |
+| [dissect](skills/dissect/SKILL.md) | Evidence-led explanations, mechanisms, and forecasts | In-depth analysis |
 | [closeout](skills/closeout/SKILL.md) | Conversation review and unresolved work | Explicit only |
 | [retrospect](skills/retrospect/SKILL.md) | Evidence-backed reusable lessons | Explicit only |
 
@@ -99,10 +101,16 @@ An existing valid `calibration:begin/end` block is backed up and migrated to the
 new namespace without `--force`. Mixed namespaces and mismatched pairs fail
 without writes, even with force; dry-run identifies a planned migration.
 
-The template renders the private host-authority pointer using absolute
-`$XDG_CONFIG_HOME/calibration/AGENTS.md` or `$HOME/.config/calibration/AGENTS.md`.
-It does not create that private file. `$calibration` invocation spelling is rendered
-as `calibration` for Pi and Grok. Client discovery does not prove model compliance.
+The shared [template](templates/AGENTS.md.template) contains three skill routes:
+substantive natural-language responses use `plainspoken`, in-depth analysis uses
+`dissect`, and tasks within calibration's scope use `calibration`. Install these
+skills in the selected clients before refreshing the global block. Detailed
+requirements live in the skills; `install.sh` does not install or verify their
+presence. Descriptions guide native model selection, and skills can apply
+together. Discovery does not prove model compliance.
+
+The installer copies the same template for every client. It does not discover,
+read, or render private host configuration. Existing private files are untouched.
 
 ## Legacy migration
 
@@ -136,12 +144,16 @@ Installer tests use isolated configuration homes. Select checks proportionally
 to the changed behavior; [AGENTS.md](AGENTS.md) describes contribution and
 validation requirements.
 
+The historical Codex writable-agent evaluator and batch controller are
+[retired](evaluations/archive/writable-agent-runtime/README.md). Their original
+source and experiment evidence remain available; they are not supported tools.
+
 ## Documentation and support
 
 - [Documentation index](docs/README.md): current decisions, evaluation results,
   migration history, and implementation plans.
-- [Engineering references](skills/calibration/references/principles.md): principles
-  and the [skill router](skills/calibration/SKILL.md) for focused guidance.
+- [Calibration router](skills/calibration/SKILL.md): engineering judgment and
+  task-selected references.
 - [Skills CLI distribution](docs/decisions/2026-11-08-skills-cli-distribution.md):
   current ownership, global instruction installation, and marker migration.
 - [Earlier multi-client installation](docs/decisions/2026-09-24-multi-client-skill-installation.md):

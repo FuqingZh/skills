@@ -8,26 +8,41 @@ authority, recorded open work, and historical evidence.
 1. Read the repository README ([English](../README.md) / [简体中文](../README.zh-CN.md))
    for installation and development.
 2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
-   references; long-form guidance has one [document router](../skills/calibration/references/docs_index.md).
+   references; use the [document-type router](../skills/calibration/references/docs/document-types/README.md)
+   for a document's minimum contract and the layout reference for project organization.
+   Shared locations are fallbacks for projects without local conventions;
+   this repository keeps its existing document paths.
 3. Follow [AGENTS.md](../AGENTS.md) for repository validation and contribution rules.
 
 ## Public Architecture
 
 Reusable references live inside the owning skills, which provide model
-interaction entrypoints. Repository tools own setup and validation. Private host
-configuration stays outside this repository and is read only for explicit host
-operations. The repository does not provide an orchestrator integration.
+interaction entrypoints. Repository tools own setup and validation. The shared
+[global template](../templates/AGENTS.md.template) only routes to skills; the
+public package does not discover private host configuration or provide an
+orchestrator integration.
+
+Skill instructions and trigger descriptions live in `SKILL.md` and its referenced
+files. First-party `agents/openai.yaml` files contain only the Codex explicit-only
+policy needed by closeout and retrospect; the other four skills omit the file.
+The validator accepts optional metadata and checks supplied fields and effective
+invocation policy against repository and cross-client contracts. Codex defaults
+to implicit invocation when the policy is absent; see the
+[official skill configuration](https://developers.openai.com/codex/skills).
 
 ## Current Authority
 
 | Need | Source |
 | --- | --- |
 | Repository and installer contract | [README](../README.md) |
-| Cross-project judgment and routing | [Principles](../skills/calibration/references/principles.md), [skill router](../skills/calibration/SKILL.md) |
-| Repository capability and delivery placement | [Harness](../skills/calibration/references/discipline/harness.md) |
-| Completion and external-result evidence | [Verification](../skills/calibration/references/discipline/verification.md) |
-| Agent and workflow comparisons | [Evaluation](../skills/calibration/references/discipline/evaluation.md) |
-| Document layout and lifecycle | [Project docs architecture](../skills/calibration/references/docs/workflow/project_docs_architecture/20260805-v1.1-project-docs-architecture.md) |
+| Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
+| Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
+| In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
+| Repository capabilities, instructions, and continuation/review boundaries | [Harness](../skills/calibration/references/discipline/harness.md) |
+| Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
+| Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
+| Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
+| Document layout and lifecycle | [Project documentation layout](../skills/calibration/references/docs/project-layout.md) |
 | Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |
 | Explicit conversation closeout | [Closeout skill](../skills/closeout/SKILL.md) |
 
@@ -45,12 +60,14 @@ and evidence limits; experimental results remain with their protocols.
 
 ## Recorded Open Work
 
+- [Communication-style preference optimization](implementation-plans/communication-style-preference-optimization.md):
+  five-check judge calibration, reserved human evaluation, then paragraph comparison.
 - [Project docs convergence](implementation-plans/20260805-v1.0-project-docs-architecture-convergence-implementation-plan.md):
   local slices are complete; the recorded downstream owner migration remains
   pending. This index does not verify another repository's current state.
 - [Body compression trial](decisions/2026-09-20-calibration-body-compression-and-routing.md):
-  the three adopted bodies remain current; metadata candidates and real-work
-  performance remain unverified.
+  historical adoption evidence is retained; current guidance follows the skill
+  router. Metadata candidates and real-work performance remain unverified.
 - [Coding-protocol retirement trial](decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md):
   the runtime entry remains retired; retained source supports restoration.
 
@@ -64,6 +81,9 @@ records why Nx is not adopted in this cleanup.
 ## Historical Evidence
 
 Use the [archive index](archive/README.md) for completed plans, corrected or
-superseded comparisons, adoption decisions, and old AO guidance. Historical
-records stay at their existing paths for link compatibility. Raw evidence,
+superseded comparisons, adoption decisions, and old AO guidance. Raw evidence,
 manifests, hashes, provenance, and compatibility cleanup remain preserved.
+
+The historical Codex writable-agent executor and progressive-validation controller
+are [retired](../evaluations/archive/writable-agent-runtime/README.md).
+Their source snapshots and independent evidence checks remain available.

@@ -1,0 +1,90 @@
+{
+  "split": "calibration",
+  "packet_sha256": "ea07c5624f124c84270ad33093a6e01e44db57befc9f0047ada5f162ad6d8fb6",
+  "ratings": [
+    {
+      "id": "D01",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D02",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D03",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D04",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D05",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D06",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D07",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D08",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D09",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D10",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D11",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    },
+    {
+      "id": "D12",
+      "choice": null,
+      "reason": "",
+      "content_issue": null,
+      "evidence": []
+    }
+  ]
+}

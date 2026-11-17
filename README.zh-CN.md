@@ -2,14 +2,14 @@
 
 [English](README.md) | 简体中文
 
-面向 Codex、Grok Build 和 Pi 的可移植工程技能与全局代理指令。
+面向 Codex、Grok Build 和 Pi 的可移植技能与全局代理指令。
 具体工作遵循所在仓库的契约和上游标准；calibration 提供跨项目的判断与安全边界。
-仓库原名为 `FuqingZh/calibration`，`calibration` 技能名及其私有配置命名空间不变。
+仓库原名为 `FuqingZh/calibration`，`calibration` 技能名不变。
 
 ## 快速开始
 
 通过工具管理器安装 [skills CLI](https://github.com/vercel-labs/skills)，
-例如在 mise 中声明 `"npm:skills" = "latest"`。然后安装四个第一方技能：
+例如在 mise 中声明 `"npm:skills" = "latest"`。然后安装六个第一方技能：
 
 ```bash
 skills add FuqingZh/skills -g -a codex pi grok -y
@@ -37,6 +37,8 @@ Codex 和 Pi 直接发现 `~/.agents/skills`，Grok 使用发现链接。
 | --- | --- | --- |
 | [calibration](skills/calibration/SKILL.md) | 工程判断与参考资料路由 | 相关时使用 |
 | [writing-code-docs](skills/writing-code-docs/SKILL.md) | 公共 API 与维护者文档 | 相关时使用 |
+| [plainspoken](skills/plainspoken/SKILL.md) | 平实直述，保留有用的解释与细节 | 实质性自然语言回答 |
+| [dissect](skills/dissect/SKILL.md) | 基于证据解释机制、推演行动与后果 | 深入分析 |
 | [closeout](skills/closeout/SKILL.md) | 对话回顾与未完成事项梳理 | 仅显式调用 |
 | [retrospect](skills/retrospect/SKILL.md) | 从证据提炼可复用经验 | 仅显式调用 |
 
@@ -93,11 +95,13 @@ Dry-run 不写入。文件不存在时创建新区块；Pi 和 Grok 的无标记
 混用命名空间或首尾标记不匹配时，即使 force 也会在写入前失败；
 dry-run 会指出计划中的标记迁移。
 
-模板会把私有主机规则指针渲染为绝对路径：
-`$XDG_CONFIG_HOME/calibration/AGENTS.md` 或
-`$HOME/.config/calibration/AGENTS.md`，但不会创建该私有文件。
-Pi 和 Grok 的指令中，`$calibration` 调用写法会渲染为 `calibration`。
-客户端能发现资源，不代表模型一定遵循其中的指令。
+共享[模板](templates/AGENTS.md.template)只保留三句技能路由：实质性自然语言回答使用
+`plainspoken`，深入分析使用 `dissect`，符合 calibration 适用范围的任务使用
+`calibration`。刷新全局区块前，先为所选客户端安装这些技能。详细要求由技能维护；
+`install.sh` 不安装技能，也不检查技能是否存在。技能描述用于原生的模型选择，
+同一任务可以适用多个技能。客户端发现资源不代表模型一定遵循其中的指令。
+
+安装器为各客户端复制相同模板，不发现、读取或渲染私有主机配置，已有私有文件保持不动。
 
 ## 旧安装迁移
 
@@ -128,11 +132,14 @@ pdm run validate-skills
 安装器测试使用隔离配置目录。按变更影响选择验证范围；
 [AGENTS.md](AGENTS.md) 规定贡献与验证要求。
 
+历史 Codex 可写代码评估器及批量控制器已经
+[退役](evaluations/archive/writable-agent-runtime/README.md)。原始源码和实验材料仍予保留，
+这些执行入口不再属于当前维护的工具。
+
 ## 文档与支持
 
 - [文档索引](docs/README.md)：现行决策、评估结果、迁移历史和实施计划。
-- [工程原则](skills/calibration/references/principles.md)与
-  [技能路由](skills/calibration/SKILL.md)：按任务选择参考资料。
+- [Calibration 路由](skills/calibration/SKILL.md)：工程判断与按任务选择的参考资料。
 - [skills CLI 分发决策](docs/decisions/2026-11-08-skills-cli-distribution.md)：
   当前所有权、全局指令安装与标记迁移。
 - [早期多客户端安装](docs/decisions/2026-09-24-multi-client-skill-installation.md)：

@@ -4,34 +4,38 @@ Use this when changing structure while intending to preserve behavior: refactor,
 migration, extraction, file split, wrapper removal, import cleanup, compatibility
 cleanup, or staged convergence work.
 
-## Gates
+## Judgment Checks
 
-- State the preserved public behavior before editing when the boundary is not
-  obvious.
-- Keep compatibility first: public API, CLI, schema, file layout, and generated
-  output changes must be intentional and documented.
-- Prefer semantic movement over mechanical wrappers. A new layer must add a
-  real boundary, policy, lifecycle, reuse point, or readability gain.
-- After moving code, clean the transition debt in the same batch when practical:
-  broad imports, unused exports, duplicate helpers, compatibility aliases,
-  suppression comments, temporary names, and dead routes.
-- Apply the [diagnostic suppression baseline](harness.md#diagnostic-suppression-baseline)
-  when resolving checker findings during the move.
-- Search for old paths, names, call sites, docs, tests, fixtures, and generated
-  references before claiming convergence.
-- Keep tests aligned with the intended preserved behavior. Add or update tests
-  when the refactor changes public behavior, compatibility, or cross-module
-  contracts.
+- Identify the public behavior and compatibility contracts to preserve. Changes
+  to public APIs, CLIs, schemas, file layouts, and generated outputs must be
+  intentional and documented separately from structural changes. For outputs
+  consumed downstream, include names, locations, formats, and delivery behavior
+  in consumer compatibility checks.
+- Introduce a layer only for a concrete boundary, policy, lifecycle, reuse point,
+  or readability benefit. Review main-path readability and justify any necessary
+  increase in complexity.
+- When practical, clean transition debt created or exposed by this move in the
+  same batch: unnecessary broad imports, unused exports, duplicate helpers,
+  obsolete compatibility aliases, suppression comments, temporary names, and
+  dead routes. Keep the cleanup within the affected scope.
+- Apply the [diagnostic exception rules](verification.md#diagnostic-exceptions)
+  when deciding whether to introduce, retain, or remove a diagnostic suppression
+  or exclusion.
+- Check relevant old paths, names, call sites, docs, tests, fixtures, and generated
+  references before claiming convergence. Update stale active references,
+  distinguish intentional compatibility entrypoints, and preserve historical
+  records and frozen evidence.
+- Verify preserved behavior with checks that would detect regressions. Add tests
+  where existing coverage is insufficient; verify intentional behavior and
+  contract changes separately.
 
 ## Completion Criteria
 
 A refactor is complete only when:
 
-- the main path is at least as readable as before
 - old and new boundaries are not both active without a documented reason
 - temporary compatibility code is either removed or tracked with an explicit
   retirement condition
-- imports, exports, and suppressions reflect real current usage
 - preserved behavior is supported by checks that would detect a regression
 
 Apply [verification discipline](verification.md) for acceptance evidence,

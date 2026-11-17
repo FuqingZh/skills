@@ -1,0 +1,449 @@
+{
+  "case": "c2",
+  "rep": 2,
+  "mapping": {
+    "R1": "c2-minimal-2",
+    "R2": "c2-drop3-2",
+    "R3": "c2-drop2-2",
+    "R4": "c2-drop7-2",
+    "R5": "c2-drop4-2",
+    "R6": "c2-drop67-2",
+    "R7": "c2-full-2",
+    "R8": "c2-drop6-2",
+    "R9": "c2-drop1-2",
+    "R10": "c2-drop5-2"
+  },
+  "answer": "{\"ratings\":[{\"id\":\"R1\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R2\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R3\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R4\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R5\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R6\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R7\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R8\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R9\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}},{\"id\":\"R10\",\"content\":[{\"index\":0,\"met\":true,\"reason\":\"直接指出问题出在安排上。\"},{\"index\":1,\"met\":true,\"reason\":\"保留安排问题这一核心意思，未新增对能力的判断。\"}],\"critical\":[],\"style\":[],\"clarity\":\"clear\",\"clarity_reason\":\"一句话即可明确理解修改建议。\",\"quality\":{\"plain_depth\":{\"score\":4,\"quote\":\"\",\"reason\":\"用语直接，详略符合重复建议的要求。\"},\"focus_coherence\":{\"score\":4,\"quote\":\"\",\"reason\":\"只给出所请求的修改建议。\"},\"no_self_defense\":{\"score\":4,\"quote\":\"\",\"reason\":\"没有为先前的建议辩护。\"},\"requested_meta\":{\"score\":4,\"quote\":\"\",\"reason\":\"按用户提醒重新给出建议，没有附加解释。\"}}}]}",
+  "characters": 4854,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1323,
+    "output": 1869,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 78,
+    "totalTokens": 3192,
+    "cost": {
+      "input": 0.002646,
+      "output": 0.018690000000000002,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.021336,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 37.721,
+  "ratings": [
+    {
+      "id": "R1",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R5",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R6",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R7",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R8",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R9",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "content": [
+        {
+          "index": 0,
+          "met": true,
+          "reason": "直接指出问题出在安排上。"
+        },
+        {
+          "index": 1,
+          "met": true,
+          "reason": "保留安排问题这一核心意思，未新增对能力的判断。"
+        }
+      ],
+      "critical": [],
+      "style": [],
+      "clarity": "clear",
+      "clarity_reason": "一句话即可明确理解修改建议。",
+      "quality": {
+        "plain_depth": {
+          "score": 4,
+          "quote": "",
+          "reason": "用语直接，详略符合重复建议的要求。"
+        },
+        "focus_coherence": {
+          "score": 4,
+          "quote": "",
+          "reason": "只给出所请求的修改建议。"
+        },
+        "no_self_defense": {
+          "score": 4,
+          "quote": "",
+          "reason": "没有为先前的建议辩护。"
+        },
+        "requested_meta": {
+          "score": 4,
+          "quote": "",
+          "reason": "按用户提醒重新给出建议，没有附加解释。"
+        }
+      }
+    }
+  ]
+}

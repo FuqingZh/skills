@@ -1,0 +1,38 @@
+{
+  "id": "D05",
+  "order": "original",
+  "payload": {
+    "context": "用户问：从社会学视角，家庭资源和个人努力怎样共同影响升学？请简要解释。",
+    "answers": {
+      "A": {
+        "A1": "家庭资源影响学习条件、信息和求助渠道，也影响努力能否得到有效反馈。个人行动仍会改变结果，其成本和回报会因这些条件而不同。",
+        "A2": "这不是在为失败寻找借口，也不表示我否认个人努力的价值。"
+      },
+      "B": {
+        "B1": "家庭资源影响学习条件、信息和求助渠道，也影响努力能否得到有效反馈。个人行动仍会改变结果，其成本和回报会因这些条件而不同。"
+      }
+    }
+  },
+  "answer": "{\n  \"checks\": {\n    \"A\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"说明了家庭资源如何影响努力的条件与回报，也保留了个人行动的作用。\", \"evidence\": [\"A1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"用学习条件、信息、求助渠道和反馈说明影响路径；没有把推断说成确定的个人结果。\", \"evidence\": [\"A1\"]},\n      \"progression\": {\"status\": \"issue\", \"reason\": \"A2未增加对升学机制的解释；个人努力仍有作用已由A1说明。\", \"evidence\": [\"A1\", \"A2\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"对象和关系表达直接；A2的问题在于补充内容无增量，而非措辞难懂。\", \"evidence\": [\"A1\", \"A2\"]},\n      \"self_defense\": {\"status\": \"issue\", \"reason\": \"主动排除用户未提出的“为失败找借口”和“否认努力”两种不利解读。\", \"evidence\": [\"A2\"]}\n    },\n    \"B\": {\n      \"response\": {\"status\": \"clear\", \"reason\": \"说明了家庭资源与个人行动如何共同影响升学结果。\", \"evidence\": [\"B1\"]},\n      \"grounding\": {\"status\": \"clear\", \"reason\": \"指出学习条件、信息、求助渠道和反馈这些影响路径。\", \"evidence\": [\"B1\"]},\n      \"progression\": {\"status\": \"clear\", \"reason\": \"先说明资源影响哪些条件，再说明这些条件如何改变努力的成本和回报。\", \"evidence\": [\"B1\"]},\n      \"naturalness\": {\"status\": \"clear\", \"reason\": \"直接说明对象、作用和关系，没有多余的引入或表态。\", \"evidence\": [\"B1\"]},\n      \"self_defense\": {\"status\": \"clear\", \"reason\": \"没有预先排除对回答者立场的不利解读。\", \"evidence\": []}\n    }\n  },\n  \"deletion_audit\": {\n    \"A\": [\n      {\n        \"evidence\": [\"A2\"],\n        \"target\": \"澄清回答不是在为失败找借口，也没有否认个人努力。\",\n        \"already_known\": \"A1已说明个人行动仍会改变结果，同时其成本和回报受家庭条件影响。\",\n        \"increment\": \"没有增加理解两者如何共同影响升学所需的信息。\",\n        \"lost_if_deleted\": \"仅失去对两种未被提出的解读的预先排除。\",\n        \"verdict\": \"remove\"\n      }\n    ],\n    \"B\": []\n  },\n  \"issues\": {\n    \"A\": [\n      {\"dimension\": \"progression\", \"reason\": \"A2重复维护个人努力的作用，没有推进对影响机制的解释。\", \"evidence\": [\"A1\", \"A2\"]},\n      {\"dimension\": \"self_defense\", \"reason\": \"A2预先排除用户未提出的不利解读。\", \"evidence\": [\"A2\"]}\n    ],\n    \"B\": []\n  },\n  \"shared_issues\": [],\n  \"strengths\": {\n    \"A\": [{\"reason\": \"具体说明家庭资源影响努力发挥作用的条件，同时承认个人行动能改变结果。\", \"evidence\": [\"A1\"]}],\n    \"B\": [{\"reason\": \"用具体影响路径解释资源与努力的关系，且紧扣简要解释的请求。\", \"evidence\": [\"B1\"]}]\n  },\n  \"content_issues\": {\"A\": [], \"B\": []},\n  \"self_defense\": {\n    \"A\": {\n      \"status\": \"present\",\n      \"target\": \"排除“为失败找借口”和“否认个人努力”的解读。\",\n      \"increment\": \"没有增加必要的原因、条件或后果。\",\n      \"deletion\": \"删去后，A1仍完整说明家庭资源与个人行动的关系。\",\n      \"evidence\": [\"A2\"]\n    },\n    \"B\": {\n      \"status\": \"absent\",\n      \"target\": \"\",\n      \"increment\": \"\",\n      \"deletion\": \"\",\n      \"evidence\": []\n    }\n  },\n  \"choice\": \"B\",\n  \"reason\": \"两者的核心解释相同；B到此为止，A另加一句预防性表态，却没有帮助理解家庭资源与个人努力如何共同影响升学。\"\n}",
+  "characters": 2348,
+  "model": "gpt-6-sol",
+  "provider": "openai",
+  "usage": {
+    "input": 1530,
+    "output": 1519,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 516,
+    "totalTokens": 3049,
+    "cost": {
+      "input": 0.00306,
+      "output": 0.01519,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.01825,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 30.81,
+  "error": "Invalid judgment: Empty judgment text"
+}

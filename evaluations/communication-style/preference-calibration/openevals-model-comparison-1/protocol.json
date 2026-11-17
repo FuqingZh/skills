@@ -1,0 +1,55 @@
+{
+  "status": "authorized_exploratory_judge_configuration_comparison",
+  "authorization": {
+    "user_message": "ok，继续",
+    "scope": "One other judge under fixed contribution-v1 criteria and paragraph-ID citation; four existing answers and at most eight new calls."
+  },
+  "stages": ["targets", "preservation"],
+  "max_calls": 8,
+  "workers": 1,
+  "attempts_per_arm_per_answer": 1,
+  "automatic_retries": 0,
+  "models": {
+    "baseline": {"provider": "openai", "model": "gpt-6-sol", "thinking": "high"},
+    "revised": {"provider": "openrouter", "model": "anthropic/claude-sonnet-4.6", "thinking": "high"}
+  },
+  "arm_meaning": "baseline=current judge, revised=challenger judge; storage keys, not prompt variants",
+  "selection": "Pinned Pi 1.5.0 isolated offline --list-models lists the challenger as available and thinking-capable. Choose a named version from another model family, not a latest alias or a model selected after results. Listing is not proof a live request will succeed.",
+  "fixed": "Contribution-v1 revised semantic template and paragraph-id-v1 contract; identical system/user messages per answer, source material, schema, component, execution guards and diagnostic transport",
+  "pi": "1.5.0",
+  "order": "D02-A current first; D05-A challenger first; P02-A current first; D06-B challenger first",
+  "review_targets": {
+    "D02-A": ["Repeated ending", "Contextual necessity of unasked correction"],
+    "D05-A": ["Defensive ending", "Marginal value of shared personal-action sentence"],
+    "P02-A": ["Preserve net-evaporation mechanism and causal connection"],
+    "D06-B": ["Shared framing and metaphor", "Contextual value of ending", "Preserve articulation of both parties' concerns"]
+  },
+  "gates": "Review targets before preservation. Stop on transport/schema/ID failure without retry or rescue. Stop expansion on a demonstrated materially false diagnosis; optional suggestions, unresolved necessity and human/model disagreement are not automatically material failures. No prompt or model switching after output.",
+  "limits": [
+    "Provider changes with model; compare configurations, not isolated model weights.",
+    "High is requested in both; provider behavior or clamping and compute are not proven equal.",
+    "Four selected individual answers, not four complete A/B question pairs.",
+    "Author-visible development labels; no independent holdout, automatic winner, accuracy or runtime adoption.",
+    "One result per answer per configuration; no stability or general superiority claim.",
+    "Human labels and reviews are audit-only and never enter requests.",
+    "Costs are estimates when populated; missing or unpriced cost remains unknown, not zero. Provider HTTP request counts are unmeasured."
+  ],
+  "frozen_files": [
+    "../openevals_model_compare.py",
+    "../openevals_id_evidence.py",
+    "../openevals_compare.py",
+    "../../../../tests/test_openevals_model_compare.py",
+    "protocol.json", "jobs.json", "guidance.txt", "revised-helpfulness.txt", "id-instructions.txt",
+    "../openevals-pilot-2/manifest.json",
+    "../openevals-pilot-2/transport-repair.json",
+    "../openevals-pilot-2/diagnostic_transport.py",
+    "../openevals-contribution-v1/jobs.json",
+    "../openevals-contribution-v1-id-evidence/manifest.json",
+    "../openevals-contribution-v1-id-evidence/guidance.txt",
+    "../openevals-contribution-v1-id-evidence/revised-helpfulness.txt",
+    "../openevals-contribution-v1-id-evidence/id-instructions.txt",
+    "../labels.round-1.json",
+    "../feedback.round-1.json",
+    "../deletion-pilot-1-feedback.json"
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "freeze_commit": "26f2df6",
+  "status": "completed_budget",
+  "attempted": 12,
+  "valid_generations": 12,
+  "failed_attempts": [],
+  "automated_judge_calls": 0,
+  "complete_question_comparisons": [
+    "D02",
+    "D05",
+    "D06",
+    "P02",
+    "P03",
+    "D03"
+  ],
+  "totals": {
+    "calls": 12,
+    "total_tokens": 5976,
+    "estimated_cost_usd": 0.034184,
+    "seconds": 103.119,
+    "characters": 2374
+  },
+  "by_arm": {
+    "baseline": {
+      "calls": 6,
+      "total_tokens": 2450,
+      "estimated_cost_usd": 0.01566,
+      "seconds": 48.853,
+      "characters": 1176
+    },
+    "revised": {
+      "calls": 6,
+      "total_tokens": 3526,
+      "estimated_cost_usd": 0.018524,
+      "seconds": 54.266,
+      "characters": 1198
+    }
+  },
+  "by_question": {
+    "D02": {
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 516,
+        "estimated_cost_usd": 0.003776,
+        "seconds": 9.605,
+        "characters": 403
+      },
+      "revised": {
+        "calls": 1,
+        "total_tokens": 713,
+        "estimated_cost_usd": 0.004426,
+        "seconds": 10.424,
+        "characters": 388
+      }
+    },
+    "D05": {
+      "revised": {
+        "calls": 1,
+        "total_tokens": 476,
+        "estimated_cost_usd": 0.002,
+        "seconds": 6.073,
+        "characters": 134
+      },
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 303,
+        "estimated_cost_usd": 0.001582,
+        "seconds": 5.226,
+        "characters": 111
+      }
+    },
+    "D06": {
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 485,
+        "estimated_cost_usd": 0.00325,
+        "seconds": 8.164,
+        "characters": 294
+      },
+      "revised": {
+        "calls": 1,
+        "total_tokens": 643,
+        "estimated_cost_usd": 0.003518,
+        "seconds": 7.962,
+        "characters": 243
+      }
+    },
+    "P02": {
+      "revised": {
+        "calls": 1,
+        "total_tokens": 604,
+        "estimated_cost_usd": 0.003176,
+        "seconds": 10.437,
+        "characters": 194
+      },
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 458,
+        "estimated_cost_usd": 0.003028,
+        "seconds": 9.611,
+        "characters": 150
+      }
+    },
+    "P03": {
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 253,
+        "estimated_cost_usd": 0.001122,
+        "seconds": 7.799,
+        "characters": 54
+      },
+      "revised": {
+        "calls": 1,
+        "total_tokens": 414,
+        "estimated_cost_usd": 0.001412,
+        "seconds": 8.334,
+        "characters": 47
+      }
+    },
+    "D03": {
+      "revised": {
+        "calls": 1,
+        "total_tokens": 676,
+        "estimated_cost_usd": 0.003992,
+        "seconds": 11.036,
+        "characters": 192
+      },
+      "baseline": {
+        "calls": 1,
+        "total_tokens": 435,
+        "estimated_cost_usd": 0.002902,
+        "seconds": 8.448,
+        "characters": 164
+      }
+    }
+  },
+  "costs_are_estimates": true,
+  "provider_http_requests": null,
+  "selected_prompt": null,
+  "runtime_adoption": false,
+  "new_human_labels": 0,
+  "author_review": "Unblinded implementing-assistant review; mixed observations, condition retention improved in P03 but P02's reverse molecular flow is omitted in the revised answer. Other target defects remain. No stable improvement established.",
+  "limitations": [
+    "Six author-visible development questions, one sample per arm; no independent holdout or repeatability estimate.",
+    "Original human preferences are not labels for these new answers.",
+    "Character counts are descriptive, not a quality score. Guidance is a bundle; individual clause effects unisolated.",
+    "No automatic evaluator or runtime replacement."
+  ]
+}

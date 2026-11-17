@@ -1,0 +1,150 @@
+# Project Documentation Layout
+
+Use for project documentation layout, navigation, naming, and lifecycle.
+Follow repository-owned documentation contracts; this shared layout fills gaps.
+Follow its existing layout rather than requiring a universal directory name.
+Preserve established paths until a reviewed migration updates the authority map,
+links, and validation.
+
+## Layout
+
+Use the smallest structure that fits the project. Do not create empty
+directories merely to match this fallback layout:
+
+```text
+docs/
+  README.md
+  architecture/
+  design/
+  guides/
+  reference/
+  contributing/
+  runbooks/
+  assets/
+  archive/
+```
+
+Use the [document-type router](document-types/README.md) to select a type
+when needed. Each type owns its minimum content and fallback location; this
+layout does not prescribe a second authoring template or acceptance checklist.
+
+Organize directories by audience and topic; a document type need not own a
+separate directory. Existing files such as `ARCHITECTURE.md` or `CONTRIBUTING.md`
+can remain the entrypoints. Introduce subdirectories only when navigation,
+ownership, or maintenance needs justify them.
+
+- `architecture/` explains the current system and links the decisions behind it.
+  Keep current descriptions distinct from historical decision records.
+- `design/` groups proposals and durable implementation plans by change topic.
+  Use one document with distinct sections when sufficient; split related files
+  within that topic when they need independent review or maintenance. A plan
+  can stand alone without inventing a proposal. Routine task tracking can remain
+  in the project's issue tracker.
+- `guides/` holds learning paths and task instructions. Keep tutorials and how-to
+  pages distinguishable by purpose even when they share a directory.
+- `reference/` holds lookup material such as configuration, interfaces, formats,
+  and verified compatibility behavior. Link generated or code-owned references
+  rather than maintaining duplicate descriptions.
+- `contributing/` serves repository contributors: setup, debugging, testing, and
+  performance measurement. Reusable validation guidance belongs here; checks
+  specific to one proposed change can stay with that change and link shared
+  standards. Keep executable tests and benchmark artifacts with their owners.
+- `runbooks/` is optional for controlled operational procedures. Keep a direct,
+  stable navigation entry when operators need it; preserve an established
+  `operations/` or `operating/` location when the project uses one.
+
+Co-location does not merge document contracts: retain the relevant type's
+content requirements and evidence boundaries. Do not require a proposal, plan,
+and decision record for every change. Existing local names such as `learning/`,
+`cookbook/`, or `field-manual/` can remain in use.
+
+`assets/` holds reviewed supporting images, diagrams, and editable sources.
+`archive/` is a lifecycle location, not a document type. Create either only when
+there is material to maintain.
+
+## Navigation And Repository Instructions
+
+When adopting this layout, use `docs/README.md` as the navigation entrypoint.
+It should identify:
+
+- what to read first;
+- current architecture and contract authority;
+- active implementation plans;
+- testing and validation standards; and
+- historical or superseded documents.
+
+Keep it a map rather than a second copy of those documents. Repository facts,
+commands, versions, and executable validation remain repository-owned. External
+methods linked by the document types inform writing; they do not change local
+policy until reviewed and adopted. Keep enough local guidance to remain usable
+when an external link is unavailable.
+
+When defining repository instructions, use the
+[AGENTS.md contract](../discipline/harness.md#agentsmd-contract).
+Keep operational instructions with their harness owner rather than copying them
+into architecture prose.
+
+## Working Material
+
+Investigation notes belong to the task that owns the observations, hypotheses,
+trials, and next checks. Follow its repository task-record location or the user's
+specified destination; otherwise use `.calibration/notes/`. Investigation notes
+do not become retrospectives because another skill later reads them.
+
+Retrospect owns records of expectation versus outcome and confirmed lessons.
+Its persistence contract governs those records; ordinary investigation or
+project-document writing does not invoke a retrospective.
+
+Reference reconstructable git history, sessions, test outputs, and product logs
+at their original sources instead of copying them. Retain additional evidence
+only when needed and not reconstructable from those sources. Follow repository
+evidence conventions; otherwise use `.calibration/evidence/`, excluded from Git
+unless repository policy explicitly permits a narrow evidence file. Follow
+repository policy for committing notes; absent a policy, keep them local pending
+publication review. Hidden paths do not provide privacy or publication rights;
+apply appropriate access controls to sensitive material.
+
+Preserve existing records, including `.traces/` material, without bulk migration.
+Create only the files and directories needed for requested persistence.
+
+Formal project documents remain project-owned regardless of which skill helped
+write them. Interactive teaching and personal learning records do not become
+team documentation without an explicit request to preserve a team-owned result.
+One-off observations need not be persisted automatically.
+
+## File Naming
+
+For new dated documents without a repository naming convention, use lowercase
+kebab-case:
+
+```text
+YYYYMMDD-vMAJOR.MINOR-topic-kind.md
+```
+
+Recommended kinds include `architecture`, `contract`, `test-plan`, `benchmark`,
+`implementation-plan`, `migration-plan`, `decision-record`, and `closeout`.
+Avoid spaces, colons, mixed case, and temporary names. Keep `README.md` as the
+undated navigation exception. Existing documents do not need a bulk rename;
+migrate old names only during a separately reviewed natural edit.
+
+## Lifecycle And Promotion
+
+Current documents are the default authority. A proposal's acceptance records
+agreement on a direction, not evidence that it is implemented. Mark its state
+explicitly, such as proposed, accepted, implemented, rejected, or superseded.
+Update current architecture and reference material when implementation evidence
+supports the change. Retain the original rationale and link related decisions
+when a separate decision record is warranted.
+
+When replacing a document, mark the old one as superseded and link its
+replacement. Retain historical material when it adds traceability, using the
+repository's archive convention. It keeps its original document type and is not
+current authority. Historical records may remain in place with explicit status;
+do not move every completed plan or superseded decision into an archive
+automatically.
+
+Promote working observations into the owning project document only when they
+support a stable rule, contract, test standard, decision, reusable procedure, or
+verified compatibility fact. Preserve the supporting record and make the
+promoted document the source of truth. A directory or filename alone does not
+establish acceptance or evidence quality.

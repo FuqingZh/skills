@@ -1,0 +1,28 @@
+{
+  "case": "o2",
+  "arm": "full",
+  "rep": 1,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "1. 就业机会与照护责任如何限制脱贫\n2. 家庭与学校资源如何影响教育机会\n3. 观察研究如何区分相关性与因果关系",
+  "characters": 57,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 215,
+    "output": 44,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 259,
+    "cost": {
+      "input": 0.00215,
+      "output": 0.0022,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.00435,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 5.467
+}

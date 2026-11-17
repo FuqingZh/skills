@@ -1,26 +1,16 @@
 # Design Proposal
 
-## Use When
+Present a proposed change and the reasoning needed to accept, reject, or
+revise its direction.
 
-Use this type for a not-yet-approved change direction when alternatives must be
-compared before implementation becomes the contract.
-
-## Method Reference
-
-Use the repository's architecture and design references for the relevant
-boundary. Keep the proposal separate from an implementation plan until the
-direction is accepted.
-
-## Local Requirements
-
-- Prefer project `docs/architecture/` for broad architecture proposals, or the
-  repository-local proposal location when one already exists.
-- State the problem, goal, non-goals, and constraints.
-- Compare viable alternatives and recommend one with reasons.
-- Identify open questions and decision points.
+- Follow the repository's proposal location. If none is defined, use
+  `docs/design/`.
+- Ground the proposal in the current architecture and contracts of the
+  affected boundary.
+- State the problem, goals, non-goals, and constraints.
+- Compare viable alternatives and recommend a direction with reasons.
+- Distinguish proposed directions from accepted decisions; identify open
+  questions and decision points.
 - Describe expected impact on modules, contracts, tests, and documentation.
-
-## Complete When
-
-The reader can accept, reject, or revise the direction without recovering
-hidden context from the conversation that produced it.
+- Include enough context for readers to assess the proposal without
+  reconstructing the conversation that produced it.

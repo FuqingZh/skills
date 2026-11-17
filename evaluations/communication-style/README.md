@@ -12,6 +12,19 @@ A later [complete talk-normal comparison](talk-normal/README.md) uses all 12
 cases, including the formerly unobserved holdout cases, under a separately frozen
 protocol. It does not alter this study's no-selection decision or scores.
 
+A subsequent [cross-domain comparison](cross-domain/README.md) tests a new
+paragraph on philosophy, science, sociology, and everyday conversation, with
+pre-generation judge controls and a clarified rubric. Its results remain separate
+from both earlier comparisons.
+
+The [sentence-deletion study](sentence-ablation/README.md) then measures each
+sentence's conditional contribution, the complete paragraph versus a minimal
+anchor, and the last two sentences' dependency under a separately frozen rubric.
+
+A [human preference calibration pilot](preference-calibration/README.md) now
+prepares source-separated anonymous local comparisons for user annotation.
+Its first-round human feedback is recorded; judge validation remains pending.
+
 ## Question
 
 Can a short instruction reduce self-defense, redundant explanation, invented

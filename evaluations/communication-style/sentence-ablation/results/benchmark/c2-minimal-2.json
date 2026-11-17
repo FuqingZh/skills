@@ -1,0 +1,28 @@
+{
+  "case": "c2",
+  "arm": "minimal",
+  "rep": 2,
+  "split": "benchmark",
+  "length": "short",
+  "answer": "这次的问题出在安排上。",
+  "characters": 11,
+  "model": "gpt-6-astra",
+  "provider": "openai",
+  "usage": {
+    "input": 125,
+    "output": 12,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 137,
+    "cost": {
+      "input": 0.00125,
+      "output": 0.0006000000000000001,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0.00185,
+      "totalFromProvider": false
+    }
+  },
+  "seconds": 6.774
+}

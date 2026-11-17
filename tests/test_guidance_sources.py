@@ -1,15 +1,12 @@
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from tests.support import REPOSITORY_ROOT
 
 REFERENCES = REPOSITORY_ROOT / "skills/calibration/references"
-BRANCH_GUIDE = "docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md"
-GITHUB_BRANCHES = (
-    "https://docs.github.com/en/repositories/"
-    "configuring-branches-and-merges-in-your-repository/"
-)
 
 
 @pytest.mark.parametrize(
@@ -26,19 +23,37 @@ GITHUB_BRANCHES = (
         (
             "naming/version.md",
             (
-                "https://semver.org/spec/v2.0.0.html",
+                "https://semver.org/",
                 "https://packaging.python.org/en/latest/discussions/versioning/",
                 "https://packaging.python.org/en/latest/discussions/single-source-version/",
             ),
         ),
         (
-            BRANCH_GUIDE,
+            "naming/cli.md",
             (
-                "https://docs.github.com/en/get-started/using-github/github-flow",
-                GITHUB_BRANCHES
-                + "managing-protected-branches/about-protected-branches",
-                GITHUB_BRANCHES
-                + "configuring-pull-request-merges/managing-a-merge-queue",
+                "https://www.gnu.org/prep/standards/html_node/"
+                "Command_002dLine-Interfaces.html",
+                "https://www.gnu.org/prep/standards/html_node/Option-Table.html",
+                "https://clig.dev/",
+            ),
+        ),
+        (
+            "naming/schema.md",
+            (
+                "https://google.aip.dev/140",
+                "https://protobuf.dev/programming-guides/json/"
+                "#field-names-as-json-keys",
+                "https://google.github.io/styleguide/jsoncguide.html"
+                "#property-name-format",
+                "https://www.sqlstyle.guide/#naming-conventions",
+                "https://datapackage.org/standard/table-schema/",
+            ),
+        ),
+        (
+            "linters/ruff.md",
+            (
+                "https://docs.astral.sh/ruff/linter/#rule-selection",
+                "https://docs.astral.sh/ruff/rules/",
             ),
         ),
     ],
@@ -51,11 +66,120 @@ def test_adopted_upstream_sources_remain_linked(
         assert f"]({source})" in text
 
 
-def test_legacy_naming_paths_reach_current_sources() -> None:
-    for name in ("function", "method", "type", "variable", "loop"):
-        text = (REFERENCES / f"naming/{name}.md").read_text(encoding="utf-8")
-        assert "](README.md)" in text
-    branch = (REFERENCES / "naming/branch.md").read_text(encoding="utf-8")
-    assert f"](../{BRANCH_GUIDE})" in branch
-    index = (REFERENCES / "docs_index.md").read_text(encoding="utf-8")
-    assert f"`{BRANCH_GUIDE}`" in index
+def test_current_naming_routes_reach_their_owning_sources() -> None:
+    naming = REFERENCES / "naming"
+    index = (naming / "README.md").read_text(encoding="utf-8")
+    for target in (
+        "cli.md",
+        "version.md",
+        "schema.md",
+    ):
+        assert f"]({target})" in index
+        assert (naming / target).is_file()
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "`references/naming/README.md`" in skill
+
+
+def test_indexes_keep_direct_routes_and_repository_naming_fallback() -> None:
+    discipline = (REFERENCES / "discipline/README.md").read_text(encoding="utf-8")
+    assert "## Related References" not in discipline
+    assert "../design/" not in discipline
+    assert "../docs/" not in discipline
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "`references/design/codebase.md`" in skill
+    assert "`references/docs/document-types/README.md`" in skill
+    naming = " ".join(
+        (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
+    )
+    assert (
+        "If no applicable source is available, follow the nearest "
+        "existing repository convention" in naming
+    )
+    assert "state the gap" not in naming
+
+
+def test_retired_naming_paths_are_not_shipped() -> None:
+    for name in ("function", "method", "type", "variable", "loop", "branch"):
+        assert not (REFERENCES / f"naming/{name}.md").exists()
+    assert not (REFERENCES / "naming/artifact.md").exists()
+
+
+def test_retired_docs_index_is_not_shipped_or_routed() -> None:
+    assert not (REFERENCES / "docs_index.md").exists()
+    for path in REFERENCES.parent.rglob("*.md"):
+        assert "docs_index.md" not in path.read_text(encoding="utf-8"), path
+    skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "`references/docs/document-types/README.md`" in skill
+
+
+def test_retired_collaboration_guide_is_not_shipped_or_routed() -> None:
+    retired = "docs/workflow/branch_and_pr_collaboration/20260602-v1.0.md"
+    assert not (REFERENCES / retired).exists()
+    for path in REFERENCES.parent.rglob("*.md"):
+        content = path.read_text(encoding="utf-8")
+        assert "branch_and_pr_collaboration/" not in content, path
+
+
+def test_cli_naming_scopes_sources_and_inherits_authority() -> None:
+    path = REFERENCES / "naming/cli.md"
+    cli = " ".join(path.read_text(encoding="utf-8").split())
+    assert "](README.md#authority)" in cli
+    assert "For GNU-style interfaces" in cli
+    assert "for argument syntax and standard option names" in cli
+    assert (
+        "Consult [CLI Guidelines](https://clig.dev/) when the decision involves "
+        "usability or interaction" in cli
+    )
+    assert (
+        "For new long options without an established convention, default to "
+        "lowercase kebab-case" in cli
+    )
+    for retired in ("native spelling", "Local additions", "Use operands", "--output"):
+        assert retired not in cli
+    authority = " ".join(
+        (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
+    )
+    assert "Preserve published compatibility" in authority
+    assert "Follow repository conventions and the API being extended" in authority
+
+
+def test_schema_naming_routes_by_surface_without_a_global_case_rule() -> None:
+    body = " ".join(
+        (REFERENCES / "naming/schema.md").read_text(encoding="utf-8").split()
+    )
+    for rule in (
+        "](README.md#authority)",
+        "target protocol and consumer schema, including native serialization mappings",
+        "Consult only the source relevant to the current surface",
+        "- Protobuf:",
+        "New JSON interfaces without an adopted naming style",
+        "as the naming default",
+        "- SQL: follow the database or ORM rules",
+        "The database governs identifier limits, quoting, and reserved words",
+        "- Tabular exports:",
+        "field names, human-readable titles, and column correspondence",
+        "Preserve source or consumer names",
+        "do not require adopting new formats or frameworks",
+        "identity, uniqueness, stability, and cross-system mapping requirements",
+        "reversibility and encoding are choices of the owning contract",
+        "Assess published field changes for compatibility",
+        "at the owning serialization or integration boundary",
+        "](../discipline/verification.md)",
+    ):
+        assert rule in body
+    assert "at explicit adapters" not in body
+    assert "default to lowercase snake_case" not in body
+
+
+def test_schema_cases_cover_defaults_native_mappings_and_existing_contracts() -> None:
+    path = REFERENCES.parent / "test-prompts.json"
+    cases = {case["id"]: case for case in json.loads(path.read_text(encoding="utf-8"))}
+    for case_id, requirements in {
+        41: ("AIP-140", "displayName", "native serializer", "new adapter"),
+        42: ("Google JSON", "lowerCamelCase", "framework"),
+        43: ("Keep the adopted", "not rename", "consumer schema"),
+        44: ("actual database", "global 30-byte", "word separation"),
+        45: ("Table Schema", "human-readable", "case conversion"),
+    }.items():
+        for requirement in requirements:
+            assert requirement in cases[case_id]["expected"]

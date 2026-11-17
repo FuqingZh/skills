@@ -1,0 +1,20 @@
+{
+  "stage": "transfer",
+  "reviewer": "Implementing assistant; unblinded exploratory review",
+  "decision": "stop",
+  "classification": "exact_evidence_contract_failure",
+  "attempted": ["D06-A/baseline", "D06-A/revised"],
+  "not_attempted": ["D06-B/revised", "D06-B/baseline"],
+  "baseline_status": "Valid report, retained as a single unpaired valid arm",
+  "revised_status": "Transport succeeded and JSON was parseable, but local evidence validation failed; no accepted diagnostic",
+  "error": "ValueError: Evidence absent from answer",
+  "failure_details": {
+    "finding_index": 0,
+    "quoted_transition": "临时取消确实影响了我”。这两件事可以同时成立。",
+    "source_transition": "临时取消确实影响了我”。** 这两件事可以同时成立。",
+    "reason": "The quote crosses the closing Markdown bold boundary but omits the two asterisks and following space. It is not a continuous verbatim substring."
+  },
+  "disposition": "Preserve raw response, failed status, usage and cost. Do not repair the quote, rescue findings as valid, rerun, or execute remaining jobs.",
+  "transfer_effectiveness": null,
+  "limits": "This structural failure is not evidence of semantic regression or proof that the revised prompt caused a worse failure rate. No valid paired transfer conclusion is available."
+}
