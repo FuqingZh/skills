@@ -72,7 +72,7 @@ def test_bad_catalog_and_empty_source_fail() -> None:
 @pytest.mark.parametrize("arm", ["baseline", "revised"])
 @pytest.mark.parametrize("failure", [False, True])
 def test_bundle_restores_namespace_and_preserves_raw_output(
-    arm: str, failure: bool
+    tmp_path: Path, arm: str, failure: bool
 ) -> None:
     module = runpy.run_path(str(SCRIPT))
     original_root = ROOT
@@ -111,13 +111,14 @@ def test_bundle_restores_namespace_and_preserves_raw_output(
             record["error"] = str(exc)
         return record
 
-    with patch.dict(module["BASE"], {"evaluate": fake_evaluate}):
+    with patch.dict(module["BASE"], {"evaluate": fake_evaluate, "SCRATCH": tmp_path}):
         result = module["evaluate_prompt"](
             STUDY, arm, "question", "甲 **乙。** {inputs}", fake_transport
         )
     assert calls == 1 and result["transport"]["answer"] == raw
     assert result["transport"]["usage"] == {"totalTokens": 5}
     assert original_root == ROOT and len(seen) == 1 and not seen[0].exists()
+    assert seen[0].parent == tmp_path
     assert "validate" not in fake_evaluate.__globals__
     if failure:
         assert "diagnostic" not in result and "id_diagnostic" not in result

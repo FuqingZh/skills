@@ -41,7 +41,7 @@ def test_prompt_bundle_preserves_contract_and_restores_root(
     def forbidden(_system: str, _message: str) -> dict[str, object]:
         raise AssertionError("No model call allowed")
 
-    with patch.dict(module["BASE"], {"evaluate": evaluate}):
+    with patch.dict(module["BASE"], {"evaluate": evaluate, "SCRATCH": tmp_path}):
         if failure:
             with pytest.raises(RuntimeError, match="fixture"):
                 module["evaluate_prompt"](tmp_path, arm, "question", "甲", forbidden)
@@ -52,6 +52,7 @@ def test_prompt_bundle_preserves_contract_and_restores_root(
             assert result["invocations"] == 1
     assert original_root == ROOT
     assert len(seen) == 1 and not seen[0].exists()
+    assert seen[0].parent == tmp_path
 
 
 def prepare(study: Path) -> None:
