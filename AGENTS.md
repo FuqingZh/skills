@@ -2,7 +2,8 @@
 
 ## Authority
 
-- Read `README.md` for the repository and installer contract.
+- Read `README.md` for the project overview and quick start, and
+  `docs/installation.md` for the installer contract.
 - Read `docs/README.md` for current decisions and active implementation plans.
 - Reusable engineering guidance owned by calibration lives under
   `skills/calibration/references/`.

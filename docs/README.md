@@ -6,7 +6,8 @@ authority, recorded open work, and historical evidence.
 ## Start Here
 
 1. Read the repository README ([English](../README.md) / [简体中文](../README.zh-CN.md))
-   for installation and development.
+   for the project overview and quick start; [installation](installation.md)
+   owns installer options and managed-file behavior.
 2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
    references; use the [document-type router](../skills/calibration/references/docs/document-types/README.md)
    for a document's minimum contract and the layout reference for project organization.
@@ -34,7 +35,8 @@ to implicit invocation when the policy is absent; see the
 
 | Need | Source |
 | --- | --- |
-| Repository and installer contract | [README](../README.md) |
+| Project overview and quick start | [README](../README.md) |
+| Installer contract | [Installation reference](installation.md) |
 | Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |

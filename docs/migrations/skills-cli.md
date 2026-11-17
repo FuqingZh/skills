@@ -18,7 +18,7 @@ shared skills CLI installations and lock files, global instructions, learning
 data, and the checkout. A moved checkout cannot establish ownership of links
 pointing to its old path.
 
-Custom homes use the same environment variables as [installation](../../README.md#global-instructions):
+Custom homes use the same environment variables as [installation](../installation.md#custom-homes):
 `CODEX_HOME`, `CALIBRATION_GROK_HOME`, and `PI_CODING_AGENT_DIR`.
 There is no `uninstall.sh` compatibility wrapper: the cleanup command never
 represented a complete uninstall of global instructions or shared skills.
