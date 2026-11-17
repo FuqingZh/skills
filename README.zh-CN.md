@@ -27,7 +27,7 @@
 skills add FuqingZh/skills -g -a codex pi grok -y
 ```
 
-已有安装请先阅读[迁移指南](docs/migrations/skills-cli.md)，并在覆盖前检查本地技能修改。
+已有安装请先阅读[迁移指南](docs/migrations/v2.md)，并在覆盖前检查本地技能修改。
 
 ### 全局指令
 
@@ -47,8 +47,9 @@ cd skills
 ## 进一步阅读
 
 - [安装参考](docs/installation.md)：客户端发现、安装器选项与安全边界。
-- [迁移指南](docs/migrations/skills-cli.md)：已有安装与旧链接清理。
+- [升级到 v2](docs/migrations/v2.md) · [旧安装迁移](docs/migrations/skills-cli.md)。
 - [版本与发布](docs/releases.md) · [变更记录](CHANGELOG.md)。
 - [开发与验证](AGENTS.md#validation)。
+- [测试结果汇总](docs/testing/20261117-v2.0-release-evidence-summary.md)：材料精简、人评结果与未验证范围。
 - [文档索引](docs/README.md)：现行指导与历史记录。
 - [问题反馈](https://github.com/FuqingZh/skills/issues)：请附客户端版本、命令及脱敏后的相关输出。

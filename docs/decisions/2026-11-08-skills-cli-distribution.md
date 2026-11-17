@@ -1,7 +1,7 @@
 # Skills CLI distribution and global instructions
 
 Status: accepted. The initial distribution shipped in repository release 1.0.0;
-subsequent instruction changes are recorded under [Unreleased](../../CHANGELOG.md#unreleased).
+subsequent instruction changes are recorded in the [v2.0.0 release notes](../../CHANGELOG.md).
 
 ## Ownership
 

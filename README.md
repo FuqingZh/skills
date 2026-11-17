@@ -28,7 +28,7 @@ example selects all three.
 skills add FuqingZh/skills -g -a codex pi grok -y
 ```
 
-For an existing installation, review the [migration guide](docs/migrations/skills-cli.md)
+For an existing installation, review the [migration guide](docs/migrations/v2.md)
 and any local skill edits before replacing them.
 
 ### Global instructions
@@ -52,8 +52,9 @@ For selected clients, custom directories, and backup behavior, see the
 ## Further reading
 
 - [Installation](docs/installation.md): client discovery, installer options, and safety boundaries.
-- [Migration](docs/migrations/skills-cli.md): existing installations and legacy cleanup.
+- [Upgrade to v2](docs/migrations/v2.md) · [Legacy migration](docs/migrations/skills-cli.md).
 - [Versions and releases](docs/releases.md) · [Changelog](CHANGELOG.md).
 - [Development and validation](AGENTS.md#validation).
+- [Evaluation results](docs/testing/20261117-v2.0-release-evidence-summary.md): measured reductions, writing feedback, and limits.
 - [Documentation index](docs/README.md): current guidance and historical records.
 - [Issues](https://github.com/FuqingZh/skills/issues): include client versions, commands, and sanitized output.

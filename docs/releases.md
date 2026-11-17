@@ -16,6 +16,11 @@ version and release notes, run the repository gate and current-head review, then
 tag that reviewed commit and publish matching release notes. Do not move tags.
 No tag or release is created by installation or bootstrap.
 
+The [v2 migration guide](migrations/v2.md) covers the six-skill router, removed
+reference paths, private-host routing change, and historical runtime retirement.
+See the [evidence summary](testing/20261117-v2.0-release-evidence-summary.md) for
+measured changes and the limits of behavioral claims.
+
 With skills CLI 1.7.6, use `owner/repo#ref` for a tag or full commit. A pinned
 installation stays on that ref during `skills update`. Upgrade or rollback with
 an explicit `skills add` of the selected ref, accepting replacement of installed

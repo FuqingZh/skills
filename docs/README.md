@@ -73,6 +73,13 @@ and evidence limits; experimental results remain with their protocols.
 - [Coding-protocol retirement trial](decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md):
   the runtime entry remains retired; retained source supports restoration.
 
+## Release Evidence
+
+The [v2.0 candidate evidence summary](testing/20261117-v2.0-release-evidence-summary.md)
+compares repository size with v1.0.0 and separates historical human preferences,
+model comparisons, engineering checks, and unmeasured final-package behavior.
+It is a pre-release report, not a release or a new evaluation run.
+
 ## Validation
 
 [AGENTS.md](../AGENTS.md#validation) owns proportional check selection and the

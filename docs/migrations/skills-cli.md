@@ -1,5 +1,10 @@
 # Migration to skills CLI
 
+This guide covers the pre-v1 skills CLI transition and legacy cleanup. For the
+current release's instruction and reference changes, start with
+[upgrading to v2.0.0](v2.md). The four-skill source migration below does not install
+the two new v2 skills.
+
 Run migration commands from the original calibration checkout. Preview each
 operation before applying it; ordinary installation and setup bootstrap never
 run legacy cleanup automatically.
