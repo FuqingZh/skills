@@ -37,10 +37,11 @@ def test_dissect_discloses_topics_and_persistence_by_condition() -> None:
         "When asked to retain research working material",
         "A person's mention alone does not require an actor model",
         "mathematical analysis can use the core method without these topic references",
-        "Check source independence",
+        "Attribute claims accurately",
+        "do not invent support",
         "For forecasts or judgments about future developments, compare the relative "
         "likelihood of possible paths",
-        "Organize a continuous explanation",
+        "Develop a continuous explanation",
     ):
         assert rule in core
     assert "build actor profiles" not in core
@@ -51,13 +52,30 @@ def test_dissect_discloses_topics_and_persistence_by_condition() -> None:
         "what they want, believe, can do, and are most likely to choose",
         "independent investigation, distributed disclosures",
         "how it changes expectations",
-        "counterexamples",
+        "explaining how their choices vary across situations",
     ):
         assert rule in actors
     history = compact(DISSECT / "references/historical-change.md")
     assert "production and organization, institutions" in history
     assert "compare plausible counterfactuals" in history
     assert "empirical basis, and values" in history
+
+
+def test_explanation_rules_prohibit_added_objections_without_hiding_failures() -> None:
+    core = compact(DISSECT / "SKILL.md")
+    prose = compact(SKILLS / "plainspoken/SKILL.md")
+    assert "without adding your own objections, corrections" in core
+    assert "judgments about its adequacy or acceptability" in core
+    assert "Explain source-internal disagreements as part of the argument" in core
+    assert "not as a fixed outline or required headings" in core
+    assert "without adding corrective commentary or reminders" in prose
+    assert "whether to accept it" in prose
+    assert "Report failures and permission or capability limits accurately" in prose
+    assert "weigh the support and relevant objections" not in core
+    assert (
+        "Test profiles against different situations and counterexamples"
+        not in compact(DISSECT / "references/actors-and-interactions.md")
+    )
 
 
 @pytest.mark.parametrize(

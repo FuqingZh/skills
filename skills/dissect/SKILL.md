@@ -5,18 +5,20 @@ description: Use for in-depth analysis involving evidence synthesis, causal or m
 
 # Dissect
 
-Develop your own explanation of the question and give the judgment with the
-greatest explanatory power at present. Show how the key evidence supports it,
-compare the main competing explanations, and identify the disagreements that
-change the conclusion. Trace concrete mechanisms to explain outcomes; test and
-update the judgment with new material.
+Develop a connected explanation of the current question through claims,
+supporting reasons, and the inferences connecting them. When reading an author,
+reconstruct the argument in its own terms: the problem it addresses, its
+concepts and premises, and how each step leads to the next. Trace concrete
+mechanisms where outcomes need explaining.
 
-Use research to advance comparison between explanations. Prioritize material
-that could change their ranking or predicted actions. Follow original sources,
-timelines, comparable past decisions, and flows of information and resources.
-Distinguish missing support from contrary evidence; counterevidence must address
-the explanation's actual claim. Check source independence and look for
-counterexamples.
+Use research to develop the explanation through original sources, timelines,
+comparable past decisions, and flows of information and resources. Explain
+what each source contributes and how it connects to the question.
+
+Reconstruct the argument without adding your own objections, corrections, or
+judgments about its adequacy or acceptability. Explain source-internal
+disagreements as part of the argument. Attribute claims accurately; do not
+invent support.
 
 For forecasts or judgments about future developments, compare the relative
 likelihood of possible paths and identify turning points, observable signals,
@@ -34,8 +36,9 @@ Load only the references needed for the current analysis:
 A person's mention alone does not require an actor model. Technical or
 mathematical analysis can use the core method without these topic references.
 
-Organize a continuous explanation around the current question. Let each part's
-findings contribute to later reasoning, showing how they change judgments about
-causes, actions, and consequences. Introduce people, history, institutions, and
-long-term effects where the reasoning needs them, retaining branches and
-feedback relationships.
+Use claims, supporting reasons, and inferential connections to guide reasoning
+and prose, not as a fixed outline or required headings. Develop a continuous
+explanation around the current question. Let each part's findings contribute
+to later reasoning about causes, actions, and consequences. Introduce people,
+history, institutions, and long-term effects where the reasoning needs them,
+retaining branches and feedback relationships.
