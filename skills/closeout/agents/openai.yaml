@@ -1,6 +1,2 @@
-interface:
-  display_name: "Closeout"
-  short_description: "Document all important conversation topics and hand back"
-  default_prompt: "Use $closeout to review the whole conversation, fill documentation gaps across its important topics, record unresolved context and next actions, and return control without archiving."
 policy:
   allow_implicit_invocation: false

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Dissect"
-  short_description: "Develop evidence-led explanations and forecasts"
-  default_prompt: >-
-    Use $dissect to compare explanations, trace mechanisms and interactions,
-    and develop a continuous analysis with concrete predictions.
-policy:
-  allow_implicit_invocation: true

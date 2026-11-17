@@ -70,6 +70,26 @@ def test_valid_fixture_passes(skill_fixture: SkillFixture) -> None:
     assert validate_repository(skill_fixture.root) == []
 
 
+@pytest.mark.parametrize(
+    "name", ("calibration", "plainspoken", "dissect", "writing-code-docs")
+)
+def test_first_party_implicit_skills_have_no_openai_metadata(name: str) -> None:
+    assert not (REPOSITORY_ROOT / "skills" / name / "agents/openai.yaml").exists()
+
+
+@pytest.mark.parametrize("name", ("closeout", "retrospect"))
+def test_first_party_explicit_skills_keep_only_codex_policy(name: str) -> None:
+    path = REPOSITORY_ROOT / "skills" / name
+    errors: list[str] = []
+    assert _load_yaml(path / "agents/openai.yaml", "metadata", errors) == {
+        "policy": {"allow_implicit_invocation": False}
+    }
+    frontmatter = _frontmatter(path / "SKILL.md", errors)
+    assert frontmatter is not None
+    assert frontmatter["disable-model-invocation"] is True
+    assert errors == []
+
+
 def test_repository_itself_passes() -> None:
     assert validate_repository(REPOSITORY_ROOT) == []
 
@@ -107,9 +127,123 @@ def test_rejects_overlong_frontmatter_description(
     assert_has_error(skill_fixture.root, "description must be at most 1024 characters")
 
 
-def test_rejects_missing_openai_metadata(skill_fixture: SkillFixture) -> None:
+def test_allows_missing_optional_openai_metadata(skill_fixture: SkillFixture) -> None:
     (skill_fixture.skill_dir / "agents/openai.yaml").unlink()
-    assert_has_error(skill_fixture.root, "missing required OpenAI skill metadata")
+    assert validate_repository(skill_fixture.root) == []
+
+
+@pytest.mark.parametrize(
+    "metadata",
+    [
+        "{}\n",
+        "interface: {}\n",
+        "interface: {display_name: Sample}\n",
+        'interface: {default_prompt: "Use $sample."}\n',
+        "policy: {}\n",
+        "policy: {allow_implicit_invocation: true}\n",
+    ],
+)
+def test_allows_optional_openai_sections(
+    skill_fixture: SkillFixture, metadata: str
+) -> None:
+    (skill_fixture.skill_dir / "agents/openai.yaml").write_text(metadata)
+    assert validate_repository(skill_fixture.root) == []
+
+
+def test_allows_policy_only_explicit_skill(skill_fixture: SkillFixture) -> None:
+    skill = skill_fixture.skill_dir / "SKILL.md"
+    skill.write_text(
+        "---\nname: sample\ndisable-model-invocation: true\n"
+        "description: User-invoked focused task.\n---\n"
+    )
+    (skill_fixture.skill_dir / "agents/openai.yaml").write_text(
+        "policy:\n  allow_implicit_invocation: false\n"
+    )
+    assert validate_repository(skill_fixture.root) == []
+
+
+@pytest.mark.parametrize(
+    ("metadata", "message"),
+    [
+        (None, "requires this skill to disable implicit invocation"),
+        ("{}\n", "requires this skill to disable implicit invocation"),
+        ("policy: {}\n", "requires this skill to disable implicit invocation"),
+        ("interface: {}\n", "requires this skill to disable implicit invocation"),
+        ("", "OpenAI skill metadata must be a mapping"),
+        ("null\n", "OpenAI skill metadata must be a mapping"),
+    ],
+)
+def test_explicit_skill_cannot_lose_its_codex_policy(
+    skill_fixture: SkillFixture, metadata: str | None, message: str
+) -> None:
+    skill = skill_fixture.skill_dir / "SKILL.md"
+    skill.write_text(
+        "---\nname: sample\ndisable-model-invocation: true\n"
+        "description: User-invoked focused task.\n---\n"
+    )
+    path = skill_fixture.skill_dir / "agents/openai.yaml"
+    if metadata is None:
+        path.unlink()
+    else:
+        path.write_text(metadata)
+    assert_has_error(skill_fixture.root, message)
+
+
+def test_missing_metadata_still_checks_cross_client_policy(
+    skill_fixture: SkillFixture,
+) -> None:
+    (skill_fixture.skill_dir / "agents/openai.yaml").unlink()
+    skill = skill_fixture.skill_dir / "SKILL.md"
+    skill.write_text(
+        skill.read_text().replace(
+            "name: sample", "disable-model-invocation: true\nname: sample"
+        )
+    )
+    assert_has_error(skill_fixture.root, "invocation policies disagree across clients")
+
+
+def test_missing_third_party_policy_remains_explicit_only(
+    skill_fixture: SkillFixture,
+) -> None:
+    third_party = write_skill(skill_fixture.root, "thirdparty/skills", "optional")
+    (third_party / "agents/openai.yaml").unlink()
+    assert_has_error(
+        skill_fixture.root, "requires this skill to disable implicit invocation"
+    )
+
+
+@pytest.mark.parametrize(
+    ("metadata", "message"),
+    [
+        ("interface: null\n", "interface must be a mapping"),
+        ("policy: null\n", "policy must be a mapping"),
+        (
+            "interface: {display_name: null}\n",
+            "display_name must be a non-empty string",
+        ),
+        (
+            "interface: {short_description: []}\n",
+            "short_description must be a non-empty string",
+        ),
+        (
+            "interface: {default_prompt: ''}\n",
+            "default_prompt must be a non-empty string",
+        ),
+        ("policy: {allow_implicit_invocation: null}\n", "must be a boolean"),
+    ],
+)
+def test_rejects_invalid_optional_metadata_fields(
+    skill_fixture: SkillFixture, metadata: str, message: str
+) -> None:
+    (skill_fixture.skill_dir / "agents/openai.yaml").write_text(metadata)
+    assert_has_error(skill_fixture.root, message)
+
+
+def test_rejects_dangling_metadata_symlink(skill_fixture: SkillFixture) -> None:
+    path = skill_fixture.skill_dir / "agents/openai.yaml"
+    path.unlink()
+    path.symlink_to("missing.yaml")
+    assert_has_error(skill_fixture.root, "invalid OpenAI skill metadata")
 
 
 def test_rejects_invalid_openai_structure(skill_fixture: SkillFixture) -> None:
@@ -306,8 +440,8 @@ def test_rejects_frontmatter_name_mismatch_and_retired_nested_field(
             '  display_name: "Sample"\n'
             '  short_description: "Validate one focused skill contract"\n'
             '  default_prompt: "Use $sample for this validation task."\n'
-            "policy: {}\n",
-            "allow_implicit_invocation must be an explicit boolean",
+            "policy: {allow_implicit_invocation: 'false'}\n",
+            "allow_implicit_invocation must be a boolean",
         ),
     ],
 )

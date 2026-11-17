@@ -132,30 +132,33 @@ def _validate_openai_metadata(
     frontmatter: dict[str, object] | None,
 ) -> None:
     path = skill_dir / "agents/openai.yaml"
-    if not path.is_file():
-        errors.append(f"{path}: missing required OpenAI skill metadata")
-        return
-    raw_data = _load_yaml(path, "OpenAI skill metadata", errors)
-    if raw_data is None:
-        return
-    if not isinstance(raw_data, dict):
-        errors.append(f"{path}: OpenAI skill metadata must be a mapping")
-        return
-    data = cast(dict[str, object], raw_data)
+    data: dict[str, object] = {}
+    if path.exists() or path.is_symlink():
+        error_count = len(errors)
+        raw_data = _load_yaml(path, "OpenAI skill metadata", errors)
+        if len(errors) != error_count:
+            return
+        if not isinstance(raw_data, dict):
+            errors.append(f"{path}: OpenAI skill metadata must be a mapping")
+            return
+        data = cast(dict[str, object], raw_data)
     if _contains_key(data, INVOCATION_FIELD):
         errors.append(f"{path}: retired field {INVOCATION_FIELD!r} is not allowed")
 
-    interface = data.get("interface")
+    interface = data.get("interface", {})
     if not isinstance(interface, dict):
         errors.append(f"{path}: interface must be a mapping")
         interface_data: dict[str, object] = {}
     else:
         interface_data = cast(dict[str, object], interface)
-    display_name = _required_string(interface_data, "display_name", path, errors)
-    short_description = _required_string(
-        interface_data, "short_description", path, errors
-    )
-    default_prompt = _required_string(interface_data, "default_prompt", path, errors)
+    interface_strings = {
+        key: _required_string(interface_data, key, path, errors)
+        for key in ("display_name", "short_description", "default_prompt")
+        if key in interface_data
+    }
+    display_name = interface_strings.get("display_name")
+    short_description = interface_strings.get("short_description")
+    default_prompt = interface_strings.get("default_prompt")
     if display_name is not None and len(display_name) > 64:
         errors.append(f"{path}: display_name must be at most 64 characters")
     if short_description is not None and not 25 <= len(short_description) <= 64:
@@ -166,15 +169,15 @@ def _validate_openai_metadata(
         if name is not None and f"${name}" not in default_prompt:
             errors.append(f"{path}: default_prompt must reference ${name}")
 
-    policy = data.get("policy")
+    policy = data.get("policy", {})
     if not isinstance(policy, dict):
         errors.append(f"{path}: policy must be a mapping")
         policy_data: dict[str, object] = {}
     else:
         policy_data = cast(dict[str, object], policy)
-    implicit = policy_data.get("allow_implicit_invocation")
+    implicit = policy_data.get("allow_implicit_invocation", True)
     if not isinstance(implicit, bool):
-        errors.append(f"{path}: allow_implicit_invocation must be an explicit boolean")
+        errors.append(f"{path}: allow_implicit_invocation must be a boolean")
     elif description is not None:
         if (
             frontmatter is not None

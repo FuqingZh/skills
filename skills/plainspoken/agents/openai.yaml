@@ -1,8 +1,0 @@
-interface:
-  display_name: "Plainspoken"
-  short_description: "Plain, direct expression with useful detail"
-  default_prompt: >-
-    Use $plainspoken to answer directly, explaining the reasoning,
-    examples, and conditions needed to understand the answer.
-policy:
-  allow_implicit_invocation: true

@@ -43,13 +43,7 @@ def test_new_skills_are_discoverable_and_implicitly_invocable(name: str) -> None
     description = metadata["description"]
     assert isinstance(description, str) and description.startswith("Use ")
 
-    client = cast(
-        dict[str, dict[str, object]],
-        yaml.safe_load((directory / "agents/openai.yaml").read_text()),
-    )
-    assert client["policy"]["allow_implicit_invocation"] is True
-    default_prompt = client["interface"]["default_prompt"]
-    assert isinstance(default_prompt, str) and f"${name}" in default_prompt
+    assert not (directory / "agents/openai.yaml").exists()
     other = next(skill for skill in SKILLS if skill != name)
     assert f"${other}" not in body
     assert f"{other}/SKILL.md" not in body

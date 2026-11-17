@@ -22,6 +22,14 @@ interaction entrypoints. Repository tools own setup and validation. The shared
 public package does not discover private host configuration or provide an
 orchestrator integration.
 
+Skill instructions and trigger descriptions live in `SKILL.md` and its referenced
+files. First-party `agents/openai.yaml` files contain only the Codex explicit-only
+policy needed by closeout and retrospect; the other four skills omit the file.
+The validator accepts optional metadata and checks supplied fields and effective
+invocation policy against repository and cross-client contracts. Codex defaults
+to implicit invocation when the policy is absent; see the
+[official skill configuration](https://developers.openai.com/codex/skills).
+
 ## Current Authority
 
 | Need | Source |

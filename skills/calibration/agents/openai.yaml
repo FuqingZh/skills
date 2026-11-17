@@ -1,6 +1,0 @@
-interface:
-  display_name: "Calibration"
-  short_description: "Route cross-project engineering decisions"
-  default_prompt: "Use $calibration to resolve this substantive engineering judgment from repository rules, shared defaults, and executable evidence."
-policy:
-  allow_implicit_invocation: true
