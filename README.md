@@ -55,5 +55,6 @@ For selected clients, custom directories, and backup behavior, see the
 - [Migration](docs/migrations/skills-cli.md): existing installations and legacy cleanup.
 - [Versions and releases](docs/releases.md) · [Changelog](CHANGELOG.md).
 - [Development and validation](AGENTS.md#validation).
+- [Evaluation results](docs/testing/20261117-v2.0-release-evidence-summary.md): measured reductions, writing feedback, and limits.
 - [Documentation index](docs/README.md): current guidance and historical records.
 - [Issues](https://github.com/FuqingZh/skills/issues): include client versions, commands, and sanitized output.
