@@ -201,6 +201,6 @@ First repository-level versioned distribution.
 - Provide English and Simplified Chinese README entrypoints, with both covered
   by Markdown lint and link validation.
 
-See [migration instructions](README.md#legacy-migration) and
+See [migration instructions](docs/migrations/skills-cli.md) and
 [release policy](docs/releases.md). These lifecycle changes do not establish
 improved model behavior or compatibility for upstream grilling's subagents.
