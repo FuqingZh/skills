@@ -1,5 +1,10 @@
 # AI-Native Implementation Evaluation
 
+This is a historical evaluation. Its writable-agent executor is
+[retired and archived](../archive/writable-agent-runtime/README.md).
+The commands below describe the archived source, not supported current tools.
+Recorded inputs, outcomes, and limitations remain unchanged.
+
 This evaluation tests whether a calibration candidate improves writable
 repository work rather than read-only descriptions of intended behavior.
 

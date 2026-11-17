@@ -83,3 +83,7 @@ records why Nx is not adopted in this cleanup.
 Use the [archive index](archive/README.md) for completed plans, corrected or
 superseded comparisons, adoption decisions, and old AO guidance. Raw evidence,
 manifests, hashes, provenance, and compatibility cleanup remain preserved.
+
+The historical Codex writable-agent executor and progressive-validation controller
+are [retired](../evaluations/archive/writable-agent-runtime/README.md).
+Their source snapshots and independent evidence checks remain available.

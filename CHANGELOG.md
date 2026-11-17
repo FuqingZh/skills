@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Retire the historical Codex writable-agent executor and progressive-validation
+  batch controller together with their dedicated runtime tests. Preserve all 20
+  source files as byte-identical text snapshots, retain independent historical
+  evidence and provenance checks, and leave existing quality thresholds unchanged.
+  The former `scripts/run_writable_agent_eval.py` and
+  `scripts/run_progressive_validation_selection_eval.py` entrypoints are removed.
 - Add `plainspoken` for substantive natural-language expression and `dissect`
   for in-depth analysis, with English instructions and implicit invocation metadata.
 - Move the shared global template to `templates/AGENTS.md.template` and reduce

@@ -132,6 +132,10 @@ pdm run validate-skills
 安装器测试使用隔离配置目录。按变更影响选择验证范围；
 [AGENTS.md](AGENTS.md) 规定贡献与验证要求。
 
+历史 Codex 可写代码评估器及批量控制器已经
+[退役](evaluations/archive/writable-agent-runtime/README.md)。原始源码和实验材料仍予保留，
+这些执行入口不再属于当前维护的工具。
+
 ## 文档与支持
 
 - [文档索引](docs/README.md)：现行决策、评估结果、迁移历史和实施计划。

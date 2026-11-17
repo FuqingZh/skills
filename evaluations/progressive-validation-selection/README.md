@@ -1,5 +1,10 @@
 # Progressive validation selection evaluation
 
+This comparison is complete. Its executor and batch controller are
+[retired and archived](../archive/writable-agent-runtime/README.md).
+The protocols and runtime requirements below describe historical experiments;
+they do not establish current execution support. Original evidence is retained.
+
 ## Current evaluation authority
 
 The frozen 14-pair protocol and v2.1 run below are historical background. Do

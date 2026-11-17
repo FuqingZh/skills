@@ -144,6 +144,10 @@ Installer tests use isolated configuration homes. Select checks proportionally
 to the changed behavior; [AGENTS.md](AGENTS.md) describes contribution and
 validation requirements.
 
+The historical Codex writable-agent evaluator and batch controller are
+[retired](evaluations/archive/writable-agent-runtime/README.md). Their original
+source and experiment evidence remain available; they are not supported tools.
+
 ## Documentation and support
 
 - [Documentation index](docs/README.md): current decisions, evaluation results,

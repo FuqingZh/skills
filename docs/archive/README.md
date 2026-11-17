@@ -35,6 +35,13 @@ former schema/header naming, artifact prefixes, identifier encoding, directory
 layout, and stage handoff rules. Current guidance defers these choices to repository and consumer
 contracts; the historical rules do not apply to new work by default.
 
+## Retired Evaluation Runtime
+
+The [writable-agent runtime archive](../../evaluations/archive/writable-agent-runtime/README.md)
+retains byte-identical executor, batch-controller, and dedicated test sources.
+These tools are no longer supported execution entrypoints. Original experiment
+evidence remains in place; independent integrity and provenance checks remain active.
+
 ## Completed Plans And Superseded Protocols
 
 | Record | Lifecycle and current source |
