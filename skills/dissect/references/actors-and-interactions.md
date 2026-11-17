@@ -4,9 +4,8 @@ For people and multi-party action, build actor profiles from past behavior and
 current traces. Use actual choices under comparable pressures and trade-offs to
 examine goals, personality and decision tendencies, trust relationships,
 available resources, constraints, and information they may possess. Distinguish
-what they want, believe, can do, and are most likely to choose. Test profiles
-against different situations and counterexamples to build revisable behavioral
-models.
+what they want, believe, can do, and are most likely to choose. Build behavioral
+models by explaining how their choices vary across situations.
 
 For disclosures, power struggles, or conflicts of interest, trace how the event
 is being driven forward. Distinguish those who discover, hold, supply, integrate

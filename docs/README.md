@@ -73,6 +73,16 @@ and evidence limits; experimental results remain with their protocols.
 - [Coding-protocol retirement trial](decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md):
   the runtime entry remains retired; retained source supports restoration.
 
+## Current Evaluation Records
+
+- [Explanation framing pilot](testing/20261117-explanation-framing-pilot.md):
+  15 initial generations and eight fresh generations comparing long and concise wording.
+  Records instruction and context-framing changes with mixed outcomes, without
+  claiming general answer-quality gains.
+- [Repeated cross-task pilot](testing/20261117-explanation-transfer-pilot.md):
+  48 attempts across three other session tasks, four models, and two repetitions
+  per version; no established stable improvement or general regression.
+
 ## Release Evidence
 
 The [v2.0 candidate evidence summary](testing/20261117-v2.0-release-evidence-summary.md)

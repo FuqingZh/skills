@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.1.0 — 2026-11-17
+
+Adopt the concise explanation-first guidance. Skill names, discovery metadata,
+reference paths, installer interfaces, and the global router are unchanged.
+This changes analytical defaults; consumers expecting proactive objections
+should review the new wording before upgrading.
+
+### Changed
+
+- Replace proactive objection and correction guidance in `plainspoken` and
+  `dissect` with an explicit prohibition on model-added rebuttals, acceptance
+  warnings, and proof demands. Preserve source attribution, source-internal
+  disagreements, and accurate failure and permission reporting.
+- Remove the actor-profile counterexample instruction and update static
+  contract checks to the adopted behavior.
+
+### Evaluation
+
+- Record a [15-generation explanation-framing pilot](docs/testing/20261117-explanation-framing-pilot.md)
+  across GPT, Qwen, Grok, and DeepSeek. Results vary by model and context;
+  adoption follows user preference, not demonstrated general quality gains.
+  Private inputs and outputs are not published.
+  Eight fresh follow-up generations compare the longer prohibition with its
+  concise replacement; outcomes remain mixed.
+- Record a [repeated cross-task pilot](docs/testing/20261117-explanation-transfer-pilot.md):
+  48 attempts, including incomplete answers and provider/harness failures;
+  no demonstrated stable improvement or general regression.
+
 ## 2.0.0 — 2026-11-17
 
 Six first-party skills, a minimal global router, and consolidated engineering
