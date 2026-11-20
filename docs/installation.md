@@ -100,10 +100,12 @@ Non-empty home environment variables must contain absolute paths:
 | Antigravity CLI (`agy`) | Uses `HOME` | `~/.gemini` |
 
 For example, preview with `./install.sh --agent agy --dry-run`, then apply with
-`./install.sh --agent agy`. The installer writes only `~/.gemini/GEMINI.md`;
-it leaves other [Antigravity rule files](https://antigravity.google/docs/rules/) alone.
-Antigravity loads global rules cumulatively, so do not copy the same managed
-block to another global rule file. Legacy link cleanup does not select agy.
+`./install.sh --agent agy`. The installer manages `~/.gemini/AGENTS.md` and
+leaves `~/.gemini/GEMINI.md` untouched. Antigravity
+[loads global rules cumulatively](https://antigravity.google/docs/rules/).
+If an earlier installer added the managed block to `GEMINI.md`, remove just that
+block manually before applying the new installer to avoid loading it twice.
+Legacy link cleanup does not select agy.
 
 `CALIBRATION_GROK_HOME` configures these scripts only; it does not configure Grok
 or skills CLI. For an isolated preview:
@@ -115,8 +117,7 @@ CODEX_HOME=/absolute/test-home ./install.sh --dry-run
 ### Managed-file behavior
 
 The installer manages the block delimited by `<!-- FuqingZh/skills:begin -->`
-and `<!-- FuqingZh/skills:end -->` in each selected client's instruction file (`GEMINI.md` for agy,
-`AGENTS.md` for the other clients).
+and `<!-- FuqingZh/skills:end -->` in each selected client's `AGENTS.md`.
 It preserves text outside valid blocks and preflights all selected destinations
 before the first write. Changed existing files are always backed up and the
 backup is verified before replacement. Each file is replaced atomically;

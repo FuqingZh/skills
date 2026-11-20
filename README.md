@@ -47,7 +47,7 @@ cd skills
 
 Review the preview before applying it. `install.sh` only manages the shared
 instruction block; it does not install skills. To update only Antigravity CLI,
-use `./install.sh --agent agy`; it manages `~/.gemini/GEMINI.md`.
+use `./install.sh --agent agy`; it manages `~/.gemini/AGENTS.md`.
 For selected clients, custom directories, and backup behavior, see the
 [installation reference](docs/installation.md).
 

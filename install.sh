@@ -16,7 +16,7 @@ Does not install, update, or remove skills.
 
 Homes: CODEX_HOME, CALIBRATION_GROK_HOME (installer only), PI_CODING_AGENT_DIR.
 Unset or empty variables use ~/.codex, ~/.grok, and ~/.pi/agent respectively.
-Antigravity CLI (agy) uses ~/.gemini/GEMINI.md.
+Antigravity CLI (agy) uses ~/.gemini/AGENTS.md.
 Changed existing files are always backed up; unchanged files are left alone.
 EOF
 }
