@@ -2,8 +2,8 @@
 
 [English](README.md) | 简体中文
 
-面向 Codex、Grok Build 和 Pi 的技能与共享代理指令，涵盖工程判断、代码文档、
-平实表达和深入分析。
+提供工程判断、代码文档、平实表达和深入分析技能。共享指令安装器支持 Codex、
+Grok Build、Pi 和 Antigravity CLI。
 
 ## 包含的技能
 
@@ -21,7 +21,7 @@
 ### 安装技能
 
 通过工具管理器安装 [skills CLI](https://github.com/vercel-labs/skills)，再运行以下命令。
-只选择实际使用的客户端；示例选择了全部三个。
+只选择实际使用的客户端；示例选择 Codex、Pi 和 Grok Build。
 
 ```bash
 skills add FuqingZh/skills -g -a codex pi grok -y
@@ -41,7 +41,8 @@ cd skills
 ./install.sh --agent all
 ```
 
-先检查预览结果，再执行安装。`install.sh` 只管理各客户端 `AGENTS.md` 中的共享区块，
+先检查预览结果，再执行安装。`install.sh` 只管理共享指令区块。仅更新 Antigravity CLI 时，
+运行 `./install.sh --agent agy`；它管理 `~/.gemini/GEMINI.md`，
 不安装技能。客户端选择、自定义目录和备份行为见[安装参考](docs/installation.md)。
 
 ## 进一步阅读

@@ -16,7 +16,12 @@ while [[ $# -gt 0 ]]; do
       while [[ $# -gt 0 && "$1" != -* ]]; do
         case "$1" in
           codex|grok|pi) AGENTS+=("$1") ;;
-          all) AGENTS+=(codex grok pi) ;;
+          agy)
+            [[ "$OPERATION" == install ]] || fail_usage 'Unknown agent for legacy link cleanup: agy'
+            AGENTS+=(agy) ;;
+          all)
+            AGENTS+=(codex grok pi)
+            if [[ "$OPERATION" == install ]]; then AGENTS+=(agy); fi ;;
           *) fail_usage "Unknown agent: $1" ;;
         esac
         shift
@@ -39,18 +44,20 @@ done
 [[ ${#AGENTS[@]} -gt 0 ]] || AGENTS=(codex)
 
 configure_target() {
+  local instructions_file=AGENTS.md
   case "$AGENT" in
     codex) TARGET_HOME="${CODEX_HOME:-${HOME:+$HOME/.codex}}" ;;
     grok) TARGET_HOME="${CALIBRATION_GROK_HOME:-${HOME:+$HOME/.grok}}" ;;
     pi) TARGET_HOME="${PI_CODING_AGENT_DIR:-${HOME:+$HOME/.pi/agent}}" ;;
+    agy) TARGET_HOME="${HOME:+$HOME/.gemini}"; instructions_file=GEMINI.md ;;
   esac
-  [[ "$TARGET_HOME" == /* ]] || fail_usage "Cannot derive absolute $AGENT home; set its home environment variable"
+  [[ "$TARGET_HOME" == /* ]] || fail_usage "Cannot derive absolute $AGENT home"
   TARGET_HOME="$(realpath -m -- "$TARGET_HOME")"
   [[ "$TARGET_HOME" != / ]] || fail_usage "Refusing / as $AGENT home"
   case "$TARGET_HOME/" in "$CALIBRATION_ROOT/"*) fail_usage 'Agent home must not be inside the checkout' ;; esac
   case "$CALIBRATION_ROOT/" in "$TARGET_HOME/"*) fail_usage 'Agent home must not contain the checkout' ;; esac
   [[ ! -e "$TARGET_HOME" || -d "$TARGET_HOME" ]] || fail_usage "Agent home is not a directory: $TARGET_HOME"
-  AGENTS_TARGET="$TARGET_HOME/AGENTS.md"
+  AGENTS_TARGET="$TARGET_HOME/$instructions_file"
 }
 
 # Preflight every selected destination before the first write; duplicates are

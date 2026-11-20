@@ -51,7 +51,7 @@ or render private host configuration; existing private files remain untouched.
 
 | Option | Behavior |
 | --- | --- |
-| `--agent AGENTS...` | Select `codex`, `grok`, `pi`, or `all`; defaults to Codex. |
+| `--agent AGENTS...` | Select `codex`, `grok`, `pi`, `agy`, or `all` (all four); defaults to Codex. |
 | `--dry-run` | Preview without writing files. |
 | `--force` | Back up and replace an existing unmarked Codex regular file. |
 | `--help`, `-h` | Show usage. |
@@ -75,6 +75,13 @@ Non-empty home environment variables must contain absolute paths:
 | Codex | `CODEX_HOME` | `~/.codex` |
 | Grok Build | `CALIBRATION_GROK_HOME` | `~/.grok` |
 | Pi | `PI_CODING_AGENT_DIR` | `~/.pi/agent` |
+| Antigravity CLI (`agy`) | Uses `HOME` | `~/.gemini` |
+
+For example, preview with `./install.sh --agent agy --dry-run`, then apply with
+`./install.sh --agent agy`. The installer writes only `~/.gemini/GEMINI.md`;
+it leaves other [Antigravity rule files](https://antigravity.google/docs/rules/) alone.
+Antigravity loads global rules cumulatively, so do not copy the same managed
+block to another global rule file. Legacy link cleanup does not select agy.
 
 `CALIBRATION_GROK_HOME` configures these scripts only; it does not configure Grok
 or skills CLI. For an isolated preview:
@@ -86,7 +93,8 @@ CODEX_HOME=/absolute/test-home ./install.sh --dry-run
 ### Managed-file behavior
 
 The installer manages the block delimited by `<!-- FuqingZh/skills:begin -->`
-and `<!-- FuqingZh/skills:end -->` in each selected client's `AGENTS.md`.
+and `<!-- FuqingZh/skills:end -->` in each selected client's instruction file (`GEMINI.md` for agy,
+`AGENTS.md` for the other clients).
 It preserves text outside valid blocks and preflights all selected destinations
 before the first write. Changed existing files are always backed up and the
 backup is verified before replacement. Each file is replaced atomically;
@@ -97,7 +105,7 @@ unchanged files are left alone and create no backup.
 | Missing file | Create a new managed block. |
 | Valid current block | Refresh the block, preserving surrounding text. |
 | Valid legacy `calibration:begin/end` block | Back up and migrate without `--force`; preview identifies the migration. |
-| Unmarked Pi or Grok regular file | Append the managed block. |
+| Unmarked Pi, Grok, or agy regular file | Append the managed block. |
 | Unmarked Codex regular file | Stop unless `--force` is explicit; personal text remains in the verified backup. |
 | Symlink, directory, malformed or repeated block, mixed or mismatched markers | Reject, including with `--force`. |
 

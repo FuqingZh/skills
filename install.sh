@@ -6,16 +6,17 @@ usage() {
   cat <<'EOF'
 Usage: ./install.sh [OPTIONS]
 
-Install or refresh the FuqingZh/skills block in global AGENTS.md files.
+Install or refresh the FuqingZh/skills block in global instruction files.
 Does not install, update, or remove skills.
 
-  --agent AGENTS...  codex (default), grok, pi, or all
+  --agent AGENTS...  codex (default), grok, pi, agy, or all
   --dry-run          Preview without writes
   --force            Back up and replace an unmarked Codex regular file
   -h, --help         Show help
 
 Homes: CODEX_HOME, CALIBRATION_GROK_HOME (installer only), PI_CODING_AGENT_DIR.
 Unset or empty variables use ~/.codex, ~/.grok, and ~/.pi/agent respectively.
+Antigravity CLI (agy) uses ~/.gemini/GEMINI.md.
 Changed existing files are always backed up; unchanged files are left alone.
 EOF
 }
@@ -73,7 +74,7 @@ render_template() {
 
 preflight() {
   if [[ -L "$AGENTS_TARGET" || ( -e "$AGENTS_TARGET" && ! -f "$AGENTS_TARGET" ) ]]; then
-    fail_usage "AGENTS target must be a regular file, never a symlink or directory: $AGENTS_TARGET"
+    fail_usage "Instruction target must be a regular file, never a symlink or directory: $AGENTS_TARGET"
   fi
   local status=0
   render_template >/dev/null || status=$?
@@ -92,7 +93,7 @@ done
 for AGENT in "${AGENTS[@]}"; do
   configure_target
   if [[ -f "$AGENTS_TARGET" ]] && cmp -s "$AGENTS_TARGET" <(render_template); then
-    echo "AGENTS.md already current: $AGENTS_TARGET"
+    echo "${AGENTS_TARGET##*/} already current: $AGENTS_TARGET"
     continue
   fi
   if $DRY_RUN; then

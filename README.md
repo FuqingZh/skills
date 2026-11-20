@@ -2,8 +2,9 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Skills and shared agent instructions for Codex, Grok Build, and Pi: engineering
-judgment, code documentation, clear expression, and in-depth analysis.
+Skills for engineering judgment, code documentation, clear expression, and
+in-depth analysis. Install shared agent instructions for Codex, Grok Build, Pi,
+and Antigravity CLI.
 
 ## Included skills
 
@@ -22,7 +23,7 @@ judgment, code documentation, clear expression, and in-depth analysis.
 
 Install [skills CLI](https://github.com/vercel-labs/skills) through your tool
 manager, then run the command below. Select only the clients you use; this
-example selects all three.
+example selects Codex, Pi, and Grok Build.
 
 ```bash
 skills add FuqingZh/skills -g -a codex pi grok -y
@@ -45,7 +46,8 @@ cd skills
 ```
 
 Review the preview before applying it. `install.sh` only manages the shared
-block in each client's `AGENTS.md`; it does not install skills.
+instruction block; it does not install skills. To update only Antigravity CLI,
+use `./install.sh --agent agy`; it manages `~/.gemini/GEMINI.md`.
 For selected clients, custom directories, and backup behavior, see the
 [installation reference](docs/installation.md).
 

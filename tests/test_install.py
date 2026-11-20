@@ -566,3 +566,59 @@ def test_invalid_migration_in_last_agent_prevents_all_migrations(
     )
     assert result.returncode != 0
     assert snapshot_tree(tmp_path) == before
+
+
+@pytest.mark.parametrize("marked", [False, True])
+def test_agy_preserves_global_rules_and_updates_only_gemini_md(
+    tmp_path: Path, marked: bool
+) -> None:
+    home = tmp_path / "user" / ".gemini"
+    home.mkdir(parents=True)
+    target = home / "GEMINI.md"
+    personal = "# Personal Antigravity rules\n"
+    suffix = "Personal notes without a final newline" if marked else ""
+    original = f"{personal}{BEGIN}\nold block\n{END}\n{suffix}" if marked else personal
+    target.write_text(original)
+    (home / "AGENTS.md").write_text("Other global rules\n")
+    before = snapshot_tree(tmp_path)
+
+    preview = run_installer(None, "--agent", "agy", "--dry-run")
+    assert preview.returncode == 0, preview.stderr
+    assert str(target) in preview.stdout
+    assert snapshot_tree(tmp_path) == before
+
+    applied = run_installer(None, "--agent", "agy")
+    assert applied.returncode == 0, applied.stderr
+    template = (REPOSITORY_ROOT / "templates/AGENTS.md.template").read_text()
+    assert target.read_text() == f"{personal}{BEGIN}\n{template}{END}\n{suffix}"
+    assert (home / "AGENTS.md").read_text() == "Other global rules\n"
+    (backup,) = home.glob("GEMINI.md.bak.*")
+    assert backup.read_text() == original
+
+    after = snapshot_tree(tmp_path)
+    assert run_installer(None, "--agent", "agy").returncode == 0
+    assert snapshot_tree(tmp_path) == after
+
+
+def test_agy_is_in_install_all_but_not_in_legacy_cleanup(tmp_path: Path) -> None:
+    target = tmp_path / "user" / ".gemini" / "GEMINI.md"
+    target.mkdir(parents=True)
+    before = snapshot_tree(tmp_path)
+    result = run_installer(None, "--agent", "all")
+    assert result.returncode != 0
+    assert str(target) in result.stderr
+    assert snapshot_tree(tmp_path) == before
+
+    home = target.parent
+    legacy = home / "skills"
+    legacy.mkdir()
+    owned = legacy / "calibration"
+    owned.symlink_to(REPOSITORY_ROOT / "skills/calibration")
+    script = REPOSITORY_ROOT / "scripts/cleanup-legacy-links.sh"
+    before = snapshot_tree(tmp_path)
+    for agent, status in (("agy", 2), ("all", 0)):
+        result = subprocess.run(
+            [str(script), "--agent", agent], capture_output=True, check=False
+        )
+        assert result.returncode == status, result.stderr
+        assert snapshot_tree(tmp_path) == before
