@@ -45,6 +45,17 @@ cd skills
 运行 `./install.sh --agent agy`；它管理 `~/.gemini/GEMINI.md`，
 不安装技能。客户端选择、自定义目录和备份行为见[安装参考](docs/installation.md)。
 
+已有 mise 时，可以改用带补全的任务入口。先确认此 checkout 的 [`mise.toml`](mise.toml)
+内容可信，然后在仓库根目录运行：
+
+```sh
+mise trust ./mise.toml
+mise run install agy --dry-run
+```
+
+信任配置后，mise 才会启用这个任务；启用 mise 的 shell 补全后，按 Tab 可选客户端和选项。
+如果不想信任 mise 配置，仍可直接运行 `./install.sh`。
+
 ## 进一步阅读
 
 - [安装参考](docs/installation.md)：客户端发现、安装器选项与安全边界。
