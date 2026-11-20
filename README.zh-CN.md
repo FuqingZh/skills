@@ -42,7 +42,7 @@ cd skills
 ```
 
 先检查预览结果，再执行安装。`install.sh` 只管理共享指令区块。仅更新 Antigravity CLI 时，
-运行 `./install.sh --agent agy`；它管理 `~/.gemini/GEMINI.md`，
+运行 `./install.sh --agent agy`；它管理 `~/.gemini/AGENTS.md`，
 不安装技能。客户端选择、自定义目录和备份行为见[安装参考](docs/installation.md)。
 
 已有 mise 时，可以改用带补全的任务入口。先确认此 checkout 的 [`mise.toml`](mise.toml)
