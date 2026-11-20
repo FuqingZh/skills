@@ -82,6 +82,10 @@ and evidence limits; experimental results remain with their protocols.
 - [Repeated cross-task pilot](testing/20261117-explanation-transfer-pilot.md):
   48 attempts across three other session tasks, four models, and two repetitions
   per version; no established stable improvement or general regression.
+- [Request-scoping pilot](testing/20261117-request-scoping-pilot.md):
+  64 fresh generations across four earlier and four new tasks; more explicit
+  requested evaluation in GPT, but no reliable reduction in unsolicited comments
+  or completion-report reminders. Paired candidate not adopted.
 
 ## Release Evidence
 
