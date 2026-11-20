@@ -622,3 +622,66 @@ def test_agy_is_in_install_all_but_not_in_legacy_cleanup(tmp_path: Path) -> None
         )
         assert result.returncode == status, result.stderr
         assert snapshot_tree(tmp_path) == before
+
+
+def test_mise_task_forwards_clients_and_flags(tmp_path: Path) -> None:
+    if (mise := shutil.which("mise")) is None:
+        pytest.skip("mise is not installed")
+
+    checkout = tmp_path / "checkout"
+    checkout.mkdir()
+    nested = checkout / "nested"
+    nested.mkdir()
+    for name in (
+        "mise.toml",
+        "install.sh",
+        "scripts/agent-homes.sh",
+        "templates/AGENTS.md.template",
+    ):
+        destination = checkout / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(REPOSITORY_ROOT / name, destination)
+
+    home = tmp_path / "user"
+    codex = home / ".codex" / "AGENTS.md"
+    codex.parent.mkdir(parents=True)
+    codex.write_text("Existing Codex instructions\n")
+    agy = home / ".gemini" / "GEMINI.md"
+    pi = home / ".pi" / "agent" / "AGENTS.md"
+
+    def run(*args: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [mise, "run", "install", *args],
+            cwd=nested,
+            env={
+                "HOME": str(home),
+                "PATH": os.environ["PATH"],
+                "XDG_CACHE_HOME": str(tmp_path / "cache"),
+                "XDG_CONFIG_HOME": str(tmp_path / "config"),
+                "XDG_DATA_HOME": str(tmp_path / "data"),
+                "XDG_STATE_HOME": str(tmp_path / "state"),
+                "MISE_TRUSTED_CONFIG_PATHS": str(checkout),
+            },
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+    before = snapshot_tree(home)
+    result = run("agy", "pi", "--dry-run")
+    assert result.returncode == 0, result.stderr
+    assert str(agy) in result.stdout and str(pi) in result.stdout
+    assert run("not-a-client").returncode != 0
+    assert run().returncode != 0  # Default Codex refuses an unmarked file.
+    assert snapshot_tree(home) == before
+
+    result = run("agy", "pi")
+    assert result.returncode == 0, result.stderr
+    assert agy.read_text() == pi.read_text()
+    assert codex.read_text() == "Existing Codex instructions\n"
+
+    result = run("--force")
+    assert result.returncode == 0, result.stderr
+    assert codex.read_text() == agy.read_text()
+    (backup,) = codex.parent.glob("AGENTS.md.bak.*")
+    assert backup.read_text() == "Existing Codex instructions\n"

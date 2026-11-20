@@ -1,0 +1,21 @@
+[tasks.install]
+description = "Install or refresh shared global instructions (not skills)"
+usage = '''
+arg "[agents]" var=#true help="Clients to update (default: codex)" {
+  choices "codex" "grok" "pi" "agy" "all"
+}
+flag "--dry-run" help="Preview without writing files"
+flag "--force" help="Back up and replace an unmarked Codex instruction file"
+'''
+run = '''
+#!/bin/sh
+set -eu
+set --
+{% if usage.agents %}
+# Agent values are restricted to the literal choices in the spec above.
+set -- --agent {% for agent in usage.agents %}"{{ agent }}" {% endfor %}
+{% endif %}
+if [ "${usage_dry_run:-false}" = true ]; then set -- "$@" --dry-run; fi
+if [ "${usage_force:-false}" = true ]; then set -- "$@" --force; fi
+exec ./install.sh "$@"
+'''

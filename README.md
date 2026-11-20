@@ -51,6 +51,18 @@ use `./install.sh --agent agy`; it manages `~/.gemini/GEMINI.md`.
 For selected clients, custom directories, and backup behavior, see the
 [installation reference](docs/installation.md).
 
+If you already use mise, review this checkout's [`mise.toml`](mise.toml) before
+trusting it. From the repository root, run:
+
+```sh
+mise trust ./mise.toml
+mise run install agy --dry-run
+```
+
+Trust enables the task. With mise shell completion enabled, Tab completes
+clients and options. If you prefer not to trust the mise config, use
+`./install.sh` directly.
+
 ## Further reading
 
 - [Installation](docs/installation.md): client discovery, installer options, and safety boundaries.

@@ -66,6 +66,28 @@ For example, refresh only Codex and Pi:
 Review the preview before applying it. Removed options fail explicitly rather
 than silently changing scope. No package or global CLI wrapper is required.
 
+### Optional mise task
+
+Review the checkout's [`mise.toml`](../mise.toml) before trusting it. From the
+repository root, run:
+
+```sh
+mise trust ./mise.toml
+mise run install agy pi --dry-run
+mise run install agy pi
+```
+
+The task forwards the space-separated clients and `--dry-run` or `--force` to
+`install.sh`. Omitting the clients still selects Codex. No task runs by default.
+Enable [mise shell completion](https://mise.jdx.dev/shell-setup.html) to complete
+clients and flags from the task definition. The direct script still works
+without mise. With `--dry-run`, the installer does not modify instruction files;
+mise itself may still write task metadata.
+
+When adding a client or changing a flag, update the task's Usage spec in
+[`mise.toml`](../mise.toml) as well as the installer. The task must not handle file
+writes itself.
+
 ### Custom homes
 
 Non-empty home environment variables must contain absolute paths:
