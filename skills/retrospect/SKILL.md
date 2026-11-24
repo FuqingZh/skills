@@ -62,8 +62,8 @@ take implementation or commit action only after a separate explicit request.
 When the user later asks to persist a confirmed task-level lesson, follow
 `references/task-traces-and-retros.md`.
 
-For a direction, portrait, or cross-stage review, use the repository's
-document-type routing or the path specified by the user.
+For a direction, portrait, or cross-stage review, follow the repository's
+documentation convention or the path specified by the user.
 
 Recommend promotion to project documentation, repository instructions,
 calibration, or memory only after the lesson is stable.

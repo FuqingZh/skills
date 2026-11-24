@@ -18,13 +18,13 @@ should review the new wording before upgrading.
 
 ### Evaluation
 
-- Record a [15-generation explanation-framing pilot](docs/testing/20261117-explanation-framing-pilot.md)
+- Record a [15-generation explanation-framing pilot](https://github.com/FuqingZh/skills/blob/v2.1.0/docs/testing/20261117-explanation-framing-pilot.md)
   across GPT, Qwen, Grok, and DeepSeek. Results vary by model and context;
   adoption follows user preference, not demonstrated general quality gains.
   Private inputs and outputs are not published.
   Eight fresh follow-up generations compare the longer prohibition with its
   concise replacement; outcomes remain mixed.
-- Record a [repeated cross-task pilot](docs/testing/20261117-explanation-transfer-pilot.md):
+- Record a [repeated cross-task pilot](https://github.com/FuqingZh/skills/blob/v2.1.0/docs/testing/20261117-explanation-transfer-pilot.md):
   48 attempts, including incomplete answers and provider/harness failures;
   no demonstrated stable improvement or general regression.
 
@@ -39,7 +39,7 @@ See the [v2 migration guide](docs/migrations/v2.md) before upgrading.
 
 - `plainspoken` for substantive natural-language expression and `dissect` for
   in-depth analysis, with English instructions and task-specific references.
-- A [release evidence summary](docs/testing/20261117-v2.0-release-evidence-summary.md)
+- A [release evidence summary](https://github.com/FuqingZh/skills/blob/v2.0.0/docs/testing/20261117-v2.0-release-evidence-summary.md)
   linking measured repository reductions, original human feedback, comparisons,
   failed attempts, and untested boundaries.
 - A dedicated [installation reference](docs/installation.md), reached from the

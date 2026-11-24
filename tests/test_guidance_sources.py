@@ -87,7 +87,7 @@ def test_indexes_keep_direct_routes_and_repository_naming_fallback() -> None:
     assert "../docs/" not in discipline
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
     assert "`references/design/codebase.md`" in skill
-    assert "`references/docs/document-types/README.md`" in skill
+    assert "`references/docs/project-layout.md`" in skill
     naming = " ".join(
         (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
     )
@@ -106,10 +106,11 @@ def test_retired_naming_paths_are_not_shipped() -> None:
 
 def test_retired_docs_index_is_not_shipped_or_routed() -> None:
     assert not (REFERENCES / "docs_index.md").exists()
+    assert not (REFERENCES / "docs/document-types").exists()
     for path in REFERENCES.parent.rglob("*.md"):
         assert "docs_index.md" not in path.read_text(encoding="utf-8"), path
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
-    assert "`references/docs/document-types/README.md`" in skill
+    assert "`references/docs/project-layout.md`" in skill
 
 
 def test_retired_collaboration_guide_is_not_shipped_or_routed() -> None:

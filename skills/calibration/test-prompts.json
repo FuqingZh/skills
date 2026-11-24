@@ -7,9 +7,9 @@
   },
   {
     "id": 2,
-    "scenario": "复杂场景：项目文档类型选择",
-    "prompt": "这次重构后要把文档补一下：当前架构、为什么选这个方向、执行计划、从零学习路径、一个已知任务、生产恢复、第三方解析器规则、测试策略、基准结果、复盘分别应该写到哪里？",
-    "expected": "skill 应直接进入 document-types 路由，区分 architecture-overview、decision-record、implementation-plan、tutorial、how-to-guide、runbook、compatibility-record、test-plan、benchmark-record；任务复盘由 retrospect 的持久化契约负责，不属于该文档类型索引；应说明 guided capability acquisition 选 tutorial、one concrete task 选 how-to guide、controlled or high-risk operation 选 runbook、opaque external behavior 选 compatibility record；还应说明 PR body 不是长期文档，archive 是生命周期状态，不是文档类型。"
+    "scenario": "复杂场景：代码优先的文档边界",
+    "prompt": "这次重构后要把文档补一下：模块现状、为什么选这个方向、已完成实施计划、测试矩阵、生产恢复、第三方解析器偏差、复盘分别应该写到哪里？",
+    "expected": "skill 应路由到 project-layout.md，坚持代码、类型、测试和 CI 作为现状与验证真源，不手写模块现状镜像或测试矩阵；已定方向与否决方案写成 docs/adr/ 中的 ADR；已完成实施计划保持临时态不入长期 docs/；生产恢复按需写 runbook、第三方偏差平铺在 docs/；任务复盘由 retrospect 负责；不建 docs/archive/，历史交由 Git。"
   },
   {
     "id": 3,
@@ -96,40 +96,28 @@
     "expected": "任一情形触发时都应暂停 remote review，并保留 branch、head、worktree、owner 和 feedback state。当前 owner 应在已有授权内重新判断后续动作；越界反馈不授予 scope authority，需要额外授权的 contract expansion 应升级给用户。拆分工作应依据实际依赖和独立验收边界，不能因为预算耗尽就必须选择 PR 拓扑。review-convergence 预算与 transport、polling 或 idempotent-operation retry 预算应区分；后者耗尽保留状态并报告阻碍。不得自动发明定时任务或扩大授权范围。"
   },
   {
-    "id": 23,
-    "scenario": "文档路由：从零学习一项能力",
-    "prompt": "团队新成员完全不会用这个分析 CLI。请从安装、准备输入到第一次成功运行，设计一条能让他边做边学会的路径。",
-    "expected": "主类型应是 tutorial，无仓库本地约定时放在 docs/guides/；它需要从已知起点引导到一个可验证能力，并给出前置条件、渐进步骤和练习。不能把它路由成 how-to guide（那只解决一个已知任务），也不能把 architecture overview 或 reference 文档当成学习路径。"
-  },
-  {
-    "id": 24,
-    "scenario": "文档路由：完成一个已知任务",
-    "prompt": "我已经知道系统原理，只需要一份步骤，告诉我如何导入一批样本并确认导入成功。",
-    "expected": "主类型应是 how-to guide，无仓库本地约定时放在 docs/guides/；它应聚焦一个具体结果、前置条件、可执行步骤和验证方式。不能路由成 tutorial（不需要从零教学），也不能路由成 runbook，除非该操作具有生产恢复、高风险控制或回滚升级要求。"
-  },
-  {
     "id": 25,
-    "scenario": "文档路由：生产恢复程序",
+    "scenario": "文档契约：生产恢复程序",
     "prompt": "生产服务出现数据积压，需要值班人员按检查点恢复，确认结果，必要时回滚并升级。请把这套流程写成团队可执行的文档。",
-    "expected": "主类型应是 runbook，无仓库本地约定时放在 docs/runbooks/；它需要权限和前置条件、检查点、验证、恢复、回滚、停止条件和升级路径。不能只写成 how-to guide，因为这是生产邻接且受控的恢复操作；也不能把未经验证的排障过程直接写成当前 runbook。"
+    "expected": "应按 runbook 契约编写，无本地约定时按需平铺在 docs/（如 docs/runbook.md）；需包含权限和前置条件、顺序检查点、验证、恢复、回滚、停止条件和升级路径，不写密钥或私人主机状态；不把未经验证的排障过程直接写成当前 runbook。"
   },
   {
     "id": 26,
-    "scenario": "文档路由：第三方黑箱兼容规则",
+    "scenario": "文档契约：第三方黑箱兼容规则",
     "prompt": "我们反复验证了某供应商解析器在版本 4.2 下对这个字段的特殊行为，并找到安全适配方式。请记录下来供后续调用者使用。",
-    "expected": "主类型应是 compatibility record，无仓库本地约定时放在 docs/reference/；需要记录外部边界、版本、环境、观察证据、失败特征和安全适配，并区分事实与推断。不能放成 architecture overview 或 tutorial；尚未形成有证据支持结论的试错过程保留在仓库的调查记录位置，无约定时用 .calibration/notes/，不自动迁移旧记录。"
+    "expected": "属于代码无法反推的外部事实，无本地约定时按需平铺在 docs/（如 docs/compatibility.md）；需记录外部边界、版本、环境、观察证据、失败特征、安全适配和重验条件，并区分官方声明与本地观察；尚未验证的试错记录留在仓库调查位置，无约定时用 .calibration/notes/，不自动迁移旧记录。"
   },
   {
     "id": 27,
-    "scenario": "文档路由：记录一项已定决策",
-    "prompt": "我们比较了三个存储方案，最终选择其中一个，未来可能因为成本和兼容性变化而重开。请记录为什么这样选。",
-    "expected": "主类型应是 decision record，无仓库本地约定时放在 docs/architecture/decisions/；需要背景、替代方案、选择、后果和重开条件。不能用 architecture overview 代替选择理由，也不能把尚未决定的方案比较写成 decision record。"
+    "scenario": "文档契约：记录与取代架构决策",
+    "prompt": "我们比较了三个存储方案，最终用方案 B 取代了此前采用的方案 A，未来可能因为成本和兼容性变化而重开。请记录这次决策并处理旧决策。",
+    "expected": "应写成简洁 Markdown ADR，无本地约定时放 docs/adr/（YYYY-MM-DD-topic.md）；记录日期、状态、背景、可行替代方案、选择与后果及重开条件；将放弃方案 A 的原因压缩写入新 ADR 并附 Git 引用，然后从 HEAD 删除旧 ADR，不另建 docs/archive/。"
   },
   {
     "id": 28,
-    "scenario": "文档路由：拆解已接受的迁移",
-    "prompt": "迁移方向已经批准。请把它拆成有依赖关系的实施切片，列出影响边界、风险、验证命令和验收证据，供后续执行。",
-    "expected": "主类型应是 implementation plan，无仓库本地约定时放在 docs/design/；需要决策完成的切片、依赖、影响边界、风险、验证和验收。可作为现有 design proposal 中的独立实施章节，复杂时另存关联计划；不能用方案讨论代替执行计划，不必新增 decision record，也不能把要求持久化的计划藏在 PR body。保存或提交仍须用户要求或仓库流程授权。"
+    "scenario": "文档边界：实施计划保持临时态",
+    "prompt": "迁移方向已经批准。请把它拆成实施步骤供本轮执行，是否必须先在 docs/design/ 下建一份带版本号的永久实施计划文档？",
+    "expected": "不需要。实施计划和方案草稿默认保持临时态（留在对话、任务状态、PR 描述或本地临时笔记），不作为长期 docs/ 资产，也不用带版本号的文件名；落地后把真正影响后续决策的权衡抽成简洁 ADR 即可。"
   },
   {
     "id": 29,
@@ -140,32 +128,20 @@
   {
     "id": 34,
     "scenario": "Documentation layout: existing local conventions",
-    "prompt": "Our repository uses docs/manual/ for guides, rfcs/ for proposals, and docs/engineering/ for contributor documentation. Adopt the shared guidance for a new task without moving existing material.",
-    "expected": "Keep docs/manual/, rfcs/, and docs/engineering/ as local authority. Use the matching document-type contracts without creating parallel docs/guides/, docs/design/, or docs/contributing/ locations. Do not migrate existing records, links, or evidence."
+    "prompt": "Our repository uses docs/decisions/ for ADRs and docs/manual/ for user guides. Adopt the shared guidance for a new task without moving existing material.",
+    "expected": "Keep docs/decisions/ and docs/manual/ as local authority without creating parallel docs/adr/ or docs/guides/ folders. Do not migrate existing records or links."
   },
   {
     "id": 35,
-    "scenario": "Documentation layout: one change with several roles",
-    "prompt": "A cache design has been accepted but not implemented. Save its rationale and a short executable implementation plan. There are no local documentation conventions. Must we create separate proposal, plan, decision and current-architecture documents?",
-    "expected": "Use docs/design/ and keep the proposal and implementation plan as distinct sections of one topic document when sufficient. Split linked files only for independent review or maintenance; a plan can also stand alone. Acceptance does not establish implementation: update docs/architecture/ only when implementation evidence supports it. Do not require a separate decision record or a fixed approval pipeline for every change."
-  },
-  {
-    "id": 36,
-    "scenario": "Documentation layout: lookup material and generated authority",
-    "prompt": "We need a place for CLI configuration lookup and verified third-party compatibility facts. The CLI reference is already generated from source. No local docs layout is defined.",
-    "expected": "Use docs/reference/ for lookup material, including the compatibility record. Link the generated CLI reference rather than copying it. Preserve versions, observed evidence, failure signatures and safe adaptations; keep unverified investigation material with its task. A reference directory does not require adding a new mandatory document type or generation workflow."
+    "scenario": "Documentation layout: code-first avoids prose mirrors",
+    "prompt": "A small self-contained Python library has clean types, docstrings, pytest tests, and GitHub Actions CI. Should we scaffold docs/architecture/, docs/design/, docs/reference/, and docs/archive/ before adding features?",
+    "expected": "No. Treat code, types, tests, and CI as the source of truth and create no empty directories. Add docs/adr/ only when a lasting non-obvious decision needs rationale, and rely on Git history rather than docs/archive/."
   },
   {
     "id": 37,
-    "scenario": "Documentation layout: shared and change-specific validation",
-    "prompt": "We have a reusable testing strategy, a reproducible performance report, and a validation checklist specific to one proposed migration. Where should these live without local placement rules?",
-    "expected": "Use docs/contributing/ for reusable test-plan and benchmark-record documentation. The migration-specific checklist can stay with its docs/design/ topic and link the shared checks. Preserve benchmark workload, environment, comparison scope, results, failures and evidence locations. Keep executable tests and raw benchmark artifacts with their existing owners; do not copy them to match the documentation layout."
-  },
-  {
-    "id": 38,
-    "scenario": "Documentation layout: minimal structure and preserved history",
-    "prompt": "A small project has one getting-started lesson, one import guide and a superseded architecture decision with useful history. Should adopting the shared layout create all eight directories and move every old record?",
-    "expected": "Keep tutorial and how-to purposes distinct within docs/guides/ when no local convention exists. Create only needed files and directories; no empty scaffolding or mandatory subdirectories. Preserve the decision at its existing path with status and a replacement link; archive/ is optional. Create runbooks/ when operational procedures need it, retaining their authorization, verification, recovery and stop conditions. Do not migrate historical evidence."
+    "scenario": "Documentation layout: benchmarks versus one-off experiments",
+    "prompt": "We have an active latency benchmark updated each release and a failed prompt experiment we rejected. How should we store them without local rules?",
+    "expected": "Keep one current summary updated in place for the active reproducible benchmark (linking verification evidence and seed defaults) rather than accumulating dated run logs; fold the rejected experiment's takeaway and limits into the owning ADR with a Git reference."
   },
   {
     "id": 39,

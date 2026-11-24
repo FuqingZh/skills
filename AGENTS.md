@@ -4,7 +4,7 @@
 
 - Read `README.md` for the project overview and quick start, and
   `docs/installation.md` for the installer contract.
-- Read `docs/README.md` for current decisions and active implementation plans.
+- Read `docs/README.md` for current contracts and architecture decisions.
 - Reusable engineering guidance owned by calibration lives under
   `skills/calibration/references/`.
 - First-party skills live under `skills/`; do not change behavioral cases as

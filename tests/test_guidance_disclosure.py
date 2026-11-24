@@ -9,7 +9,6 @@ from tests.support import REPOSITORY_ROOT
 CALIBRATION = REPOSITORY_ROOT / "skills/calibration"
 REFERENCES = CALIBRATION / "references"
 DISCIPLINE = REFERENCES / "discipline"
-TYPES = REFERENCES / "docs/document-types"
 LAYOUT = REFERENCES / "docs/project-layout.md"
 RETROSPECT = REPOSITORY_ROOT / "skills/retrospect"
 
@@ -18,17 +17,16 @@ def compact(path: Path) -> str:
     return " ".join(path.read_text(encoding="utf-8").split())
 
 
-def test_document_selection_is_direct_and_layout_is_a_separate_branch() -> None:
+def test_document_selection_is_direct_and_single_branch() -> None:
     skill = (CALIBRATION / "SKILL.md").read_text(encoding="utf-8")
     targets = re.findall(r"`(references/[^`]+\.md)`", skill)
     assert len(targets) == len(set(targets))
     assert all((CALIBRATION / target).is_file() for target in targets)
-    assert "references/docs/document-types/README.md" in targets
     assert LAYOUT.relative_to(CALIBRATION).as_posix() in targets
+    assert "references/docs/document-types/README.md" not in targets
     assert "references/docs_index.md" not in targets
     assert "task retrospectives" not in skill
-    assert "document type and minimum content" in skill
-    assert "project documentation layout, naming, navigation, and lifecycle" in skill
+    assert "ADRs, external-fact records, runbooks" in skill
 
 
 def test_discipline_routes_bypass_retired_harness_forwarders() -> None:
@@ -123,53 +121,16 @@ def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> 
             assert retired not in body, path
 
 
-def test_layout_and_type_defaults_agree_without_duplicate_type_rules() -> None:
-    source = LAYOUT.read_text(encoding="utf-8")
-    layout = compact(LAYOUT)
-    directories = set(re.findall(r"^  ([a-z-]+)/$", source, flags=re.MULTILINE))
-    type_directories: set[str] = set()
-    for path in TYPES.glob("*.md"):
-        type_directories.update(
-            location.split("/", 1)[0]
-            for location in re.findall(r"`docs/([a-z/-]+)/`", path.read_text())
-        )
-    assert directories == type_directories | {"assets", "archive"}
-    assert "](document-types/README.md)" in source
-    assert "Each type owns its minimum content and fallback location" in layout
-    assert "a document type need not own a separate directory" in layout
-    assert "Co-location does not merge document contracts" in layout
-    assert (
-        "acceptance records agreement on a direction, "
-        "not evidence that it is implemented" in layout
-    )
-    for retired in (
-        "do not use for unapproved future direction",
-        "## Document Selection Boundaries",
-        "## Minimal Authoring Contract",
-        "Use When",
-        "Method Reference",
-        "Local Requirements",
-        "Complete When",
-    ):
-        assert retired not in source
-
-
 def test_working_material_ownership_does_not_depend_on_directory_name() -> None:
     layout = compact(LAYOUT)
-    compatibility = compact(TYPES / "compatibility-record.md")
     for rule in (
-        "Investigation notes belong to the task",
-        "Retrospect owns records of expectation versus outcome",
-        "ordinary investigation or project-document writing does not invoke",
+        "Investigation notes belong to the owning task",
         "Formal project documents remain project-owned",
         "One-off observations need not be persisted automatically",
         "Hidden paths do not provide privacy",
         "otherwise use `.calibration/notes/`",
     ):
         assert rule in layout
-    assert "owning investigation's task records" in compatibility
-    assert "#working-material)" in compatibility
-    assert "retrospect" not in compatibility.lower()
 
 
 def test_retrospect_depth_depends_on_request_or_comparison_scope() -> None:

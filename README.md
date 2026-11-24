@@ -69,6 +69,5 @@ clients and options. If you prefer not to trust the mise config, use
 - [Upgrade to v2](docs/migrations/v2.md) · [Legacy migration](docs/migrations/skills-cli.md).
 - [Versions and releases](docs/releases.md) · [Changelog](CHANGELOG.md).
 - [Development and validation](AGENTS.md#validation).
-- [Evaluation results](docs/testing/20261117-v2.0-release-evidence-summary.md): measured reductions, writing feedback, and limits.
-- [Documentation index](docs/README.md): current guidance and historical records.
+- [Documentation index](docs/README.md): active contracts and architecture decisions.
 - [Issues](https://github.com/FuqingZh/skills/issues): include client versions, commands, and sanitized output.

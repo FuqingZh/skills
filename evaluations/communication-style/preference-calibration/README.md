@@ -7,7 +7,9 @@ unavailable. See [v4 results and audit](results-v4.md) and the
 runtime change followed. v3 remains preserved with four stable matches among
 seven labeled style pairs, one mismatch and two order conflicts.
 
-See the [implementation plan](../../../docs/implementation-plans/communication-style-preference-optimization.md),
+See the historical implementation plan
+(`docs/implementation-plans/communication-style-preference-optimization.md` at
+`v2.1.0`),
 [five-check rubric](rubric-v3.md), [admission review](admission-v3.json) and
 [results with full author audit](results-v3.md). Holdout remains unopened for
 human annotation and model scoring; the author has reviewed source comparability.

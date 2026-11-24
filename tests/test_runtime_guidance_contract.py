@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 from pathlib import Path
@@ -50,59 +49,11 @@ def test_shared_aggregation_root_has_behavioral_prompt_coverage() -> None:
     assert "concurrency" in prompts
 
 
-def test_docs_separate_current_authority_from_archived_plans() -> None:
-    source = REPOSITORY_ROOT / "docs/README.md"
-    docs = source.read_text(encoding="utf-8")
-    authority = docs.split("## Current Authority\n", 1)[1].split("\n## ", 1)[0]
-    current_targets = {
-        (source.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", authority)
-    }
-    assert all("ao-integration" not in str(path) for path in current_targets)
-    assert REPOSITORY_ROOT / "skills/calibration/SKILL.md" in current_targets
-    archive = REPOSITORY_ROOT / "docs/archive/README.md"
-    assert (source.parent / "archive/README.md").resolve() in {
-        (source.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", docs)
-    }
-    archived_targets = {
-        (archive.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(
-            r"\[[^]]+\]\(([^)]+)\)", archive.read_text(encoding="utf-8")
-        )
-    }
-    for relative in (
-        "docs/implementation-plans/"
-        "20260731-v2.1-portable-orchestrator-containment-implementation-plan.md",
-        "docs/implementation-plans/"
-        "20260826-v1.0-self-contained-first-party-skills-migration-implementation-plan.md",
-        "docs/testing/20260825-v2.1-progressive-validation-relative-replacement-test-plan.md",
-        "docs/testing/"
-        "20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md",
-        "evaluations/teach-adaptation/results.md",
-        "evaluations/teach-adaptation/v2/README.md",
-    ):
-        assert REPOSITORY_ROOT / relative in archived_targets
-        assert REPOSITORY_ROOT / relative not in current_targets
-
-
-def test_retired_guidance_preserves_exact_bytes_outside_skill_loading() -> None:
-    archive = REPOSITORY_ROOT / "docs/archive/ao-guidance-before-v0.12.12"
-    records = json.loads(text("docs/archive/retired-guidance-manifest.json"))["files"]
-    recorded_paths = {row["path"] for row in records}
-    assert len(recorded_paths) == len(records)
-    assert recorded_paths == {
-        "docs/implementation-plans/"
-        "20260731-v2.1-portable-orchestrator-containment-implementation-plan.md",
-        *(
-            path.relative_to(REPOSITORY_ROOT).as_posix()
-            for path in archive.rglob("*")
-            if path.is_file()
-        ),
-    }
-    for row in records:
-        path = REPOSITORY_ROOT / row["path"]
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"], path
+def test_docs_keep_only_active_authority_without_archive_tree() -> None:
+    docs = text("docs/README.md")
+    assert not (REPOSITORY_ROOT / "docs/archive").exists()
+    assert "skills/calibration/SKILL.md" in docs
+    assert "adr/" in docs
     for path in (
         "skills/calibration/SKILL.md",
         "skills/calibration/references/discipline/harness.md",
@@ -125,9 +76,6 @@ def test_runtime_entrypoints_are_independent_of_retired_integration() -> None:
         REPOSITORY_ROOT
         / "skills/calibration/references/agent-orchestrator-review-continuation.md"
     ).exists()
-    assert (
-        REPOSITORY_ROOT / "docs/archive/ao-integration-retired-2026-10-15.md"
-    ).is_file()
 
 
 def test_generic_boundaries_have_reachable_reference_owners() -> None:
@@ -226,7 +174,7 @@ def test_retained_principles_have_task_specific_owners() -> None:
     assert "validate outputs as well as runtime" in verification
     assert "seed explicit when it materially affects reproducibility" in verification
     assert "reconstructable reference or an approved evidence location" in verification
-    assert "Follow its existing layout" in docs
+    assert "Follow repository-owned documentation contracts and existing paths" in docs
     for path in (REPOSITORY_ROOT / "skills/calibration").rglob("*.md"):
         assert "principles.md" not in path.read_text(), path
 
@@ -344,14 +292,13 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
     assert "Load only the references required" in skill
     assert "Follow repository-owned documentation and collaboration contracts" in skill
     assert "guidance to fill gaps in those contracts" in skill
-    assert "project documentation layout" in skill
+    assert "project documentation scope" in skill
     assert "references/docs_index.md" not in skill
     retired = "docs/technology/main_path_readability/20260318-v1.0.md"
     assert not (REPOSITORY_ROOT / "skills/calibration/references" / retired).exists()
     for retired in ("$retrospect", ".traces/", "## Schema", "## Technology"):
         assert retired not in skill
     for retained in (
-        "references/docs/document-types/README.md",
         "references/docs/project-layout.md",
         "for routine PR body generation",
     ):

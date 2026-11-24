@@ -18,8 +18,8 @@ No tag or release is created by installation or bootstrap.
 
 The [v2 migration guide](migrations/v2.md) covers the six-skill router, removed
 reference paths, private-host routing change, and historical runtime retirement.
-See the [evidence summary](testing/20261117-v2.0-release-evidence-summary.md) for
-measured changes and the limits of behavioral claims.
+The frozen v2.0 evidence snapshot remains available at tag `v2.0.0`
+(`docs/testing/20261117-v2.0-release-evidence-summary.md`).
 
 With skills CLI 1.7.6, use `owner/repo#ref` for a tag or full commit. A pinned
 installation stays on that ref during `skills update`. Upgrade or rollback with

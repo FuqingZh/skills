@@ -115,9 +115,7 @@ def test_skills_without_working_material_do_not_acquire_storage_defaults() -> No
     assert "Formal reports remain" in compact(
         DISSECT / "references/working-material.md"
     )
-    assert "of investigation working material" in compact(
-        SKILLS / "calibration/SKILL.md"
-    )
+    assert "investigation working material" in compact(SKILLS / "calibration/SKILL.md")
 
 
 def test_code_doc_format_fallback_preserves_material_gap_reporting() -> None:

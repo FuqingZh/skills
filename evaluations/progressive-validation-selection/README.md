@@ -8,9 +8,10 @@ they do not establish current execution support. Original evidence is retained.
 ## Current evaluation authority
 
 The frozen 14-pair protocol and v2.1 run below are historical background. Do
-not use either to accept, reject, tune, or migrate the candidate. The current
-formal authority is the
-[`v2.2 correction plan`](../../docs/testing/20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md).
+not use either to accept, reject, tune, or migrate the candidate. The historical
+formal authority is the `v2.2 correction plan`
+(`docs/testing/20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md`
+at `v2.1.0`).
 It compares relative net improvement against the effective baseline on P02,
 P03, and P05 while preserving repository-owned mandates and treating common
 failure as inherited debt.
@@ -20,7 +21,9 @@ found that `codex exec --json` has no structured, correlated approval event.
 The revised protocol intentionally skips approval statistics and does not parse
 error-message prose. `Approve for me` remains enabled identically in both arms;
 the corrected comparison uses 12 initial runs and no more than 18 runs. See the
-[`outcome-only scope decision`](../../docs/decisions/2026-08-25-progressive-validation-outcome-only-approval-scope.md).
+`outcome-only scope decision`
+(`docs/decisions/2026-08-25-progressive-validation-outcome-only-approval-scope.md`
+at `v2.1.0`).
 
 The v2.1 execution completed 32 runs under controller `6c689933...`: 24
 initial slots plus third pairs for P01, P02, P03, and P04. C01 and all slot
@@ -28,10 +31,10 @@ ledgers completed without harness failure. Candidate strict-valid runs were
 5/16 versus 4/16, while valid-or-comparable task completion tied 7/16 and all
 six collapsed cases tied. Later audit proved that all 32 repository outcomes
 were actually valid; raw-command evidence failures had been collapsed into the
-task result. The published
-[`inconclusive`](../../docs/decisions/2026-08-25-progressive-validation-relative-replacement-outcome.md)
-decision is retained as a diagnostic record, not as current replacement
-evidence.
+task result. The published `inconclusive` decision
+(`docs/decisions/2026-08-25-progressive-validation-relative-replacement-outcome.md`
+at `v2.1.0`) is retained in Git history as a diagnostic record, not as current
+replacement evidence.
 
 This frozen evaluation compares validation-selection behavior without treating
 command count as a quality signal. Deterministic command reconciliation decides
@@ -203,9 +206,9 @@ or proof coverage, but it did not prove a net improvement because the case
 wins were balanced. It was also slightly slower: candidate mean elapsed time
 was 64.00 seconds versus 62.80 seconds for the baseline. Approval activity was
 not collected. The private ledgers and raw trajectories remain outside the
-repository; see the
-[relative-replacement decision](../../docs/decisions/2026-08-25-progressive-validation-relative-replacement-acceptance.md)
-for the immutable digests and interpretation.
+repository; see the relative-replacement decision
+(`docs/decisions/2026-08-25-progressive-validation-relative-replacement-acceptance.md`
+at `v2.1.0`) for the immutable digests and interpretation.
 
 The third repetition is a conflict breaker, not a default. A run is invalid,
 rather than replaced silently, when its capture, events, source hashes, or

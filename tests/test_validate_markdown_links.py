@@ -93,9 +93,11 @@ def test_excludes_exact_sol_advisor_ablation_prompts(tmp_path: Path) -> None:
     task = evaluation / "task.md"
     task.write_text("[raw task](missing.md)\n", encoding="utf-8")
     readme = evaluation / "README.md"
-    readme.write_text("# Reviewed protocol\n", encoding="utf-8")
+    readme.write_text("[frozen historical plan](missing.md)\n", encoding="utf-8")
+    results = evaluation / "results.md"
+    results.write_text("# Reviewed results\n", encoding="utf-8")
 
-    assert discover_markdown_files(tmp_path) == [readme]
+    assert discover_markdown_files(tmp_path) == [results]
     assert validate_markdown_links(tmp_path) == []
 
 

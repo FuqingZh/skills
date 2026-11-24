@@ -14,7 +14,7 @@ W04 的额外加载集中在 calibration 短描述条件；A02 对仓库总览�
 最终交付为 5,603 bytes，比基线减少 28.2%；未修改或削弱测试。配置默认值和项目知识章节保持
 原样；兼容性、最终产物验证、外部状态回读和未验证边界继续保留。调试允许已有
 具体故障记录支持修改，不强制为流程重新制造一次失败；最终验证仍然必要。
-见[采用决定](../../docs/decisions/2026-09-20-calibration-body-compression-and-routing.md)。
+见采用决定（`docs/decisions/2026-09-20-calibration-body-compression-and-routing.md`，留存于 `v2.1.0` 历史）。
 
 此前七文件候选对照为 8 案例 × 2 版本 × 2 重复，共 32 轮：
 

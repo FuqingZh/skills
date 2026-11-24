@@ -62,6 +62,5 @@ mise run install agy --dry-run
 - [升级到 v2](docs/migrations/v2.md) · [旧安装迁移](docs/migrations/skills-cli.md)。
 - [版本与发布](docs/releases.md) · [变更记录](CHANGELOG.md)。
 - [开发与验证](AGENTS.md#validation)。
-- [测试结果汇总](docs/testing/20261117-v2.0-release-evidence-summary.md)：材料精简、人评结果与未验证范围。
-- [文档索引](docs/README.md)：现行指导与历史记录。
+- [文档索引](docs/README.md)：现行契约与架构决策。
 - [问题反馈](https://github.com/FuqingZh/skills/issues)：请附客户端版本、命令及脱敏后的相关输出。

@@ -1,7 +1,8 @@
 # Coding Protocol And Calibration Comparison
 
-Status: comparison complete; user subsequently authorized the
-[runtime retirement trial](../../docs/decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md).
+Status: comparison complete; user subsequently authorized the runtime
+retirement trial (`docs/decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md`
+at `v2.1.0`).
 
 ## Question And Frozen Design
 

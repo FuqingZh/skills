@@ -20,14 +20,11 @@ Load only the references required by the decisions at hand:
   `references/discipline/README.md`
 - architecture, module boundaries, interfaces, and abstraction:
   `references/design/codebase.md`
-- document type and minimum content for cross-boundary contracts or long-form
-  engineering specifications: `references/docs/document-types/README.md`
-- project documentation layout, naming, navigation, and lifecycle, or placement
-  of investigation working material:
-  `references/docs/project-layout.md`
+- project documentation scope, ADRs, external-fact records, runbooks, and
+  investigation working material: `references/docs/project-layout.md`
 
 Follow repository-owned documentation and collaboration contracts; use shared
-guidance to fill gaps in those contracts. Do not use the document-type route
+guidance to fill gaps in those contracts. Do not use the documentation route
 for routine PR body generation unless the user asks how summaries relate to
 durable project docs.
 
