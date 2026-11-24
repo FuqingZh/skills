@@ -76,7 +76,7 @@ See the [v2 migration guide](docs/migrations/v2.md) before upgrading.
 - Retire `scripts/run_writable_agent_eval.py` and
   `scripts/run_progressive_validation_selection_eval.py` with their dedicated
   runtime tests. Preserve all 20 original source files as byte-identical text in
-  the [runtime archive](evaluations/archive/writable-agent-runtime/README.md),
+  the [runtime archive](https://github.com/FuqingZh/skills/blob/v2.0.0/evaluations/archive/writable-agent-runtime/README.md),
   with independent evidence and provenance checks. Runtime compatibility failures
   were retired, not repaired.
 

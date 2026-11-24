@@ -43,7 +43,7 @@ retired AO, Symphony, and historical plan prose (full prior state preserved at
 - **Keeping dated `docs/testing/` pilot reports on `HEAD`**: Deterministic test
   results belong to `tests/` and CI; non-deterministic experiment takeaways
   belong compacted inside the owning ADR, while full historical runs remain
-  recoverable via Git tags and `evaluations/`.
+  recoverable via Git tags (`v2.0.0`, `v2.1.0`).
 
 ## Consequences
 

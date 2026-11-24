@@ -1,1 +1,0 @@
-"""Slug fixture package."""

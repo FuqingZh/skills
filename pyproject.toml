@@ -27,7 +27,7 @@ test-coverage = "pytest --cov=scripts --cov-report=term-missing --cov-report=xml
 typecheck = "pyright"
 lint-python = "ruff check scripts tests"
 format-check = "ruff format --check scripts tests"
-lint-markdown = "rumdl check README.md README.zh-CN.md CHANGELOG.md AGENTS.md docs evaluations skills templates"
+lint-markdown = "rumdl check README.md README.zh-CN.md CHANGELOG.md AGENTS.md docs skills templates"
 validate-markdown-links = "python scripts/validate_markdown_links.py"
 validate-skills = "python scripts/validate_skills.py"
 lint-shell = "shellcheck -x install.sh scripts/cleanup-legacy-links.sh"
@@ -56,7 +56,7 @@ addopts = [
 
 [tool.pyright]
 include = ["scripts", "tests"]
-exclude = ["thirdparty", ".venv"]
+exclude = [".venv"]
 pythonVersion = "3.12"
 pythonPlatform = "Linux"
 typeCheckingMode = "strict"

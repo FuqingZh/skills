@@ -1,7 +1,0 @@
-{
-  "status": "passed",
-  "manifest_sha256": "33b54f823e7766285f496293cbd2f8bae85de43d60ebcbecc8e2df896bc9344a",
-  "synthetic_calls": 2,
-  "model_calls": 0,
-  "in_process_network_attempts": 0
-}

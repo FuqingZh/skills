@@ -33,6 +33,6 @@ that code cannot convey on its own.
 | Explicit conversation closeout | [closeout](../skills/closeout/SKILL.md) |
 | Explicit evidence-driven retrospective | [retrospect](../skills/retrospect/SKILL.md) |
 
-Superseded decisions, completed plans, and historical snapshots live in Git
-history (see tags `v1.0.0`, `v2.0.0`, `v2.1.0`). Raw evaluation artifacts
-remain under `evaluations/`.
+Superseded decisions, completed plans, historical evaluations, and retired
+third-party archives live in Git history (see tags `v1.0.0`, `v2.0.0`,
+`v2.1.0`).

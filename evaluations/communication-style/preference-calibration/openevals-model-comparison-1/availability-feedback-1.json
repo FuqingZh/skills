@@ -1,7 +1,0 @@
-{
-  "source": "User feedback after retained failure; audit-only, not sent to models",
-  "user_message": "openrouter 现在调不了 claude。你可以试试其他模型",
-  "reported_commit": "f2af0e8",
-  "scope": "User reports Claude unavailable on the current OpenRouter route and authorizes another model. This is not a universal claim about OpenRouter or a recovery of the original raw error.",
-  "historical_failure_unchanged": true
-}

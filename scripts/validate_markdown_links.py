@@ -15,21 +15,9 @@ MARKDOWN_ROOTS = (
     Path("CHANGELOG.md"),
     Path("AGENTS.md"),
     Path("docs"),
-    Path("evaluations"),
-    Path("references"),
     Path("skills"),
-    Path("codex"),
 )
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!!)\[[^]]*]\(([^)]+)\)")
-MARKDOWN_EXCLUDES = (
-    Path("evaluations/progressive-validation-selection/fixtures"),
-    Path("evaluations/teach-adaptation/artifacts"),
-    Path("evaluations/teach-adaptation/v2/blind-packet.md"),
-    Path("evaluations/teach-adaptation/v2/runs"),
-    Path("evaluations/sol-advisor-calibration-ablation/README.md"),
-    Path("evaluations/sol-advisor-calibration-ablation/advisor-activation.md"),
-    Path("evaluations/sol-advisor-calibration-ablation/task.md"),
-)
 
 
 def discover_markdown_files(root: Path) -> list[Path]:
@@ -40,13 +28,7 @@ def discover_markdown_files(root: Path) -> list[Path]:
         if path.is_file():
             files.append(path)
         elif path.is_dir():
-            for candidate in path.rglob("*.md"):
-                relative = candidate.relative_to(root)
-                if any(
-                    relative.is_relative_to(excluded) for excluded in MARKDOWN_EXCLUDES
-                ):
-                    continue
-                files.append(candidate)
+            files.extend(path.rglob("*.md"))
     return sorted(files)
 
 
