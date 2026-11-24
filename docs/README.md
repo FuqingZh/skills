@@ -41,7 +41,7 @@ to implicit invocation when the policy is absent; see the
 | Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
 | In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
 | Repository capabilities, instructions, and continuation/review boundaries | [Harness](../skills/calibration/references/discipline/harness.md) |
-| Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
+| Linter selection and rule defaults | [Ruff](../skills/calibration/references/linters/ruff.md) |
 | Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
 | Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
 | Document layout and lifecycle | [Project documentation layout](../skills/calibration/references/docs/project-layout.md) |

@@ -87,13 +87,13 @@
     "id": 20,
     "scenario": "Review convergence：同范围机械反馈继续收敛",
     "prompt": "当前 PR 的 exact-current-head 自动审查只要求修正一个拼写和更新已有断言，都在当前明确声明且已授权的 PR 契约内，review-convergence 预算也未耗尽。是否应该暂停审查、拆 PR 或重新调用 calibration？",
-    "expected": "不应无谓拆分或重新 calibration。拥有者应在现有 bounded owner loop 内继续处理当前明确声明且已授权契约内的 same-scope mechanical feedback，保持当前 PR 和所有权，并在修复后重新运行相关验证与 exact-current-head review。不得因为一次机械反馈发明 LOC、文件数或 review-round 阈值。"
+    "expected": "不应无谓拆分或重新 calibration。拥有者应在现有授权内继续处理当前明确声明且已授权契约内的同范围机械反馈，保持当前 PR 和所有权，并在修复后重新运行相关验证与 exact-current-head review。"
   },
   {
     "id": 21,
     "scenario": "Review convergence：跨契约扩张或预算耗尽",
     "prompt": "当前 PR 的 exact-current-head 审查要求新增一个超出当前明确声明且已授权契约的公共 API；另一种情况是独立配置的 review-convergence 预算已经耗尽。接下来应继续扩大当前 PR，还是自动建一个定时任务反复审查？",
-    "expected": "任一情形触发时都应暂停 remote review，并保留 branch、head、worktree、owner 和 feedback state。当前 owner 应在已有授权内重新判断后续动作；越界反馈不授予 scope authority，需要额外授权的 contract expansion 应升级给用户。拆分工作应依据实际依赖和独立验收边界，不能因为预算耗尽就必须选择 PR 拓扑。review-convergence 预算与 transport、polling 或 idempotent-operation retry 预算应区分；后者耗尽保留状态并报告阻碍。不得自动发明定时任务、扩大授权范围或设置通用 LOC、文件数、review-round 阈值。"
+    "expected": "任一情形触发时都应暂停 remote review，并保留 branch、head、worktree、owner 和 feedback state。当前 owner 应在已有授权内重新判断后续动作；越界反馈不授予 scope authority，需要额外授权的 contract expansion 应升级给用户。拆分工作应依据实际依赖和独立验收边界，不能因为预算耗尽就必须选择 PR 拓扑。review-convergence 预算与 transport、polling 或 idempotent-operation retry 预算应区分；后者耗尽保留状态并报告阻碍。不得自动发明定时任务或扩大授权范围。"
   },
   {
     "id": 23,
@@ -136,30 +136,6 @@
     "scenario": "验证选择：普通文档变更",
     "prompt": "我只修正 README 措辞并移动一份普通说明文档，没有修改生成器、可执行示例、agent 指令、skill、配置或运行时合同。仓库存在一个完整代码质量 gate，这次是否必须全部运行？",
     "expected": "应根据受影响行为和合同成比例选择验证，运行足以决定文档措辞、导航、链接、格式和 diff 的最小相关检查；不能仅因仓库存在完整代码 gate 就机械运行 runtime tests。若仓库本地政策明确要求所有此类变更运行完整 gate，则该更具体的规则优先。文件扩展名本身不能证明有无行为影响。"
-  },
-  {
-    "id": 30,
-    "scenario": "GitHub 路由：普通 PR review feedback",
-    "prompt": "这个 GitHub PR 有若干 unresolved inline review threads。请先识别哪些仍可执行、哪些重复或已经 resolved，再处理当前授权范围内的反馈。需要先调用 calibration 吗？",
-    "expected": "不需要仅因普通 review mechanics 调用 calibration。使用可用工具读取 thread-aware 状态，区分 actionable、duplicate、resolved 和 informational feedback；写权限、当前 PR contract 与 owner 保持不变。只有反馈越过已授权 contract、产生冲突或触发 review-convergence tripwire 时才进入 calibration。"
-  },
-  {
-    "id": 31,
-    "scenario": "GitHub 路由：Actions 检查失败",
-    "prompt": "当前 PR 的一个 GitHub Actions check 失败了。请读取失败日志、判断根因并提出聚焦修复，不要把所有代码检查机械重跑一遍。",
-    "expected": "使用可用工具读取失败 check 和日志，先报告根因和相关修复，再运行与失败表面相关的验证。按实际工具能力和授权范围诊断 CI，明确无法读取的日志或外部系统边界。普通 Actions 诊断不需要加载完整 calibration harness，也不能扩张现有写权限或任务 scope。"
-  },
-  {
-    "id": 32,
-    "scenario": "GitHub 路由：可选 skill 缺失",
-    "prompt": "新环境没有安装 GitHub 插件，但需要读取普通 PR 评论或 Actions 失败。是否应该自动联网安装插件，或者因为缺少 skill 就调用 calibration？",
-    "expected": "都不应该。可选 skill 缺失时使用仓库或平台原生工具完成当前 mechanics，并明确真实的认证或观测缺口；不得静默安装 provider、虚构插件能力，或仅因 skill 缺失调用 calibration。只有反复证明缺少的是持久 delivery capability 或出现 scope、ownership、topology 决策时才路由到 harness/calibration。"
-  },
-  {
-    "id": 33,
-    "scenario": "GitHub 路由：owner 与外部 mechanics",
-    "prompt": "另一个 worker 已拥有这个 PR。GitHub review 只要求同范围机械修复，Actions 也有一个相关失败。controller 能否通过可用工具读取 review 和 CI 后直接修改 owner 的 sibling worktree？",
-    "expected": "不能。工具访问不授予写权限、转移 ownership 或创建第二 writer。当前 owner 在既有授权和 bounded loop 内处理同范围反馈；controller 只做允许的 readback 和路由。若反馈跨越 PR contract 或 review-convergence budget 耗尽，应 preserve branch、head、worktree、owner 和 feedback state 并调用 calibration。"
   },
   {
     "id": 34,

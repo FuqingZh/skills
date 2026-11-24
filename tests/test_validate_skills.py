@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import os
 import runpy
 import sys
+from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
@@ -12,9 +14,11 @@ import pytest
 from scripts.validate_skills import (
     _frontmatter,
     _load_yaml,
+    _reference_targets,
     _resolve_local_reference,
     _resolve_vendored_reference,
     _validate_active_references,
+    discover_skills,
     main,
     validate_repository,
 )
@@ -92,6 +96,33 @@ def test_first_party_explicit_skills_keep_only_codex_policy(name: str) -> None:
 
 def test_repository_itself_passes() -> None:
     assert validate_repository(REPOSITORY_ROOT) == []
+
+
+def test_all_first_party_skill_markdown_files_are_reachable() -> None:
+    first_party_root = (REPOSITORY_ROOT / "skills").resolve()
+    first_party = [
+        path
+        for path in discover_skills(REPOSITORY_ROOT.resolve())
+        if path.is_relative_to(first_party_root)
+    ]
+    queue: deque[tuple[Path, Path, bool]] = deque(
+        (path, path / "SKILL.md", True) for path in first_party
+    )
+    visited: set[Path] = set()
+    while queue:
+        skill_root, source, include_code_paths = queue.popleft()
+        source = Path(os.path.abspath(source))
+        if source in visited:
+            continue
+        visited.add(source)
+        text = source.read_text(encoding="utf-8")
+        for target in sorted(_reference_targets(text, include_code_paths)):
+            resolved = _resolve_local_reference(skill_root, source, target)
+            if resolved is not None and resolved.exists() and resolved.suffix == ".md":
+                queue.append((skill_root, resolved, False))
+
+    expected = {Path(os.path.abspath(path)) for path in first_party_root.rglob("*.md")}
+    assert visited == expected
 
 
 def test_discovers_new_skill_without_a_validator_list(

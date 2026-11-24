@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from tests.support import REPOSITORY_ROOT
@@ -71,11 +72,13 @@ def test_document_type_index_contains_only_routes_to_type_files() -> None:
     index = directory / "README.md"
     lines = index.read_text(encoding="utf-8").splitlines()
     assert lines[:2] == ["# Document Types", ""]
+    link_pattern = re.compile(r"^  \[([a-z-]+\.md)\]\(\1\)$")
     targets: list[Path] = []
     for purpose, route in zip(lines[2::2], lines[3::2], strict=True):
         assert purpose.startswith("- ") and purpose.endswith(":")
-        assert route.startswith("  `") and route.endswith(".md`")
-        target = directory / route.removeprefix("  `").removesuffix("`")
+        match = link_pattern.fullmatch(route)
+        assert match is not None, route
+        target = directory / match.group(1)
         assert target.is_file()
         targets.append(target)
     assert len(targets) == len(set(targets)) == 10
@@ -192,6 +195,8 @@ def test_benchmark_record_keeps_evidence_and_comparison_scope() -> None:
         "Follow the repository's benchmark-record location. If none is defined, use "
         "`docs/contributing/`.",
         "Follow project measurement and reproducibility rules",
+        "](../../discipline/verification.md)",
+        "fallback seed defaults",
         "For comparisons, identify the baseline and comparison method",
         "metrics, protocol, repetitions, and the random seed where relevant",
         "Preserve the output path or artifact needed to inspect the result",

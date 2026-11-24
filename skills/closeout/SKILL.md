@@ -48,10 +48,10 @@ hypotheses and unresolved choices as such, with available evidence and the next
 verification or decision. Do not silently turn them into accepted project facts.
 
 Closeout organizes what the conversation established. It does not investigate
-new root causes, derive new lessons, or promote new rules. Suggest `$retrospect`
+new root causes, derive new lessons, or promote new rules. Suggest `retrospect`
 when that analysis is useful; never run it without separate invocation. Preserve
 lessons already confirmed in this conversation with their evidence and scope.
-Route necessary cross-project engineering judgment through `$calibration`.
+Route necessary cross-project engineering judgment through `calibration`.
 
 ## Verify Persistence And State
 
@@ -84,7 +84,7 @@ material coverage/persistence gap. Do not turn a possible future permission
 need into a pending request.
 
 After reporting, return control to the user. Do not automatically archive or
-ask for archive confirmation. Invoking `$closeout` alone does not authorize
+ask for archive confirmation. Invoking `closeout` alone does not authorize
 archival. Only a separate explicit user instruction to archive authorizes that
 action; apply the readiness conditions above, use the available native archive
 tool, and verify its result. If it is unavailable or fails, report that the task

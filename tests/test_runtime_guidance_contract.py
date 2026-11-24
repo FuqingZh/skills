@@ -145,9 +145,9 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "debugging.md",
         "workspace-ownership.md",
         "verification.md",
-        "../linters/README.md",
+        "../linters/ruff.md",
     ):
-        assert f"`{reference}`" in discipline
+        assert f"]({reference})" in discipline
     assert "Implementation or contract verification" in discipline
     assert "| Completion claim," not in discipline
     assert "environment evidence boundaries" in discipline
@@ -387,7 +387,11 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         assert guidance in ruff
     router = text("skills/calibration/references/discipline/README.md")
     assert "Linter selection or rule defaults" in router
-    assert "`../linters/README.md`" in router
+    assert "](../linters/ruff.md)" in router
+    assert "reproducible benchmarks or randomness seeds" in router
+    assert not (
+        REPOSITORY_ROOT / "skills/calibration/references/linters/README.md"
+    ).exists()
 
 
 def test_linter_and_diagnostic_cases_cover_defaults_and_exception_boundaries() -> None:
@@ -449,3 +453,24 @@ def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
         (53, "a separate preserve-and-report condition"),
     ):
         assert expected in cases[case_id]["expected"]
+
+
+def test_first_party_skill_markdown_uses_client_neutral_skill_names() -> None:
+    skill_reference = re.compile(
+        r"\$(?:calibration|closeout|dissect|grilling|plainspoken|retrospect|writing-code-docs)\b"
+    )
+    for path in (REPOSITORY_ROOT / "skills").rglob("*.md"):
+        content = path.read_text(encoding="utf-8")
+        assert not skill_reference.search(content), path
+        assert "grilling" not in content.casefold(), path
+
+
+def test_calibration_cases_drop_retired_github_plugin_routes() -> None:
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    assert {30, 31, 32, 33}.isdisjoint(cases)
+    for case_id in (20, 21):
+        assert "LOC" not in cases[case_id]["expected"]
+        assert "review-round" not in cases[case_id]["expected"]

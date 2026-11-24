@@ -36,7 +36,7 @@ def test_discipline_routes_bypass_retired_harness_forwarders() -> None:
     harness = (DISCIPLINE / "harness.md").read_text(encoding="utf-8")
     branches = {
         "Linter selection": (
-            "../linters/README.md",
+            "../linters/ruff.md",
             "### Ruff Defaults",
         ),
         "diagnostic suppression or exclusion decisions": (
@@ -50,8 +50,8 @@ def test_discipline_routes_bypass_retired_harness_forwarders() -> None:
     }
     for trigger, (target, retired_heading) in branches.items():
         row = next(line for line in router.splitlines() if trigger in line)
-        assert f"`{target}`" in row
-        assert "`harness.md`" not in row
+        assert f"]({target})" in row
+        assert "](harness.md)" not in row
         assert (DISCIPLINE / target).is_file()
         assert retired_heading not in harness
     assert "](verification.md#diagnostic-exceptions)" in (
@@ -92,7 +92,7 @@ def test_continuation_and_review_boundaries_route_to_harness() -> None:
         "review-convergence exhaustion",
     ):
         row = next(line for line in router.splitlines() if trigger in line)
-        assert "`harness.md`" in row
+        assert "](harness.md)" in row
     assert not (DISCIPLINE / "delivery-feedback.md").exists()
     for path in REFERENCES.rglob("*.md"):
         assert "delivery-feedback.md" not in path.read_text(encoding="utf-8"), path
@@ -107,14 +107,11 @@ def test_continuation_and_review_boundaries_route_to_harness() -> None:
 
 
 def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> None:
-    index = compact(REFERENCES / "linters/README.md")
     naming = compact(REFERENCES / "naming/README.md")
-    assert (
-        "Read only the reference for the linter relevant to the current task" in index
-    )
-    assert "](ruff.md)" in index
-    assert "selection or rule defaults, use [linter references]" in naming
-    assert "](../linters/README.md)" in naming
+    assert not (REFERENCES / "linters/README.md").exists()
+    assert (REFERENCES / "linters/ruff.md").is_file()
+    assert "selection or rule defaults, use [Ruff defaults]" in naming
+    assert "](../linters/ruff.md)" in naming
     assert not (DISCIPLINE / "quality-gates.md").exists()
     for path in REFERENCES.rglob("*.md"):
         body = compact(path)

@@ -16,7 +16,7 @@ Let checked evidence, rather than chronology or moral judgment, determine the
 lesson.
 
 Routine conversation organization and documentation gap filling belong to
-`$closeout`. Use this skill to investigate expectation versus outcome, assess
+`closeout`. Use this skill to investigate expectation versus outcome, assess
 causes, or derive lessons and future rules. Closeout may preserve a lesson
 already confirmed here without conducting another retrospective.
 
@@ -67,6 +67,3 @@ document-type routing or the path specified by the user.
 
 Recommend promotion to project documentation, repository instructions,
 calibration, or memory only after the lesson is stable.
-
-Use `$grilling` before facts exist to stress-test a plan. Use `$retrospect`
-after facts exist to discover what the evidence can carry forward.
