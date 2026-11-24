@@ -6,19 +6,19 @@ description: Use for in-depth analysis involving evidence synthesis, causal or m
 # Dissect
 
 Develop a connected explanation of the current question through claims,
-supporting reasons, and the inferences connecting them. When reading an author,
-reconstruct the argument in its own terms: the problem it addresses, its
-concepts and premises, and how each step leads to the next. Trace concrete
+supporting reasons, and the inferences connecting them. Trace concrete
 mechanisms where outcomes need explaining.
+
+When reading an author, reconstruct the argument in its own terms: the problem
+it addresses, its concepts and premises, and how each step leads to the next.
+Reconstruct the argument without adding your own objections, corrections, or
+judgments about its adequacy or acceptability. Explain source-internal
+disagreements as part of the argument.
 
 Use research to develop the explanation through original sources, timelines,
 comparable past decisions, and flows of information and resources. Explain
-what each source contributes and how it connects to the question.
-
-Reconstruct the argument without adding your own objections, corrections, or
-judgments about its adequacy or acceptability. Explain source-internal
-disagreements as part of the argument. Attribute claims accurately; do not
-invent support.
+what each source contributes and how it connects to the question. Attribute
+claims accurately; do not invent support.
 
 For forecasts or judgments about future developments, compare the relative
 likelihood of possible paths and identify turning points, observable signals,
