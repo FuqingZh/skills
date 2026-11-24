@@ -13,8 +13,6 @@ Grok Build、Pi 和 Antigravity CLI。
 | [writing-code-docs](skills/writing-code-docs/SKILL.md) | 公共 API 与维护者文档 | 相关时使用 |
 | [plainspoken](skills/plainspoken/SKILL.md) | 平实直述，保留有用的解释与细节 | 实质性自然语言回答 |
 | [dissect](skills/dissect/SKILL.md) | 基于证据解释机制、推演行动与后果 | 深入分析 |
-| [closeout](skills/closeout/SKILL.md) | 对话回顾与未完成事项梳理 | 仅显式调用 |
-| [retrospect](skills/retrospect/SKILL.md) | 从证据提炼可复用经验 | 仅显式调用 |
 
 ## 快速开始
 

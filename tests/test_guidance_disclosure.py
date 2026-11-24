@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import re
 from pathlib import Path
 
@@ -10,7 +9,6 @@ CALIBRATION = REPOSITORY_ROOT / "skills/calibration"
 REFERENCES = CALIBRATION / "references"
 DISCIPLINE = REFERENCES / "discipline"
 LAYOUT = REFERENCES / "docs/project-layout.md"
-RETROSPECT = REPOSITORY_ROOT / "skills/retrospect"
 
 
 def compact(path: Path) -> str:
@@ -131,61 +129,3 @@ def test_working_material_ownership_does_not_depend_on_directory_name() -> None:
         "otherwise use `.calibration/notes/`",
     ):
         assert rule in layout
-
-
-def test_retrospect_depth_depends_on_request_or_comparison_scope() -> None:
-    body = compact(RETROSPECT / "SKILL.md")
-    depth = body.split("## Depth ", 1)[1].split("## Stop", 1)[0]
-    for rule in (
-        "Use `standard` by default",
-        "Use `deep` when the user explicitly requests it",
-        "when the review requires comparing repeated failures or cross-stage patterns",
-        "Bound searches with terms from the task",
-        "Fall back to `standard` when no credible search boundary exists",
-    ):
-        assert rule in depth
-    for retired_trigger in (
-        "high-risk",
-        "customer-facing",
-        "production-adjacent",
-        "broad changes",
-    ):
-        assert retired_trigger not in depth
-
-
-def test_retrospect_cases_cover_explicit_and_automatic_depth() -> None:
-    cases = json.loads((RETROSPECT / "test-prompts.json").read_text(encoding="utf-8"))
-    by_id = {case["id"]: case for case in cases}
-    assert "$retrospect deep" in by_id[5]["prompt"]
-    assert "退回 standard" in by_id[5]["expected"]
-    assert "使用 standard" in by_id[10]["expected"]
-    assert "使用 deep" in by_id[11]["expected"]
-    assert "限定历史检索" in by_id[11]["expected"]
-    assert "退回 standard" in by_id[11]["expected"]
-
-
-def test_retrospect_loads_one_persistence_contract_and_preserves_fallbacks() -> None:
-    skill = (RETROSPECT / "SKILL.md").read_text(encoding="utf-8")
-    assert re.findall(r"`(references/[^`]+\.md)`", skill) == [
-        "references/task-traces-and-retros.md"
-    ]
-    assert "disable-model-invocation: true" in skill
-    assert "only after a separate explicit request" in compact(RETROSPECT / "SKILL.md")
-    assert not (RETROSPECT / "references/trace-retro.md").exists()
-    for path in CALIBRATION.parent.rglob("*.md"):
-        assert "trace-retro.md" not in path.read_text(encoding="utf-8"), path
-    contract = compact(RETROSPECT / "references/task-traces-and-retros.md")
-    for rule in (
-        "user asks to persist a confirmed task-level lesson",
-        "Routine investigation notes remain with their owning task",
-        "Follow repository-local retrospective rules",
-        ".retrospect/",
-        ".retrospect/evidence/",
-        "fallback out of Git unless repository-local policy explicitly permits",
-        "no bulk migration is required",
-        "Remaining hypotheses and verification gaps",
-        "Future action",
-        "separate authorization required by retrospect",
-        "make the promoted location the source of truth",
-    ):
-        assert rule in contract

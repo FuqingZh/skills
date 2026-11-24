@@ -13,7 +13,6 @@ from tests.support import REPOSITORY_ROOT
 SKILLS = REPOSITORY_ROOT / "skills"
 DISSECT = SKILLS / "dissect"
 LAYOUT = SKILLS / "calibration/references/docs/project-layout.md"
-RETROS = SKILLS / "retrospect/references/task-traces-and-retros.md"
 
 
 def compact(path: Path) -> str:
@@ -82,7 +81,6 @@ def test_explanation_rules_prohibit_added_objections_without_hiding_failures() -
     ("path", "notes", "evidence"),
     [
         (LAYOUT, ".calibration/notes/", ".calibration/evidence/"),
-        (RETROS, ".retrospect/", ".retrospect/evidence/"),
         (
             DISSECT / "references/working-material.md",
             ".dissect/notes/",
@@ -109,7 +107,7 @@ def test_skill_working_locations_preserve_local_authority_and_evidence(
 
 
 def test_skills_without_working_material_do_not_acquire_storage_defaults() -> None:
-    for name in ("plainspoken", "writing-code-docs", "closeout"):
+    for name in ("plainspoken", "writing-code-docs"):
         assert f".{name}/" not in compact(SKILLS / name / "SKILL.md")
     assert "Formal project documents remain project-owned" in compact(LAYOUT)
     assert "Formal reports remain" in compact(

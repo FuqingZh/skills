@@ -14,8 +14,6 @@ and Antigravity CLI.
 | [writing-code-docs](skills/writing-code-docs/SKILL.md) | Public API and maintainer documentation | When relevant |
 | [plainspoken](skills/plainspoken/SKILL.md) | Plain, direct expression with useful detail | Substantive natural-language responses |
 | [dissect](skills/dissect/SKILL.md) | Evidence-led explanations, mechanisms, and forecasts | In-depth analysis |
-| [closeout](skills/closeout/SKILL.md) | Conversation review and unresolved work | Explicit only |
-| [retrospect](skills/retrospect/SKILL.md) | Evidence-backed reusable lessons | Explicit only |
 
 ## Quick start
 

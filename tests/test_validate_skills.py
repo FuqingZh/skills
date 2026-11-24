@@ -78,19 +78,6 @@ def test_first_party_implicit_skills_have_no_openai_metadata(name: str) -> None:
     assert not (REPOSITORY_ROOT / "skills" / name / "agents/openai.yaml").exists()
 
 
-@pytest.mark.parametrize("name", ("closeout", "retrospect"))
-def test_first_party_explicit_skills_keep_only_codex_policy(name: str) -> None:
-    path = REPOSITORY_ROOT / "skills" / name
-    errors: list[str] = []
-    assert _load_yaml(path / "agents/openai.yaml", "metadata", errors) == {
-        "policy": {"allow_implicit_invocation": False}
-    }
-    frontmatter = _frontmatter(path / "SKILL.md", errors)
-    assert frontmatter is not None
-    assert frontmatter["disable-model-invocation"] is True
-    assert errors == []
-
-
 def test_repository_itself_passes() -> None:
     assert validate_repository(REPOSITORY_ROOT) == []
 

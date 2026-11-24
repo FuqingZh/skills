@@ -9,7 +9,7 @@ and managed-file behavior. For existing installations, also read the
 
 Install [skills CLI](https://github.com/vercel-labs/skills) through your tool
 manager; for example, mise supports `"npm:skills" = "latest"`.
-The CLI installs and manages the [six first-party skills](../README.md#included-skills).
+The CLI installs and manages the [four first-party skills](../README.md#included-skills).
 Select only the clients you use. In `-a codex pi`, client names are space-separated.
 
 Codex and Pi discover `~/.agents/skills` directly; Grok receives discovery links.

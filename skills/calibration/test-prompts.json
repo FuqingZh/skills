@@ -9,7 +9,7 @@
     "id": 2,
     "scenario": "复杂场景：代码优先的文档边界",
     "prompt": "这次重构后要把文档补一下：模块现状、为什么选这个方向、已完成实施计划、测试矩阵、生产恢复、第三方解析器偏差、复盘分别应该写到哪里？",
-    "expected": "skill 应路由到 project-layout.md，坚持代码、类型、测试和 CI 作为现状与验证真源，不手写模块现状镜像或测试矩阵；已定方向与否决方案写成 docs/adr/ 中的 ADR；已完成实施计划保持临时态不入长期 docs/；生产恢复按需写 runbook、第三方偏差平铺在 docs/；任务复盘由 retrospect 负责；不建 docs/archive/，历史交由 Git。"
+    "expected": "skill 应路由到 project-layout.md，坚持代码、类型、测试和 CI 作为现状与验证真源，不手写模块现状镜像或测试矩阵；已定方向与否决方案写成 docs/adr/ 中的 ADR；已完成实施计划保持临时态不入长期 docs/；生产恢复按需写 runbook、第三方偏差平铺在 docs/；不建 docs/archive/，历史交由 Git。"
   },
   {
     "id": 3,

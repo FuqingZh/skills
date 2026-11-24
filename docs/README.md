@@ -21,6 +21,7 @@ that code cannot convey on its own.
 - [Proportional validation and PDM check routing](adr/2026-10-11-validation-and-check-routing.md)
 - [Concise explanation-first framing for plainspoken and dissect](adr/2026-11-17-expression-and-analysis-framing.md)
 - [Code-first minimal documentation model](adr/2026-11-24-code-first-documentation-model.md)
+- [Retire closeout and retrospect skills](adr/2026-11-24-retire-closeout-and-retrospect.md)
 
 ## First-Party Skill Entrypoints
 
@@ -30,8 +31,6 @@ that code cannot convey on its own.
 | Public API and maintainer docstrings | [writing-code-docs](../skills/writing-code-docs/SKILL.md) |
 | Plain, direct natural-language expression | [plainspoken](../skills/plainspoken/SKILL.md) |
 | Evidence-led analysis and forecasting | [dissect](../skills/dissect/SKILL.md) |
-| Explicit conversation closeout | [closeout](../skills/closeout/SKILL.md) |
-| Explicit evidence-driven retrospective | [retrospect](../skills/retrospect/SKILL.md) |
 
 Superseded decisions, completed plans, historical evaluations, and retired
 third-party archives live in Git history (see tags `v1.0.0`, `v2.0.0`,
