@@ -362,6 +362,8 @@ def test_workspace_discovery_bounds_do_not_impose_generic_intake() -> None:
     assert "preserve dirty worktrees" in workspace
     assert "accepted delivery path" not in workspace
     assert "issue tracker or an orchestrator session" not in workspace
+    for retired in ("transferring ownership", "runtime release"):
+        assert retired not in workspace
     cases = {
         case["id"]: case
         for case in json.loads(text("skills/calibration/test-prompts.json"))

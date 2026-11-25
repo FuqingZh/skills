@@ -65,6 +65,7 @@ def test_repository_docs_follow_minimal_active_model() -> None:
     docs_root = REPOSITORY_ROOT / "docs"
     for retired_dir in ("archive", "decisions", "implementation-plans", "testing"):
         assert not (docs_root / retired_dir).exists()
+    assert not (REPOSITORY_ROOT / ".traces").exists()
     adr_dir = docs_root / "adr"
     assert adr_dir.is_dir()
     adr_files = sorted(adr_dir.glob("*.md"))
