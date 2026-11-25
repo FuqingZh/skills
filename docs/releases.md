@@ -16,9 +16,10 @@ version and release notes, run the repository gate and current-head review, then
 tag that reviewed commit and publish matching release notes. Do not move tags.
 No tag or release is created by installation or bootstrap.
 
-The [v2 migration guide](migrations/v2.md) covers the six-skill router, removed
-reference paths, private-host routing change, and historical runtime retirement.
-The frozen v2.0 evidence snapshot remains available at tag `v2.0.0`
+See [CHANGELOG.md](../CHANGELOG.md) for v3.0.0 upgrade notes (retired
+`closeout`/`retrospect` skills and consolidated reference paths). The
+[v2 migration guide](migrations/v2.md) covers upgrading from v1.0.0, and the
+frozen v2.0 evidence snapshot remains available at tag `v2.0.0`
 (`docs/testing/20261117-v2.0-release-evidence-summary.md`).
 
 With skills CLI 1.7.6, use `owner/repo#ref` for a tag or full commit. A pinned

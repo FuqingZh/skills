@@ -2,8 +2,9 @@
 
 [Quick start](../README.md#quick-start) covers installing skills and shared
 routing instructions. This reference owns client discovery, installer options,
-and managed-file behavior. For existing installations, also read the
-[migration guide](migrations/v2.md).
+and managed-file behavior. For existing installations, review the
+[changelog](../CHANGELOG.md) (and the [v2 migration guide](migrations/v2.md)
+when upgrading from v1).
 
 ## Skill installation and discovery
 

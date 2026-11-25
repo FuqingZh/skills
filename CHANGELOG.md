@@ -1,5 +1,70 @@
 # Changelog
 
+## 3.0.0 — 2026-11-25
+
+Four implicitly invocable first-party skills, Antigravity CLI global-instruction
+support, a code-first minimal documentation model, and removal of archived
+historical trees from `HEAD`. This is a major release because `closeout` and
+`retrospect` are retired and several published `calibration` reference paths
+have been consolidated.
+
+### Added
+
+- Support Antigravity CLI (`--agent agy`) in `install.sh`, managing
+  `~/.gemini/AGENTS.md` without touching `~/.gemini/GEMINI.md`.
+- Add an optional `mise.toml` `install` task with Usage completion forwarding
+  to `install.sh`.
+
+### Changed
+
+- Adopt a code-first documentation model in
+  [`skills/calibration/references/docs/project-layout.md`](skills/calibration/references/docs/project-layout.md):
+  code, types, tests, and CI own current behavior and verification; durable docs
+  cover `docs/adr/` decisions (compacting superseded rationales with Git
+  references instead of keeping stale files on `HEAD`), flat on-demand
+  outside-the-code references, and runbooks; plans stay ephemeral and Git
+  history serves as the archive.
+- Consolidate `skills/calibration/references/naming/` (four files) into
+  [`skills/calibration/references/naming.md`](skills/calibration/references/naming.md)
+  and route linter defaults directly to
+  [`skills/calibration/references/linters/ruff.md`](skills/calibration/references/linters/ruff.md).
+- Convert `calibration` sub-router entries to standard Markdown links so static
+  skill validation traverses every first-party skill Markdown file, and surface
+  reproducible benchmark/seed defaults in `discipline/README.md`.
+- Trim retired orchestrator control-plane jargon from `harness.md` and
+  `workspace-ownership.md`, drop `.traces/` migration boilerplate from
+  working-material guidance, and scope `dissect/SKILL.md`'s author-reconstruction
+  prohibition to the author-reading paragraph without weakening it.
+- Slim repository `docs/` to active contracts and live ADRs under `docs/adr/`.
+
+### Breaking changes and retirement
+
+- Retire `closeout` and `retrospect`. First-party distribution now consists of
+  `calibration`, `writing-code-docs`, `plainspoken`, and `dissect`, with no
+  `agents/openai.yaml` policy files required. Use native `/compact` and `/clear`
+  for routine session management, upstream `handoff` (`mattpocock/skills`) for
+  cross-harness context transfer, and `calibration`'s ADR/harness guidance for
+  durable decisions and capability fixes.
+- Remove `skills/calibration/references/docs/document-types/*`,
+  `skills/calibration/references/naming/*`, and
+  `skills/calibration/references/linters/README.md`. Direct consumers must
+  update paths to `references/docs/project-layout.md`, `references/naming.md`,
+  and `references/linters/ruff.md`.
+- Remove historical repository trees `docs/archive/`, `docs/decisions/`,
+  `docs/implementation-plans/`, `docs/testing/`, `thirdparty/`, and
+  `evaluations/` from `HEAD`. Complete historical snapshots remain preserved at
+  tags `v1.0.0`, `v2.0.0`, and `v2.1.0`.
+
+### Upgrade notes
+
+- `templates/AGENTS.md.template`, managed markers (`FuqingZh/skills:begin/end`),
+  and existing `install.sh` flags are unchanged from v2.1.0.
+- Update installed skills explicitly (`skills add FuqingZh/skills#v3.0.0 ...`)
+  and remove retired `closeout` and `retrospect` installations via
+  `skills remove` if you no longer want stale local copies.
+- Static validation and contract tests cover packaging, link integrity,
+  installer safety, and skill reachability; no new model-quality gain is claimed.
+
 ## 2.1.0 — 2026-11-17
 
 Adopt the concise explanation-first guidance. Skill names, discovery metadata,

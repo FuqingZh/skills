@@ -27,8 +27,9 @@ example selects Codex, Pi, and Grok Build.
 skills add FuqingZh/skills -g -a codex pi grok -y
 ```
 
-For an existing installation, review the [migration guide](docs/migrations/v2.md)
-and any local skill edits before replacing them.
+For an existing installation, review the [changelog](CHANGELOG.md) (and the
+[v2 migration guide](docs/migrations/v2.md) if upgrading from v1) and any local
+skill edits before replacing them.
 
 ### Global instructions
 
@@ -64,8 +65,8 @@ clients and options. If you prefer not to trust the mise config, use
 ## Further reading
 
 - [Installation](docs/installation.md): client discovery, installer options, and safety boundaries.
-- [Upgrade to v2](docs/migrations/v2.md) · [Legacy migration](docs/migrations/skills-cli.md).
 - [Versions and releases](docs/releases.md) · [Changelog](CHANGELOG.md).
+- [v1→v2 migration](docs/migrations/v2.md) · [Legacy skills CLI migration](docs/migrations/skills-cli.md).
 - [Development and validation](AGENTS.md#validation).
 - [Documentation index](docs/README.md): active contracts and architecture decisions.
 - [Issues](https://github.com/FuqingZh/skills/issues): include client versions, commands, and sanitized output.

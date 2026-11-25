@@ -25,7 +25,7 @@ Grok Build、Pi 和 Antigravity CLI。
 skills add FuqingZh/skills -g -a codex pi grok -y
 ```
 
-已有安装请先阅读[迁移指南](docs/migrations/v2.md)，并在覆盖前检查本地技能修改。
+已有安装请先阅读[变更记录](CHANGELOG.md)（从 v1 升级另见[v2 迁移指南](docs/migrations/v2.md)），并在覆盖前检查本地技能修改。
 
 ### 全局指令
 
@@ -57,8 +57,8 @@ mise run install agy --dry-run
 ## 进一步阅读
 
 - [安装参考](docs/installation.md)：客户端发现、安装器选项与安全边界。
-- [升级到 v2](docs/migrations/v2.md) · [旧安装迁移](docs/migrations/skills-cli.md)。
 - [版本与发布](docs/releases.md) · [变更记录](CHANGELOG.md)。
+- [v1→v2 迁移](docs/migrations/v2.md) · [旧安装迁移](docs/migrations/skills-cli.md)。
 - [开发与验证](AGENTS.md#validation)。
 - [文档索引](docs/README.md)：现行契约与架构决策。
 - [问题反馈](https://github.com/FuqingZh/skills/issues)：请附客户端版本、命令及脱敏后的相关输出。
