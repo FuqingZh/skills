@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Route Python linter selection and Ruff rule defaults directly from
+  [`skills/calibration/SKILL.md`](skills/calibration/SKILL.md) to
+  `references/linters/ruff.md`; existing routes from `naming.md` and
+  `discipline/README.md` remain.
+- Align the scope line of `calibration`'s `workspace-ownership.md` with its
+  body after the v3.0.0 trim (ownership preservation and background cleanup
+  instead of ownership transfer and runtime release).
+
+### Removed
+
+- Remove the leftover `.traces/` retrospective records from `HEAD`; they
+  described retired `retrospect`, AO, and Symphony workflows and remain in Git
+  history at `v3.0.1`.
+
 ## 3.0.1 — 2026-11-25
 
 Tighten `writing-code-docs` around on-demand examples and remove external

@@ -104,6 +104,8 @@ def test_continuation_and_review_boundaries_route_to_harness() -> None:
 
 def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> None:
     naming = compact(REFERENCES / "naming.md")
+    skill = compact(CALIBRATION / "SKILL.md")
+    assert "`references/linters/ruff.md`" in skill
     assert not (REFERENCES / "linters/README.md").exists()
     assert (REFERENCES / "linters/ruff.md").is_file()
     assert "selection or rule defaults, use [Ruff defaults]" in naming

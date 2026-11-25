@@ -1,7 +1,7 @@
 # Workspace Ownership And Execution Scope
 
 Use when establishing execution authority, bounding workspace discovery,
-transferring ownership, or verifying runtime release.
+preserving branch or worktree ownership, or verifying background cleanup.
 
 ## Implementation Task Intake
 
