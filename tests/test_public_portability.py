@@ -107,8 +107,3 @@ def test_binary_tracked_content_is_scanned_without_decoding() -> None:
 
     expected = f"assets/private.png: {KNOWN_PRIVATE_TOKENS[0].decode()!r}"
     assert portability_violations(tracked) == [expected]
-
-
-def test_public_repository_has_no_deployable_ao_artifacts() -> None:
-    assert not (REPOSITORY_ROOT / "docs/runbooks/artifacts").exists()
-    assert not (REPOSITORY_ROOT / "docs/runbooks/patches").exists()

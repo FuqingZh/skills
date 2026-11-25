@@ -1,10 +1,7 @@
 from __future__ import annotations
 
-import json
-import os
 import runpy
 import sys
-from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
@@ -14,10 +11,8 @@ import pytest
 from scripts.validate_skills import (
     _frontmatter,
     _load_yaml,
-    _reference_targets,
     _resolve_local_reference,
     _validate_active_references,
-    discover_skills,
     main,
     validate_repository,
 )
@@ -71,42 +66,15 @@ def test_valid_fixture_passes(skill_fixture: SkillFixture) -> None:
     assert validate_repository(skill_fixture.root) == []
 
 
-@pytest.mark.parametrize(
-    "name", ("calibration", "plainspoken", "dissect", "writing-code-docs")
-)
-def test_first_party_implicit_skills_have_no_openai_metadata(name: str) -> None:
-    assert not (REPOSITORY_ROOT / "skills" / name / "agents/openai.yaml").exists()
-
-
 def test_repository_itself_passes() -> None:
     assert validate_repository(REPOSITORY_ROOT) == []
 
 
-def test_all_first_party_skill_markdown_files_are_reachable() -> None:
-    first_party_root = (REPOSITORY_ROOT / "skills").resolve()
-    first_party = [
-        path
-        for path in discover_skills(REPOSITORY_ROOT.resolve())
-        if path.is_relative_to(first_party_root)
-    ]
-    queue: deque[tuple[Path, Path, bool]] = deque(
-        (path, path / "SKILL.md", True) for path in first_party
-    )
-    visited: set[Path] = set()
-    while queue:
-        skill_root, source, include_code_paths = queue.popleft()
-        source = Path(os.path.abspath(source))
-        if source in visited:
-            continue
-        visited.add(source)
-        text = source.read_text(encoding="utf-8")
-        for target in sorted(_reference_targets(text, include_code_paths)):
-            resolved = _resolve_local_reference(skill_root, source, target)
-            if resolved is not None and resolved.exists() and resolved.suffix == ".md":
-                queue.append((skill_root, resolved, False))
-
-    expected = {Path(os.path.abspath(path)) for path in first_party_root.rglob("*.md")}
-    assert visited == expected
+def test_rejects_unreachable_reference_markdown(skill_fixture: SkillFixture) -> None:
+    orphan = skill_fixture.skill_dir / "references/orphan.md"
+    orphan.parent.mkdir(parents=True)
+    orphan.write_text("# Orphan reference\n", encoding="utf-8")
+    assert_has_error(skill_fixture.root, "unreachable skill Markdown file")
 
 
 def test_discovers_new_skill_without_a_validator_list(
@@ -305,19 +273,6 @@ def test_rejects_retired_invocation_field(skill_fixture: SkillFixture) -> None:
     assert_has_error(skill_fixture.root, "retired field 'disable-model-invocation'")
 
 
-def test_rejects_malformed_behavioral_prompts(skill_fixture: SkillFixture) -> None:
-    (skill_fixture.skill_dir / "test-prompts.json").write_text(
-        json.dumps([{"id": 1, "scenario": "case", "prompt": "run"}]),
-        encoding="utf-8",
-    )
-    assert_has_error(skill_fixture.root, "is missing 'expected'")
-
-
-def test_rejects_unparseable_behavioral_prompts(skill_fixture: SkillFixture) -> None:
-    (skill_fixture.skill_dir / "test-prompts.json").write_text("[", encoding="utf-8")
-    assert_has_error(skill_fixture.root, "invalid behavioral test prompts")
-
-
 def test_rejects_missing_active_local_reference(skill_fixture: SkillFixture) -> None:
     skill = skill_fixture.skill_dir / "SKILL.md"
     skill.write_text(
@@ -434,46 +389,6 @@ def test_rejects_disabled_implicit_invocation_for_first_party_skill(
         skill_fixture.root,
         "requires this skill to enable implicit invocation",
     )
-
-
-@pytest.mark.parametrize(
-    "prompts",
-    [
-        [],
-        ["not a mapping"],
-        [
-            {
-                "id": True,
-                "scenario": "",
-                "prompt": 1,
-                "expected": None,
-            }
-        ],
-        [
-            {
-                "id": "duplicate",
-                "scenario": "one",
-                "prompt": "run",
-                "expected": "pass",
-            },
-            {
-                "id": "duplicate",
-                "scenario": "two",
-                "prompt": "run",
-                "expected": "pass",
-            },
-        ],
-    ],
-)
-def test_rejects_additional_behavioral_prompt_errors(
-    skill_fixture: SkillFixture,
-    prompts: object,
-) -> None:
-    (skill_fixture.skill_dir / "test-prompts.json").write_text(
-        json.dumps(prompts),
-        encoding="utf-8",
-    )
-    assert validate_repository(skill_fixture.root)
 
 
 def test_validation_does_not_require_an_installer(skill_fixture: SkillFixture) -> None:

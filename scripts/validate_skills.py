@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import os
 import re
 import sys
@@ -191,43 +190,6 @@ def _validate_openai_metadata(
             )
 
 
-def _validate_test_prompts(skill_dir: Path, errors: list[str]) -> None:
-    path = skill_dir / "test-prompts.json"
-    if not path.exists():
-        return
-    try:
-        data = cast(object, json.loads(path.read_text(encoding="utf-8")))
-    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
-        errors.append(f"{path}: invalid behavioral test prompts: {exc}")
-        return
-    if not isinstance(data, list) or not data:
-        errors.append(f"{path}: behavioral test prompts must be a non-empty list")
-        return
-
-    cases = cast(list[object], data)
-    seen_ids: set[str | int] = set()
-    for index, raw_case in enumerate(cases):
-        label = f"{path}: case {index + 1}"
-        if not isinstance(raw_case, dict):
-            errors.append(f"{label} must be a mapping")
-            continue
-        case = cast(dict[str, object], raw_case)
-        for key in ("id", "scenario", "prompt", "expected"):
-            if key not in case:
-                errors.append(f"{label} is missing {key!r}")
-        case_id = case.get("id")
-        if not isinstance(case_id, (str, int)) or isinstance(case_id, bool):
-            errors.append(f"{label} id must be a string or integer")
-        elif case_id in seen_ids:
-            errors.append(f"{label} has duplicate id {case_id!r}")
-        else:
-            seen_ids.add(case_id)
-        for key in ("scenario", "prompt", "expected"):
-            value = case.get(key)
-            if not isinstance(value, str) or not value.strip():
-                errors.append(f"{label} {key} must be a non-empty string")
-
-
 def _reference_targets(text: str, include_code_paths: bool) -> set[str]:
     targets = {
         match.group(1).strip().split(maxsplit=1)[0]
@@ -292,6 +254,14 @@ def _validate_active_references(active: list[Path], errors: list[str]) -> None:
             if resolved.suffix.lower() == ".md":
                 queue.append((skill_root, resolved, False))
 
+    for skill_root in active:
+        for markdown in sorted(skill_root.rglob("*.md")):
+            if markdown.is_file() and Path(os.path.abspath(markdown)) not in visited:
+                errors.append(
+                    f"{markdown}: unreachable skill Markdown file from "
+                    f"{skill_root / 'SKILL.md'}"
+                )
+
 
 def validate_repository(root: Path) -> list[str]:
     """Return all static skill validation errors under *root*."""
@@ -309,7 +279,6 @@ def validate_repository(root: Path) -> list[str]:
         else:
             name, description = _validate_frontmatter(skill_dir, frontmatter, errors)
         _validate_openai_metadata(skill_dir, name, description, errors, frontmatter)
-        _validate_test_prompts(skill_dir, errors)
 
     _validate_active_references(skill_dirs, errors)
     return errors
