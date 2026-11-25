@@ -92,18 +92,16 @@ task state, generic engineering guidance, or source articles into
 ## Repository Delivery Feedback Loop
 
 When authorized unfinished work must continue after foreground tracking ends,
-verify that a durable mechanism has accepted responsibility for observing the
-work, resuming its owner, and notifying a reachable recipient. Saved task state
-or PR submission alone does not establish this handoff. Without a confirmed
-handoff, continue bounded observation within scope or report the blocker and
-unfinished work.
+verify that a real mechanism has accepted responsibility for observing the work
+and notifying a reachable recipient. Saved task state or PR submission alone
+does not establish background continuation; without confirmed handoff, continue
+bounded observation within scope or report the blocker and unfinished work.
 
-If review on the exact current head exceeds the authorized contract or exhausts
-the configured review-convergence budget, pause remote review and preserve
-branch, head, worktree, owner, and feedback state. Reassess within existing
-authority; escalate any additional authorization needed. Budget exhaustion alone
-does not determine PR boundaries. Transport, polling, or idempotent-operation
-retry exhaustion remains a separate preserve-and-report condition.
+When review feedback exceeds the authorized contract, stop expanding the change,
+preserve the current branch, worktree, and state, and escalate the scope
+decision. When transport or polling failures prevent observing review or CI
+state, preserve state and report the observation gap rather than inferring a
+review outcome or expanding scope.
 
 ## Human Escalation
 

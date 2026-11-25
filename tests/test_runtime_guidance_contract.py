@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 from pathlib import Path
@@ -50,59 +49,11 @@ def test_shared_aggregation_root_has_behavioral_prompt_coverage() -> None:
     assert "concurrency" in prompts
 
 
-def test_docs_separate_current_authority_from_archived_plans() -> None:
-    source = REPOSITORY_ROOT / "docs/README.md"
-    docs = source.read_text(encoding="utf-8")
-    authority = docs.split("## Current Authority\n", 1)[1].split("\n## ", 1)[0]
-    current_targets = {
-        (source.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", authority)
-    }
-    assert all("ao-integration" not in str(path) for path in current_targets)
-    assert REPOSITORY_ROOT / "skills/calibration/SKILL.md" in current_targets
-    archive = REPOSITORY_ROOT / "docs/archive/README.md"
-    assert (source.parent / "archive/README.md").resolve() in {
-        (source.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", docs)
-    }
-    archived_targets = {
-        (archive.parent / target.split("#", 1)[0]).resolve()
-        for target in re.findall(
-            r"\[[^]]+\]\(([^)]+)\)", archive.read_text(encoding="utf-8")
-        )
-    }
-    for relative in (
-        "docs/implementation-plans/"
-        "20260731-v2.1-portable-orchestrator-containment-implementation-plan.md",
-        "docs/implementation-plans/"
-        "20260826-v1.0-self-contained-first-party-skills-migration-implementation-plan.md",
-        "docs/testing/20260825-v2.1-progressive-validation-relative-replacement-test-plan.md",
-        "docs/testing/"
-        "20260825-v2.2-progressive-validation-relative-replacement-correction-plan.md",
-        "evaluations/teach-adaptation/results.md",
-        "evaluations/teach-adaptation/v2/README.md",
-    ):
-        assert REPOSITORY_ROOT / relative in archived_targets
-        assert REPOSITORY_ROOT / relative not in current_targets
-
-
-def test_retired_guidance_preserves_exact_bytes_outside_skill_loading() -> None:
-    archive = REPOSITORY_ROOT / "docs/archive/ao-guidance-before-v0.12.12"
-    records = json.loads(text("docs/archive/retired-guidance-manifest.json"))["files"]
-    recorded_paths = {row["path"] for row in records}
-    assert len(recorded_paths) == len(records)
-    assert recorded_paths == {
-        "docs/implementation-plans/"
-        "20260731-v2.1-portable-orchestrator-containment-implementation-plan.md",
-        *(
-            path.relative_to(REPOSITORY_ROOT).as_posix()
-            for path in archive.rglob("*")
-            if path.is_file()
-        ),
-    }
-    for row in records:
-        path = REPOSITORY_ROOT / row["path"]
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"], path
+def test_docs_keep_only_active_authority_without_archive_tree() -> None:
+    docs = text("docs/README.md")
+    assert not (REPOSITORY_ROOT / "docs/archive").exists()
+    assert "skills/calibration/SKILL.md" in docs
+    assert "adr/" in docs
     for path in (
         "skills/calibration/SKILL.md",
         "skills/calibration/references/discipline/harness.md",
@@ -125,9 +76,6 @@ def test_runtime_entrypoints_are_independent_of_retired_integration() -> None:
         REPOSITORY_ROOT
         / "skills/calibration/references/agent-orchestrator-review-continuation.md"
     ).exists()
-    assert (
-        REPOSITORY_ROOT / "docs/archive/ao-integration-retired-2026-10-15.md"
-    ).is_file()
 
 
 def test_generic_boundaries_have_reachable_reference_owners() -> None:
@@ -145,22 +93,17 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
         "debugging.md",
         "workspace-ownership.md",
         "verification.md",
-        "../linters/README.md",
+        "../linters/ruff.md",
     ):
-        assert f"`{reference}`" in discipline
+        assert f"]({reference})" in discipline
     assert "Implementation or contract verification" in discipline
     assert "| Completion claim," not in discipline
     assert "environment evidence boundaries" in discipline
-    assert (
-        "workspace search boundaries, ownership transfer, or runtime release"
-        in discipline
-    )
+    assert "workspace search boundaries, or branch/worktree ownership" in discipline
     for rule in (
-        "write-authority revocation and runtime release",
         "sibling worktree",
-        "empty OS-owned containment boundary",
+        "spawned child processes have exited",
         "traversal-aware bound",
-        "terminated session is not proof",
         "rejected filesystem escalation",
     ):
         assert rule in workspace
@@ -226,7 +169,7 @@ def test_retained_principles_have_task_specific_owners() -> None:
     assert "validate outputs as well as runtime" in verification
     assert "seed explicit when it materially affects reproducibility" in verification
     assert "reconstructable reference or an approved evidence location" in verification
-    assert "Follow its existing layout" in docs
+    assert "Follow repository-owned documentation contracts and existing paths" in docs
     for path in (REPOSITORY_ROOT / "skills/calibration").rglob("*.md"):
         assert "principles.md" not in path.read_text(), path
 
@@ -298,8 +241,8 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     assert "Do not hide them with diagnostic suppressions" in verification
     for retained in (
         "accepted responsibility for observing the work",
-        "pause remote review and preserve branch, head, worktree",
-        "Transport, polling, or idempotent-operation retry exhaustion",
+        "stop expanding the change, preserve the current branch",
+        "When transport or polling failures prevent observing",
     ):
         assert retained in harness
     cases = {
@@ -307,7 +250,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         for case in json.loads(text("skills/calibration/test-prompts.json"))
     }
     assert {7, 9, 14}.isdisjoint(cases)
-    assert "不能因为预算耗尽就必须选择 PR 拓扑" in cases[21]["expected"]
+    assert "升级给用户" in cases[21]["expected"]
 
 
 def test_calibration_routes_directly_to_codebase_design() -> None:
@@ -344,21 +287,20 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
     assert "Load only the references required" in skill
     assert "Follow repository-owned documentation and collaboration contracts" in skill
     assert "guidance to fill gaps in those contracts" in skill
-    assert "project documentation layout" in skill
+    assert "project documentation scope" in skill
     assert "references/docs_index.md" not in skill
     retired = "docs/technology/main_path_readability/20260318-v1.0.md"
     assert not (REPOSITORY_ROOT / "skills/calibration/references" / retired).exists()
     for retired in ("$retrospect", ".traces/", "## Schema", "## Technology"):
         assert retired not in skill
     for retained in (
-        "references/docs/document-types/README.md",
         "references/docs/project-layout.md",
         "for routine PR body generation",
     ):
         assert retained in skill
     assert "task retrospectives" not in skill
-    naming = text("skills/calibration/references/naming/README.md")
-    assert "](schema.md)" in naming
+    naming = text("skills/calibration/references/naming.md")
+    assert "## Schemas, Headers, And Identifiers" in naming
     assert "](artifact.md)" not in naming
     refactor = compact("skills/calibration/references/discipline/refactor.md")
     assert "For outputs consumed downstream" in refactor
@@ -387,7 +329,11 @@ def test_seed_and_ruff_defaults_preserve_existing_choices() -> None:
         assert guidance in ruff
     router = text("skills/calibration/references/discipline/README.md")
     assert "Linter selection or rule defaults" in router
-    assert "`../linters/README.md`" in router
+    assert "](../linters/ruff.md)" in router
+    assert "reproducible benchmarks or randomness seeds" in router
+    assert not (
+        REPOSITORY_ROOT / "skills/calibration/references/linters/README.md"
+    ).exists()
 
 
 def test_linter_and_diagnostic_cases_cover_defaults_and_exception_boundaries() -> None:
@@ -428,15 +374,13 @@ def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
     harness = compact("skills/calibration/references/discipline/harness.md")
     for required in (
         "When authorized unfinished work must continue after foreground tracking ends",
-        "resuming its owner, and notifying a reachable recipient",
-        "Saved task state or PR submission alone does not establish this handoff",
+        "notifying a reachable recipient",
+        "Saved task state or PR submission alone does not establish",
         "continue bounded observation within scope or report the blocker",
-        "review on the exact current head exceeds the authorized contract",
-        "the configured review-convergence budget",
-        "branch, head, worktree, owner, and feedback state",
-        "escalate any additional authorization needed",
-        "Budget exhaustion alone does not determine PR boundaries",
-        "retry exhaustion remains a separate preserve-and-report condition",
+        "When review feedback exceeds the authorized contract",
+        "stop expanding the change, preserve the current branch, worktree, and state",
+        "escalate the scope decision",
+        "When transport or polling failures prevent observing",
     ):
         assert required in harness
     cases = {
@@ -445,7 +389,28 @@ def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
     }
     for case_id, expected in (
         (51, "Report completion of the authorized PR-submission task"),
-        (52, "Saved state and a live daemon do not establish a handoff"),
-        (53, "a separate preserve-and-report condition"),
+        (52, "Saved state alone does not establish background continuation"),
+        (53, "report the observation gap"),
     ):
         assert expected in cases[case_id]["expected"]
+
+
+def test_first_party_skill_markdown_uses_client_neutral_skill_names() -> None:
+    skill_reference = re.compile(
+        r"\$(?:calibration|closeout|dissect|grilling|plainspoken|retrospect|writing-code-docs)\b"
+    )
+    for path in (REPOSITORY_ROOT / "skills").rglob("*.md"):
+        content = path.read_text(encoding="utf-8")
+        assert not skill_reference.search(content), path
+        assert "grilling" not in content.casefold(), path
+
+
+def test_calibration_cases_drop_retired_github_plugin_routes() -> None:
+    cases = {
+        case["id"]: case
+        for case in json.loads(text("skills/calibration/test-prompts.json"))
+    }
+    assert {30, 31, 32, 33}.isdisjoint(cases)
+    for case_id in (20, 21):
+        assert "LOC" not in cases[case_id]["expected"]
+        assert "review-round" not in cases[case_id]["expected"]

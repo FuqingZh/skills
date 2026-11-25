@@ -1,13 +1,11 @@
 from __future__ import annotations
 
-import csv
 import ipaddress
 import re
 import subprocess
 from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-THIRDPARTY_ROOT = Path("thirdparty")
 PERSONAL_HOME_PATTERNS = (
     re.compile(rb"/(?:home|Users)/[A-Za-z0-9._-]+"),
     re.compile(rb"/root(?:/|(?=$))"),
@@ -23,15 +21,6 @@ PRIVATE_DEPLOYMENT_NETWORKS = tuple(
     )
 )
 KNOWN_PRIVATE_TOKENS = (b"fq" + b"zhang",)
-# Immutable provenance may retain a denied-looking value when its exact bytes
-# are part of the evidence. Keep every exception path-scoped and reviewable.
-THIRDPARTY_PROVENANCE_ALLOWLIST: dict[str, tuple[bytes, ...]] = {}
-ROOT_HOME_MARKER = b"/ro" + b"ot/"
-FIRST_PARTY_PROVENANCE_ALLOWLIST: dict[str, tuple[bytes, ...]] = {
-    "evaluations/teach-adaptation/v2/judge-scorecard.json": (ROOT_HOME_MARKER,),
-    "evaluations/teach-adaptation/v2/raw-judge-response.json": (ROOT_HOME_MARKER,),
-}
-FROZEN_JUDGE_TASK = ROOT_HOME_MARKER + b"teach_v2_bound_judge"
 
 
 def tracked_text() -> dict[str, bytes]:
@@ -73,20 +62,11 @@ def private_values(content: bytes) -> set[bytes]:
     return values
 
 
-def portability_violations(tracked: dict[str, bytes], *, thirdparty: bool) -> list[str]:
+def portability_violations(tracked: dict[str, bytes]) -> list[str]:
     violations: list[str] = []
     for relative, content in tracked.items():
-        is_thirdparty = Path(relative).is_relative_to(THIRDPARTY_ROOT)
-        if is_thirdparty != thirdparty:
-            continue
         values = private_values(relative.encode()) | private_values(content)
-        allowlist = (
-            THIRDPARTY_PROVENANCE_ALLOWLIST
-            if is_thirdparty
-            else FIRST_PARTY_PROVENANCE_ALLOWLIST
-        )
-        allowed = set(allowlist.get(relative, ()))
-        unexpected = sorted(value for value in values if value not in allowed)
+        unexpected = sorted(values)
         if unexpected:
             rendered = ", ".join(repr(value.decode()) for value in unexpected)
             violations.append(f"{relative}: {rendered}")
@@ -95,20 +75,7 @@ def portability_violations(tracked: dict[str, bytes], *, thirdparty: bool) -> li
 
 def test_first_party_surfaces_have_no_personal_paths_or_private_ipv4() -> None:
     tracked = tracked_text()
-    assert portability_violations(tracked, thirdparty=False) == []
-    assert set(FIRST_PARTY_PROVENANCE_ALLOWLIST) <= set(tracked)
-    for relative, allowed in FIRST_PARTY_PROVENANCE_ALLOWLIST.items():
-        assert set(allowed) <= private_values(tracked[relative])
-        assert tracked[relative].count(FROZEN_JUDGE_TASK) == 1
-        assert tracked[relative].count(ROOT_HOME_MARKER) == 1
-
-
-def test_vendored_surfaces_document_private_values_as_provenance() -> None:
-    tracked = tracked_text()
-    assert portability_violations(tracked, thirdparty=True) == []
-    assert set(THIRDPARTY_PROVENANCE_ALLOWLIST) <= set(tracked)
-    for relative, allowed in THIRDPARTY_PROVENANCE_ALLOWLIST.items():
-        assert set(allowed) <= private_values(tracked[relative])
+    assert portability_violations(tracked) == []
 
 
 def test_private_value_detection_is_structural() -> None:
@@ -139,21 +106,7 @@ def test_binary_tracked_content_is_scanned_without_decoding() -> None:
     tracked = {"assets/private.png": private_binary}
 
     expected = f"assets/private.png: {KNOWN_PRIVATE_TOKENS[0].decode()!r}"
-    assert portability_violations(tracked, thirdparty=False) == [expected]
-
-
-def test_retired_darwin_source_keeps_immutable_provenance_only() -> None:
-    with (REPOSITORY_ROOT / "thirdparty/sources.tsv").open(
-        encoding="utf-8", newline=""
-    ) as source_file:
-        rows = {row["name"]: row for row in csv.DictReader(source_file, delimiter="\t")}
-
-    darwin = rows["darwin-skill"]
-    expected_ref = "7c7b7909b630dc3b5cbb91bd4bcb1b10bfb1f894"
-    assert darwin["imported_ref"] == expected_ref
-    assert darwin["upstream_ref_checked"] == expected_ref
-    assert darwin["local_policy"] == "retired-not-vendored"
-    assert not (REPOSITORY_ROOT / "thirdparty/skills/darwin-skill").exists()
+    assert portability_violations(tracked) == [expected]
 
 
 def test_public_repository_has_no_deployable_ao_artifacts() -> None:

@@ -22,8 +22,6 @@ FIRST_PARTY = (
     "writing-code-docs",
     "plainspoken",
     "dissect",
-    "closeout",
-    "retrospect",
 )
 BEGIN = "<!-- FuqingZh/skills:begin -->"
 END = "<!-- FuqingZh/skills:end -->"

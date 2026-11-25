@@ -1,150 +1,78 @@
-# Project Documentation Layout
+# Project Documentation
 
-Use for project documentation layout, navigation, naming, and lifecycle.
-Follow repository-owned documentation contracts; this shared layout fills gaps.
-Follow its existing layout rather than requiring a universal directory name.
-Preserve established paths until a reviewed migration updates the authority map,
-links, and validation.
+Use when deciding whether a fact belongs in project documentation, where it
+lives, and what contract it must preserve. Follow repository-owned documentation
+contracts and existing paths; this guidance fills gaps when none exist.
 
-## Layout
+## Code First
 
-Use the smallest structure that fits the project. Do not create empty
-directories merely to match this fallback layout:
+Treat code, types, schemas, executable tests, and CI as the source of truth for
+current system behavior and verification. Do not maintain prose mirrors of
+module structure, API details, or test matrices that code or CI already owns.
 
-```text
-docs/
-  README.md
-  architecture/
-  design/
-  guides/
-  reference/
-  contributing/
-  runbooks/
-  assets/
-  archive/
-```
+Persist durable documentation only for information that code cannot reliably
+convey:
 
-Use the [document-type router](document-types/README.md) to select a type
-when needed. Each type owns its minimum content and fallback location; this
-layout does not prescribe a second authoring template or acceptance checklist.
+- **Why a choice was made**: architecture or product decisions, rejected
+  alternatives, constraints, and reopening conditions.
+- **Facts outside the codebase**: third-party compatibility quirks, reproducible
+  empirical benchmarks, and controlled operational procedures.
+- **Human and agent entrypoints**: repository onboarding (`README.md`) and
+  operational maps (`AGENTS.md`, see the
+  [AGENTS.md contract](../discipline/harness.md#agentsmd-contract)).
 
-Organize directories by audience and topic; a document type need not own a
-separate directory. Existing files such as `ARCHITECTURE.md` or `CONTRIBUTING.md`
-can remain the entrypoints. Introduce subdirectories only when navigation,
-ownership, or maintenance needs justify them.
+## Minimal Fallback Structure
 
-- `architecture/` explains the current system and links the decisions behind it.
-  Keep current descriptions distinct from historical decision records.
-- `design/` groups proposals and durable implementation plans by change topic.
-  Use one document with distinct sections when sufficient; split related files
-  within that topic when they need independent review or maintenance. A plan
-  can stand alone without inventing a proposal. Routine task tracking can remain
-  in the project's issue tracker.
-- `guides/` holds learning paths and task instructions. Keep tutorials and how-to
-  pages distinguishable by purpose even when they share a directory.
-- `reference/` holds lookup material such as configuration, interfaces, formats,
-  and verified compatibility behavior. Link generated or code-owned references
-  rather than maintaining duplicate descriptions.
-- `contributing/` serves repository contributors: setup, debugging, testing, and
-  performance measurement. Reusable validation guidance belongs here; checks
-  specific to one proposed change can stay with that change and link shared
-  standards. Keep executable tests and benchmark artifacts with their owners.
-- `runbooks/` is optional for controlled operational procedures. Keep a direct,
-  stable navigation entry when operators need it; preserve an established
-  `operations/` or `operating/` location when the project uses one.
+Create only the files and directories needed; do not pre-create empty folders.
 
-Co-location does not merge document contracts: retain the relevant type's
-content requirements and evidence boundaries. Do not require a proposal, plan,
-and decision record for every change. Existing local names such as `learning/`,
-`cookbook/`, or `field-manual/` can remain in use.
+- `README.md` for human entrypoints; `AGENTS.md` when repository-specific agent
+  routing adds value.
+- `docs/adr/` as the default directory for Architecture Decision Records (ADRs)
+  when no local decision path exists.
+- Flat `docs/<topic>.md` files for genuine outside-the-code references (such as
+  compatibility facts, benchmarks, runbooks, or external-user guides). Group
+  into subdirectories only when file count warrants navigation.
+- Keep implementation plans and proposals ephemeral (in conversation, native
+  task state, PR descriptions, or local working notes). Do not treat completed
+  plans as permanent authority.
+- Rely on Git history as the archive. Do not maintain a `docs/archive/`
+  directory unless an external publication or audit contract requires frozen
+  files on `HEAD`.
 
-`assets/` holds reviewed supporting images, diagrams, and editable sources.
-`archive/` is a lifecycle location, not a document type. Create either only when
-there is material to maintain.
+## Core Contracts
 
-## Navigation And Repository Instructions
+- **ADR (`docs/adr/`, Markdown)**: Record date, status, context, viable
+  rejected alternatives, chosen decision and consequences, and conditions for
+  reopening. When a new decision replaces an old one, compact the reason the
+  old choice was abandoned into the replacing ADR with a Git reference (commit,
+  tag, or PR) and remove the superseded file from `HEAD`.
+- **External compatibility and empirical records**: Name the external boundary,
+  versions, environment, and inputs; distinguish stated contracts from observed
+  behavior; cite reproducible checks and evidence paths (consult
+  [verification discipline](../discipline/verification.md) for benchmark
+  evidence and fallback seed defaults); state limitations and revalidation
+  conditions. Keep one current summary updated in place for active benchmarks
+  instead of accumulating dated run logs; fold negative or one-off experiment
+  takeaways into the owning ADR.
+- **Runbooks** (only for controlled or production-adjacent operations): State
+  owner, prerequisites, access requirements, ordered checkpoints, verification,
+  recovery, rollback, escalation, and stop conditions. Keep secrets and private
+  host state out of public documents.
 
-When adopting this layout, use `docs/README.md` as the navigation entrypoint.
-It should identify:
+## Naming And Working Material
 
-- what to read first;
-- current architecture and contract authority;
-- active implementation plans;
-- testing and validation standards; and
-- historical or superseded documents.
+Use lowercase kebab-case filenames without embedded version numbers:
+`YYYY-MM-DD-topic.md` (or sequential numbering when locally adopted) for ADRs,
+and stable undated names for current reference documents.
 
-Keep it a map rather than a second copy of those documents. Repository facts,
-commands, versions, and executable validation remain repository-owned. External
-methods linked by the document types inform writing; they do not change local
-policy until reviewed and adopted. Keep enough local guidance to remain usable
-when an external link is unavailable.
-
-When defining repository instructions, use the
-[AGENTS.md contract](../discipline/harness.md#agentsmd-contract).
-Keep operational instructions with their harness owner rather than copying them
-into architecture prose.
-
-## Working Material
-
-Investigation notes belong to the task that owns the observations, hypotheses,
-trials, and next checks. Follow its repository task-record location or the user's
-specified destination; otherwise use `.calibration/notes/`. Investigation notes
-do not become retrospectives because another skill later reads them.
-
-Retrospect owns records of expectation versus outcome and confirmed lessons.
-Its persistence contract governs those records; ordinary investigation or
-project-document writing does not invoke a retrospective.
-
-Reference reconstructable git history, sessions, test outputs, and product logs
-at their original sources instead of copying them. Retain additional evidence
-only when needed and not reconstructable from those sources. Follow repository
-evidence conventions; otherwise use `.calibration/evidence/`, excluded from Git
-unless repository policy explicitly permits a narrow evidence file. Follow
-repository policy for committing notes; absent a policy, keep them local pending
-publication review. Hidden paths do not provide privacy or publication rights;
-apply appropriate access controls to sensitive material.
-
-Preserve existing records, including `.traces/` material, without bulk migration.
-Create only the files and directories needed for requested persistence.
+Investigation notes belong to the owning task. Follow repository task-record
+locations or the user's destination; otherwise keep them local and untracked
+(for example under `.calibration/notes/`, with extra non-reconstructable
+evidence under `.calibration/evidence/`). Reference reconstructable Git
+history, sessions, test outputs, and logs instead of copying them. Do not
+commit working notes or evidence unless repository policy or the user
+explicitly permits it. Hidden paths do not provide privacy or publication
+rights; apply appropriate access controls to sensitive material.
 
 Formal project documents remain project-owned regardless of which skill helped
-write them. Interactive teaching and personal learning records do not become
-team documentation without an explicit request to preserve a team-owned result.
-One-off observations need not be persisted automatically.
-
-## File Naming
-
-For new dated documents without a repository naming convention, use lowercase
-kebab-case:
-
-```text
-YYYYMMDD-vMAJOR.MINOR-topic-kind.md
-```
-
-Recommended kinds include `architecture`, `contract`, `test-plan`, `benchmark`,
-`implementation-plan`, `migration-plan`, `decision-record`, and `closeout`.
-Avoid spaces, colons, mixed case, and temporary names. Keep `README.md` as the
-undated navigation exception. Existing documents do not need a bulk rename;
-migrate old names only during a separately reviewed natural edit.
-
-## Lifecycle And Promotion
-
-Current documents are the default authority. A proposal's acceptance records
-agreement on a direction, not evidence that it is implemented. Mark its state
-explicitly, such as proposed, accepted, implemented, rejected, or superseded.
-Update current architecture and reference material when implementation evidence
-supports the change. Retain the original rationale and link related decisions
-when a separate decision record is warranted.
-
-When replacing a document, mark the old one as superseded and link its
-replacement. Retain historical material when it adds traceability, using the
-repository's archive convention. It keeps its original document type and is not
-current authority. Historical records may remain in place with explicit status;
-do not move every completed plan or superseded decision into an archive
-automatically.
-
-Promote working observations into the owning project document only when they
-support a stable rule, contract, test standard, decision, reusable procedure, or
-verified compatibility fact. Preserve the supporting record and make the
-promoted document the source of truth. A directory or filename alone does not
-establish acceptance or evidence quality.
+write them. One-off observations need not be persisted automatically.

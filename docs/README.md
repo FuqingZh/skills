@@ -1,112 +1,37 @@
 # FuqingZh/skills Documentation
 
-The skills collection is in stable maintenance mode. This index separates current
-authority, recorded open work, and historical evidence.
+Code, tests, CI, and the skill sources under [`skills/`](../skills) are the
+authority for active behavior. This index maps only the durable documentation
+that code cannot convey on its own.
 
-## Start Here
-
-1. Read the repository README ([English](../README.md) / [简体中文](../README.zh-CN.md))
-   for the project overview and quick start; [installation](installation.md)
-   owns installer options and managed-file behavior.
-2. Use the [calibration router](../skills/calibration/SKILL.md) to select reusable
-   references; use the [document-type router](../skills/calibration/references/docs/document-types/README.md)
-   for a document's minimum contract and the layout reference for project organization.
-   Shared locations are fallbacks for projects without local conventions;
-   this repository keeps its existing document paths.
-3. Follow [AGENTS.md](../AGENTS.md) for repository validation and contribution rules.
-
-## Public Architecture
-
-Reusable references live inside the owning skills, which provide model
-interaction entrypoints. Repository tools own setup and validation. The shared
-[global template](../templates/AGENTS.md.template) only routes to skills; the
-public package does not discover private host configuration or provide an
-orchestrator integration.
-
-Skill instructions and trigger descriptions live in `SKILL.md` and its referenced
-files. First-party `agents/openai.yaml` files contain only the Codex explicit-only
-policy needed by closeout and retrospect; the other four skills omit the file.
-The validator accepts optional metadata and checks supplied fields and effective
-invocation policy against repository and cross-client contracts. Codex defaults
-to implicit invocation when the policy is absent; see the
-[official skill configuration](https://developers.openai.com/codex/skills).
-
-## Current Authority
+## Active Guides And Policies
 
 | Need | Source |
 | --- | --- |
-| Project overview and quick start | [README](../README.md) |
-| Installer contract | [Installation reference](installation.md) |
-| Cross-project judgment and routing | [Calibration skill router](../skills/calibration/SKILL.md) |
-| Substantive natural-language expression | [Plainspoken skill](../skills/plainspoken/SKILL.md) |
-| In-depth explanation and prediction | [Dissect skill](../skills/dissect/SKILL.md) |
-| Repository capabilities, instructions, and continuation/review boundaries | [Harness](../skills/calibration/references/discipline/harness.md) |
-| Linter selection and rule defaults | [Linters](../skills/calibration/references/linters/README.md) |
-| Execution scope, workspace ownership, and runtime release | [Workspace ownership](../skills/calibration/references/discipline/workspace-ownership.md) |
-| Completion, external-result evidence, and diagnostic exceptions | [Verification](../skills/calibration/references/discipline/verification.md) |
-| Document layout and lifecycle | [Project documentation layout](../skills/calibration/references/docs/project-layout.md) |
-| Durable implementation-plan contract | [Implementation plans](../skills/calibration/references/docs/document-types/implementation-plan.md) |
-| Explicit conversation closeout | [Closeout skill](../skills/closeout/SKILL.md) |
+| Project overview and quick start | [README](../README.md) · [简体中文](../README.zh-CN.md) |
+| Installer contract and client discovery | [Installation](installation.md) |
+| Release versioning and pinning | [Releases](releases.md) · [Changelog](../CHANGELOG.md) |
+| Upgrade and migration guides | [Upgrade to v2](migrations/v2.md) · [Legacy skills CLI migration](migrations/skills-cli.md) |
+| External design attribution and licenses | [External sources](sources.md) |
+| Repository validation and contribution rules | [AGENTS.md](../AGENTS.md) |
 
-The installer and skill sources define active behavior. Adoption rationale,
-completed comparisons, and superseded protocols are indexed in the
-[historical records](archive/README.md), with their original evidence limits.
-Completed evaluations do not establish general model or cross-client quality.
+## Active Decisions (`docs/adr/`)
 
-The [skills CLI transition](decisions/2026-11-08-skills-cli-distribution.md)
-supersedes the installer mechanics in the earlier multi-client decision.
-[Release policy](releases.md) owns repository versioning.
+- [Skills CLI distribution and global instructions](adr/2026-11-08-skills-cli-distribution.md)
+- [Proportional validation and PDM check routing](adr/2026-10-11-validation-and-check-routing.md)
+- [Concise explanation-first framing for plainspoken and dissect](adr/2026-11-17-expression-and-analysis-framing.md)
+- [Code-first minimal documentation model](adr/2026-11-24-code-first-documentation-model.md)
+- [Retire closeout and retrospect skills](adr/2026-11-24-retire-closeout-and-retrospect.md)
 
-[External design sources](sources.md) records borrowed ideas, pinned references,
-and evidence limits; experimental results remain with their protocols.
+## First-Party Skill Entrypoints
 
-## Recorded Open Work
+| Skill | Entrypoint |
+| --- | --- |
+| Engineering judgment and reference routing | [calibration](../skills/calibration/SKILL.md) |
+| Public API and maintainer docstrings | [writing-code-docs](../skills/writing-code-docs/SKILL.md) |
+| Plain, direct natural-language expression | [plainspoken](../skills/plainspoken/SKILL.md) |
+| Evidence-led analysis and forecasting | [dissect](../skills/dissect/SKILL.md) |
 
-- [Communication-style preference optimization](implementation-plans/communication-style-preference-optimization.md):
-  five-check judge calibration, reserved human evaluation, then paragraph comparison.
-- [Project docs convergence](implementation-plans/20260805-v1.0-project-docs-architecture-convergence-implementation-plan.md):
-  local slices are complete; the recorded downstream owner migration remains
-  pending. This index does not verify another repository's current state.
-- [Body compression trial](decisions/2026-09-20-calibration-body-compression-and-routing.md):
-  historical adoption evidence is retained; current guidance follows the skill
-  router. Metadata candidates and real-work performance remain unverified.
-- [Coding-protocol retirement trial](decisions/2026-09-07-coding-protocol-runtime-retirement-trial.md):
-  the runtime entry remains retired; retained source supports restoration.
-
-## Current Evaluation Records
-
-- [Explanation framing pilot](testing/20261117-explanation-framing-pilot.md):
-  15 initial generations and eight fresh generations comparing long and concise wording.
-  Records instruction and context-framing changes with mixed outcomes, without
-  claiming general answer-quality gains.
-- [Repeated cross-task pilot](testing/20261117-explanation-transfer-pilot.md):
-  48 attempts across three other session tasks, four models, and two repetitions
-  per version; no established stable improvement or general regression.
-- [Request-scoping pilot](testing/20261117-request-scoping-pilot.md):
-  64 fresh generations across four earlier and four new tasks; more explicit
-  requested evaluation in GPT, but no reliable reduction in unsolicited comments
-  or completion-report reminders. Paired candidate not adopted.
-
-## Release Evidence
-
-The [v2.0 candidate evidence summary](testing/20261117-v2.0-release-evidence-summary.md)
-compares repository size with v1.0.0 and separates historical human preferences,
-model comparisons, engineering checks, and unmeasured final-package behavior.
-It is a pre-release report, not a release or a new evaluation run.
-
-## Validation
-
-[AGENTS.md](../AGENTS.md#validation) owns proportional check selection and the
-complete gate; `pdm.lock` owns validation dependencies. The existing PDM tasks
-remain the local and CI entrypoints. The [check-routing assessment](decisions/20261011-v1.0-check-routing-and-nx-decision-record.md)
-records why Nx is not adopted in this cleanup.
-
-## Historical Evidence
-
-Use the [archive index](archive/README.md) for completed plans, corrected or
-superseded comparisons, adoption decisions, and old AO guidance. Raw evidence,
-manifests, hashes, provenance, and compatibility cleanup remain preserved.
-
-The historical Codex writable-agent executor and progressive-validation controller
-are [retired](../evaluations/archive/writable-agent-runtime/README.md).
-Their source snapshots and independent evidence checks remain available.
+Superseded decisions, completed plans, historical evaluations, and retired
+third-party archives live in Git history (see tags `v1.0.0`, `v2.0.0`,
+`v2.1.0`).

@@ -2,14 +2,15 @@
 
 [Quick start](../README.md#quick-start) covers installing skills and shared
 routing instructions. This reference owns client discovery, installer options,
-and managed-file behavior. For existing installations, also read the
-[migration guide](migrations/v2.md).
+and managed-file behavior. For existing installations, review the
+[changelog](../CHANGELOG.md) (and the [v2 migration guide](migrations/v2.md)
+when upgrading from v1).
 
 ## Skill installation and discovery
 
 Install [skills CLI](https://github.com/vercel-labs/skills) through your tool
 manager; for example, mise supports `"npm:skills" = "latest"`.
-The CLI installs and manages the [six first-party skills](../README.md#included-skills).
+The CLI installs and manages the [four first-party skills](../README.md#included-skills).
 Select only the clients you use. In `-a codex pi`, client names are space-separated.
 
 Codex and Pi discover `~/.agents/skills` directly; Grok receives discovery links.

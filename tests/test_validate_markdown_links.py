@@ -39,66 +39,6 @@ def test_discovers_root_files_and_nested_markdown(tmp_path: Path) -> None:
     ]
 
 
-def test_excludes_exact_evaluation_artifacts_from_document_validation(
-    tmp_path: Path,
-) -> None:
-    artifact = (
-        tmp_path / "evaluations/teach-adaptation/artifacts/run/learning/generated.md"
-    )
-    artifact.parent.mkdir(parents=True)
-    artifact.write_text("[preserved raw link](missing.md)\n", encoding="utf-8")
-    result = tmp_path / "evaluations/teach-adaptation/results.md"
-    result.write_text("# Reviewed result\n", encoding="utf-8")
-
-    assert discover_markdown_files(tmp_path) == [result]
-    assert validate_markdown_links(tmp_path) == []
-
-
-def test_excludes_only_progressive_validation_fixture_tree(tmp_path: Path) -> None:
-    fixture = (
-        tmp_path / "evaluations/progressive-validation-selection/fixtures/P01/README.md"
-    )
-    fixture.parent.mkdir(parents=True)
-    fixture.write_text("[intentionally broken](missing.md)\n", encoding="utf-8")
-    evaluation_readme = (
-        tmp_path / "evaluations/progressive-validation-selection/README.md"
-    )
-    evaluation_readme.write_text("# Frozen protocol\n", encoding="utf-8")
-
-    assert discover_markdown_files(tmp_path) == [evaluation_readme]
-    assert validate_markdown_links(tmp_path) == []
-
-
-def test_excludes_traceable_raw_runs_and_generated_blind_packet(
-    tmp_path: Path,
-) -> None:
-    v2 = tmp_path / "evaluations/teach-adaptation/v2"
-    raw_response = v2 / "runs/C01-candidate/response.md"
-    raw_response.parent.mkdir(parents=True)
-    raw_response.write_text("[raw isolated link](missing.md)\n", encoding="utf-8")
-    blind_packet = v2 / "blind-packet.md"
-    blind_packet.write_text("[generated raw link](missing.md)\n", encoding="utf-8")
-    readme = v2 / "README.md"
-    readme.write_text("# Reviewed protocol\n", encoding="utf-8")
-
-    assert discover_markdown_files(tmp_path) == [readme]
-    assert validate_markdown_links(tmp_path) == []
-
-
-def test_excludes_exact_sol_advisor_ablation_prompts(tmp_path: Path) -> None:
-    evaluation = tmp_path / "evaluations/sol-advisor-calibration-ablation"
-    evaluation.mkdir(parents=True)
-    activation = evaluation / "advisor-activation.md"
-    activation.write_text("[raw activation](missing.md)\n", encoding="utf-8")
-    task = evaluation / "task.md"
-    task.write_text("[raw task](missing.md)\n", encoding="utf-8")
-    readme = evaluation / "README.md"
-    readme.write_text("# Reviewed protocol\n", encoding="utf-8")
-
-    assert discover_markdown_files(tmp_path) == [readme]
-    assert validate_markdown_links(tmp_path) == []
-
-
 @pytest.mark.parametrize(
     ("target", "expected"),
     [

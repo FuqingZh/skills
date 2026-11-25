@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate repository-owned and vendored Codex skill contracts."""
+"""Validate first-party skill contracts."""
 
 from __future__ import annotations
 
@@ -16,19 +16,17 @@ from urllib.parse import unquote, urlsplit
 
 import yaml
 
-SKILL_ROOTS = (Path("skills"), Path("thirdparty/skills"))
+SKILL_ROOTS = (Path("skills"),)
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 MARKDOWN_LINK_PATTERN = re.compile(r"(?<!!)\[[^]]*]\(([^)]+)\)")
 CODE_PATH_PATTERN = re.compile(
     r"(?<!`)`([^`\n]+\.(?:md|json|ya?ml|py|sh|js|cjs|html))`"
 )
 INVOCATION_FIELD = "disable-model-invocation"
-# Preserve archived metadata for restoration without permitting runtime installation.
-IMPLICIT_THIRDPARTY_ALLOWLIST = frozenset({"coding-protocol"})
 
 
 def discover_skills(root: Path) -> list[Path]:
-    """Return every direct first-party and vendored skill directory."""
+    """Return every direct first-party skill directory."""
     skill_dirs: list[Path] = []
     for relative_root in SKILL_ROOTS:
         skill_root = root / relative_root
@@ -124,7 +122,6 @@ def _validate_frontmatter(
 
 
 def _validate_openai_metadata(
-    root: Path,
     skill_dir: Path,
     name: str | None,
     description: str | None,
@@ -185,17 +182,7 @@ def _validate_openai_metadata(
             and frontmatter[INVOCATION_FIELD] is not (not implicit)
         ):
             errors.append(f"{path}: invocation policies disagree across clients")
-        third_party_root = root / "thirdparty/skills"
-        is_third_party = skill_dir.is_relative_to(third_party_root)
-        is_shared_implicit_skill = (
-            isinstance(name, str)
-            and name in IMPLICIT_THIRDPARTY_ALLOWLIST
-            and skill_dir == third_party_root / name
-        )
-        is_user_invoked = description.casefold().startswith("user-invoked")
-        expected_implicit = is_shared_implicit_skill or not (
-            is_third_party or is_user_invoked
-        )
+        expected_implicit = not description.casefold().startswith("user-invoked")
         if implicit != expected_implicit:
             intended = "enable" if expected_implicit else "disable"
             errors.append(
@@ -271,31 +258,7 @@ def _resolve_local_reference(
     return candidate
 
 
-def _resolve_vendored_reference(
-    repository_root: Path, source: Path, target: str
-) -> Path | None:
-    target = unquote(target.strip("<>"))
-    split = urlsplit(target)
-    if split.scheme or split.netloc or not split.path or split.path.startswith("#"):
-        return None
-    relative = Path(split.path)
-    if relative.is_absolute():
-        return Path("/__nonportable_absolute_reference__")
-    candidates = (
-        (source.parent / relative).resolve(),
-        (repository_root / relative).resolve(),
-    )
-    return next(
-        (candidate for candidate in candidates if candidate.exists()), candidates[0]
-    )
-
-
-def _validate_active_references(
-    active: list[Path],
-    errors: list[str],
-    *,
-    vendored_repository_root: Path | None = None,
-) -> None:
+def _validate_active_references(active: list[Path], errors: list[str]) -> None:
     queue: deque[tuple[Path, Path, bool]] = deque(
         (path, path / "SKILL.md", True) for path in active
     )
@@ -312,17 +275,10 @@ def _validate_active_references(
             errors.append(f"{source}: cannot read referenced file: {exc}")
             continue
         for target in sorted(_reference_targets(text, include_code_paths)):
-            if vendored_repository_root is None:
-                resolved = _resolve_local_reference(skill_root, source, target)
-            else:
-                resolved = _resolve_vendored_reference(
-                    vendored_repository_root, source, target
-                )
+            resolved = _resolve_local_reference(skill_root, source, target)
             if resolved is None:
                 continue
-            if vendored_repository_root is None and resolved == Path(
-                "/__reference_outside_owning_skill__"
-            ):
+            if resolved == Path("/__reference_outside_owning_skill__"):
                 errors.append(
                     f"{source}: local reference {target!r} escapes owning skill "
                     f"root {skill_root}"
@@ -352,21 +308,10 @@ def validate_repository(root: Path) -> list[str]:
             name = description = None
         else:
             name, description = _validate_frontmatter(skill_dir, frontmatter, errors)
-        _validate_openai_metadata(
-            root, skill_dir, name, description, errors, frontmatter
-        )
+        _validate_openai_metadata(skill_dir, name, description, errors, frontmatter)
         _validate_test_prompts(skill_dir, errors)
 
-    active = skill_dirs
-    first_party_root = root / "skills"
-    first_party = [path for path in active if path.is_relative_to(first_party_root)]
-    vendored = [path for path in active if path not in first_party]
-    _validate_active_references(first_party, errors)
-    _validate_active_references(
-        vendored,
-        errors,
-        vendored_repository_root=root,
-    )
+    _validate_active_references(skill_dirs, errors)
     return errors
 
 

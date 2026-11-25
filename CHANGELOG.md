@@ -1,5 +1,70 @@
 # Changelog
 
+## 3.0.0 — 2026-11-25
+
+Four implicitly invocable first-party skills, Antigravity CLI global-instruction
+support, a code-first minimal documentation model, and removal of archived
+historical trees from `HEAD`. This is a major release because `closeout` and
+`retrospect` are retired and several published `calibration` reference paths
+have been consolidated.
+
+### Added
+
+- Support Antigravity CLI (`--agent agy`) in `install.sh`, managing
+  `~/.gemini/AGENTS.md` without touching `~/.gemini/GEMINI.md`.
+- Add an optional `mise.toml` `install` task with Usage completion forwarding
+  to `install.sh`.
+
+### Changed
+
+- Adopt a code-first documentation model in
+  [`skills/calibration/references/docs/project-layout.md`](skills/calibration/references/docs/project-layout.md):
+  code, types, tests, and CI own current behavior and verification; durable docs
+  cover `docs/adr/` decisions (compacting superseded rationales with Git
+  references instead of keeping stale files on `HEAD`), flat on-demand
+  outside-the-code references, and runbooks; plans stay ephemeral and Git
+  history serves as the archive.
+- Consolidate `skills/calibration/references/naming/` (four files) into
+  [`skills/calibration/references/naming.md`](skills/calibration/references/naming.md)
+  and route linter defaults directly to
+  [`skills/calibration/references/linters/ruff.md`](skills/calibration/references/linters/ruff.md).
+- Convert `calibration` sub-router entries to standard Markdown links so static
+  skill validation traverses every first-party skill Markdown file, and surface
+  reproducible benchmark/seed defaults in `discipline/README.md`.
+- Trim retired orchestrator control-plane jargon from `harness.md` and
+  `workspace-ownership.md`, drop `.traces/` migration boilerplate from
+  working-material guidance, and scope `dissect/SKILL.md`'s author-reconstruction
+  prohibition to the author-reading paragraph without weakening it.
+- Slim repository `docs/` to active contracts and live ADRs under `docs/adr/`.
+
+### Breaking changes and retirement
+
+- Retire `closeout` and `retrospect`. First-party distribution now consists of
+  `calibration`, `writing-code-docs`, `plainspoken`, and `dissect`, with no
+  `agents/openai.yaml` policy files required. Use native `/compact` and `/clear`
+  for routine session management, upstream `handoff` (`mattpocock/skills`) for
+  cross-harness context transfer, and `calibration`'s ADR/harness guidance for
+  durable decisions and capability fixes.
+- Remove `skills/calibration/references/docs/document-types/*`,
+  `skills/calibration/references/naming/*`, and
+  `skills/calibration/references/linters/README.md`. Direct consumers must
+  update paths to `references/docs/project-layout.md`, `references/naming.md`,
+  and `references/linters/ruff.md`.
+- Remove historical repository trees `docs/archive/`, `docs/decisions/`,
+  `docs/implementation-plans/`, `docs/testing/`, `thirdparty/`, and
+  `evaluations/` from `HEAD`. Complete historical snapshots remain preserved at
+  tags `v1.0.0`, `v2.0.0`, and `v2.1.0`.
+
+### Upgrade notes
+
+- `templates/AGENTS.md.template`, managed markers (`FuqingZh/skills:begin/end`),
+  and existing `install.sh` flags are unchanged from v2.1.0.
+- Update installed skills explicitly (`skills add FuqingZh/skills#v3.0.0 ...`)
+  and remove retired `closeout` and `retrospect` installations via
+  `skills remove` if you no longer want stale local copies.
+- Static validation and contract tests cover packaging, link integrity,
+  installer safety, and skill reachability; no new model-quality gain is claimed.
+
 ## 2.1.0 — 2026-11-17
 
 Adopt the concise explanation-first guidance. Skill names, discovery metadata,
@@ -18,13 +83,13 @@ should review the new wording before upgrading.
 
 ### Evaluation
 
-- Record a [15-generation explanation-framing pilot](docs/testing/20261117-explanation-framing-pilot.md)
+- Record a [15-generation explanation-framing pilot](https://github.com/FuqingZh/skills/blob/v2.1.0/docs/testing/20261117-explanation-framing-pilot.md)
   across GPT, Qwen, Grok, and DeepSeek. Results vary by model and context;
   adoption follows user preference, not demonstrated general quality gains.
   Private inputs and outputs are not published.
   Eight fresh follow-up generations compare the longer prohibition with its
   concise replacement; outcomes remain mixed.
-- Record a [repeated cross-task pilot](docs/testing/20261117-explanation-transfer-pilot.md):
+- Record a [repeated cross-task pilot](https://github.com/FuqingZh/skills/blob/v2.1.0/docs/testing/20261117-explanation-transfer-pilot.md):
   48 attempts, including incomplete answers and provider/harness failures;
   no demonstrated stable improvement or general regression.
 
@@ -39,7 +104,7 @@ See the [v2 migration guide](docs/migrations/v2.md) before upgrading.
 
 - `plainspoken` for substantive natural-language expression and `dissect` for
   in-depth analysis, with English instructions and task-specific references.
-- A [release evidence summary](docs/testing/20261117-v2.0-release-evidence-summary.md)
+- A [release evidence summary](https://github.com/FuqingZh/skills/blob/v2.0.0/docs/testing/20261117-v2.0-release-evidence-summary.md)
   linking measured repository reductions, original human feedback, comparisons,
   failed attempts, and untested boundaries.
 - A dedicated [installation reference](docs/installation.md), reached from the
@@ -76,7 +141,7 @@ See the [v2 migration guide](docs/migrations/v2.md) before upgrading.
 - Retire `scripts/run_writable_agent_eval.py` and
   `scripts/run_progressive_validation_selection_eval.py` with their dedicated
   runtime tests. Preserve all 20 original source files as byte-identical text in
-  the [runtime archive](evaluations/archive/writable-agent-runtime/README.md),
+  the [runtime archive](https://github.com/FuqingZh/skills/blob/v2.0.0/evaluations/archive/writable-agent-runtime/README.md),
   with independent evidence and provenance checks. Runtime compatibility failures
   were retired, not repaired.
 

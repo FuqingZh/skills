@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import os
 import runpy
 import sys
+from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
@@ -12,9 +14,10 @@ import pytest
 from scripts.validate_skills import (
     _frontmatter,
     _load_yaml,
+    _reference_targets,
     _resolve_local_reference,
-    _resolve_vendored_reference,
     _validate_active_references,
+    discover_skills,
     main,
     validate_repository,
 )
@@ -51,8 +54,6 @@ def write_skill(root: Path, parent: str, name: str) -> Path:
 @pytest.fixture
 def skill_fixture(tmp_path: Path) -> SkillFixture:
     (tmp_path / "skills").mkdir()
-    (tmp_path / "thirdparty/skills").mkdir(parents=True)
-    write_skill(tmp_path, "thirdparty/skills", "coding-protocol")
     return SkillFixture(
         root=tmp_path,
         skill_dir=write_skill(tmp_path, "skills", "sample"),
@@ -77,27 +78,41 @@ def test_first_party_implicit_skills_have_no_openai_metadata(name: str) -> None:
     assert not (REPOSITORY_ROOT / "skills" / name / "agents/openai.yaml").exists()
 
 
-@pytest.mark.parametrize("name", ("closeout", "retrospect"))
-def test_first_party_explicit_skills_keep_only_codex_policy(name: str) -> None:
-    path = REPOSITORY_ROOT / "skills" / name
-    errors: list[str] = []
-    assert _load_yaml(path / "agents/openai.yaml", "metadata", errors) == {
-        "policy": {"allow_implicit_invocation": False}
-    }
-    frontmatter = _frontmatter(path / "SKILL.md", errors)
-    assert frontmatter is not None
-    assert frontmatter["disable-model-invocation"] is True
-    assert errors == []
-
-
 def test_repository_itself_passes() -> None:
     assert validate_repository(REPOSITORY_ROOT) == []
+
+
+def test_all_first_party_skill_markdown_files_are_reachable() -> None:
+    first_party_root = (REPOSITORY_ROOT / "skills").resolve()
+    first_party = [
+        path
+        for path in discover_skills(REPOSITORY_ROOT.resolve())
+        if path.is_relative_to(first_party_root)
+    ]
+    queue: deque[tuple[Path, Path, bool]] = deque(
+        (path, path / "SKILL.md", True) for path in first_party
+    )
+    visited: set[Path] = set()
+    while queue:
+        skill_root, source, include_code_paths = queue.popleft()
+        source = Path(os.path.abspath(source))
+        if source in visited:
+            continue
+        visited.add(source)
+        text = source.read_text(encoding="utf-8")
+        for target in sorted(_reference_targets(text, include_code_paths)):
+            resolved = _resolve_local_reference(skill_root, source, target)
+            if resolved is not None and resolved.exists() and resolved.suffix == ".md":
+                queue.append((skill_root, resolved, False))
+
+    expected = {Path(os.path.abspath(path)) for path in first_party_root.rglob("*.md")}
+    assert visited == expected
 
 
 def test_discovers_new_skill_without_a_validator_list(
     skill_fixture: SkillFixture,
 ) -> None:
-    extra = write_skill(skill_fixture.root, "thirdparty/skills", "extra")
+    extra = write_skill(skill_fixture.root, "skills", "extra")
     (extra / "SKILL.md").write_text("not frontmatter\n", encoding="utf-8")
     assert_has_error(skill_fixture.root, "must start with YAML frontmatter")
 
@@ -202,16 +217,6 @@ def test_missing_metadata_still_checks_cross_client_policy(
     assert_has_error(skill_fixture.root, "invocation policies disagree across clients")
 
 
-def test_missing_third_party_policy_remains_explicit_only(
-    skill_fixture: SkillFixture,
-) -> None:
-    third_party = write_skill(skill_fixture.root, "thirdparty/skills", "optional")
-    (third_party / "agents/openai.yaml").unlink()
-    assert_has_error(
-        skill_fixture.root, "requires this skill to disable implicit invocation"
-    )
-
-
 @pytest.mark.parametrize(
     ("metadata", "message"),
     [
@@ -289,49 +294,6 @@ def test_rejects_implicit_user_invocation(skill_fixture: SkillFixture) -> None:
         skill_fixture.root,
         "requires this skill to disable implicit invocation",
     )
-
-
-def test_rejects_implicit_third_party_skill(skill_fixture: SkillFixture) -> None:
-    write_skill(skill_fixture.root, "thirdparty/skills", "optional")
-    assert_has_error(
-        skill_fixture.root,
-        "requires this skill to disable implicit invocation",
-    )
-
-
-def test_allows_only_exact_shared_implicit_third_party_skill(
-    skill_fixture: SkillFixture,
-) -> None:
-    assert validate_repository(skill_fixture.root) == []
-
-    write_skill(skill_fixture.root, "thirdparty/skills", "second")
-    assert_has_error(
-        skill_fixture.root, "requires this skill to disable implicit invocation"
-    )
-
-    renamed = write_skill(skill_fixture.root, "thirdparty/skills", "renamed")
-    (renamed / "SKILL.md").write_text(
-        (renamed / "SKILL.md")
-        .read_text(encoding="utf-8")
-        .replace("name: renamed", "name: coding-protocol"),
-        encoding="utf-8",
-    )
-    (renamed / "agents/openai.yaml").write_text(
-        (renamed / "agents/openai.yaml")
-        .read_text(encoding="utf-8")
-        .replace("$renamed", "$coding-protocol"),
-        encoding="utf-8",
-    )
-    assert_has_error(
-        skill_fixture.root, "requires this skill to disable implicit invocation"
-    )
-    assert_has_error(skill_fixture.root, "must match directory 'renamed'")
-
-
-def test_archive_is_excluded_from_discovery(skill_fixture: SkillFixture) -> None:
-    archived = write_skill(skill_fixture.root, "thirdparty/archive", "retired")
-    (archived / "SKILL.md").write_text("historical non-runtime content\n")
-    assert validate_repository(skill_fixture.root) == []
 
 
 def test_rejects_retired_invocation_field(skill_fixture: SkillFixture) -> None:
@@ -538,25 +500,6 @@ def test_resolves_only_portable_repository_local_references(tmp_path: Path) -> N
     )
 
 
-def test_vendored_reference_traversal(tmp_path: Path) -> None:
-    skill = write_skill(tmp_path, "thirdparty/skills", "sample")
-    (tmp_path / "shared.md").write_text("# shared\n")
-    with (skill / "SKILL.md").open("a") as stream:
-        stream.write("[web](https://example.com) [shared](shared.md)\n")
-    errors: list[str] = []
-    _validate_active_references([skill], errors, vendored_repository_root=tmp_path)
-    assert errors == []
-    assert _resolve_vendored_reference(tmp_path, skill / "SKILL.md", "#local") is None
-
-
-def test_vendored_reference_resolver_rejects_absolute_paths(tmp_path: Path) -> None:
-    source = tmp_path / "thirdparty/skills/sample/SKILL.md"
-
-    assert _resolve_vendored_reference(tmp_path, source, "/tmp/file.md") == Path(
-        "/__nonportable_absolute_reference__"
-    )
-
-
 def test_reference_traversal_handles_cycles_and_unreadable_targets(
     skill_fixture: SkillFixture,
 ) -> None:
@@ -639,7 +582,7 @@ def test_main_reports_success_and_failure(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
     assert main(["--root", str(skill_fixture.root)]) == 0
-    assert "Validated 2 skills." in capsys.readouterr().out
+    assert "Validated 1 skills." in capsys.readouterr().out
 
     (skill_fixture.skill_dir / "SKILL.md").write_text("invalid\n", encoding="utf-8")
     assert main(["--root", str(skill_fixture.root)]) == 1

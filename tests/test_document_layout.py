@@ -1,8 +1,7 @@
-"""Static layout contracts and synthetic routing cases, without model execution."""
+"""Static code-first documentation layout contracts without model execution."""
 
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 from pathlib import Path
@@ -12,140 +11,83 @@ import pytest
 from tests.support import REPOSITORY_ROOT
 
 CALIBRATION = REPOSITORY_ROOT / "skills/calibration"
-TYPES = CALIBRATION / "references/docs/document-types"
 LAYOUT = CALIBRATION / "references/docs/project-layout.md"
-DEFAULTS = {
-    "architecture-overview": "architecture",
-    "design-proposal": "design",
-    "decision-record": "architecture/decisions",
-    "implementation-plan": "design",
-    "test-plan": "contributing",
-    "benchmark-record": "contributing",
-    "tutorial": "guides",
-    "how-to-guide": "guides",
-    "runbook": "runbooks",
-    "compatibility-record": "reference",
-}
 
 
 def compact(path: Path) -> str:
     return " ".join(path.read_text(encoding="utf-8").split())
 
 
-@pytest.mark.parametrize(("document", "location"), DEFAULTS.items())
-def test_type_fallbacks_share_directories_with_local_precedence(
-    document: str, location: str
-) -> None:
-    body = compact(TYPES / f"{document}.md")
-    assert re.findall(r"`docs/([a-z/-]+)/`", body) == [location]
-    assert "Follow the repository's" in body
-    assert "If no" in body
-
-
-def test_layout_has_eight_optional_locations_without_mandatory_scaffolding() -> None:
-    source = LAYOUT.read_text(encoding="utf-8")
-    assert set(re.findall(r"^  ([a-z-]+)/$", source, flags=re.MULTILINE)) == {
-        "architecture",
-        "design",
-        "guides",
-        "reference",
-        "contributing",
-        "runbooks",
-        "assets",
-        "archive",
-    }
+def test_documentation_guidance_is_single_file_and_code_first() -> None:
+    assert LAYOUT.is_file()
+    assert not (CALIBRATION / "references/docs/document-types").exists()
     body = compact(LAYOUT)
     for rule in (
-        "Follow repository-owned documentation contracts",
-        "Preserve established paths until a reviewed migration",
-        "Do not create empty directories",
-        "Existing files such as `ARCHITECTURE.md` or `CONTRIBUTING.md`",
-        "Introduce subdirectories only when navigation, ownership, or maintenance",
-        "a document type need not own a separate directory",
-        "`runbooks/` is optional",
-        "`archive/` is a lifecycle location, not a document type",
+        "Follow repository-owned documentation contracts and existing paths",
+        "code, types, schemas, executable tests, and CI as the source of truth",
+        "Do not maintain prose mirrors",
+        "Create only the files and directories needed",
+        "`docs/adr/`",
+        "Flat `docs/<topic>.md` files",
+        "Keep implementation plans and proposals ephemeral",
+        "Rely on Git history as the archive",
+        "Do not maintain a `docs/archive/` directory",
+        "compact the reason the old choice was abandoned into the replacing ADR",
+        "remove the superseded file from `HEAD`",
+        "](../discipline/harness.md#agentsmd-contract)",
+        "](../discipline/verification.md)",
+        "fallback seed defaults",
+        "Keep one current summary updated in place for active benchmarks",
+        "fold negative or one-off experiment takeaways into the owning ADR",
+        "ordered checkpoints, verification, recovery, rollback, escalation, and stop",
+        "without embedded version numbers",
+        "`YYYY-MM-DD-topic.md`",
     ):
         assert rule in body
-
-
-def test_co_location_preserves_contracts_and_source_ownership() -> None:
-    body = compact(LAYOUT)
-    for rule in (
-        "groups proposals and durable implementation plans by change topic",
-        "Use one document with distinct sections when sufficient",
-        "A plan can stand alone without inventing a proposal",
-        "Do not require a proposal, plan, and decision record for every change",
-        "tutorials and how-to pages distinguishable by purpose",
-        "Link generated or code-owned references",
-        "checks specific to one proposed change can stay with that change",
-        "Keep executable tests and benchmark artifacts with their owners",
-        "Co-location does not merge document contracts",
+    for retired in (
+        "document-types/",
+        "YYYYMMDD-vMAJOR.MINOR",
+        "docs/design/",
+        "docs/contributing/",
+        "docs/architecture/",
     ):
-        assert rule in body
-    decisions = compact(TYPES / "decision-record.md")
-    assert "Keep other decisions with their owning project topic" in decisions
-
-
-def test_acceptance_and_implementation_have_distinct_authority() -> None:
-    body = compact(LAYOUT)
-    for rule in (
-        "agreement on a direction, not evidence that it is implemented",
-        "proposed, accepted, implemented, rejected, or superseded",
-        "Update current architecture and reference material "
-        "when implementation evidence",
-        "Retain the original rationale",
-        "records may remain in place with explicit status",
-        "do not move every completed plan or superseded decision",
-        "A directory or filename alone does not establish "
-        "acceptance or evidence quality",
-    ):
-        assert rule in body
-    assert "keeps its original document type and is not current authority" in body
-    assert "unless a current document explicitly cites it" not in body
+        assert retired not in body
 
 
 def test_current_layout_uses_a_stable_path_without_version_metadata() -> None:
     body = LAYOUT.read_text(encoding="utf-8")
-    assert body.startswith("# Project Documentation Layout\n\nUse for")
+    assert body.startswith("# Project Documentation\n\nUse when")
     assert not re.search(r"^(Version|Date|Status):", body, flags=re.MULTILINE)
-    retired = CALIBRATION / "references/docs/workflow/project_docs_architecture"
-    assert not retired.exists()
-    for path in CALIBRATION.rglob("*.md"):
-        assert "20260805-v1.1-project-docs-architecture.md" not in path.read_text(
-            encoding="utf-8"
-        ), path
+    assert not (CALIBRATION / "references/docs/workflow").exists()
 
 
-def test_superseded_layout_is_archived_without_active_routes() -> None:
-    old_name = "20260527-v1.0-project-docs-architecture.md"
-    old_path = f"references/docs/workflow/project_docs_architecture/{old_name}"
-    archive = REPOSITORY_ROOT / "docs/archive/project-docs-layout" / f"{old_name}.txt"
-    expected_digest = "f6b60bfdcf1960de69c95d39d391019dc800e61c442fec7f31c3039ec3c3a61d"
-    assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected_digest
-    assert not (CALIBRATION / old_path).exists()
-    assert "Supersedes:" not in LAYOUT.read_text(encoding="utf-8")
-    for path in CALIBRATION.rglob("*.md"):
-        body = path.read_text(encoding="utf-8")
-        assert old_name not in body, path
-        assert "project-docs-layout/" not in body, path
-    index = (REPOSITORY_ROOT / "docs/archive/README.md").read_text(encoding="utf-8")
-    assert f"`skills/calibration/{old_path}`" in index
-    assert f"](project-docs-layout/{old_name}.txt)" in index
-    current_path = LAYOUT.relative_to(REPOSITORY_ROOT).as_posix()
-    assert f"](../../{current_path})" in index
+def test_repository_docs_follow_minimal_active_model() -> None:
+    docs_root = REPOSITORY_ROOT / "docs"
+    for retired_dir in ("archive", "decisions", "implementation-plans", "testing"):
+        assert not (docs_root / retired_dir).exists()
+    adr_dir = docs_root / "adr"
+    assert adr_dir.is_dir()
+    adr_files = sorted(adr_dir.glob("*.md"))
+    assert len(adr_files) >= 1
+    readme = (docs_root / "README.md").read_text(encoding="utf-8")
+    for adr in adr_files:
+        assert f"](adr/{adr.name})" in readme
 
 
 @pytest.mark.parametrize(
     ("case_id", "phrases"),
     [
-        (34, ("as local authority", "without creating parallel", "Do not migrate")),
-        (35, ("distinct sections", "can also stand alone", "implementation evidence")),
-        (36, ("docs/reference/", "generated CLI reference", "rather than copying")),
-        (37, ("docs/contributing/", "docs/design/", "raw benchmark artifacts")),
-        (38, ("no empty scaffolding", "at its existing path", "stop conditions")),
+        (2, ("project-layout.md", "docs/adr/", "docs/archive/")),
+        (25, ("runbook", "检查点", "回滚")),
+        (26, ("docs/", ".calibration/notes/", "外部边界")),
+        (27, ("docs/adr/", "YYYY-MM-DD-topic.md", "HEAD")),
+        (28, ("临时态", "ADR")),
+        (34, ("local authority", "docs/decisions/", "Do not migrate")),
+        (35, ("source of truth", "docs/adr/", "Git history")),
+        (37, ("updated in place", "owning ADR", "Git reference")),
     ],
 )
-def test_synthetic_cases_cover_grouping_and_preservation(
+def test_documentation_cases_cover_code_first_model(
     case_id: int, phrases: tuple[str, ...]
 ) -> None:
     cases = json.loads((CALIBRATION / "test-prompts.json").read_text(encoding="utf-8"))

@@ -1,8 +1,0 @@
-{
-  "status": "passed",
-  "manifest_sha256": "d0a9de374cadcb71775c4b6e5d3649daface9b3696599a7740faf352ee885784",
-  "synthetic_calls": 8,
-  "model_calls": 0,
-  "evidence_contract": "paragraph-id-v1",
-  "in_process_network_attempts": 0
-}

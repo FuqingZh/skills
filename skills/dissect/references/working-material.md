@@ -18,5 +18,5 @@ pending publication review. Hidden directories do not provide privacy or
 publication rights; apply appropriate access controls to sensitive material.
 
 Create only the files and directories needed for the requested persistence.
-Preserve existing records, including `.traces/` material, without bulk migration.
+Preserve existing records without bulk migration.
 Do not duplicate evidence when another skill later uses it; cite its owner.

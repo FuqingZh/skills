@@ -7,29 +7,32 @@ historical material; this register does not replace licenses or source records.
 
 ## Communication style
 
-Reviewed on 2026-11-09 for the
-[communication-style comparison](../evaluations/communication-style/README.md).
+Reviewed on 2026-11-09 for the historical communication-style comparison
+(`evaluations/communication-style/` at tag `v2.1.0`).
 The original candidate prompts and cases are independently authored. A separate
-[user-requested follow-up](../evaluations/communication-style/talk-normal/README.md)
-vendors the full pinned talk-normal prompt for direct comparison, with its MIT
-notice retained. Neither study installs an upstream skill or global instruction.
+user-requested follow-up (`evaluations/communication-style/talk-normal/` at tag
+`v2.1.0`) vendored the full pinned talk-normal prompt for direct comparison,
+with its MIT notice retained in that historical tree. Neither study installs an
+upstream skill or global instruction.
 
-The later [cross-domain comparison](../evaluations/communication-style/cross-domain/README.md)
-uses an independently authored assistant proposal responding to user feedback
-about unsolicited self-defense. Its cases and controls are newly authored; one
-case reconstructs the observed conversational failure without private transcripts
-or identifying facts. No additional upstream prompt text is copied, and no
-runtime instructions are changed.
+The later cross-domain comparison (`evaluations/communication-style/cross-domain/`
+at tag `v2.1.0`) used an independently authored assistant proposal responding to
+user feedback about unsolicited self-defense. Its cases and controls were newly
+authored; one case reconstructed the observed conversational failure without
+private transcripts or identifying facts. No additional upstream prompt text was
+copied, and no runtime instructions were changed.
 
-The [sentence-deletion follow-up](../evaluations/communication-style/sentence-ablation/README.md)
-uses the same independently authored paragraph and cross-domain cases. Its
-calibration includes an excerpt from the prior public generated answers, paired
-with an edited alternative; no private transcript or new upstream prompt is
-introduced. Scoring and deletion effects are separately frozen and recorded.
+The sentence-deletion follow-up (`evaluations/communication-style/sentence-ablation/`
+at tag `v2.1.0`) used the same independently authored paragraph and cross-domain
+cases. Its calibration included an excerpt from the prior public generated
+answers, paired with an edited alternative; no private transcript or new
+upstream prompt was introduced. Scoring and deletion effects were separately
+frozen and recorded.
 
-The [human preference calibration pilot](../evaluations/communication-style/preference-calibration/README.md)
-uses independently authored local contrasts and cited excerpts from earlier
-public responses. It borrows behavioral testing from
+The human preference calibration pilot
+(`evaluations/communication-style/preference-calibration/` at tag `v2.1.0`) used
+independently authored local contrasts and cited excerpts from earlier public
+responses. It borrows behavioral testing from
 [CheckList](https://aclanthology.org/2020.acl-main.442/), contextual assessment from
 [WildBench](https://arxiv.org/abs/2406.04770), and pairwise evaluation from
 [AlpacaEval](https://github.com/tatsu-lab/alpaca_eval). Its method register also
@@ -54,9 +57,9 @@ punctuation bans and vocabulary blacklist are not adopted.
 ### Evaluation tooling
 
 Reviewed Promptfoo's official Python-provider, assertion, CLI and telemetry
-contracts and Inspect AI's provider and scoring workflows. The
-[tooling report](../evaluations/communication-style/preference-calibration/evaluation-tools.md)
-links those sources and records a Promptfoo 0.125.1 saved-output replay: 48 cells,
+contracts and Inspect AI's provider and scoring workflows. The historical
+tooling report (`evaluations/communication-style/preference-calibration/evaluation-tools.md`
+at tag `v2.1.0`) links those sources and records a Promptfoo 0.125.1 saved-output replay: 48 cells,
 including 19 retained errors, with no model calls. Inspect remains documentation
 research only. Neither tool supplies validated human preferences, and the probe
 does not establish end-to-end speed or judge-quality improvements.
@@ -77,10 +80,10 @@ does not establish end-to-end speed or judge-quality improvements.
   isolate a causal mechanism or establish cross-task generalization.
 - Local use: the `direct` and `example` arms differ only by an independently
   written, task-bounded example; necessary corrections remain permitted.
-- Direct upstream test: the follow-up uses the complete, unchanged `prompt.md`
+- Direct upstream test: the follow-up used the complete, unchanged `prompt.md`
   as its system prompt, with a contemporaneous baseline and all 12 local cases.
-  Its [license copy](../evaluations/communication-style/talk-normal/upstream-LICENSE.txt)
-  and source identities accompany the fixture; integration installers are not run.
+  Its license copy (`upstream-LICENSE.txt`) and source identities accompanied
+  the historical fixture at tag `v2.1.0`; integration installers are not run.
 
 ### S02: STFU.md
 

@@ -1,13 +1,2 @@
-[global]
-exclude = [
-  "thirdparty/**",
-  "evaluations/progressive-validation-selection/fixtures/**",
-  "evaluations/teach-adaptation/artifacts/**",
-  "evaluations/teach-adaptation/v2/blind-packet.md",
-  "evaluations/teach-adaptation/v2/runs/**",
-  "evaluations/sol-advisor-calibration-ablation/advisor-activation.md",
-  "evaluations/sol-advisor-calibration-ablation/task.md",
-]
-
 [MD013]
 enabled = false
