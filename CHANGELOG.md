@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.0.1 — 2026-11-25
+
+Tighten `writing-code-docs` around on-demand examples and remove external
+reference fetches. Skill names, reference paths, global routing, and installer
+interfaces are unchanged.
+
+### Changed
+
+- Make caller-facing examples in
+  [`skills/writing-code-docs/SKILL.md`](skills/writing-code-docs/SKILL.md)
+  on-demand (add examples when usage, parameter interactions, boundary results,
+  exceptions, or side effects are not obvious from the signature and summary,
+  or when repository rules require them), avoiding ceremonial or unverified
+  examples while preserving shared-example guidance.
+- Remove the external Polars documentation lookup fallback, merge duplicate
+  standalone-snippet guidance, and drop the redundant `## Completion` summary
+  section.
+
 ## 3.0.0 — 2026-11-25
 
 Four implicitly invocable first-party skills, Antigravity CLI global-instruction

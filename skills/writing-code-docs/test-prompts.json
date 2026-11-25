@@ -7,9 +7,9 @@
   },
   {
     "id": 2,
-    "scenario": "简单公共符号",
-    "prompt": "Use $writing-code-docs to document a simple caller-facing Python function whose signature already carries accurate type hints.",
-    "expected": "Give the function its own minimal example that exercises it and shows the smallest useful public consequence, while avoiding prose that repeats the signature or type hints."
+    "scenario": "简单公共符号不强行配示例",
+    "prompt": "Use writing-code-docs to document a simple caller-facing Python function whose signature, accurate type hints, and one-line summary already make usage obvious, in a repository with no per-symbol example mandate.",
+    "expected": "Write a concise summary of what callers may rely on without repeating the signature or type hints, and omit a ceremonial example unless non-obvious behavior or repository rules warrant one."
   },
   {
     "id": 3,
@@ -32,8 +32,8 @@
   {
     "id": 6,
     "scenario": "非 Python 本地约定",
-    "prompt": "Use $writing-code-docs to revise code documentation in a Rust or R repository with an established local convention.",
-    "expected": "Follow the repository's language-native documentation carrier and local format, and do not transfer Python Google-style section names or Polars numpydoc sections by analogy."
+    "prompt": "Use writing-code-docs to revise code documentation in a Rust or R repository with an established local convention.",
+    "expected": "Follow the repository's language-native documentation carrier and local format, and do not transfer Python Google-style section names by analogy."
   },
   {
     "id": 7,

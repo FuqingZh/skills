@@ -8,62 +8,47 @@ description: Use for writing, revising, or auditing docstrings and language-nati
 For repository work, trace in-scope symbols through relevant code, call sites,
 tests, schemas, or outputs until their contracts are clear to their readers.
 
-For a self-contained code snippet, work from the supplied implementation and
-requirements. Do not search the workspace for callers or conventions unless
-the user connects the snippet to a repository. State material gaps rather than
-inventing behavior.
+For a standalone code snippet, work only from the supplied implementation and
+requirements without searching an unrelated workspace. State material gaps
+rather than inventing behavior.
 
 A contract is clear to callers when they know what they may rely on, and to
 maintainers when they know what they must preserve.
 
 ## Convention
 
-For repository work, find and follow its language-native documentation
-convention. For standalone snippets, use the supplied format or the language
-fallback below; do not search an unrelated workspace.
+Follow the repository's language-native documentation convention. Without one
+(or for standalone snippets without a supplied format), use the official
+language fallback:
 
-For Python without a local convention, follow the docstring convention in the
-[Google Python Style Guide](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
-
-Under that fallback, use
-[doctest-style](https://docs.python.org/3/library/doctest.html) `Examples:` for
-caller-facing examples and `Notes:` for maintenance boundaries.
-
-For other languages without a local convention, use the official documentation
-convention when one is available.
-
-Do not transfer Python sections by analogy.
+- For Python, follow the
+  [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings),
+  using [doctest-style](https://docs.python.org/3/library/doctest.html)
+  `Examples:` for caller-facing examples and `Notes:` for maintenance
+  boundaries.
+- For other languages without a local convention, use the official
+  documentation convention when one is available. Do not transfer Python
+  sections by analogy.
 
 ## Readers
 
-Classify in-scope symbols as caller-facing, maintainer-facing, both, or neither.
-Do not document symbols with no reader.
+Classify in-scope symbols as caller-facing, maintainer-facing, both, or
+neither. Do not document symbols with no reader.
 
 In prose, do not restate what names, signatures, types, schemas, or nearby code
 already show.
 
-For callers, show how to use the symbol and what they may rely on.
+For callers, show what they may rely on. Add short, locatable examples when
+usage, parameter interactions, boundary results, exceptions, or side effects
+are not obvious from the signature and brief summary, or when repository rules
+explicitly require examples (such as executed doctests or per-symbol rules).
+Simple properties, aliases, and symbols sharing a contract may point to a
+shared example on their owning type or API, covering only distinct behavior the
+shared example omits. Show each distinct public consequence once without
+ceremonial or unverified examples.
 
-Cover each distinct caller-facing usage contract with a short, locatable
-example. Show meaningful parameter interactions, boundary results, exceptions,
-and side effects when they affect how callers use the symbol.
-
-Simple properties, aliases, and symbols sharing the same usage contract may
-point to a shared example on their owning type or API. Cover any distinct
-behavior that the shared example does not demonstrate. Follow repository rules
-that explicitly require an example for every public symbol.
-
-Show each distinct public consequence once; avoid duplicating examples merely
-to give every symbol a separate snippet.
-
-If coverage remains unclear, consult
-[Polars: Writing doc examples](https://docs.pola.rs/development/contributing/test/#writing-doc-examples)
-for default use, meaningful parameter effects, and interactions. Inspect one
-analogous API page only if still needed. Keep the selected language format;
-do not import Polars' numpydoc format. If unavailable, use the rules above.
-
-For maintainers, name the boundary, why it exists, and the tempting change that
-would break it.
+For maintainers, name the protected boundary, why it exists, and the tempting
+change that would break it.
 
 When both apply, serve each reader without duplication.
 
@@ -76,9 +61,3 @@ not documentation problems; fix them when in scope and report them otherwise.
 
 Do not substitute documentation for tests, validation, user guides, or
 architecture records.
-
-## Completion
-
-Complete when all in-scope documentation meets the reader, convention, and
-example requirements above, and maintenance notes identify boundaries that
-an apparently safe change could break.

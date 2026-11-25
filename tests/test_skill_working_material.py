@@ -122,24 +122,26 @@ def test_code_doc_format_fallback_preserves_material_gap_reporting() -> None:
     assert "State material gaps rather than inventing behavior" in body
 
 
-def test_code_examples_cover_contracts_with_local_per_symbol_overrides() -> None:
+def test_code_examples_are_on_demand_with_local_per_symbol_overrides() -> None:
     body = compact(SKILLS / "writing-code-docs/SKILL.md")
     for rule in (
-        "Cover each distinct caller-facing usage contract",
-        "short, locatable example",
-        "parameter interactions, boundary results, exceptions, and side effects",
-        "Simple properties, aliases",
+        "Add short, locatable examples when usage, parameter interactions",
+        "boundary results, exceptions, or side effects are not obvious",
+        "when repository rules explicitly require examples",
+        "Simple properties, aliases, and symbols sharing a contract",
         "point to a shared example on their owning type or API",
-        "Cover any distinct behavior that the shared example does not demonstrate",
-        "Follow repository rules that explicitly require an example "
-        "for every public symbol",
+        "covering only distinct behavior the shared example omits",
         "Show each distinct public consequence once",
+        "without ceremonial or unverified examples",
     ):
         assert rule in body
+    assert "Polars" not in body
+    assert "## Completion" not in body
     assert "even when its contract is simple" not in body
     assert "Give every caller-facing" not in body
     case_path = SKILLS / "writing-code-docs/test-prompts.json"
     cases = {case["id"]: case for case in json.loads(case_path.read_text())}
+    assert "omit a ceremonial example" in cases[2]["expected"]
     assert "shared example" in cases[8]["expected"]
     assert "explicit repository per-symbol rule" in cases[9]["expected"]
     assert "exception, and side effect" in cases[10]["expected"]
