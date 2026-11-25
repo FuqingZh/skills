@@ -11,6 +11,17 @@
 - Align the scope line of `calibration`'s `workspace-ownership.md` with its
   body after the v3.0.0 trim (ownership preservation and background cleanup
   instead of ownership transfer and runtime release).
+- Scope `calibration`'s ADR-deletion fallback in
+  [`skills/calibration/references/docs/project-layout.md`](skills/calibration/references/docs/project-layout.md)
+  to repositories without an existing ADR retention convention; repositories
+  with retained or sequentially numbered ADRs keep superseded files marked
+  `Superseded`.
+- Enforce unreachable-Markdown (orphan reference) detection directly in
+  `scripts/validate_skills.py` and replace verbatim prose-mirror tests with
+  mechanical repository invariants in `tests/test_repository_invariants.py`.
+- Replace shipped `skills/*/test-prompts.json` files with a compact manual
+  smoke-check checklist in `tests/smoke-prompts.md` outside distributed skill
+  directories.
 
 ### Removed
 

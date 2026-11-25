@@ -43,9 +43,12 @@ Create only the files and directories needed; do not pre-create empty folders.
 
 - **ADR (`docs/adr/`, Markdown)**: Record date, status, context, viable
   rejected alternatives, chosen decision and consequences, and conditions for
-  reopening. When a new decision replaces an old one, compact the reason the
-  old choice was abandoned into the replacing ADR with a Git reference (commit,
-  tag, or PR) and remove the superseded file from `HEAD`.
+  reopening. When replacing a decision in a repository that already retains
+  superseded or sequentially numbered ADRs, preserve the existing lifecycle by
+  marking the old record `Superseded` with a link to the replacement. Under
+  this code-first fallback when no retention convention exists, compact the
+  reason the old choice was abandoned into the replacing ADR with a Git
+  reference (commit, tag, or PR) and remove the superseded file from `HEAD`.
 - **External compatibility and empirical records**: Name the external boundary,
   versions, environment, and inputs; distinguish stated contracts from observed
   behavior; cite reproducible checks and evidence paths (consult
