@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## 3.0.2 — 2026-11-25
+
+Tighten `calibration` routing and ADR-deletion fallback, remove shipped
+`test-prompts.json` files from distributed skill directories, and slim static
+tests to mechanical invariants. Skill names, reference paths, global routing,
+and installer interfaces are unchanged.
 
 ### Changed
 
