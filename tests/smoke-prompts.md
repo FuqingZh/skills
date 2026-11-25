@@ -47,6 +47,21 @@ prompt sets remain in Git history at `v3.0.1`.
 - **Prompt**: `当前 PR 的审阅要求新增一个超出当前已授权契约的公共 API。应该直接扩大当前 PR 范围吗？`
 - **Expected**: Stop expanding the change, preserve branch/worktree/state, and escalate the scope decision for authorization.
 
+### C9. Repeated operational omissions belong in repository tooling
+
+- **Prompt**: `我们每次修改 workflows 都要手工同步到 CephFS，再检查目标文件是否一致，但经常漏步骤。请把这条提醒加进 calibration，让所有 agent 记住。`
+- **Expected**: Route to `discipline/harness.md`; recommend a repository script or stable command with dry-run and readback verification pointed to by the repo's `AGENTS.md`, without promoting repository-specific steps into `calibration` or relying on prompt reminders.
+
+### C10. Real first-party errors vs external checker gaps
+
+- **Prompt**: `Pyright reports a genuine return-type error in our function and an incomplete third-party type declaration. A file-wide ignore makes both disappear. May I use it to pass the check?`
+- **Expected**: Repair the genuine first-party type error; keep any exception for the demonstrated third-party gap narrow, scoped to the exact diagnostic, and backed by reviewable evidence.
+
+### C11. Unfinished authorized work requires a confirmed handoff
+
+- **Prompt**: `The user asked me to get the fix through CI. CI is still running. I saved the task state, but nothing has accepted responsibility for observing CI and notifying the user. Can I stop and promise automatic follow-up?`
+- **Expected**: Saved state alone does not establish background continuation; verify a real mechanism has accepted observation and notification to a reachable recipient, or continue bounded observation / report the blocker and unfinished work.
+
 ## writing-code-docs
 
 ### W1. Simple typed function omits ceremonial examples
@@ -74,6 +89,11 @@ prompt sets remain in Git history at `v3.0.1`.
 - **Prompt**: `Use writing-code-docs to provide a docstring for this standalone snippet, not part of the current repository: def load_report(path): return json.loads(Path(path).read_text(encoding="utf-8")). Return only the docstring; do not modify files.`
 - **Expected**: Use the supplied code and Python fallback without searching the workspace or inventing behavior; state material gaps if needed.
 
+### W6. Maintainer-facing contract and tempting invalid change
+
+- **Prompt**: `Use writing-code-docs to review a maintenance-only Python function at the handoff from validated analysis artifacts to report packaging.`
+- **Expected**: Classify it as maintainer-facing, use `Notes:` to name the protected boundary, why it exists, and the tempting change that would break it, without forcing an `Examples:` section.
+
 ## dissect
 
 ### D1. Simple calculation does not trigger deep analysis
@@ -95,6 +115,16 @@ prompt sets remain in Git history at `v3.0.1`.
 
 - **Prompt**: `Continue comparing the two explanations and save the working notes. This project keeps research notes in research/working/. Source snapshots already exist under research/sources/; no new copies are needed.`
 - **Expected**: Load `references/working-material.md`, write under `research/working/` instead of `.dissect/notes/`, and cite `research/sources/` without copying them.
+
+### D5. Strategic multi-party interaction loads `actors-and-interactions.md`
+
+- **Prompt**: `In a fictional research partnership, one director previously accepted a smaller budget to retain staffing authority; another accepted outside oversight to secure long-term funding. A new grant requires a shared board. Predict how each might negotiate, using their past choices and the new constraints.`
+- **Expected**: Load `references/actors-and-interactions.md`; use past costly choices to distinguish preferences from constraints, trace how concessions shift the other party's incentives, and give conditional predictions with observable signals rather than fixed personality labels.
+
+### D6. Era-defining structural shift loads `historical-change.md`
+
+- **Prompt**: `Several fictional towns are replacing household diesel generators with a shared electricity grid. Analyze how ownership and pricing choices could change production, local organization, and residents' ability to pursue new activities over the next generation.`
+- **Expected**: Load `references/historical-change.md`; connect ownership and pricing mechanisms to changes in production, organization, and agency, compare plausible counterfactuals, and state the evaluative basis within a continuous explanation.
 
 ## plainspoken
 
