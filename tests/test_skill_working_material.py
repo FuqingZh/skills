@@ -98,12 +98,8 @@ def test_skill_working_locations_preserve_local_authority_and_evidence(
     assert "unless repository" in body
     assert "publication rights" in body
     assert "access controls" in body
-    assert "keep them local pending publication review" in body
-    assert "`.traces/` material" in body
-    assert "bulk migration" in body
+    assert ".traces/" not in body
     assert "Create only the files and directories needed" in body
-    assert "use `.traces/" not in body
-    assert "falling back to `.traces/" not in body
 
 
 def test_skills_without_working_material_do_not_acquire_storage_defaults() -> None:

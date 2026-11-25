@@ -66,15 +66,13 @@ Use lowercase kebab-case filenames without embedded version numbers:
 and stable undated names for current reference documents.
 
 Investigation notes belong to the owning task. Follow repository task-record
-locations or the user's destination; otherwise use `.calibration/notes/`.
-Reference reconstructable git history, sessions, test outputs, and logs instead
-of copying them. Retain extra non-reconstructable evidence in the repository's
-evidence location or `.calibration/evidence/`, excluded from Git unless
-repository policy explicitly permits a narrow evidence file. Follow repository
-policy for committing notes; absent a policy, keep them local pending
-publication review. Hidden paths do not provide privacy or publication rights;
-apply appropriate access controls to sensitive material. Preserve existing
-records, including `.traces/` material, without bulk migration.
+locations or the user's destination; otherwise keep them local and untracked
+(for example under `.calibration/notes/`, with extra non-reconstructable
+evidence under `.calibration/evidence/`). Reference reconstructable Git
+history, sessions, test outputs, and logs instead of copying them. Do not
+commit working notes or evidence unless repository policy or the user
+explicitly permits it. Hidden paths do not provide privacy or publication
+rights; apply appropriate access controls to sensitive material.
 
 Formal project documents remain project-owned regardless of which skill helped
 write them. One-off observations need not be persisted automatically.

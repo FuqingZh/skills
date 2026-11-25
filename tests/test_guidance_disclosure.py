@@ -39,7 +39,7 @@ def test_discipline_routes_bypass_retired_harness_forwarders() -> None:
             "verification.md",
             "### Diagnostic suppression baseline",
         ),
-        "runtime release": (
+        "branch/worktree ownership": (
             "workspace-ownership.md",
             "## Implementation Task Intake",
         ),
@@ -63,12 +63,12 @@ def test_extracted_rules_have_one_body_owner() -> None:
             "For demonstrated external or checker gaps",
         ),
         "discipline/workspace-ownership.md": (
-            "A terminated session is not proof",
+            "spawned child processes have exited",
             "Follow the user's authorized scope",
         ),
         "discipline/harness.md": (
             "When authorized unfinished work must continue",
-            "If review on the exact current head exceeds the authorized contract",
+            "When review feedback exceeds the authorized contract",
         ),
     }
     texts = {
@@ -85,7 +85,7 @@ def test_continuation_and_review_boundaries_route_to_harness() -> None:
     for trigger in (
         "durable continuation",
         "cross-contract review",
-        "review-convergence exhaustion",
+        "human escalation",
     ):
         row = next(line for line in router.splitlines() if trigger in line)
         assert "](harness.md)" in row
@@ -103,11 +103,11 @@ def test_continuation_and_review_boundaries_route_to_harness() -> None:
 
 
 def test_linter_routes_keep_tool_defaults_separate_from_shared_constraints() -> None:
-    naming = compact(REFERENCES / "naming/README.md")
+    naming = compact(REFERENCES / "naming.md")
     assert not (REFERENCES / "linters/README.md").exists()
     assert (REFERENCES / "linters/ruff.md").is_file()
     assert "selection or rule defaults, use [Ruff defaults]" in naming
-    assert "](../linters/ruff.md)" in naming
+    assert "](linters/ruff.md)" in naming
     assert not (DISCIPLINE / "quality-gates.md").exists()
     for path in REFERENCES.rglob("*.md"):
         body = compact(path)
@@ -126,6 +126,6 @@ def test_working_material_ownership_does_not_depend_on_directory_name() -> None:
         "Formal project documents remain project-owned",
         "One-off observations need not be persisted automatically",
         "Hidden paths do not provide privacy",
-        "otherwise use `.calibration/notes/`",
+        "`.calibration/notes/`",
     ):
         assert rule in layout

@@ -99,16 +99,11 @@ def test_generic_boundaries_have_reachable_reference_owners() -> None:
     assert "Implementation or contract verification" in discipline
     assert "| Completion claim," not in discipline
     assert "environment evidence boundaries" in discipline
-    assert (
-        "workspace search boundaries, ownership transfer, or runtime release"
-        in discipline
-    )
+    assert "workspace search boundaries, or branch/worktree ownership" in discipline
     for rule in (
-        "write-authority revocation and runtime release",
         "sibling worktree",
-        "empty OS-owned containment boundary",
+        "spawned child processes have exited",
         "traversal-aware bound",
-        "terminated session is not proof",
         "rejected filesystem escalation",
     ):
         assert rule in workspace
@@ -246,8 +241,8 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
     assert "Do not hide them with diagnostic suppressions" in verification
     for retained in (
         "accepted responsibility for observing the work",
-        "pause remote review and preserve branch, head, worktree",
-        "Transport, polling, or idempotent-operation retry exhaustion",
+        "stop expanding the change, preserve the current branch",
+        "When transport or polling failures prevent observing",
     ):
         assert retained in harness
     cases = {
@@ -255,7 +250,7 @@ def test_harness_cleanup_keeps_boundaries_without_deployment_recipes() -> None:
         for case in json.loads(text("skills/calibration/test-prompts.json"))
     }
     assert {7, 9, 14}.isdisjoint(cases)
-    assert "不能因为预算耗尽就必须选择 PR 拓扑" in cases[21]["expected"]
+    assert "升级给用户" in cases[21]["expected"]
 
 
 def test_calibration_routes_directly_to_codebase_design() -> None:
@@ -304,8 +299,8 @@ def test_document_routes_defer_to_local_contracts_without_duplicate_indexes() ->
     ):
         assert retained in skill
     assert "task retrospectives" not in skill
-    naming = text("skills/calibration/references/naming/README.md")
-    assert "](schema.md)" in naming
+    naming = text("skills/calibration/references/naming.md")
+    assert "## Schemas, Headers, And Identifiers" in naming
     assert "](artifact.md)" not in naming
     refactor = compact("skills/calibration/references/discipline/refactor.md")
     assert "For outputs consumed downstream" in refactor
@@ -379,15 +374,13 @@ def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
     harness = compact("skills/calibration/references/discipline/harness.md")
     for required in (
         "When authorized unfinished work must continue after foreground tracking ends",
-        "resuming its owner, and notifying a reachable recipient",
-        "Saved task state or PR submission alone does not establish this handoff",
+        "notifying a reachable recipient",
+        "Saved task state or PR submission alone does not establish",
         "continue bounded observation within scope or report the blocker",
-        "review on the exact current head exceeds the authorized contract",
-        "the configured review-convergence budget",
-        "branch, head, worktree, owner, and feedback state",
-        "escalate any additional authorization needed",
-        "Budget exhaustion alone does not determine PR boundaries",
-        "retry exhaustion remains a separate preserve-and-report condition",
+        "When review feedback exceeds the authorized contract",
+        "stop expanding the change, preserve the current branch, worktree, and state",
+        "escalate the scope decision",
+        "When transport or polling failures prevent observing",
     ):
         assert required in harness
     cases = {
@@ -396,8 +389,8 @@ def test_harness_scopes_handoff_and_preserves_review_stop_conditions() -> None:
     }
     for case_id, expected in (
         (51, "Report completion of the authorized PR-submission task"),
-        (52, "Saved state and a live daemon do not establish a handoff"),
-        (53, "a separate preserve-and-report condition"),
+        (52, "Saved state alone does not establish background continuation"),
+        (53, "report the observation gap"),
     ):
         assert expected in cases[case_id]["expected"]
 

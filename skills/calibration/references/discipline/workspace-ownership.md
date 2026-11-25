@@ -20,9 +20,8 @@ depth. Bound file types, file size, result count, and concurrency where supporte
 prefer indexes and targeted lookups. If a safe boundary cannot be established,
 stop the broad search and report the narrower check needed.
 
-Preserve existing ownership: do not write in another owner's branch or sibling
-worktree or repeat rejected filesystem escalation. Transfer only after verified
-write-authority revocation and runtime release. A terminated session is not proof
-that its children exited; require an empty OS-owned containment boundary before
-claiming full runtime release.
-Keep partial cleanup observable and retryable, and preserve dirty worktrees.
+Preserve existing ownership: do not write in another owner's active branch or
+sibling worktree, and do not repeat rejected filesystem escalation. Do not
+claim background work or cleanup is complete before verifying that spawned
+child processes have exited. Keep partial cleanup observable and retryable, and
+preserve dirty worktrees.

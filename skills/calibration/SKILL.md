@@ -15,7 +15,7 @@ proportionate approach and revise it as feedback changes the evidence.
 
 Load only the references required by the decisions at hand:
 
-- naming: `references/naming/README.md`
+- naming: `references/naming.md`
 - engineering discipline and repository capabilities:
   `references/discipline/README.md`
 - architecture, module boundaries, interfaces, and abstraction:

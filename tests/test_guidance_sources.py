@@ -13,33 +13,18 @@ REFERENCES = REPOSITORY_ROOT / "skills/calibration/references"
     ("path", "sources"),
     [
         (
-            "naming/README.md",
+            "naming.md",
             (
                 "https://peps.python.org/pep-0008/#naming-conventions",
                 "https://rust-lang.github.io/api-guidelines/naming.html",
                 "https://style.tidyverse.org/syntax.html#object-names",
-            ),
-        ),
-        (
-            "naming/version.md",
-            (
                 "https://semver.org/",
                 "https://packaging.python.org/en/latest/discussions/versioning/",
                 "https://packaging.python.org/en/latest/discussions/single-source-version/",
-            ),
-        ),
-        (
-            "naming/cli.md",
-            (
                 "https://www.gnu.org/prep/standards/html_node/"
                 "Command_002dLine-Interfaces.html",
                 "https://www.gnu.org/prep/standards/html_node/Option-Table.html",
                 "https://clig.dev/",
-            ),
-        ),
-        (
-            "naming/schema.md",
-            (
                 "https://google.aip.dev/140",
                 "https://protobuf.dev/programming-guides/json/"
                 "#field-names-as-json-keys",
@@ -66,18 +51,12 @@ def test_adopted_upstream_sources_remain_linked(
         assert f"]({source})" in text
 
 
-def test_current_naming_routes_reach_their_owning_sources() -> None:
-    naming = REFERENCES / "naming"
-    index = (naming / "README.md").read_text(encoding="utf-8")
-    for target in (
-        "cli.md",
-        "version.md",
-        "schema.md",
-    ):
-        assert f"]({target})" in index
-        assert (naming / target).is_file()
+def test_naming_is_consolidated_into_a_single_reference() -> None:
+    assert (REFERENCES / "naming.md").is_file()
+    assert not (REFERENCES / "naming").exists()
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
-    assert "`references/naming/README.md`" in skill
+    assert "`references/naming.md`" in skill
+    assert "references/naming/" not in skill
 
 
 def test_indexes_keep_direct_routes_and_repository_naming_fallback() -> None:
@@ -88,20 +67,12 @@ def test_indexes_keep_direct_routes_and_repository_naming_fallback() -> None:
     skill = (REFERENCES.parent / "SKILL.md").read_text(encoding="utf-8")
     assert "`references/design/codebase.md`" in skill
     assert "`references/docs/project-layout.md`" in skill
-    naming = " ".join(
-        (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
-    )
+    naming = " ".join((REFERENCES / "naming.md").read_text(encoding="utf-8").split())
     assert (
         "If no applicable source is available, follow the nearest "
         "existing repository convention" in naming
     )
     assert "state the gap" not in naming
-
-
-def test_retired_naming_paths_are_not_shipped() -> None:
-    for name in ("function", "method", "type", "variable", "loop", "branch"):
-        assert not (REFERENCES / f"naming/{name}.md").exists()
-    assert not (REFERENCES / "naming/artifact.md").exists()
 
 
 def test_retired_docs_index_is_not_shipped_or_routed() -> None:
@@ -121,51 +92,29 @@ def test_retired_collaboration_guide_is_not_shipped_or_routed() -> None:
         assert "branch_and_pr_collaboration/" not in content, path
 
 
-def test_cli_naming_scopes_sources_and_inherits_authority() -> None:
-    path = REFERENCES / "naming/cli.md"
-    cli = " ".join(path.read_text(encoding="utf-8").split())
-    assert "](README.md#authority)" in cli
-    assert "For GNU-style interfaces" in cli
-    assert "for argument syntax and standard option names" in cli
-    assert (
-        "Consult [CLI Guidelines](https://clig.dev/) when the decision involves "
-        "usability or interaction" in cli
-    )
-    assert (
-        "For new long options without an established convention, default to "
-        "lowercase kebab-case" in cli
-    )
-    for retired in ("native spelling", "Local additions", "Use operands", "--output"):
-        assert retired not in cli
-    authority = " ".join(
-        (REFERENCES / "naming/README.md").read_text(encoding="utf-8").split()
-    )
-    assert "Preserve published compatibility" in authority
-    assert "Follow repository conventions and the API being extended" in authority
-
-
-def test_schema_naming_routes_by_surface_without_a_global_case_rule() -> None:
-    body = " ".join(
-        (REFERENCES / "naming/schema.md").read_text(encoding="utf-8").split()
-    )
+def test_cli_and_schema_naming_preserve_authority_and_surface_rules() -> None:
+    body = " ".join((REFERENCES / "naming.md").read_text(encoding="utf-8").split())
     for rule in (
-        "](README.md#authority)",
-        "target protocol and consumer schema, including native serialization mappings",
-        "Consult only the source relevant to the current surface",
+        "Preserve published compatibility",
+        "Follow repository conventions and the API being extended",
+        "For GNU-style interfaces",
+        "for argument syntax and standard option names",
+        "Consult [CLI Guidelines](https://clig.dev/) when the decision involves "
+        "usability or interaction",
+        "For new long options without an established convention, default to "
+        "lowercase kebab-case",
+        "Follow the target protocol and consumer schema, including native "
+        "serialization mappings",
         "- Protobuf:",
         "New JSON interfaces without an adopted naming style",
         "as the naming default",
         "- SQL: follow the database or ORM rules",
         "The database governs identifier limits, quoting, and reserved words",
         "- Tabular exports:",
-        "field names, human-readable titles, and column correspondence",
         "Preserve source or consumer names",
         "do not require adopting new formats or frameworks",
-        "identity, uniqueness, stability, and cross-system mapping requirements",
-        "reversibility and encoding are choices of the owning contract",
         "Assess published field changes for compatibility",
-        "at the owning serialization or integration boundary",
-        "](../discipline/verification.md)",
+        "](discipline/verification.md)",
     ):
         assert rule in body
     assert "at explicit adapters" not in body
